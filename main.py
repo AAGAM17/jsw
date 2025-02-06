@@ -73,7 +73,7 @@ def run_pipeline():
             logger.info("Successfully sent WhatsApp notifications")
         else:
             logger.warning("WhatsApp notifications not sent (disabled or failed)")
-        
+            
     except Exception as e:
         logger.error(f"Pipeline failed: {str(e)}", exc_info=True)
 
