@@ -337,7 +337,6 @@ class EmailHandler:
         try:
             subject = f"New Project Opportunity: {project['company']} - {project['title']}"
             
-            # Create HTML content
             html_content = f"""
             <html>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -366,16 +365,13 @@ class EmailHandler:
             </html>
             """
             
-            # Create message
             msg = MIMEMultipart('alternative')
             msg['Subject'] = subject
             msg['From'] = self.sender_email
             msg['To'] = recipient_email
             
-            # Add HTML content
             msg.attach(MIMEText(html_content, 'html'))
             
-            # Send email
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
                 server.login(self.sender_email, self.sender_password)

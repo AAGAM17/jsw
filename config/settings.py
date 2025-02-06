@@ -17,6 +17,12 @@ class Config:
     EMAIL_SENDER = os.getenv('EMAIL_SENDER')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
     
+    # Twilio Configuration
+    TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
+    TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
+    WHATSAPP_FROM = os.getenv('WHATSAPP_FROM')
+    WHATSAPP_TO = [num.strip() for num in os.getenv('WHATSAPP_TO', '').split(',') if num.strip()]
+    
     # Validate required settings
     if not all([PERPLEXITY_API_KEY, EMAIL_SENDER, EMAIL_PASSWORD]):
         raise ValueError(
@@ -24,6 +30,16 @@ class Config:
             "- PERPLEXITY_API_KEY\n"
             "- EMAIL_SENDER\n"
             "- EMAIL_PASSWORD"
+        )
+    
+    # Validate Twilio settings if present
+    if any([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM]) and not all([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM, WHATSAPP_TO]):
+        raise ValueError(
+            "Incomplete Twilio configuration. If using WhatsApp, all these are required:\n"
+            "- TWILIO_ACCOUNT_SID\n"
+            "- TWILIO_AUTH_TOKEN\n"
+            "- WHATSAPP_FROM\n"
+            "- WHATSAPP_TO"
         )
     
     # Team Email Configuration

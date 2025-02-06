@@ -3,6 +3,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from scrapers.perplexity_client import PerplexityClient
 from scrapers.metro_scraper import MetroScraper
 from utilities.email_handler import EmailHandler
+from utilities.whatsapp_handler import WhatsAppHandler
 from utilities.logger import configure_logging
 from datetime import datetime
 from config.settings import Config
@@ -19,6 +20,7 @@ def run_pipeline():
         perplexity = PerplexityClient()
         metro_scraper = MetroScraper()
         email_handler = EmailHandler()
+        whatsapp_handler = WhatsAppHandler()
         
         # Get projects from both sources
         logger.info("Scraping themetrorailguy.com...")
@@ -55,9 +57,22 @@ def run_pipeline():
         
         sorted_projects = sorted(all_projects, key=priority_score, reverse=True)
         
-        # Send consolidated email with all projects
-        logger.info("Sending consolidated project opportunities email...")
-        email_handler.send_project_opportunities(sorted_projects)
+        # Send notifications
+        logger.info("Sending notifications...")
+        
+        # Send emails
+        email_success = email_handler.send_project_opportunities(sorted_projects)
+        if email_success:
+            logger.info("Successfully sent email notifications")
+        else:
+            logger.error("Failed to send email notifications")
+        
+        # Send WhatsApp messages
+        whatsapp_success = whatsapp_handler.send_project_opportunities(sorted_projects)
+        if whatsapp_success:
+            logger.info("Successfully sent WhatsApp notifications")
+        else:
+            logger.warning("WhatsApp notifications not sent (disabled or failed)")
         
     except Exception as e:
         logger.error(f"Pipeline failed: {str(e)}", exc_info=True)
