@@ -1,0 +1,20 @@
+2025-02-06 21:40:06,631 - utilities.logger - INFO - Logging initialized
+2025-02-06 21:40:06,641 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-06 21:40:06,642 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-06 21:40:11,552 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-06 21:40:14,223 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-06 21:40:16,670 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-06 21:40:16,670 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-06 21:40:16,671 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-06 21:40:16,671 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-06 21:40:27,227 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:40:27,227 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-06 21:40:35,723 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-06 21:40:35,724 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-06 21:40:35,724 - __main__ - INFO - Found 3 projects from Perplexity
+2025-02-06 21:40:35,724 - __main__ - INFO - Total projects found: 3
+2025-02-06 21:40:35,724 - __main__ - INFO - Sending consolidated project opportunities email...
+2025-02-06 21:40:39,097 - utilities.email_handler - ERROR - Error sending project opportunities: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-73048ae7f9asm1483707b3a.72 - gsmtp')
+2025-02-06 21:40:39,145 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-06 21:40:39,147 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-06 21:40:39,147 - apscheduler.scheduler - INFO - Scheduler started

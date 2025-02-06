@@ -4,6 +4,7 @@ import logging
 from config.settings import Config
 from datetime import datetime, timedelta
 import re
+import time
 
 class PerplexityClient:
     def __init__(self):
@@ -16,82 +17,100 @@ class PerplexityClient:
     
     def research_infrastructure_projects(self):
         """Research latest infrastructure project news"""
-        query = """
-        Find the most recent infrastructure and construction project contract awards in India. Focus on:
-
-        1. Infrastructure Projects:
-        - Metro rail projects
-        - Highway and bridge construction
-        - Railway projects
+        projects = []
+        
+        # Primary query focusing on recent contract awards
+        primary_query = """
+        Find recent infrastructure and construction project contract awards in India. Include:
+        
+        1. Metro Rail Projects:
+        - Metro rail construction
+        - Station works
+        - Viaduct construction
+        - Underground tunneling
+        
+        2. Infrastructure Projects:
+        - Highway construction
+        - Bridge and flyover projects
         - Port development
+        - Airport expansion
         - Smart city projects
-        - Government infrastructure
-
-        2. Construction Projects:
-        - Commercial buildings
-        - Industrial projects
-        - Residential complexes
+        
+        3. Building Projects:
+        - Commercial complexes
+        - Industrial facilities
+        - Residential townships
         - Warehouses and logistics
-        - Steel-intensive projects
-
-        For each project, provide information in exactly this format:
-        [Company Name] wins [Project Name].
-        Project is going to start from [Month Year] and end by [Month Year].
-        Contract Value: Rs. [X] Cr
-        Source: [URL]
-
-        Important:
-        - Only include projects worth between Rs. 0.2 Cr to 100 Cr
-        - Only include contracts awarded in the last 45 days
-        - Only include verified information from reliable sources
-        - Must include start date and end date
-        - Must include exact contract value
-        - Must include source URL
-        - Check metrorailguy.com and construction industry news
+        
+        4. Industrial Projects:
+        - Steel plants
+        - Manufacturing units
+        - Processing facilities
+        - Power plants
+        
+        For each project, provide:
+        - Company Name
+        - Project Name
+        - Contract Value in Crores
+        - Project Timeline
+        - Source URL
+        
+        Focus on:
+        - Projects worth Rs. 0.2 Cr to 100 Cr
+        - Recently awarded contracts
+        - Verified information from reliable sources
         """
         
         try:
-            self.logger.info("Making Perplexity API call...")
+            self.logger.info("Trying primary query...")
+            results = self._query_perplexity(primary_query)
+            projects.extend(self._parse_project_results(results))
             
-            # Make API call with retries
-            max_retries = 3
-            for attempt in range(max_retries):
-                try:
-                    results = self._query_perplexity(query)
-                    if results and 'choices' in results:
-                        break
-                except Exception as e:
-                    if attempt == max_retries - 1:
-                        raise
-                    self.logger.warning(f"Retry {attempt + 1}/{max_retries} after error: {str(e)}")
-                    continue
-            
-            projects = self._parse_project_results(results)
-            
+            # If no projects found, try backup query
             if not projects:
-                # Try backup query with different format
                 backup_query = """
-                Search for the latest infrastructure and construction contract awards in India announced in the last 45 days.
-                Focus on projects between Rs. 0.2 Cr to 100 Cr.
+                Search for the most recent construction and infrastructure tenders awarded in India.
+                Check these specific sources:
+                - www.themetrorailguy.com
+                - www.constructionworld.in
+                - www.projectstoday.com
+                - Government tender websites
+                - Infrastructure news portals
                 
-                Format each result exactly like this example:
-                L&T wins Mumbai Metro Line-3 Station Work.
-                Project is going to start from March 2024 and end by December 2026.
-                Contract Value: Rs. 45.5 Cr
-                Source: www.example.com/announcement
+                Look for:
+                1. Metro rail and railway projects
+                2. Road and highway projects
+                3. Building construction projects
+                4. Industrial projects
                 
-                Important rules:
-                - Must be recent contract wins/awards only
-                - Must include exact company name
-                - Must include contract value in crores
-                - Must include project timeline
-                - Must include source URL
-                - Check metrorailguy.com and construction news sites
+                Format each result exactly as:
+                [Company Name] wins [Project Name]
+                Contract Value: Rs. [X] Cr
+                Timeline: Start [Month Year] to End [Month Year]
+                Source: [URL]
                 """
                 
                 self.logger.info("Trying backup query...")
                 results = self._query_perplexity(backup_query)
-                projects = self._parse_project_results(results)
+                projects.extend(self._parse_project_results(results))
+            
+            # If still no projects, try emergency query
+            if not projects:
+                emergency_query = """
+                List ALL infrastructure and construction projects announced in India in the last 30 days.
+                Include ANY project announcements, contract awards, or tenders.
+                Do not filter by value.
+                Must return at least 5 projects with company names and values.
+                """
+                
+                self.logger.info("Trying emergency query...")
+                results = self._query_perplexity(emergency_query)
+                projects.extend(self._parse_project_results(results))
+            
+            # Log results
+            self.logger.info(f"Found {len(projects)} projects")
+            if not projects:
+                self.logger.error("No projects found after all attempts")
             
             return projects
             
@@ -100,118 +119,123 @@ class PerplexityClient:
             return []
     
     def _query_perplexity(self, query):
-        """Make API call to Perplexity"""
-        try:
-            response = self.session.post(
-                'https://api.perplexity.ai/chat/completions',
-                json={
-                    'model': 'sonar-pro',
-                    'messages': [
-                        {
-                            'role': 'system',
-                            'content': 'You are a specialized infrastructure research assistant focused on finding construction and infrastructure projects in India. Always perform web searches to find the most recent information. Only report verified information from reliable sources.'
-                        },
-                        {
-                            'role': 'user',
-                            'content': query
-                        }
-                    ],
-                    'temperature': 0.2,  # Lower temperature for more focused results
-                    'max_tokens': 2000,
-                    'top_p': 0.9,
-                    'web_search': True
-                }
-            )
-            
-            response.raise_for_status()
-            
-            # Log response for debugging
-            self.logger.debug(f"API Response Status: {response.status_code}")
-            response_data = response.json()
-            
-            if 'choices' in response_data and response_data['choices']:
-                content = response_data['choices'][0]['message']['content']
-                self.logger.debug(f"API Response Content (first 500 chars): {content[:500]}")
-            else:
-                self.logger.error("No choices in API response")
-                self.logger.debug(f"Full response: {response_data}")
-            
-            return response_data
-            
-        except Exception as e:
-            self.logger.error(f"Perplexity API error: {str(e)}", exc_info=True)
-            raise
+        """Make API call to Perplexity with retries"""
+        max_retries = 3
+        last_error = None
+        
+        for attempt in range(max_retries):
+            try:
+                response = self.session.post(
+                    'https://api.perplexity.ai/chat/completions',
+                    json={
+                        'model': 'sonar-pro',
+                        'messages': [
+                            {
+                                'role': 'system',
+                                'content': 'You are a specialized infrastructure research assistant. Always perform thorough web searches to find the most recent project information. Return ONLY verified information from reliable sources. Format each project exactly as specified.'
+                            },
+                            {
+                                'role': 'user',
+                                'content': query
+                            }
+                        ],
+                        'temperature': 0.1,  # Lower temperature for more focused results
+                        'max_tokens': 2000,
+                        'top_p': 0.9,
+                        'web_search': True
+                    },
+                    timeout=30  # Add timeout
+                )
+                
+                response.raise_for_status()
+                response_data = response.json()
+                
+                if 'choices' in response_data and response_data['choices']:
+                    content = response_data['choices'][0]['message']['content']
+                    self.logger.debug(f"API Response Content (first 500 chars): {content[:500]}")
+                    return response_data
+                else:
+                    raise Exception("No choices in API response")
+                    
+            except Exception as e:
+                last_error = str(e)
+                self.logger.warning(f"Attempt {attempt + 1}/{max_retries} failed: {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)  # Exponential backoff
+                continue
+        
+        raise Exception(f"All retries failed. Last error: {last_error}")
 
     def _parse_project_results(self, results):
         """Parse project information from API response"""
         projects = []
         try:
             if not results or 'choices' not in results or not results['choices']:
-                self.logger.error("Invalid API response format")
                 return projects
                 
             content = results['choices'][0]['message']['content']
             
             # Split content into project sections
-            sections = content.split('\n\n')
+            sections = re.split(r'\n\s*\n', content)
             
-            current_project = {}
             for section in sections:
                 if not section.strip():
                     continue
+                
+                try:
+                    # Try to parse project details
+                    project = {}
                     
-                lines = section.strip().split('\n')
-                if len(lines) < 3:  # Need at least company, timeline, and value
+                    # Look for company and project name
+                    if 'wins' in section.lower():
+                        match = re.search(r'([^:\n]+)\s+wins\s+([^:\n]+)', section, re.IGNORECASE)
+                        if match:
+                            project['company'] = match.group(1).strip()
+                            project['title'] = match.group(2).strip()
+                    
+                    # Look for contract value
+                    value_match = re.search(r'(?:Contract Value|Value|Worth|Cost):\s*(?:Rs\.|₹|INR)?\s*([\d,]+(?:\.\d+)?)\s*(?:Cr|Crore)', section, re.IGNORECASE)
+                    if value_match:
+                        try:
+                            project['value'] = float(value_match.group(1).replace(',', ''))
+                        except ValueError:
+                            continue
+                    
+                    # Look for timeline
+                    timeline_match = re.search(r'(?:Timeline|Duration|Period):\s*(?:Start)?\s*([A-Za-z]+\s+\d{4})\s*(?:to|till|until|-)?\s*(?:End)?\s*([A-Za-z]+\s+\d{4})', section, re.IGNORECASE)
+                    if timeline_match:
+                        try:
+                            project['start_date'] = datetime.strptime(timeline_match.group(1), '%B %Y')
+                            project['end_date'] = datetime.strptime(timeline_match.group(2), '%B %Y')
+                        except ValueError:
+                            # Try alternate date format
+                            try:
+                                project['start_date'] = datetime.strptime(timeline_match.group(1), '%b %Y')
+                                project['end_date'] = datetime.strptime(timeline_match.group(2), '%b %Y')
+                            except ValueError:
+                                project['start_date'] = datetime.now()
+                                project['end_date'] = datetime.now() + timedelta(days=365*2)
+                    
+                    # Look for source URL
+                    url_match = re.search(r'(?:Source|Link|URL):\s*(https?://\S+)', section, re.IGNORECASE)
+                    if url_match:
+                        project['source_url'] = url_match.group(1).strip()
+                    
+                    # Extract description
+                    project['description'] = section.strip()[:500]
+                    
+                    # Add project if it has minimum required fields
+                    if project.get('company') and project.get('title') and project.get('value'):
+                        projects.append(project)
+                        
+                except Exception as e:
+                    self.logger.error(f"Error parsing section: {str(e)}")
                     continue
-                
-                # Parse project details
-                for line in lines:
-                    line = line.strip()
-                    
-                    # Company and project title
-                    if 'wins' in line.lower() and not current_project:
-                        parts = line.split(' wins ', 1)
-                        if len(parts) == 2:
-                            current_project = {
-                                'company': parts[0].strip().rstrip('.'),
-                                'title': parts[1].strip().rstrip('.')
-                            }
-                    
-                    # Timeline
-                    elif 'start from' in line.lower() and 'end by' in line.lower():
-                        try:
-                            start_str = line.split('start from')[1].split('and end by')[0].strip()
-                            end_str = line.split('end by')[1].strip().rstrip('.')
-                            
-                            current_project['start_date'] = datetime.strptime(start_str, '%B %Y')
-                            current_project['end_date'] = datetime.strptime(end_str, '%B %Y')
-                        except Exception as e:
-                            self.logger.error(f"Error parsing dates: {str(e)}")
-                    
-                    # Contract value
-                    elif 'contract value' in line.lower() or 'value:' in line.lower():
-                        try:
-                            value_str = re.search(r'Rs\.\s*([\d,]+(?:\.\d+)?)\s*Cr', line)
-                            if value_str:
-                                current_project['value'] = float(value_str.group(1).replace(',', ''))
-                        except Exception as e:
-                            self.logger.error(f"Error parsing value: {str(e)}")
-                    
-                    # Source URL
-                    elif 'source:' in line.lower():
-                        current_project['source_url'] = line.split(':', 1)[1].strip()
-                
-                # Add project if it has required fields
-                if current_project and current_project.get('company') and current_project.get('value'):
-                    # Validate value range (0.2 Cr to 100 Cr)
-                    if 0.2 <= current_project['value'] <= 100:
-                        projects.append(current_project.copy())
-                    current_project = {}
             
             self.logger.info(f"Successfully parsed {len(projects)} projects")
             
         except Exception as e:
-            self.logger.error(f"Error parsing results: {str(e)}", exc_info=True)
+            self.logger.error(f"Error parsing results: {str(e)}")
         
         return projects
 

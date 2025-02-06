@@ -5,14 +5,35 @@ import logging
 from datetime import datetime, timedelta
 from config.settings import Config
 import re
+import time
 
 class EmailHandler:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        
+        # Load email configuration
         self.smtp_server = Config.EMAIL_SMTP_SERVER
         self.smtp_port = Config.EMAIL_SMTP_PORT
         self.sender_email = Config.EMAIL_SENDER
         self.sender_password = Config.EMAIL_PASSWORD
+        
+        # Validate email configuration
+        if not all([self.smtp_server, self.smtp_port, self.sender_email, self.sender_password]):
+            raise ValueError("Missing email configuration. Please check your .env file.")
+            
+        self.logger.info(f"Initialized EmailHandler with sender: {self.sender_email}")
+        
+        # Test SMTP connection on initialization
+        try:
+            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login(self.sender_email, self.sender_password)
+                self.logger.info("SMTP connection test successful on initialization")
+        except Exception as e:
+            self.logger.error(f"Failed to initialize SMTP connection: {str(e)}")
+            raise
         
     def determine_product_team(self, project):
         """Determine the most relevant product team based on project details"""
@@ -162,36 +183,154 @@ class EmailHandler:
             return False
     
     def send_project_opportunities(self, projects):
-        """Send project opportunities to relevant teams"""
+        """Send consolidated project opportunities email to all teams"""
         try:
-            # Sort projects by priority score
+            # Test SMTP connection first
+            self.logger.info("Testing SMTP connection...")
+            try:
+                with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                    server.ehlo()
+                    server.starttls()
+                    server.ehlo()
+                    self.logger.info(f"Attempting login with {self.sender_email}")
+                    server.login(self.sender_email, self.sender_password)
+                    self.logger.info("SMTP connection test successful")
+            except Exception as e:
+                self.logger.error(f"SMTP connection test failed: {str(e)}")
+                raise
+
+            # Group projects by product team
+            team_projects = {}
+            total_value = 0
+            total_steel = 0
+            
             for project in projects:
                 product_type = self.determine_product_team(project)
                 project['product_type'] = product_type
                 project['priority_score'] = self.calculate_priority_score(project)
+                project['steel_requirement'] = self.calculate_steel_requirement(project, product_type)
+                
+                if product_type not in team_projects:
+                    team_projects[product_type] = []
+                team_projects[product_type].append(project)
+                
+                total_value += project.get('value', 0)
+                total_steel += project['steel_requirement']
             
-            sorted_projects = sorted(projects, key=lambda x: x['priority_score'], reverse=True)
-            
-            # Group projects by product team
-            team_projects = {}
-            for project in sorted_projects:
-                product_type = project['product_type']
-                if product_type in Config.TEAM_EMAILS:
-                    if product_type not in team_projects:
-                        team_projects[product_type] = []
-                    team_projects[product_type].append(project)
-            
-            # Send emails to each team
-            for product_type, team_projects_list in team_projects.items():
-                team_email = Config.TEAM_EMAILS[product_type]
-                for project in team_projects_list:
-                    self.send_team_email(project, team_email)
+            # Create consolidated email for each team
+            for product_type, team_email in Config.TEAM_EMAILS.items():
+                team_specific_projects = team_projects.get(product_type, [])
+                if team_specific_projects:
+                    team_value = sum(p.get('value', 0) for p in team_specific_projects)
+                    team_steel = sum(p['steel_requirement'] for p in team_specific_projects)
+                    
+                    # Create informative subject line
+                    subject = (
+                        f"JSW Steel Opportunities: {len(team_specific_projects)} New Projects "
+                        f"(₹{team_value:.1f}Cr, {team_steel:.0f}MT) - {product_type.replace('_', ' ')}"
+                    )
+                    
+                    # Create message
+                    msg = MIMEMultipart('alternative')
+                    msg['Subject'] = subject
+                    msg['From'] = self.sender_email
+                    msg['To'] = team_email
+                    
+                    # Create HTML content
+                    html_content = self._create_email_content(team_specific_projects, product_type, team_value, team_steel)
+                    msg.attach(MIMEText(html_content, 'html'))
+                    
+                    # Send email with retries
+                    max_retries = 3
+                    for attempt in range(max_retries):
+                        try:
+                            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+                                server.ehlo()
+                                server.starttls()
+                                server.ehlo()
+                                server.login(self.sender_email, self.sender_password)
+                                server.send_message(msg)
+                                self.logger.info(f"Successfully sent consolidated email to {team_email} for {product_type}")
+                                break
+                        except Exception as e:
+                            if attempt == max_retries - 1:
+                                self.logger.error(f"Failed to send email after {max_retries} attempts: {str(e)}")
+                                raise
+                            self.logger.warning(f"Attempt {attempt + 1} failed, retrying...")
+                            time.sleep(2 ** attempt)  # Exponential backoff
             
             return True
             
         except Exception as e:
             self.logger.error(f"Error sending project opportunities: {str(e)}")
             return False
+
+    def _create_email_content(self, projects, product_type, team_value, team_steel):
+        """Create HTML content for email"""
+        # Sort projects by priority score
+        sorted_projects = sorted(projects, key=lambda x: x['priority_score'], reverse=True)
+        
+        html_content = f"""
+        <html>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                <h2 style="color: #1a73e8;">New Project Opportunities - {product_type.replace('_', ' ')}</h2>
+                
+                <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <h3 style="color: #1a73e8; margin-top: 0;">Summary</h3>
+                    <p><strong>Total Projects:</strong> {len(projects)}</p>
+                    <p><strong>Total Contract Value:</strong> ₹{team_value:.1f} Cr</p>
+                    <p><strong>Total Steel Requirement:</strong> {team_steel:.0f} MT</p>
+                </div>
+        """
+        
+        # Add each project
+        for idx, project in enumerate(sorted_projects, 1):
+            html_content += f"""
+                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <h3 style="color: #202124; margin-top: 0;">
+                        {idx}. {project['company']}
+                        <span style="float: right; font-size: 0.9em; color: #1a73e8;">
+                            Priority Score: {project['priority_score']:.2f}
+                        </span>
+                    </h3>
+                    <h4 style="color: #202124;">{project['title']}</h4>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <p><strong>Timeline:</strong><br>
+                            Start: {project.get('start_date', datetime.now()).strftime('%B %Y')}<br>
+                            End: {project.get('end_date', datetime.now()).strftime('%B %Y')}</p>
+                        </div>
+                        <div>
+                            <p><strong>Value:</strong> ₹{project.get('value', 0):.1f} Cr</p>
+                            <p><strong>Steel Requirement:</strong> {project['steel_requirement']:.0f} MT</p>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Description:</strong><br>
+                    {project.get('description', '')[:300]}...</p>
+                    
+                    <p><a href="{project.get('source_url', '#')}" 
+                          style="color: #1a73e8; text-decoration: none;">
+                        View Announcement →
+                    </a></p>
+                </div>
+            """
+        
+        # Add action items and footer
+        html_content += """
+                
+                <div style="margin-top: 20px; font-size: 12px; color: #666;">
+                    <p>This is an automated message from JSW Steel Project Bot. 
+                    For support, please contact the IT team.</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        """
+        
+        return html_content
 
     def send_project_opportunity(self, project, recipient_email):
         """Send a single project opportunity via email"""
@@ -203,7 +342,6 @@ class EmailHandler:
             <html>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
                 <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-                    <h2 style="color: #1a73e8;">New Project Opportunity</h2>
                     
                     <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
                         <h3 style="color: #202124; margin-top: 0;">{project['company']}</h3>
@@ -218,14 +356,6 @@ class EmailHandler:
                         <p><strong>Estimated Steel Requirement:</strong> {project.get('steel_requirement', 0):,.0f} MT</p>
                         
                         <p><strong>Source:</strong> <a href="{project.get('source_url', '#')}" style="color: #1a73e8;">View Announcement</a></p>
-                    </div>
-                    
-                    <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px;">
-                        <h4 style="color: #1a73e8; margin-top: 0;">Actions:</h4>
-                        <ul style="list-style-type: none; padding-left: 0;">
-                            <li>• Reply to this email to request more information</li>
-                            <li>• Contact your JSW representative for assistance</li>
-                        </ul>
                     </div>
                     
                     <div style="margin-top: 20px; font-size: 12px; color: #666;">

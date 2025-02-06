@@ -1,0 +1,44 @@
+2025-02-06 21:07:25,452 - utilities.logger - INFO - Logging initialized
+2025-02-06 21:07:25,453 - utilities.logger - INFO - Logging initialized
+2025-02-06 21:07:25,491 - werkzeug - WARNING -  * Debugger is active!
+2025-02-06 21:07:25,526 - werkzeug - INFO -  * Debugger PIN: 188-707-127
+2025-02-06 21:08:11,997 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:11] "GET / HTTP/1.1" 200 -
+2025-02-06 21:08:12,480 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:12] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:12,772 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-02-06 21:08:17,480 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:17] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:20,010 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-06 21:08:20,011 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:20] "POST /run HTTP/1.1" 200 -
+2025-02-06 21:08:20,012 - main - INFO - Scraping themetrorailguy.com...
+2025-02-06 21:08:22,482 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:22] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:25,285 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-06 21:08:27,147 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-06 21:08:27,573 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:27] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:29,004 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-06 21:08:29,005 - main - INFO - Found 0 projects from Metro Rail Guy
+2025-02-06 21:08:29,005 - main - INFO - Discovering projects using Perplexity AI...
+2025-02-06 21:08:29,005 - scrapers.perplexity_client - INFO - Making Perplexity API call...
+2025-02-06 21:08:35,647 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:08:35,648 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-06 21:08:35,985 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:35] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:41,446 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:41] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:08:44,383 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:08:44,383 - main - INFO - Found 0 projects from Perplexity
+2025-02-06 21:08:44,383 - main - INFO - Total unique projects found: 0
+2025-02-06 21:08:44,384 - main - WARNING - No projects found - check sources
+2025-02-06 21:08:51,583 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:08:51] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:09:04,095 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:09:04] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:09:19,825 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:09:19] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:09:50,030 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:09:50] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:10:06,638 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:10:06] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:10:57,828 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:10:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:11:57,831 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:11:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:12:57,830 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:12:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:13:57,828 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:13:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:14:57,822 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:14:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:15:57,825 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:15:57] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:21:21,562 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:21] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:21:25,000 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:25] "GET / HTTP/1.1" 200 -
+2025-02-06 21:21:25,035 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:25] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:21:30,034 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:30] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:21:35,887 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:35] "GET /status HTTP/1.1" 200 -
+2025-02-06 21:21:41,321 - werkzeug - INFO - 127.0.0.1 - - [06/Feb/2025 21:21:41] "GET /status HTTP/1.1" 200 -

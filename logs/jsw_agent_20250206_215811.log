@@ -1,0 +1,23 @@
+2025-02-06 21:58:11,495 - utilities.logger - INFO - Logging initialized
+2025-02-06 21:58:11,503 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-06 21:58:11,504 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-06 21:58:16,367 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-06 21:58:18,249 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-06 21:58:20,080 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-06 21:58:20,081 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-06 21:58:20,081 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-06 21:58:20,081 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-06 21:58:34,684 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:58:34,684 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-06 21:58:42,530 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-06 21:58:42,530 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-06 21:58:42,530 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-06 21:58:42,531 - __main__ - INFO - Total projects found: 4
+2025-02-06 21:58:42,531 - __main__ - INFO - Sending consolidated project opportunities email...
+2025-02-06 21:58:42,531 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-06 21:58:44,364 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-06 21:58:45,719 - utilities.email_handler - ERROR - SMTP connection test failed: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-73048c162f6sm1527361b3a.143 - gsmtp')
+2025-02-06 21:58:45,720 - utilities.email_handler - ERROR - Error sending project opportunities: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-73048c162f6sm1527361b3a.143 - gsmtp')
+2025-02-06 21:58:45,768 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-06 21:58:45,770 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-06 21:58:45,770 - apscheduler.scheduler - INFO - Scheduler started

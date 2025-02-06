@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSW Steel Project Discovery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #1a73e8;
+            border: none;
+            padding: 10px 30px;
+            font-weight: 500;
+        }
+        .btn-primary:hover {
+            background-color: #1557b0;
+        }
+        .status-badge {
+            font-size: 0.9rem;
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+        .status-running {
+            background-color: #ffd700;
+            color: #000;
+        }
+        .status-completed {
+            background-color: #28a745;
+            color: #fff;
+        }
+        .status-failed {
+            background-color: #dc3545;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="card-title mb-4">JSW Steel Project Discovery</h2>
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <button id="runButton" class="btn btn-primary" onclick="runScript()">
+                        <span id="buttonText">Run Pipeline</span>
+                        <span id="spinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"></span>
+                    </button>
+                    
+                    <div>
+                        <span class="status-badge" id="statusBadge">
+                            {% if is_running %}
+                                <span class="status-running">Running</span>
+                            {% elif last_run_status == 'completed' %}
+                                <span class="status-completed">Completed</span>
+                            {% elif last_run_status == 'failed' %}
+                                <span class="status-failed">Failed</span>
+                            {% else %}
+                                <span>Not Run</span>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h5 class="card-title">Status Information</h5>
+                        <div class="mb-3">
+                            <strong>Last Run:</strong>
+                            <span id="lastRunTime">{{ last_run_time if last_run_time else 'Never' }}</span>
+                        </div>
+                        <div class="mb-3">
+                            <strong>Status:</strong>
+                            <span id="runStatus">{{ last_run_status if last_run_status else 'Not Run' }}</span>
+                        </div>
+                        <div>
+                            <strong>Results:</strong>
+                            <div id="results" class="mt-2">
+                                {{ last_run_results if last_run_results else 'No results available' }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateStatus() {
+            fetch('/status')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('lastRunTime').textContent = data.last_run_time || 'Never';
+                    document.getElementById('runStatus').textContent = data.status || 'Not Run';
+                    document.getElementById('results').textContent = data.results || 'No results available';
+                    
+                    const statusBadge = document.getElementById('statusBadge');
+                    const runButton = document.getElementById('runButton');
+                    const spinner = document.getElementById('spinner');
+                    const buttonText = document.getElementById('buttonText');
+                    
+                    if (data.is_running) {
+                        statusBadge.innerHTML = '<span class="status-badge status-running">Running</span>';
+                        runButton.disabled = true;
+                        spinner.classList.remove('d-none');
+                        buttonText.textContent = 'Running...';
+                    } else {
+                        runButton.disabled = false;
+                        spinner.classList.add('d-none');
+                        buttonText.textContent = 'Run Pipeline';
+                        
+                        if (data.status === 'completed') {
+                            statusBadge.innerHTML = '<span class="status-badge status-completed">Completed</span>';
+                        } else if (data.status === 'failed') {
+                            statusBadge.innerHTML = '<span class="status-badge status-failed">Failed</span>';
+                        } else {
+                            statusBadge.innerHTML = '<span class="status-badge">Not Run</span>';
+                        }
+                    }
+                });
+        }
+
+        function runScript() {
+            const runButton = document.getElementById('runButton');
+            const spinner = document.getElementById('spinner');
+            const buttonText = document.getElementById('buttonText');
+            
+            runButton.disabled = true;
+            spinner.classList.remove('d-none');
+            buttonText.textContent = 'Running...';
+            
+            fetch('/run', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'error') {
+                        alert(data.message);
+                        runButton.disabled = false;
+                        spinner.classList.add('d-none');
+                        buttonText.textContent = 'Run Pipeline';
+                    }
+                })
+                .catch(error => {
+                    alert('Error starting the script');
+                    runButton.disabled = false;
+                    spinner.classList.add('d-none');
+                    buttonText.textContent = 'Run Pipeline';
+                });
+        }
+
+        // Update status every 5 seconds
+        setInterval(updateStatus, 5000);
+        
+        // Initial status update
+        updateStatus();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

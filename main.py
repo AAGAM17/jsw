@@ -29,20 +29,14 @@ def run_pipeline():
         ai_projects = perplexity.research_infrastructure_projects()
         logger.info(f"Found {len(ai_projects)} projects from Perplexity")
         
-        # Combine projects and remove duplicates
-        all_projects = []
-        seen_titles = set()
+        # Combine all projects
+        all_projects = metro_projects + ai_projects
         
-        for project in metro_projects + ai_projects:
-            # Create a normalized title for comparison
-            norm_title = ' '.join(project['title'].lower().split())
-            if norm_title not in seen_titles:
-                seen_titles.add(norm_title)
-                # Add news date for priority calculation
-                project['news_date'] = datetime.now()
-                all_projects.append(project)
+        # Add news date for priority calculation
+        for project in all_projects:
+            project['news_date'] = datetime.now()
         
-        logger.info(f"Total unique projects found: {len(all_projects)}")
+        logger.info(f"Total projects found: {len(all_projects)}")
         
         if not all_projects:
             logger.warning("No projects found - check sources")
@@ -61,8 +55,8 @@ def run_pipeline():
         
         sorted_projects = sorted(all_projects, key=priority_score, reverse=True)
         
-        # Send team-specific emails
-        logger.info("Sending team-specific emails...")
+        # Send consolidated email with all projects
+        logger.info("Sending consolidated project opportunities email...")
         email_handler.send_project_opportunities(sorted_projects)
         
     except Exception as e:

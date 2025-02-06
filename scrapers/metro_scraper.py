@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 import logging
 from urllib.parse import urljoin
 import urllib3
@@ -42,7 +42,12 @@ class MetroScraper:
             # Scrape main page and category pages
             urls = [
                 f'{self.base_url}',
+                f'{self.base_url}/category/tenders',
+                f'{self.base_url}/category/contracts',
+                f'{self.base_url}/category/news'
             ]
+            
+            twenty_days_ago = datetime.now() - timedelta(days=20)
             
             for url in urls:
                 try:
@@ -61,6 +66,16 @@ class MetroScraper:
                     # Find all article links
                     articles = soup.find_all('article')
                     for article in articles:
+                        # Check article date
+                        date_elem = article.find('time', class_='entry-date')
+                        if date_elem and 'datetime' in date_elem.attrs:
+                            try:
+                                article_date = datetime.fromisoformat(date_elem['datetime'].replace('Z', '+00:00'))
+                                if article_date < twenty_days_ago:
+                                    continue
+                            except Exception as e:
+                                self.logger.error(f"Error parsing article date: {str(e)}")
+                        
                         title_elem = article.find('h2', class_='entry-title')
                         if not title_elem or not title_elem.find('a'):
                             continue
@@ -69,10 +84,15 @@ class MetroScraper:
                         link = title_elem.find('a')['href']
                         
                         # Check if title suggests a contract win or tender
-                        keywords = ['contract', 'tender', 'awarded', 'wins', 'selected', 'bidder', 'L1']
+                        keywords = [
+                            'contract', 'tender', 'awarded', 'wins', 'selected', 'bidder', 'L1',
+                            'order', 'project', 'construction', 'development', 'infrastructure'
+                        ]
                         if any(keyword.lower() in title.lower() for keyword in keywords):
                             project = self._scrape_article(link, title)
                             if project:
+                                # Add news date for priority calculation
+                                project['news_date'] = article_date if date_elem else datetime.now()
                                 projects.append(project)
                                 
                 except requests.exceptions.RequestException as e:

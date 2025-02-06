@@ -1,0 +1,18 @@
+2025-02-06 21:30:49,030 - utilities.logger - INFO - Logging initialized
+2025-02-06 21:30:49,034 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-06 21:30:49,035 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-06 21:30:53,721 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-06 21:30:55,635 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-06 21:30:57,602 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-06 21:30:57,602 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-06 21:30:57,602 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-06 21:30:57,603 - scrapers.perplexity_client - INFO - Making Perplexity API call...
+2025-02-06 21:31:04,032 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:31:04,032 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-06 21:31:15,796 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-06 21:31:15,796 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-06 21:31:15,797 - __main__ - INFO - Total projects found: 0
+2025-02-06 21:31:15,797 - __main__ - WARNING - No projects found - check sources
+2025-02-06 21:31:15,841 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-06 21:31:15,844 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-06 21:31:15,844 - apscheduler.scheduler - INFO - Scheduler started
