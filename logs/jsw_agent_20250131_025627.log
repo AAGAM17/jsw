@@ -1,0 +1,16 @@
+2025-01-31 02:56:27,626 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:56:27,649 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:56:27,650 - __main__ - INFO - Initializing components...
+2025-01-31 02:56:27,652 - __main__ - INFO - Starting project scraping...
+2025-01-31 02:56:27,653 - __main__ - ERROR - Pipeline failed: 'government'
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/main.py", line 24, in run_pipeline
+    projects = scraper.scrape_projects()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/scrapers/project_scraper.py", line 11, in scrape_projects
+    for url in Config.SCRAPE_SOURCES['government']:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'government'
+2025-01-31 02:56:27,776 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:56:27,777 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:56:27,777 - apscheduler.scheduler - INFO - Scheduler started

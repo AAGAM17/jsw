@@ -1,0 +1,163 @@
+2025-02-03 22:33:43,755 - utilities.logger - INFO - Logging initialized
+2025-02-03 22:33:43,758 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 22:33:43,758 - WDM - INFO - ====== WebDriver manager ======
+2025-02-03 22:33:44,451 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-03 22:33:44,581 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-03 22:33:44,689 - WDM - INFO - There is no [mac64] chromedriver "132.0.6834.159" for browser google-chrome "132.0.6834" in cache
+2025-02-03 22:33:44,700 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-03 22:33:44,972 - WDM - INFO - WebDriver version 132.0.6834.159 selected
+2025-02-03 22:33:44,976 - WDM - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.159/mac-x64/chromedriver-mac-x64.zip
+2025-02-03 22:33:44,976 - WDM - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/132.0.6834.159/mac-x64/chromedriver-mac-x64.zip
+2025-02-03 22:33:45,087 - WDM - INFO - Driver downloading response is 200
+2025-02-03 22:33:46,616 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2025-02-03 22:33:46,985 - WDM - INFO - Driver has been saved in cache [/Users/aagamshah/.wdm/drivers/chromedriver/mac64/132.0.6834.159]
+2025-02-03 22:33:50,044 - scrapers.exchange_scraper - INFO - Successfully initialized ChromeDriver using webdriver-manager
+2025-02-03 22:33:50,052 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 22:33:50,069 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 22:33:53,977 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-03 22:33:53,978 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-03 22:33:53,978 - scrapers.perplexity_client - INFO - Fetching BSE/NSE announcements...
+2025-02-03 22:33:55,960 - scrapers.exchange_scraper - ERROR - Error processing BSE row: Message: no such element: Unable to locate element: {"method":"tag name","selector":"a"}
+  (Session info: chrome=132.0.6834.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102dae278 chromedriver + 5522040
+1   chromedriver                        0x0000000102da60ea chromedriver + 5488874
+2   chromedriver                        0x00000001028cb620 chromedriver + 398880
+3   chromedriver                        0x000000010291b443 chromedriver + 726083
+4   chromedriver                        0x000000010291b681 chromedriver + 726657
+5   chromedriver                        0x000000010290f0a6 chromedriver + 676006
+6   chromedriver                        0x000000010294038d chromedriver + 877453
+7   chromedriver                        0x000000010290efa8 chromedriver + 675752
+8   chromedriver                        0x000000010294051e chromedriver + 877854
+9   chromedriver                        0x000000010295f230 chromedriver + 1004080
+10  chromedriver                        0x0000000102940103 chromedriver + 876803
+11  chromedriver                        0x000000010290d010 chromedriver + 667664
+12  chromedriver                        0x000000010290e28e chromedriver + 672398
+13  chromedriver                        0x0000000102d74060 chromedriver + 5283936
+14  chromedriver                        0x0000000102d77f90 chromedriver + 5300112
+15  chromedriver                        0x0000000102d55d37 chromedriver + 5160247
+16  chromedriver                        0x0000000102d78a1e chromedriver + 5302814
+17  chromedriver                        0x0000000102d459b4 chromedriver + 5093812
+18  chromedriver                        0x0000000102d94608 chromedriver + 5416456
+19  chromedriver                        0x0000000102d947c6 chromedriver + 5416902
+20  chromedriver                        0x0000000102da5cc8 chromedriver + 5487816
+21  libsystem_pthread.dylib             0x00007ff80551b253 _pthread_start + 99
+22  libsystem_pthread.dylib             0x00007ff805516bef thread_start + 15
+
+2025-02-03 22:33:56,643 - scrapers.exchange_scraper - ERROR - Error processing BSE row: Message: no such element: Unable to locate element: {"method":"tag name","selector":"a"}
+  (Session info: chrome=132.0.6834.160); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102dae278 chromedriver + 5522040
+1   chromedriver                        0x0000000102da60ea chromedriver + 5488874
+2   chromedriver                        0x00000001028cb620 chromedriver + 398880
+3   chromedriver                        0x000000010291b443 chromedriver + 726083
+4   chromedriver                        0x000000010291b681 chromedriver + 726657
+5   chromedriver                        0x000000010290f0a6 chromedriver + 676006
+6   chromedriver                        0x000000010294038d chromedriver + 877453
+7   chromedriver                        0x000000010290efa8 chromedriver + 675752
+8   chromedriver                        0x000000010294051e chromedriver + 877854
+9   chromedriver                        0x000000010295f230 chromedriver + 1004080
+10  chromedriver                        0x0000000102940103 chromedriver + 876803
+11  chromedriver                        0x000000010290d010 chromedriver + 667664
+12  chromedriver                        0x000000010290e28e chromedriver + 672398
+13  chromedriver                        0x0000000102d74060 chromedriver + 5283936
+14  chromedriver                        0x0000000102d77f90 chromedriver + 5300112
+15  chromedriver                        0x0000000102d55d37 chromedriver + 5160247
+16  chromedriver                        0x0000000102d78a1e chromedriver + 5302814
+17  chromedriver                        0x0000000102d459b4 chromedriver + 5093812
+18  chromedriver                        0x0000000102d94608 chromedriver + 5416456
+19  chromedriver                        0x0000000102d947c6 chromedriver + 5416902
+20  chromedriver                        0x0000000102da5cc8 chromedriver + 5487816
+21  libsystem_pthread.dylib             0x00007ff80551b253 _pthread_start + 99
+22  libsystem_pthread.dylib             0x00007ff805516bef thread_start + 15
+
+2025-02-03 22:34:17,385 - scrapers.exchange_scraper - ERROR - Error scraping NSE announcements: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000102dae278 chromedriver + 5522040
+1   chromedriver                        0x0000000102da60ea chromedriver + 5488874
+2   chromedriver                        0x00000001028cb620 chromedriver + 398880
+3   chromedriver                        0x000000010291b443 chromedriver + 726083
+4   chromedriver                        0x000000010291b681 chromedriver + 726657
+5   chromedriver                        0x0000000102961f24 chromedriver + 1015588
+6   chromedriver                        0x000000010294038d chromedriver + 877453
+7   chromedriver                        0x000000010295f230 chromedriver + 1004080
+8   chromedriver                        0x0000000102940103 chromedriver + 876803
+9   chromedriver                        0x000000010290d010 chromedriver + 667664
+10  chromedriver                        0x000000010290e28e chromedriver + 672398
+11  chromedriver                        0x0000000102d74060 chromedriver + 5283936
+12  chromedriver                        0x0000000102d77f90 chromedriver + 5300112
+13  chromedriver                        0x0000000102d55d37 chromedriver + 5160247
+14  chromedriver                        0x0000000102d78a1e chromedriver + 5302814
+15  chromedriver                        0x0000000102d459b4 chromedriver + 5093812
+16  chromedriver                        0x0000000102d94608 chromedriver + 5416456
+17  chromedriver                        0x0000000102d947c6 chromedriver + 5416902
+18  chromedriver                        0x0000000102da5cc8 chromedriver + 5487816
+19  libsystem_pthread.dylib             0x00007ff80551b253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff805516bef thread_start + 15
+
+2025-02-03 22:34:17,387 - scrapers.perplexity_client - INFO - Found 0 projects from exchange announcements
+2025-02-03 22:34:17,387 - scrapers.perplexity_client - INFO - Searching for additional projects using Perplexity...
+2025-02-03 22:34:34,457 - scrapers.perplexity_client - INFO - Found 2 additional projects from Perplexity
+2025-02-03 22:34:34,457 - scrapers.perplexity_client - INFO - Total unique projects after deduplication: 2
+2025-02-03 22:34:34,457 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-03 22:34:34,457 - __main__ - INFO - Total unique projects found: 2
+2025-02-03 22:34:34,457 - __main__ - INFO - Sending project messages...
+2025-02-03 22:34:34,457 - whatsapp.twilio_client - INFO - Attempting to send message to 2 recipients
+2025-02-03 22:34:34,458 - whatsapp.twilio_client - INFO - Sending to +918484926925...
+2025-02-03 22:34:34,602 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - Headers:
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - Accept : application/json
+2025-02-03 22:34:34,603 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-03 22:34:35,082 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-03 22:34:35,083 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1033', 'Connection': 'keep-alive', 'Date': 'Mon, 03 Feb 2025 17:04:34 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQdc1830fd27c29aa091a980adc7daa1b6', 'Twilio-Request-Duration': '0.140', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 9c7b110c4ab0f8463b789f8fd348083e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '9q52QrsTiJfyaFV8zZjM-iJYBZaRPj2fcXxptgfZb-jzKHEyMEIAhA=='}
+2025-02-03 22:34:35,084 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +918484926925 (SID: SMdc1830fd27c29aa091a980adc7daa1b6)
+2025-02-03 22:34:35,084 - whatsapp.twilio_client - INFO - Sending to +917715018407...
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - Headers:
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-03 22:34:35,085 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-03 22:34:35,086 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-03 22:34:35,086 - twilio.http_client - INFO - Accept : application/json
+2025-02-03 22:34:35,086 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-03 22:34:35,461 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-03 22:34:35,461 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1033', 'Connection': 'keep-alive', 'Date': 'Mon, 03 Feb 2025 17:04:35 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQb40f5b3b3af02e9181347bab46b64a86', 'Twilio-Request-Duration': '0.152', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 9c7b110c4ab0f8463b789f8fd348083e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'W_GZCG6gOQGAa5FKKIoaX8puMMs7968AvZ9oovCVpx7OIPjdtGLwMA=='}
+2025-02-03 22:34:35,464 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +917715018407 (SID: SMb40f5b3b3af02e9181347bab46b64a86)
+2025-02-03 22:34:35,465 - __main__ - INFO - Sent project message
+2025-02-03 22:34:35,465 - whatsapp.twilio_client - INFO - Attempting to send message to 2 recipients
+2025-02-03 22:34:35,465 - whatsapp.twilio_client - INFO - Sending to +918484926925...
+2025-02-03 22:34:35,466 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-03 22:34:35,466 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-03 22:34:35,466 - twilio.http_client - INFO - Headers:
+2025-02-03 22:34:35,466 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-03 22:34:35,467 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-03 22:34:35,467 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-03 22:34:35,468 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-03 22:34:35,468 - twilio.http_client - INFO - Accept : application/json
+2025-02-03 22:34:35,468 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-03 22:34:35,881 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-03 22:34:35,881 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1040', 'Connection': 'keep-alive', 'Date': 'Mon, 03 Feb 2025 17:04:35 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQb4962f1a2444d11521962fa3005347a1', 'Twilio-Request-Duration': '0.140', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 9c7b110c4ab0f8463b789f8fd348083e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'q4NFEgiGxoU7LdFlsRjAh-xgpmju_Db4ff03ummE8hGO5dONGuJBJg=='}
+2025-02-03 22:34:35,882 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +918484926925 (SID: SMb4962f1a2444d11521962fa3005347a1)
+2025-02-03 22:34:35,882 - whatsapp.twilio_client - INFO - Sending to +917715018407...
+2025-02-03 22:34:35,882 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-03 22:34:35,882 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-03 22:34:35,882 - twilio.http_client - INFO - Headers:
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - Accept : application/json
+2025-02-03 22:34:35,883 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-03 22:34:36,293 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-03 22:34:36,293 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1040', 'Connection': 'keep-alive', 'Date': 'Mon, 03 Feb 2025 17:04:36 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ2e08dc97c19c1a937620c20fb458bea5', 'Twilio-Request-Duration': '0.117', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 9c7b110c4ab0f8463b789f8fd348083e.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '7McGmvam-FsN0W8E5kM2uAV4ZnvvXlqimQHWWlLqApUByyA-DbomVw=='}
+2025-02-03 22:34:36,294 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +917715018407 (SID: SM2e08dc97c19c1a937620c20fb458bea5)
+2025-02-03 22:34:36,294 - __main__ - INFO - Sent project message
+2025-02-03 22:34:36,524 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-03 22:34:36,525 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-03 22:34:36,525 - apscheduler.scheduler - INFO - Scheduler started

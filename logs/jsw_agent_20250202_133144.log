@@ -1,0 +1,37 @@
+2025-02-02 13:31:44,965 - utilities.logger - INFO - Logging initialized
+2025-02-02 13:31:44,969 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-02 13:31:44,970 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-02 13:31:44,970 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-02 13:31:58,478 - __main__ - INFO - Discovered 1 potential projects
+2025-02-02 13:31:58,480 - __main__ - INFO - Sending project messages...
+2025-02-02 13:31:58,480 - whatsapp.twilio_client - INFO - Attempting to send message to 2 recipients
+2025-02-02 13:31:58,480 - whatsapp.twilio_client - INFO - Sending to +917715018407...
+2025-02-02 13:31:58,785 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-02 13:31:58,785 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-02 13:31:58,785 - twilio.http_client - INFO - Headers:
+2025-02-02 13:31:58,785 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-02 13:31:58,785 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-02 13:31:58,786 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-02 13:31:58,786 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-02 13:31:58,786 - twilio.http_client - INFO - Accept : application/json
+2025-02-02 13:31:58,786 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-02 13:31:59,298 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-02 13:31:59,299 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '970', 'Connection': 'keep-alive', 'Date': 'Sun, 02 Feb 2025 08:01:59 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ3a391efcfb773b1f24b295715af4ce21', 'Twilio-Request-Duration': '0.124', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 91096edb3275383876c9ba1520a3ee86.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'cC7Y59_fUu1kL-qDldCIF1U7BdNYffTH_mVmndxO_iwBzfIGHw2XWg=='}
+2025-02-02 13:31:59,299 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +917715018407 (SID: SM3a391efcfb773b1f24b295715af4ce21)
+2025-02-02 13:31:59,299 - whatsapp.twilio_client - INFO - Sending to +918484926925...
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - Headers:
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-02 13:31:59,300 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-02 13:31:59,301 - twilio.http_client - INFO - Accept : application/json
+2025-02-02 13:31:59,301 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-02 13:31:59,622 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-02 13:31:59,622 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '970', 'Connection': 'keep-alive', 'Date': 'Sun, 02 Feb 2025 08:01:59 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ3a735c7322e69e9143debb1bc30e9bc1', 'Twilio-Request-Duration': '0.119', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 91096edb3275383876c9ba1520a3ee86.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'A83xzvGVVKpCLtz4dlLKKm-oW7zmoBhURf-0BSKqMTHV8AfOOicV6Q=='}
+2025-02-02 13:31:59,623 - whatsapp.twilio_client - INFO - Successfully sent part 1/1 to +918484926925 (SID: SM3a735c7322e69e9143debb1bc30e9bc1)
+2025-02-02 13:31:59,623 - __main__ - INFO - Sent project message
+2025-02-02 13:31:59,672 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-02 13:31:59,673 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-02 13:31:59,674 - apscheduler.scheduler - INFO - Scheduler started

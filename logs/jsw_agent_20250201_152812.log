@@ -1,0 +1,9 @@
+2025-02-01 15:28:12,656 - utilities.logger - INFO - Logging initialized
+2025-02-01 15:28:12,659 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-01 15:28:12,660 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-01 15:28:12,660 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-01 15:28:35,349 - __main__ - INFO - Discovered 0 potential projects
+2025-02-01 15:28:35,350 - __main__ - WARNING - No projects found - check AI service
+2025-02-01 15:28:35,384 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-01 15:28:35,388 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-01 15:28:35,388 - apscheduler.scheduler - INFO - Scheduler started

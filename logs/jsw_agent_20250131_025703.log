@@ -1,0 +1,9 @@
+2025-01-31 02:57:03,911 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:57:03,918 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:57:03,919 - __main__ - INFO - Initializing components...
+2025-01-31 02:57:03,919 - __main__ - INFO - Starting project scraping...
+2025-01-31 02:57:04,079 - scrapers.base_scraper - ERROR - Error fetching https://www.business-standard.com/companies/news/jsw-steel: 403 Client Error: Forbidden for url: https://www.business-standard.com/companies/news/jsw-steel
+2025-01-31 02:57:04,567 - __main__ - ERROR - No projects were scraped - check scraper configuration
+2025-01-31 02:57:04,685 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:57:04,686 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:57:04,686 - apscheduler.scheduler - INFO - Scheduler started

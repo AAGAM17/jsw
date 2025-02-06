@@ -1,0 +1,11 @@
+2025-01-31 02:58:43,535 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:58:43,541 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:58:43,541 - __main__ - INFO - Initializing components...
+2025-01-31 02:58:43,542 - __main__ - INFO - Starting project scraping...
+2025-01-31 02:58:43,795 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/buzzingstocks.xml
+2025-01-31 02:58:44,000 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/business.xml
+2025-01-31 02:58:44,003 - scrapers.base_scraper - INFO - Found 0 relevant projects/news items
+2025-01-31 02:58:44,003 - __main__ - ERROR - No projects were scraped - check scraper configuration
+2025-01-31 02:58:44,043 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:58:44,043 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:58:44,044 - apscheduler.scheduler - INFO - Scheduler started

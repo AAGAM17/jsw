@@ -1,0 +1,12 @@
+2025-02-03 11:42:15,006 - utilities.logger - INFO - Logging initialized
+2025-02-03 11:42:15,012 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 11:42:15,014 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 11:42:15,014 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 11:42:18,081 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-03 11:42:18,081 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-03 11:42:32,686 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-03 11:42:32,687 - __main__ - INFO - Total unique projects found: 0
+2025-02-03 11:42:32,687 - __main__ - WARNING - No projects found - check sources
+2025-02-03 11:42:32,729 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-03 11:42:32,731 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-03 11:42:32,731 - apscheduler.scheduler - INFO - Scheduler started

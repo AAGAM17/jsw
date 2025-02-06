@@ -1,0 +1,17 @@
+2025-01-31 03:05:56,485 - utilities.logger - INFO - Logging initialized
+2025-01-31 03:05:56,490 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 03:05:56,490 - __main__ - INFO - Initializing components...
+2025-01-31 03:05:56,491 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-01-31 03:05:56,491 - __main__ - INFO - Starting project scraping...
+2025-01-31 03:05:57,106 - scrapers.base_scraper - INFO - Found 0 entries in feed https://www.moneycontrol.com/rss/stocks.xml
+2025-01-31 03:05:57,624 - scrapers.base_scraper - INFO - Found 0 entries in feed https://www.moneycontrol.com/rss/ipo.xml
+2025-01-31 03:05:57,818 - scrapers.base_scraper - INFO - Found 4 entries in feed https://www.moneycontrol.com/rss/technicals.xml
+2025-01-31 03:05:58,013 - scrapers.base_scraper - INFO - Found 0 entries in feed https://www.moneycontrol.com/rss/marketoutlook.xml
+2025-01-31 03:05:58,226 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/commodities.xml
+2025-01-31 03:05:58,230 - scrapers.base_scraper - ERROR - Error parsing feed entry: could not convert string to float: ''
+2025-01-31 03:05:58,420 - scrapers.base_scraper - INFO - Found 2 entries in feed https://www.moneycontrol.com/rss/currency.xml
+2025-01-31 03:05:58,420 - scrapers.base_scraper - INFO - Found 0 relevant projects/news items
+2025-01-31 03:05:58,421 - __main__ - ERROR - No projects were scraped - check scraper configuration
+2025-01-31 03:05:58,463 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 03:05:58,464 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 03:05:58,465 - apscheduler.scheduler - INFO - Scheduler started

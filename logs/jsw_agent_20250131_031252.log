@@ -1,0 +1,86 @@
+2025-01-31 03:12:52,860 - utilities.logger - INFO - Logging initialized
+2025-01-31 03:12:52,865 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 03:12:52,866 - __main__ - INFO - Initializing components...
+2025-01-31 03:12:52,866 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-01-31 03:12:52,866 - __main__ - INFO - Starting project scraping...
+2025-01-31 03:12:53,423 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/buzzingstocks.xml
+2025-01-31 03:12:53,427 - scrapers.base_scraper - INFO - Found relevant article: Gainers and Losers: 10 stocks that moved the most on April 23
+2025-01-31 03:12:53,433 - scrapers.base_scraper - INFO - Found relevant article: Mahindra Logistics falls 1.4% on Rs 11.9 crore net loss in Q4
+2025-01-31 03:12:53,434 - scrapers.base_scraper - INFO - Found relevant article: Hatsun Agro zooms 11% as Q4 net profit doubles at Rs 52 crore
+2025-01-31 03:12:53,435 - scrapers.base_scraper - INFO - Found relevant article: KP Energy locked at 5% upper circuit on 9-MW wind power project contract
+2025-01-31 03:12:53,581 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/business.xml
+2025-01-31 03:12:53,583 - scrapers.base_scraper - INFO - Found relevant article: Tata Elxsi Q4 net profit, revenue decline QoQ; firm declares dividend of Rs 70 per share
+2025-01-31 03:12:53,584 - scrapers.base_scraper - INFO - Found relevant article: ICICI Pru Life Q4 net profit falls 26% to Rs 174 cr, insurer announces dividend
+2025-01-31 03:12:53,585 - scrapers.base_scraper - INFO - Found relevant article: Cyient DLM#39;s profit after tax in FY24 surges 93%
+2025-01-31 03:12:53,586 - scrapers.base_scraper - INFO - Found relevant article: Tata Consumer Q4 net profit falls 19% to Rs 217 cr, firm declares dividend of Rs 7.75 per share
+2025-01-31 03:12:53,587 - scrapers.base_scraper - INFO - Found relevant article: Tata Consumer Q4 net profit falls 19% to Rs 217 cr, firm declares dividend of Rs 7.75 per share
+2025-01-31 03:12:53,589 - scrapers.base_scraper - INFO - Found relevant article: LTIMindtree Q4 Preview: Lower pass-through revenue seen impacting growth marginally
+2025-01-31 03:12:53,717 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/results.xml
+2025-01-31 03:12:53,718 - scrapers.base_scraper - INFO - Found relevant article: JNK India IPO: A strong play on the domestic manufacturing push
+2025-01-31 03:12:53,801 - scrapers.base_scraper - INFO - Found 4 entries in feed https://www.moneycontrol.com/rss/marketreports.xml
+2025-01-31 03:12:53,885 - scrapers.base_scraper - INFO - Found 4 entries in feed https://www.moneycontrol.com/rss/economy.xml
+2025-01-31 03:12:53,985 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/commodities.xml
+2025-01-31 03:12:53,994 - scrapers.base_scraper - ERROR - Error parsing feed entry: could not convert string to float: ''
+2025-01-31 03:12:53,996 - scrapers.base_scraper - INFO - Found relevant article: Precious Metals Weekly Report: Motilal Oswal
+2025-01-31 03:12:53,997 - scrapers.base_scraper - INFO - Found relevant article: Base Metals Weekly Report: Motilal Oswal
+2025-01-31 03:12:53,997 - scrapers.base_scraper - INFO - Found 13 relevant projects/news items
+2025-01-31 03:12:53,998 - __main__ - INFO - Successfully scraped 13 projects
+2025-01-31 03:12:53,998 - __main__ - INFO - Scoring leads...
+2025-01-31 03:12:53,998 - __main__ - INFO - Successfully scored leads. Top score: 77
+2025-01-31 03:12:53,999 - __main__ - INFO - Generating WhatsApp message...
+2025-01-31 03:12:53,999 - __main__ - INFO - Message generated with 10 leads
+2025-01-31 03:12:54,000 - __main__ - INFO - Sending WhatsApp message...
+2025-01-31 03:12:54,000 - whatsapp.twilio_client - INFO - Attempting to send message to 1 recipients
+2025-01-31 03:12:54,001 - whatsapp.twilio_client - INFO - Sending to +917715018407...
+2025-01-31 03:12:54,200 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 03:12:54,201 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 03:12:54,201 - twilio.http_client - INFO - Headers:
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 03:12:54,202 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 03:12:54,626 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 03:12:54,627 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '2875', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:42:54 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ551804f8123aec82ad00320e964680ea', 'Twilio-Request-Duration': '0.138', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dbafddbcafb682eee1d2eb40784fcb06.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '0ux-kxvoNJL2C1Pxq7JCmXvvFXBN2JP2DbXKCCmPONwL_ct8L_49ug=='}
+2025-01-31 03:12:54,627 - whatsapp.twilio_client - INFO - Successfully sent part 1/4 to +917715018407 (SID: SM551804f8123aec82ad00320e964680ea)
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - Headers:
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 03:12:54,628 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 03:12:54,971 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 03:12:54,971 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '2609', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:42:55 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQfe04a8666b4d3faf4fd1828133cfb239', 'Twilio-Request-Duration': '0.134', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dbafddbcafb682eee1d2eb40784fcb06.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'kLgDAD9ScF5HEh2XoxAXI_eumNXv1sES2zaDF-FjIJKhf8lyrjuFqg=='}
+2025-01-31 03:12:54,972 - whatsapp.twilio_client - INFO - Successfully sent part 2/4 to +917715018407 (SID: SMfe04a8666b4d3faf4fd1828133cfb239)
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - Headers:
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 03:12:54,972 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 03:12:54,973 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 03:12:55,301 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 03:12:55,301 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '2539', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:42:55 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ13f9a2a64f68d2a8f70b60dcedfb3bc2', 'Twilio-Request-Duration': '0.120', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dbafddbcafb682eee1d2eb40784fcb06.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '1r5V7b5lYtDrP4N5ZLHkr21QyuptjoDMf2ckhWqBVj8Fsr4sESVqkw=='}
+2025-01-31 03:12:55,302 - whatsapp.twilio_client - INFO - Successfully sent part 3/4 to +917715018407 (SID: SM13f9a2a64f68d2a8f70b60dcedfb3bc2)
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - Headers:
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 03:12:55,302 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 03:12:55,613 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 03:12:55,613 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1179', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:42:55 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ7c190c471d2b90cd4d3f659505e59c97', 'Twilio-Request-Duration': '0.110', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dbafddbcafb682eee1d2eb40784fcb06.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'GCUPo6nL904RswHrYuBpKeSrT_47OGNyqWu4rWcyGwSeJKMQeUj7-A=='}
+2025-01-31 03:12:55,614 - whatsapp.twilio_client - INFO - Successfully sent part 4/4 to +917715018407 (SID: SM7c190c471d2b90cd4d3f659505e59c97)
+2025-01-31 03:12:55,614 - __main__ - INFO - Successfully sent WhatsApp updates
+2025-01-31 03:12:55,656 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 03:12:55,656 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 03:12:55,656 - apscheduler.scheduler - INFO - Scheduler started

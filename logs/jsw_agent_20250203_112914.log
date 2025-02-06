@@ -1,0 +1,16 @@
+2025-02-03 11:29:14,200 - utilities.logger - INFO - Logging initialized
+2025-02-03 11:29:14,204 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 11:29:14,205 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 11:29:14,206 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 11:29:19,193 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-03 11:29:21,099 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-03 11:29:23,248 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-03 11:29:23,250 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-03 11:29:23,250 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-03 11:29:34,162 - scrapers.perplexity_client - ERROR - Error researching projects: 'dict' object has no attribute 'split'
+2025-02-03 11:29:34,163 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-03 11:29:34,163 - __main__ - INFO - Total unique projects found: 0
+2025-02-03 11:29:34,163 - __main__ - WARNING - No projects found - check sources
+2025-02-03 11:29:34,217 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-03 11:29:34,219 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-03 11:29:34,219 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,20 @@
+2025-02-03 14:40:32,207 - utilities.logger - INFO - Logging initialized
+2025-02-03 14:40:32,212 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 14:40:32,213 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 14:40:32,214 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 14:40:35,098 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-03 14:40:35,098 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-03 14:40:35,098 - scrapers.perplexity_client - INFO - Making Perplexity API call...
+2025-02-03 14:40:35,098 - scrapers.perplexity_client - INFO - API URL: https://api.perplexity.ai/chat/completions
+2025-02-03 14:40:35,098 - scrapers.perplexity_client - INFO - Using API Key: pplx-645...
+2025-02-03 14:41:00,466 - scrapers.perplexity_client - INFO - Response Status: 200
+2025-02-03 14:41:00,472 - scrapers.perplexity_client - INFO - Response Headers: {'Date': 'Mon, 03 Feb 2025 09:11:00 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'cf-cache-status': 'DYNAMIC', 'Set-Cookie': '__cf_bm=P2x1RiagN4anLOq7SoWTj6RZEChUYXst4MZ0AzYPpBA-1738573860-1.0.1.1-X90PVKPBSahOkEuXk3wkSHXG0Y8KtVZOba4ppeBVzaQXjUrBLSrqgbIbMY0efihASD32ctA78gl_ZgyyqBRNEw; path=/; expires=Mon, 03-Feb-25 09:41:00 GMT; domain=.perplexity.ai; HttpOnly; Secure; SameSite=None', 'Strict-Transport-Security': 'max-age=15552000; includeSubDomains; preload', 'Server': 'cloudflare', 'CF-RAY': '90c149e5c8313a59-BOM', 'Content-Encoding': 'gzip'}
+2025-02-03 14:41:00,472 - scrapers.perplexity_client - INFO - API Response Content (first 500 chars): Given the specific requirements and the search results provided, there are no projects within the specified range (Rs. 20 Lakhs to Rs. 100 Crores) and timeframe (last 45 days) that involve steel construction and meet all the criteria. The search results provided are mostly about large-scale projects and industry trends rather than specific contract wins within the specified range.
+
+However, to demonstrate the format and provide a relevant example based on the information available, let's conside...
+2025-02-03 14:41:00,473 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-03 14:41:00,473 - __main__ - INFO - Total unique projects found: 0
+2025-02-03 14:41:00,474 - __main__ - WARNING - No projects found - check sources
+2025-02-03 14:41:00,577 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-03 14:41:00,584 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-03 14:41:00,585 - apscheduler.scheduler - INFO - Scheduler started

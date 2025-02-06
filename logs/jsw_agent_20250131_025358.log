@@ -1,0 +1,9 @@
+2025-01-31 02:53:58,365 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:53:58,373 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:53:58,373 - __main__ - INFO - Initializing components...
+2025-01-31 02:53:58,373 - __main__ - INFO - Starting project scraping...
+2025-01-31 02:53:58,398 - scrapers.base_scraper - ERROR - Error fetching https://constructionprojects.gov.in/upcoming-projects: HTTPSConnectionPool(host='constructionprojects.gov.in', port=443): Max retries exceeded with url: /upcoming-projects (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10d1ec6d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-01-31 02:53:58,398 - __main__ - ERROR - No projects were scraped - check scraper configuration
+2025-01-31 02:53:58,448 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:53:58,449 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:53:58,449 - apscheduler.scheduler - INFO - Scheduler started

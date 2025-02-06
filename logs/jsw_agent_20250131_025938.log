@@ -1,0 +1,27 @@
+2025-01-31 02:59:38,956 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:59:38,963 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:59:38,963 - __main__ - INFO - Initializing components...
+2025-01-31 02:59:38,964 - __main__ - INFO - Starting project scraping...
+2025-01-31 02:59:39,159 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/buzzingstocks.xml
+2025-01-31 02:59:39,160 - scrapers.base_scraper - INFO - Found relevant article: Gainers and Losers: 10 stocks that moved the most on April 23
+2025-01-31 02:59:39,245 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/business.xml
+2025-01-31 02:59:39,249 - scrapers.base_scraper - INFO - Found 1 relevant projects/news items
+2025-01-31 02:59:39,250 - __main__ - INFO - Successfully scraped 1 projects
+2025-01-31 02:59:39,250 - __main__ - INFO - Scoring leads...
+2025-01-31 02:59:39,251 - __main__ - INFO - Successfully scored leads. Top score: 44
+2025-01-31 02:59:39,251 - __main__ - INFO - Sending WhatsApp message...
+2025-01-31 02:59:39,463 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 02:59:39,463 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 02:59:39,463 - twilio.http_client - INFO - Headers:
+2025-01-31 02:59:39,464 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 02:59:39,464 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 02:59:39,464 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 02:59:39,464 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 02:59:39,465 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 02:59:39,465 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 02:59:40,072 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 02:59:40,072 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1022', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:29:40 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ6521d9cd9e100874ab2c7d0016cc9deb', 'Twilio-Request-Duration': '0.158', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 91006f46dbd24a109160583f4b3c096a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '356owsggUEzDxn-C_NZGIV0d37_xsvPhBiWFcH7bj9vDXmkw8Nzh4w=='}
+2025-01-31 02:59:40,072 - __main__ - INFO - Successfully sent WhatsApp updates
+2025-01-31 02:59:40,108 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:59:40,109 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:59:40,109 - apscheduler.scheduler - INFO - Scheduler started

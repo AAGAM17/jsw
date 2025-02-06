@@ -1,0 +1,16 @@
+2025-02-03 14:29:48,166 - utilities.logger - INFO - Logging initialized
+2025-02-03 14:29:48,170 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 14:29:48,172 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 14:29:48,173 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 14:29:51,343 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-03 14:29:51,344 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-03 14:29:52,025 - scrapers.perplexity_client - ERROR - Perplexity API error: 400 Client Error: Bad Request for url: https://api.perplexity.ai/chat/completions
+2025-02-03 14:29:52,026 - scrapers.perplexity_client - ERROR - Response status code: 400
+2025-02-03 14:29:52,026 - scrapers.perplexity_client - ERROR - Response content: {"error":{"message":"Invalid model 'mixtral-8x7b-instruct'. Permitted models can be found in the documentation at https://docs.perplexity.ai/guides/model-cards.","type":"invalid_model","code":400}}
+2025-02-03 14:29:52,026 - scrapers.perplexity_client - ERROR - Error researching projects: 400 Client Error: Bad Request for url: https://api.perplexity.ai/chat/completions
+2025-02-03 14:29:52,026 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-03 14:29:52,027 - __main__ - INFO - Total unique projects found: 0
+2025-02-03 14:29:52,027 - __main__ - WARNING - No projects found - check sources
+2025-02-03 14:29:52,080 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-03 14:29:52,082 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-03 14:29:52,082 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,11 @@
+2025-02-01 01:36:44,189 - utilities.logger - INFO - Logging initialized
+2025-02-01 01:36:44,199 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-01 01:36:44,200 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-01 01:36:44,200 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-01 01:36:44,694 - scrapers.perplexity_client - ERROR - Perplexity API error: 400 Client Error: Bad Request for url: https://api.perplexity.ai/chat/completions
+2025-02-01 01:36:44,694 - scrapers.perplexity_client - ERROR - Error researching infrastructure projects: 400 Client Error: Bad Request for url: https://api.perplexity.ai/chat/completions
+2025-02-01 01:36:44,695 - __main__ - INFO - Discovered 0 potential projects
+2025-02-01 01:36:44,695 - __main__ - WARNING - No projects found - check AI service
+2025-02-01 01:36:44,819 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-01 01:36:44,827 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-01 01:36:44,828 - apscheduler.scheduler - INFO - Scheduler started

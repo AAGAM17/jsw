@@ -1,0 +1,10 @@
+2025-02-01 16:12:00,448 - utilities.logger - INFO - Logging initialized
+2025-02-01 16:12:00,452 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-01 16:12:00,452 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-01 16:12:00,453 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-01 16:12:15,974 - scrapers.perplexity_client - ERROR - Error parsing project results: time data 'January 26, 2025' does not match format '%B %Y'
+2025-02-01 16:12:25,972 - __main__ - INFO - Discovered 0 potential projects
+2025-02-01 16:12:25,973 - __main__ - WARNING - No projects found - check AI service
+2025-02-01 16:12:26,024 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-01 16:12:26,026 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-01 16:12:26,026 - apscheduler.scheduler - INFO - Scheduler started

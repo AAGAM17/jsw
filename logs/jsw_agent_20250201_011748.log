@@ -1,0 +1,15 @@
+2025-02-01 01:17:48,549 - utilities.logger - INFO - Logging initialized
+2025-02-01 01:17:48,557 - __main__ - INFO - Starting infrastructure project research pipeline...
+2025-02-01 01:17:48,557 - __main__ - INFO - Initializing components...
+2025-02-01 01:17:48,557 - scrapers.infra_scraper - WARNING - No existing projects database found
+2025-02-01 01:17:48,557 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-01 01:17:48,558 - __main__ - INFO - Researching latest infrastructure projects...
+2025-02-01 01:18:13,273 - __main__ - INFO - Found 0 projects from news research
+2025-02-01 01:18:13,274 - __main__ - INFO - Scraping infrastructure websites...
+2025-02-01 01:18:14,183 - scrapers.infra_scraper - ERROR - Error fetching https://www.bmrc.co.in/tenders: HTTPSConnectionPool(host='www.bmrc.co.in', port=443): Max retries exceeded with url: /tenders (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1002)')))
+2025-02-01 01:18:14,214 - scrapers.infra_scraper - ERROR - Error fetching https://www.tenders.gov.in: HTTPSConnectionPool(host='www.tenders.gov.in', port=443): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x113bcba10>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-01 01:18:14,455 - __main__ - INFO - Found 0 projects from website scraping
+2025-02-01 01:18:14,455 - __main__ - ERROR - No projects were found - check sources and filters
+2025-02-01 01:18:14,550 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-01 01:18:14,553 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-01 01:18:14,555 - apscheduler.scheduler - INFO - Scheduler started

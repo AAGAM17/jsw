@@ -1,0 +1,17 @@
+2025-02-01 01:41:27,623 - utilities.logger - INFO - Logging initialized
+2025-02-01 01:41:27,629 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-01 01:41:27,630 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-01 01:41:27,630 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-01 01:42:04,049 - __main__ - INFO - Discovered 2 potential projects
+2025-02-01 01:42:04,050 - __main__ - ERROR - Pipeline failed: division by zero
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/main.py", line 31, in run_pipeline
+    sorted_projects = sorted(
+                      ^^^^^^^
+  File "/Users/aagamshah/React/jsw/main.py", line 34, in <lambda>
+    1 / ((x.get('start_date', datetime.now()) - datetime.now()).days + 1) * Config.PRIORITY_WEIGHTS['time_factor'] +
+    ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ZeroDivisionError: division by zero
+2025-02-01 01:42:04,097 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-01 01:42:04,100 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-01 01:42:04,100 - apscheduler.scheduler - INFO - Scheduler started

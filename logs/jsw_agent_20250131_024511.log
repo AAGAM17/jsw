@@ -1,0 +1,4 @@
+2025-01-31 02:45:11,809 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:45:11,850 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:45:11,850 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:45:11,851 - apscheduler.scheduler - INFO - Scheduler started

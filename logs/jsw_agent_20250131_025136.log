@@ -1,0 +1,19 @@
+2025-01-31 02:51:36,354 - utilities.logger - INFO - Logging initialized
+2025-01-31 02:51:36,363 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 02:51:36,411 - scrapers.base_scraper - ERROR - Error fetching https://constructionprojects.gov.in/upcoming-projects: HTTPSConnectionPool(host='constructionprojects.gov.in', port=443): Max retries exceeded with url: /upcoming-projects (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10c374410>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-01-31 02:51:36,411 - __main__ - INFO - Scraped 0 projects
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - Headers:
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 02:51:36,630 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 02:51:36,631 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 02:51:36,631 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 02:51:36,631 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 02:51:37,370 - twilio.http_client - INFO - Response Status Code: 201
+2025-01-31 02:51:37,371 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '868', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:21:37 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ91cdea4a046fc96433b2b2a80d8ce7bb', 'Twilio-Request-Duration': '0.138', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a350b33d1751e84a40e7bb071a6e78f2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'TLGYg1LpPxsJXryoPZJGk0NOyNPDdWo3-ZW1SDSkGKP0kpkk_hcvXQ=='}
+2025-01-31 02:51:37,371 - __main__ - INFO - Successfully sent WhatsApp updates
+2025-01-31 02:51:37,419 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 02:51:37,420 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 02:51:37,420 - apscheduler.scheduler - INFO - Scheduler started

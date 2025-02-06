@@ -1,0 +1,63 @@
+2025-01-31 03:12:10,411 - utilities.logger - INFO - Logging initialized
+2025-01-31 03:12:10,416 - __main__ - INFO - Starting scraping pipeline...
+2025-01-31 03:12:10,417 - __main__ - INFO - Initializing components...
+2025-01-31 03:12:10,417 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-01-31 03:12:10,417 - __main__ - INFO - Starting project scraping...
+2025-01-31 03:12:10,564 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/buzzingstocks.xml
+2025-01-31 03:12:10,568 - scrapers.base_scraper - INFO - Found relevant article: Gainers and Losers: 10 stocks that moved the most on April 23
+2025-01-31 03:12:10,570 - scrapers.base_scraper - INFO - Found relevant article: Mahindra Logistics falls 1.4% on Rs 11.9 crore net loss in Q4
+2025-01-31 03:12:10,571 - scrapers.base_scraper - INFO - Found relevant article: Hatsun Agro zooms 11% as Q4 net profit doubles at Rs 52 crore
+2025-01-31 03:12:10,572 - scrapers.base_scraper - INFO - Found relevant article: KP Energy locked at 5% upper circuit on 9-MW wind power project contract
+2025-01-31 03:12:10,653 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/business.xml
+2025-01-31 03:12:10,654 - scrapers.base_scraper - INFO - Found relevant article: Tata Elxsi Q4 net profit, revenue decline QoQ; firm declares dividend of Rs 70 per share
+2025-01-31 03:12:10,655 - scrapers.base_scraper - INFO - Found relevant article: ICICI Pru Life Q4 net profit falls 26% to Rs 174 cr, insurer announces dividend
+2025-01-31 03:12:10,656 - scrapers.base_scraper - INFO - Found relevant article: Cyient DLM#39;s profit after tax in FY24 surges 93%
+2025-01-31 03:12:10,657 - scrapers.base_scraper - INFO - Found relevant article: Tata Consumer Q4 net profit falls 19% to Rs 217 cr, firm declares dividend of Rs 7.75 per share
+2025-01-31 03:12:10,657 - scrapers.base_scraper - INFO - Found relevant article: Tata Consumer Q4 net profit falls 19% to Rs 217 cr, firm declares dividend of Rs 7.75 per share
+2025-01-31 03:12:10,658 - scrapers.base_scraper - INFO - Found relevant article: LTIMindtree Q4 Preview: Lower pass-through revenue seen impacting growth marginally
+2025-01-31 03:12:10,737 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/results.xml
+2025-01-31 03:12:10,740 - scrapers.base_scraper - INFO - Found relevant article: JNK India IPO: A strong play on the domestic manufacturing push
+2025-01-31 03:12:10,808 - scrapers.base_scraper - INFO - Found 4 entries in feed https://www.moneycontrol.com/rss/marketreports.xml
+2025-01-31 03:12:10,896 - scrapers.base_scraper - INFO - Found 4 entries in feed https://www.moneycontrol.com/rss/economy.xml
+2025-01-31 03:12:10,966 - scrapers.base_scraper - INFO - Found 15 entries in feed https://www.moneycontrol.com/rss/commodities.xml
+2025-01-31 03:12:10,968 - scrapers.base_scraper - ERROR - Error parsing feed entry: could not convert string to float: ''
+2025-01-31 03:12:10,969 - scrapers.base_scraper - INFO - Found relevant article: Precious Metals Weekly Report: Motilal Oswal
+2025-01-31 03:12:10,969 - scrapers.base_scraper - INFO - Found relevant article: Base Metals Weekly Report: Motilal Oswal
+2025-01-31 03:12:10,969 - scrapers.base_scraper - INFO - Found 13 relevant projects/news items
+2025-01-31 03:12:10,969 - __main__ - INFO - Successfully scraped 13 projects
+2025-01-31 03:12:10,969 - __main__ - INFO - Scoring leads...
+2025-01-31 03:12:10,969 - __main__ - INFO - Successfully scored leads. Top score: 77
+2025-01-31 03:12:10,969 - __main__ - INFO - Generating WhatsApp message...
+2025-01-31 03:12:10,969 - __main__ - INFO - Message generated with 10 leads
+2025-01-31 03:12:10,970 - __main__ - INFO - Sending WhatsApp message...
+2025-01-31 03:12:10,970 - whatsapp.twilio_client - INFO - Attempting to send message to 1 recipients
+2025-01-31 03:12:10,970 - whatsapp.twilio_client - INFO - Sending to +917715018407...
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - Headers:
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-01-31 03:12:11,100 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-01-31 03:12:11,101 - twilio.http_client - INFO - Accept : application/json
+2025-01-31 03:12:11,101 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-01-31 03:12:11,475 - twilio.http_client - INFO - Response Status Code: 400
+2025-01-31 03:12:11,476 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '157', 'Connection': 'keep-alive', 'Date': 'Thu, 30 Jan 2025 21:42:11 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '21617', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ1fed4493b66cbdcaaa643aac134a3070', 'Twilio-Request-Duration': '0.037', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 3c86c5186dfe637d7fd21d72eed4fdaa.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'JADvatRIL7B3nw7g4Bdzb343dBscYxjUZU-bi0zJP5SAdn17G2pvlA=='}
+2025-01-31 03:12:11,477 - whatsapp.twilio_client - ERROR - Twilio error sending to +917715018407: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: The concatenated message body exceeds the 1600 character limit[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/21617[0m
+
+
+2025-01-31 03:12:11,477 - __main__ - ERROR - Failed to send WhatsApp messages
+2025-01-31 03:12:11,533 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-31 03:12:11,534 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-01-31 03:12:11,534 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,32 @@
+2025-02-03 11:36:43,938 - utilities.logger - INFO - Logging initialized
+2025-02-03 11:36:43,943 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-03 11:36:43,944 - whatsapp.twilio_client - INFO - Successfully initialized Twilio client
+2025-02-03 11:36:43,944 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-03 11:36:48,698 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-03 11:36:50,915 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-03 11:36:52,726 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-03 11:36:54,811 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/project-updates: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/project-updates
+2025-02-03 11:36:57,398 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/business: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/business
+2025-02-03 11:37:06,197 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders/page/2
+2025-02-03 11:37:08,453 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts/page/2
+2025-02-03 11:37:12,789 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-03 11:37:15,152 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-03 11:37:17,673 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-03 11:37:20,423 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/project-updates: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/project-updates
+2025-02-03 11:37:22,954 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/business: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/business
+2025-02-03 11:37:31,156 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders/page/2
+2025-02-03 11:37:33,129 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts/page/2
+2025-02-03 11:37:38,220 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-03 11:37:40,278 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-03 11:37:42,605 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-03 11:37:45,011 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/project-updates: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/project-updates
+2025-02-03 11:37:47,570 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/business: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/business
+2025-02-03 11:37:56,753 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders/page/2
+2025-02-03 11:37:59,099 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts/page/2
+2025-02-03 11:38:04,115 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-03 11:38:06,276 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-03 11:38:08,582 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-03 11:38:10,393 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/project-updates: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/project-updates
+2025-02-03 11:38:12,161 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/business: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/business
+2025-02-03 11:38:21,168 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders/page/2
+2025-02-03 11:38:23,742 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts/page/2: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts/page/2
