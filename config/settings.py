@@ -1,6 +1,6 @@
 import os
-from dotenv import load_dotenv # type: ignore
-from fake_useragent import UserAgent # type: ignore
+from dotenv import load_dotenv
+from fake_useragent import UserAgent
 
 load_dotenv()
 
@@ -8,18 +8,11 @@ class Config:
     # API Keys
     PERPLEXITY_API_KEY = os.getenv('PERPLEXITY_API_KEY')
     
-    # Twilio
-    TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
-    TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
-    WHATSAPP_FROM = os.getenv('WHATSAPP_FROM')
-    RECIPIENTS = os.getenv('RECIPIENTS').split(',')
-    
     # Email Configuration
     EMAIL_SMTP_SERVER = os.getenv('EMAIL_SMTP_SERVER', 'smtp.gmail.com')
     EMAIL_SMTP_PORT = int(os.getenv('EMAIL_SMTP_PORT', '587'))
     EMAIL_SENDER = os.getenv('EMAIL_SENDER')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
-    EMAIL_RECIPIENTS = os.getenv('EMAIL_RECIPIENTS', '').split(',')
     
     # Team Email Configuration
     TEAM_EMAILS = {

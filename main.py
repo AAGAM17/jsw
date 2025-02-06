@@ -1,8 +1,7 @@
 import logging
-from apscheduler.schedulers.blocking import BlockingScheduler # type: ignore
+from apscheduler.schedulers.blocking import BlockingScheduler
 from scrapers.perplexity_client import PerplexityClient
 from scrapers.metro_scraper import MetroScraper
-from whatsapp.twilio_client import TwilioClient
 from utilities.email_handler import EmailHandler
 from utilities.logger import configure_logging
 from datetime import datetime
@@ -19,7 +18,6 @@ def run_pipeline():
         # Initialize components
         perplexity = PerplexityClient()
         metro_scraper = MetroScraper()
-        whatsapp = TwilioClient()
         email_handler = EmailHandler()
         
         # Get projects from both sources
@@ -62,29 +60,6 @@ def run_pipeline():
             return time_score + value_score
         
         sorted_projects = sorted(all_projects, key=priority_score, reverse=True)
-        
-        # Send notifications
-        logger.info("Sending notifications...")
-        
-        # Send WhatsApp messages to general recipients
-        if Config.RECIPIENTS:
-            for project in sorted_projects:
-                if project.get('company') and project.get('value'):
-                    project_message = (
-                        f"*{project['company']} wins {project['title']}*\n\n"
-                        f"Project is going to start from {project.get('start_date', datetime.now()).strftime('%B %Y')} "
-                        f"and end by {project.get('end_date', datetime.now()).strftime('%B %Y')}.\n\n"
-                        f"Contract Value: Rs. {project.get('value', 0):,.0f} Cr\n"
-                        f"Est. Steel Requirement: {project.get('steel_requirement', 0):,.0f} MT\n\n"
-                    )
-                    
-                    if project.get('source_url'):
-                        project_message += f"Source: {project['source_url']}"
-                    elif project.get('announcement_url'):
-                        project_message += f"Source: {project['announcement_url']}"
-                    
-                    whatsapp.send_whatsapp(project_message)
-                    logger.info("Sent WhatsApp message")
         
         # Send team-specific emails
         logger.info("Sending team-specific emails...")
