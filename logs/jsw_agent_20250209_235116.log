@@ -1,0 +1,1339 @@
+2025-02-09 23:51:16,653 - utilities.logger - INFO - Logging initialized
+2025-02-09 23:51:16,668 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 23:51:16,669 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 23:51:18,905 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 23:51:19,129 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 23:51:19,129 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 23:51:24,064 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 23:51:25,964 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 23:51:27,878 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 23:51:27,878 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 23:51:27,878 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 23:51:27,878 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 23:51:28,318 - scrapers.perplexity_client - WARNING - Attempt 1/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-09 23:51:29,648 - scrapers.perplexity_client - WARNING - Attempt 2/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-09 23:51:31,910 - scrapers.perplexity_client - WARNING - Attempt 3/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-09 23:51:31,911 - scrapers.perplexity_client - ERROR - Error researching projects: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 66, in research_infrastructure_projects
+    results = self._query_perplexity(primary_query)
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 167, in _query_perplexity
+    raise Exception(f"All retries failed. Last error: {last_error}")
+Exception: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-09 23:51:31,915 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-09 23:51:31,915 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 23:51:31,915 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 23:51:32,021 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 23:51:32,131 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins India
+2025-02-09 23:51:32,224 - __main__ - INFO - Searching SERP API for: EPC Contract Wins India
+2025-02-09 23:51:32,332 - __main__ - INFO - Searching SERP API for: Infrastructure project awarded India
+2025-02-09 23:51:32,466 - __main__ - INFO - Searching SERP API for: Construction contract awarded India
+2025-02-09 23:51:32,562 - __main__ - INFO - Found 181 unique results from SERP API
+2025-02-09 23:51:32,563 - __main__ - INFO - Found 181 projects from SERP API
+2025-02-09 23:51:32,563 - __main__ - INFO - Processing 181 projects for quality filtering...
+2025-02-09 23:51:32,571 - __main__ - INFO - Adding quality project: Rail Analysis India – Gateway to the Rail & Metro Sector of India (Rs. 0 Cr)
+2025-02-09 23:51:32,572 - __main__ - INFO - Adding quality project: eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,573 - __main__ - INFO - Adding quality project: Metro Rail News: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,573 - __main__ - INFO - Adding quality project: NTPC Limited eProcurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,576 - __main__ - INFO - Adding quality project: India Strategic: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,576 - __main__ - INFO - Adding quality project: Operational Metro Projects (Rs. 0 Cr)
+2025-02-09 23:51:32,582 - __main__ - INFO - Adding quality project: Press Information Bureau (Rs. 0 Cr)
+2025-02-09 23:51:32,582 - __main__ - INFO - Adding quality project: Smartequity (Rs. 0 Cr)
+2025-02-09 23:51:32,583 - __main__ - INFO - Adding quality project: PSU Connect (Rs. 0 Cr)
+2025-02-09 23:51:32,584 - __main__ - INFO - Adding quality project: eProcurement System Government of Himachal Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,584 - __main__ - INFO - Adding quality project: News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 23:51:32,589 - __main__ - INFO - Adding quality project: sidhi,madhya pradesh,india tenders. (Rs. 0 Cr)
+2025-02-09 23:51:32,590 - __main__ - INFO - Adding quality project: Defence News - The Economic Times (Rs. 0 Cr)
+2025-02-09 23:51:32,591 - __main__ - INFO - Adding quality project: Breaking News Today, Top Headlines, Live Updates (Rs. 0 Cr)
+2025-02-09 23:51:32,593 - __main__ - INFO - Adding quality project: India News Live. India news headlines today (Rs. 0 Cr)
+2025-02-09 23:51:32,597 - __main__ - INFO - Adding quality project: Judiciary Mains Exam Papers Daily Questions For Judicial ... (Rs. 0 Cr)
+2025-02-09 23:51:32,597 - __main__ - INFO - Adding quality project: Fabrication Work Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,598 - __main__ - INFO - Adding quality project: Fresh Applications (Rs. 0 Cr)
+2025-02-09 23:51:32,601 - __main__ - INFO - Adding quality project: Jamshedpur Latest News | News In English - Page 6488 (Rs. 0 Cr)
+2025-02-09 23:51:32,604 - __main__ - INFO - Adding quality project: Streamline Operations with Offline Sales Management ... (Rs. 0 Cr)
+2025-02-09 23:51:32,605 - __main__ - INFO - Adding quality project: Tablet Computers Tenders | Tablet Computers Government ... (Rs. 0 Cr)
+2025-02-09 23:51:32,606 - __main__ - INFO - Adding quality project: https://www.punjabkesari.in/sitemap-national.xml.gz (Rs. 0 Cr)
+2025-02-09 23:51:32,606 - __main__ - INFO - Adding quality project: Crane Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,607 - __main__ - INFO - Adding quality project: WeRIndia: Top news India | Breaking news stories | Latest ... (Rs. 0 Cr)
+2025-02-09 23:51:32,608 - __main__ - INFO - Adding quality project: The Navhind Times | Goa News | Covering Goa since 1963 | Goa News (Rs. 0 Cr)
+2025-02-09 23:51:32,609 - __main__ - INFO - Adding quality project: Mumbai Exit On Mumbai-Pune Expressway To Remain Closed For Six Months. Check Alternative Route (Rs. 0 Cr)
+2025-02-09 23:51:32,612 - __main__ - INFO - Adding quality project: Kota Man 'Buys' Railway Job For Wife, Reports It After She Leaves Him; CBI Probe Unveils Recrui (Rs. 0 Cr)
+2025-02-09 23:51:32,614 - __main__ - INFO - Adding quality project: Tenders/Auctions (Rs. 0 Cr)
+2025-02-09 23:51:32,616 - __main__ - INFO - Adding quality project: eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,617 - __main__ - INFO - Adding quality project: tenders & business options (Rs. 0 Cr)
+2025-02-09 23:51:32,620 - __main__ - INFO - Adding quality project: Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,624 - __main__ - INFO - Adding quality project: eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,624 - __main__ - INFO - Adding quality project: eProcurement System Government of Tamil Nadu (Rs. 0 Cr)
+2025-02-09 23:51:32,626 - __main__ - INFO - Adding quality project: Transportation Industry News, Transportation Sector Latest ... (Rs. 0 Cr)
+2025-02-09 23:51:32,627 - __main__ - INFO - Adding quality project: News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 23:51:32,628 - __main__ - INFO - Adding quality project: ping test port | Get ₹400 When You Improve Security 17+ (Rs. 0 Cr)
+2025-02-09 23:51:32,630 - __main__ - INFO - Adding quality project: Jawaharlal Nehru Technological University Kakinada (Rs. 0 Cr)
+2025-02-09 23:51:32,630 - __main__ - INFO - Adding quality project: wii sports resort games ranked | Android IOS V- 6.75 (Rs. 0 Cr)
+2025-02-09 23:51:32,632 - __main__ - INFO - Adding quality project: Latest Tech News and Technology New Headlines India ... (Rs. 0 Cr)
+2025-02-09 23:51:32,633 - __main__ - INFO - Adding quality project: Mobile Application Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,635 - __main__ - INFO - Adding quality project: SBI Recruitment 2025 for Internal Ombudsman (IO) Post (Rs. 0 Cr)
+2025-02-09 23:51:32,636 - __main__ - INFO - Adding quality project: DD News (Rs. 0 Cr)
+2025-02-09 23:51:32,638 - __main__ - INFO - Adding quality project: 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada (Rs. 0 Cr)
+2025-02-09 23:51:32,639 - __main__ - INFO - Adding quality project: 2025 Doing Business with DRPA A.C.E. Series - Inside the DRPA (Rs. 0 Cr)
+2025-02-09 23:51:32,640 - __main__ - INFO - Adding quality project: Urdu Duniya News | Latest urdu news | latest urdu news portal (Rs. 0 Cr)
+2025-02-09 23:51:32,641 - __main__ - INFO - Adding quality project: News & Press Releases (Rs. 0 Cr)
+2025-02-09 23:51:32,642 - __main__ - INFO - Adding quality project: Jamshedpur Latest News | News In English - Page 6486 (Rs. 0 Cr)
+2025-02-09 23:51:32,646 - __main__ - INFO - Adding quality project: Lucknow - Times of India (Rs. 0 Cr)
+2025-02-09 23:51:32,647 - __main__ - INFO - Adding quality project: IANS LIVE- (Rs. 0 Cr)
+2025-02-09 23:51:32,648 - __main__ - INFO - Adding quality project: Adam Zampa – Latest Cricket News and Articles 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,649 - __main__ - INFO - Adding quality project: Bush Radio (Rs. 0 Cr)
+2025-02-09 23:51:32,650 - __main__ - INFO - Adding quality project: Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address (Rs. 0 Cr)
+2025-02-09 23:51:32,651 - __main__ - INFO - Adding quality project: Construction Xperts - Expert in Construction & Civil Industry (Rs. 0 Cr)
+2025-02-09 23:51:32,652 - __main__ - INFO - Adding quality project: eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,653 - __main__ - INFO - Adding quality project: NTPC Limited eProcurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,653 - __main__ - INFO - Adding quality project: Ashoka Buildcon Share Price NSE/BSE (Rs. 0 Cr)
+2025-02-09 23:51:32,653 - __main__ - INFO - Adding quality project: SEPC Share Price NSE/BSE - SEPC Stock Price Live Today (Rs. 0 Cr)
+2025-02-09 23:51:32,653 - __main__ - INFO - Adding quality project: Earth Work Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,653 - __main__ - INFO - Adding quality project: Projects & Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,654 - __main__ - INFO - Adding quality project: 'Complete Mir Alam Lake bridge in 30 months': CM ... (Rs. 0 Cr)
+2025-02-09 23:51:32,654 - __main__ - INFO - Adding quality project: India's First Vertical Lift Railway Bridge to Open in ... - The Hawk (Rs. 0 Cr)
+2025-02-09 23:51:32,655 - __main__ - INFO - Adding quality project: PM Narendra Modi Launches Key Urban Development ... (Rs. 0 Cr)
+2025-02-09 23:51:32,655 - __main__ - INFO - Adding quality project: Government eProcurement System (Rs. 0 Cr)
+2025-02-09 23:51:32,656 - __main__ - INFO - Adding quality project: All Press Release: Press Information Bureau (Rs. 0 Cr)
+2025-02-09 23:51:32,656 - __main__ - INFO - Adding quality project: eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,656 - __main__ - INFO - Adding quality project: Infra stock with orderbook 253% higher than its market cap ... (Rs. 0 Cr)
+2025-02-09 23:51:32,657 - __main__ - INFO - Adding quality project: CS reviews development of tourism infrastructure under ... (Rs. 0 Cr)
+2025-02-09 23:51:32,657 - __main__ - INFO - Adding quality project: Government eProcurement System (Rs. 0 Cr)
+2025-02-09 23:51:32,657 - __main__ - INFO - Adding quality project: India embraces AI companies, regulation takes a back seat (Rs. 0 Cr)
+2025-02-09 23:51:32,657 - __main__ - INFO - Adding quality project: Latest Events / News (Rs. 0 Cr)
+2025-02-09 23:51:32,657 - __main__ - INFO - Adding quality project: Tender - AMC (Rs. 0 Cr)
+2025-02-09 23:51:32,658 - __main__ - INFO - Adding quality project: eProcurement System Government of Jammu And Kashmir (Rs. 0 Cr)
+2025-02-09 23:51:32,659 - __main__ - INFO - Adding quality project: CSIR - IMMT | Institute of Minerals and Materials Technology ... (Rs. 0 Cr)
+2025-02-09 23:51:32,659 - __main__ - INFO - Adding quality project: BuiltIndia - Gujarat leading building and construction ... (Rs. 0 Cr)
+2025-02-09 23:51:32,659 - __main__ - INFO - Adding quality project: Belagavi infra: Belagavi Latest News | Belagavi | Belgaum (Rs. 0 Cr)
+2025-02-09 23:51:32,660 - __main__ - INFO - Adding quality project: National Institute of Rural Development and Panchayati Raj ... (Rs. 0 Cr)
+2025-02-09 23:51:32,660 - __main__ - INFO - Adding quality project: FICCI : Industry's Voice for Policy Change (Rs. 0 Cr)
+2025-02-09 23:51:32,662 - __main__ - INFO - Adding quality project: eProcurement System Government of Madhya Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,662 - __main__ - INFO - Adding quality project: ITI Limited Tender Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,663 - __main__ - INFO - Adding quality project: Read and Discover Latest News on Indian Economy ... (Rs. 0 Cr)
+2025-02-09 23:51:32,663 - __main__ - INFO - Adding quality project: Google Ready To Spend Rs 6 Lakh Crore To Win The AI ... (Rs. 0 Cr)
+2025-02-09 23:51:32,663 - __main__ - INFO - Adding quality project: Tenders Notice (Rs. 0 Cr)
+2025-02-09 23:51:32,663 - __main__ - INFO - Adding quality project: Tenders | Employee's State Insurance Corporation, Ministry ... (Rs. 0 Cr)
+2025-02-09 23:51:32,664 - __main__ - INFO - Adding quality project: Advertisement for Recruitment to Project Posts Consultant ... (Rs. 0 Cr)
+2025-02-09 23:51:32,664 - __main__ - INFO - Adding quality project: United for Road Safety Project (Rs. 0 Cr)
+2025-02-09 23:51:32,665 - __main__ - INFO - Adding quality project: Export Promotion Council for Handicrafts (EPCH ... (Rs. 0 Cr)
+2025-02-09 23:51:32,665 - __main__ - INFO - Adding quality project: Stocks in Focus: Jai Balaji & 9 other companies that will ... (Rs. 0 Cr)
+2025-02-09 23:51:32,667 - __main__ - INFO - Adding quality project: Confederation of Indian Industry (Rs. 0 Cr)
+2025-02-09 23:51:32,667 - __main__ - INFO - Adding quality project: Company Details | Corporates | Metropolitan Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,667 - __main__ - INFO - Adding quality project: PHCET | Pillai HOC College of Engineering and Technology (Rs. 0 Cr)
+2025-02-09 23:51:32,667 - __main__ - INFO - Adding quality project: M3M India Pvt Ltd Gurgaon (Rs. 0 Cr)
+2025-02-09 23:51:32,670 - __main__ - INFO - Adding quality project: IIT Delhi: Home Page (Rs. 0 Cr)
+2025-02-09 23:51:32,670 - __main__ - INFO - Adding quality project: Announcement | Jawaharlal Institute of Postgraduate ... (Rs. 0 Cr)
+2025-02-09 23:51:32,671 - __main__ - INFO - Adding quality project: Wire and Cable Industry News (Rs. 0 Cr)
+2025-02-09 23:51:32,671 - __main__ - INFO - Adding quality project: News Archives - National Law School of India University (Rs. 0 Cr)
+2025-02-09 23:51:32,671 - __main__ - INFO - Adding quality project: Amendment of clause 15 (Rs. 0 Cr)
+2025-02-09 23:51:32,672 - __main__ - INFO - Adding quality project: Bihar Agricultural University (Rs. 0 Cr)
+2025-02-09 23:51:32,672 - __main__ - INFO - Adding quality project: About Us | Guwahati Off-Campus (Rs. 0 Cr)
+2025-02-09 23:51:32,672 - __main__ - INFO - Adding quality project: Screen Reader Accessibilty | Punjab National Bank (Rs. 0 Cr)
+2025-02-09 23:51:32,672 - __main__ - INFO - Adding quality project: ANI Business News - India Stock Market, Sensex ... (Rs. 0 Cr)
+2025-02-09 23:51:32,673 - __main__ - INFO - Adding quality project: Our Navigators / The Official Website of CSIR-National ... (Rs. 0 Cr)
+2025-02-09 23:51:32,673 - __main__ - INFO - Adding quality project: Literary- केंद्रीय यूनानी चिकित्सा अनुसंधान परिषद | ... (Rs. 0 Cr)
+2025-02-09 23:51:32,673 - __main__ - INFO - Adding quality project: CVR College of Engineering (Rs. 0 Cr)
+2025-02-09 23:51:32,673 - __main__ - INFO - Adding quality project: Jbm Auto Ltd vs Uravi Defence Technology Ltd Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,673 - __main__ - INFO - Adding quality project: Exam Schedule, Guidelines & Circulars (Rs. 0 Cr)
+2025-02-09 23:51:32,674 - __main__ - INFO - Adding quality project: ARMY INSTITUTE OF MANAGEMENT – KOLKATA (ISO 9001 ... (Rs. 0 Cr)
+2025-02-09 23:51:32,675 - __main__ - INFO - Adding quality project: Himachal Pradesh Government (Rs. 127.09 Cr)
+2025-02-09 23:51:32,675 - __main__ - INFO - Adding quality project: Enewstime.in (Rs. 0 Cr)
+2025-02-09 23:51:32,675 - __main__ - INFO - Adding quality project: Tenders Archive (Rs. 0 Cr)
+2025-02-09 23:51:32,676 - __main__ - INFO - Adding quality project: News & Announcements (Rs. 0 Cr)
+2025-02-09 23:51:32,676 - __main__ - INFO - Adding quality project: Science & Technology Current Affairs (Rs. 0 Cr)
+2025-02-09 23:51:32,676 - __main__ - INFO - Adding quality project: Sushant Golf City Levana Group Lucknow (Rs. 0 Cr)
+2025-02-09 23:51:32,677 - __main__ - INFO - Adding quality project: Notices | K.J Somaiya College of Arts and Commerce, Mumbai ... (Rs. 0 Cr)
+2025-02-09 23:51:32,677 - __main__ - INFO - Adding quality project: Faculty positions (Rs. 0 Cr)
+2025-02-09 23:51:32,677 - __main__ - INFO - Adding quality project: Circular/Office Orders - AMC (Rs. 0 Cr)
+2025-02-09 23:51:32,678 - __main__ - INFO - Adding quality project: Video Gallery | Jawaharlal Institute of Postgraduate Medical ... (Rs. 0 Cr)
+2025-02-09 23:51:32,679 - __main__ - INFO - Adding quality project: Events (Rs. 0 Cr)
+2025-02-09 23:51:32,679 - __main__ - INFO - Adding quality project: Doorstep Banking | Door Step Banking Services (Rs. 0 Cr)
+2025-02-09 23:51:32,679 - __main__ - INFO - Adding quality project: SRMS College of Engineering & Technology Bareilly- Lucknow (Rs. 0 Cr)
+2025-02-09 23:51:32,679 - __main__ - INFO - Adding quality project: Company Directory | Corporates | Metropolitan Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,679 - __main__ - INFO - Adding quality project: Rob Lowe Praises Demi Moore's Performance in ... - The Hawk (Rs. 0 Cr)
+2025-02-09 23:51:32,680 - __main__ - INFO - Adding quality project: About Us (Rs. 0 Cr)
+2025-02-09 23:51:32,680 - __main__ - INFO - Adding quality project: Amity University Haryana Hosts 11th Convocation, Confers ... (Rs. 0 Cr)
+2025-02-09 23:51:32,680 - __main__ - INFO - Adding quality project: AIT Pune's Innerve 9.0 Crowns Team Luminosity as ... (Rs. 0 Cr)
+2025-02-09 23:51:32,680 - __main__ - INFO - Adding quality project: IBC Monthly Digest: January 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,682 - __main__ - INFO - Adding quality project: Coal India and 3 other PSU stocks with PE less than 10 to add to your watchlist (Rs. 0 Cr)
+2025-02-09 23:51:32,683 - __main__ - INFO - Adding quality project: ATTENTION COMMUTERS! Mumbai-Bound Exit At Panvel On Mumbai-Pune Expressway To Close For 6 Months From Feb 11 (Rs. 0 Cr)
+2025-02-09 23:51:32,686 - __main__ - INFO - Adding quality project: Welcome to TISS (Rs. 0 Cr)
+2025-02-09 23:51:32,690 - __main__ - INFO - Adding quality project: Mumbai Real Estate: On The Right Track Towards Shaping New Skylines? (Rs. 0 Cr)
+2025-02-09 23:51:32,691 - __main__ - INFO - Adding quality project: Actor Darshan Thanks Fans For Support During Jail Time In Murder Case, Requests No Birthday Visits: Cant (Rs. 0 Cr)
+2025-02-09 23:51:32,692 - __main__ - INFO - Adding quality project: Home | Punjab Engineering College, (Deemed to be University), Chandigarh (Rs. 0 Cr)
+2025-02-09 23:51:32,693 - __main__ - INFO - Adding quality project: Exciting Nokia Work From Home Opportunities| Apply Now 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,697 - __main__ - INFO - Adding quality project: Governance Archives (Rs. 0 Cr)
+2025-02-09 23:51:32,697 - __main__ - INFO - Adding quality project: BEL Recruitment 2021-22 for Project Engineer | Bharat Electronics (Rs. 0 Cr)
+2025-02-09 23:51:32,698 - __main__ - INFO - Adding quality project: Kunal Group Builders (Rs. 0 Cr)
+2025-02-09 23:51:32,701 - __main__ - INFO - Adding quality project: Asia’s Premier News Agency - India News, Business & Political, National & International, Bollywood, Sports (Rs. 0 Cr)
+2025-02-09 23:51:32,702 - __main__ - INFO - Adding quality project: Real Estate in Greater Noida (Rs. 0 Cr)
+2025-02-09 23:51:32,702 - __main__ - INFO - Adding quality project: Faculty (Rs. 0 Cr)
+2025-02-09 23:51:32,708 - __main__ - INFO - Adding quality project: PM Modi hails BJP's victory in Delhi polls: 'Delhi freed from AAPda, people filled with excitement and relief' (Rs. 0 Cr)
+2025-02-09 23:51:32,710 - __main__ - INFO - Adding quality project: 360 Property Management Solutions | Buy Real Estate In India (Rs. 0 Cr)
+2025-02-09 23:51:32,710 - __main__ - INFO - Adding quality project: Property In Sector 143 Noida | Property For Sale In Sector 143 (Rs. 0 Cr)
+2025-02-09 23:51:32,711 - __main__ - INFO - Adding quality project: Home - Public Works Department, West Bengal (Rs. 0 Cr)
+2025-02-09 23:51:32,714 - __main__ - INFO - Adding quality project: Test hits T20 out of the park: Enduring beats fleeting as elite-democratic argument fails to cut ice at debate (Rs. 0 Cr)
+2025-02-09 23:51:32,716 - __main__ - INFO - Adding quality project: NRI Services | NRI Banking and Services (Rs. 0 Cr)
+2025-02-09 23:51:32,717 - __main__ - INFO - Adding quality project: Highways construction in India gets slower by the day? (Rs. 40000.0 Cr)
+2025-02-09 23:51:32,719 - __main__ - INFO - Adding quality project: eProcurement System Government of Madhya Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,723 - __main__ - INFO - Adding quality project: CPCL e-Procurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,725 - __main__ - INFO - Adding quality project: Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,725 - __main__ - INFO - Adding quality project: Tender & Contracts (Rs. 0 Cr)
+2025-02-09 23:51:32,730 - __main__ - INFO - Adding quality project: Current Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,731 - __main__ - INFO - Adding quality project: Ammann India (Rs. 0 Cr)
+2025-02-09 23:51:32,733 - __main__ - INFO - Adding quality project: Tenders | Jawaharlal Institute of Postgraduate Medical ... (Rs. 0 Cr)
+2025-02-09 23:51:32,735 - __main__ - INFO - Adding quality project: Procurement - Bhopal (Rs. 0 Cr)
+2025-02-09 23:51:32,738 - __main__ - INFO - Adding quality project: Indian Oil & Gas (Rs. 0 Cr)
+2025-02-09 23:51:32,739 - __main__ - INFO - Adding quality project: Supreme Court News, Latest India Legal News, Supreme ... (Rs. 0 Cr)
+2025-02-09 23:51:32,741 - __main__ - INFO - Adding quality project: Spread Contracts | Currency | Live-Report (Rs. 0 Cr)
+2025-02-09 23:51:32,741 - __main__ - INFO - Adding quality project: Central University of Kerala (Rs. 0 Cr)
+2025-02-09 23:51:32,742 - __main__ - INFO - Adding quality project: Action Construction Equipment Ltd - ACE (Rs. 0 Cr)
+2025-02-09 23:51:32,750 - __main__ - INFO - Adding quality project: Outdoor activities in South Africa (Rs. 0 Cr)
+2025-02-09 23:51:32,754 - __main__ - INFO - Adding quality project: Data Mining Jobs for February 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,757 - __main__ - INFO - Adding quality project: 127 talent acquisition jobs in Jaipur, Rajasthan, February 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,759 - __main__ - INFO - Adding quality project: Tripura's Shrabani Debnath: The coaching force behind ... (Rs. 0 Cr)
+2025-02-09 23:51:32,760 - __main__ - INFO - Adding quality project: Rate per page typing Jobs, Employment (Rs. 0 Cr)
+2025-02-09 23:51:32,760 - __main__ - INFO - Adding quality project: Recent Posts - Food Technology (Rs. 0 Cr)
+2025-02-09 23:51:32,763 - __main__ - INFO - Adding quality project: Blockchain Training in Madurai (Rs. 0 Cr)
+2025-02-09 23:51:32,765 - __main__ - INFO - Adding quality project: Dinner & Divination (February 2025) - Chicago (Rs. 0 Cr)
+2025-02-09 23:51:32,765 - __main__ - INFO - Adding quality project: Online News 9: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,767 - __main__ - INFO - Adding quality project: newsmantra.in l Latest news on Politics, World, Bollywood, Sports, Delhi, Jammu & Kashmir, Trending news (Rs. 0 Cr)
+2025-02-09 23:51:32,768 - __main__ - INFO - Adding quality project: Kaun Banega Investor? (Rs. 0 Cr)
+2025-02-09 23:51:32,768 - __main__ - INFO - Adding quality project: HPCL Recruitment 2024-25 for 158 Engineering Posts, Apply Now (Rs. 0 Cr)
+2025-02-09 23:51:32,772 - __main__ - INFO - Adding quality project: Read all Latest Updates on and about Justice Vikram Nath (Rs. 0 Cr)
+2025-02-09 23:51:32,774 - __main__ - INFO - Adding quality project: THE BEST Kochi (Cochin) Transportation (Updated 2025) (Rs. 0 Cr)
+2025-02-09 23:51:32,775 - __main__ - INFO - Adding quality project: Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV (Rs. 0 Cr)
+2025-02-09 23:51:32,776 - __main__ - INFO - Adding quality project: I-Western Carriers ikhusela i-Rs 1,089-Crore Logistics Contract esuka eVedanta (Rs. 0 Cr)
+2025-02-09 23:51:32,779 - __main__ - INFO - Adding quality project: Epilogue – Leading News Magazine Jammu Kashmir (Rs. 0 Cr)
+2025-02-09 23:51:32,781 - __main__ - INFO - Adding quality project: BengaluruVartha – First Malayalam Online News Portal Published From Bengaluru-Bangalore (Rs. 0 Cr)
+2025-02-09 23:51:32,781 - __main__ - INFO - 
+Quality projects found (176):
+2025-02-09 23:51:32,781 - __main__ - INFO - 1. has - Rail Analysis India – Gateway to the Rail & Metro Sector of India
+2025-02-09 23:51:32,782 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,782 - __main__ - INFO -    Source: https://railanalysis.in/
+
+2025-02-09 23:51:32,782 - __main__ - INFO - 2. eProcurement System Government of India Delhi Metro Rail - eProcurement System Government of India
+2025-02-09 23:51:32,782 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,782 - __main__ - INFO -    Source: https://eprocure.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SDWJN4QREhUXgVp3vTGBxCtS0Fec7wUuNy1YFXyqSerE%3D
+
+2025-02-09 23:51:32,782 - __main__ - INFO - 3. Johnson Lifts Pvt - Metro Rail News: Home
+2025-02-09 23:51:32,782 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,782 - __main__ - INFO -    Source: https://metrorailnews.in/
+
+2025-02-09 23:51:32,782 - __main__ - INFO - 4. NTPC - NTPC Limited eProcurement Portal
+2025-02-09 23:51:32,782 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,782 - __main__ - INFO -    Source: https://eprocurentpc.nic.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=Sqfblx59yAoI1GX2pEwmyXg%3D%3D
+
+2025-02-09 23:51:32,783 - __main__ - INFO - 5. Unknown Company - India Strategic: Home
+2025-02-09 23:51:32,783 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,783 - __main__ - INFO -    Source: https://www.indiastrategic.in/
+
+2025-02-09 23:51:32,783 - __main__ - INFO - 6. Operational Metro - Operational Metro Projects
+2025-02-09 23:51:32,783 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,783 - __main__ - INFO -    Source: https://metrorailnews.in/operational-metro-projects/
+
+2025-02-09 23:51:32,783 - __main__ - INFO - 7. Unknown Company - Press Information Bureau
+2025-02-09 23:51:32,784 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,784 - __main__ - INFO -    Source: https://pib.gov.in/PMContents/PMContents.aspx?menuid=8&RegionId=1
+
+2025-02-09 23:51:32,784 - __main__ - INFO - 8. G R projects - Smartequity
+2025-02-09 23:51:32,784 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,784 - __main__ - INFO -    Source: https://www.smartequity.in/
+
+2025-02-09 23:51:32,784 - __main__ - INFO - 9. V Signs MoU with Namchi District for - PSU Connect
+2025-02-09 23:51:32,784 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,785 - __main__ - INFO -    Source: https://www.psuconnect.in/
+
+2025-02-09 23:51:32,785 - __main__ - INFO - 10. Unknown Company - eProcurement System Government of Himachal Pradesh
+2025-02-09 23:51:32,785 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,785 - __main__ - INFO -    Source: https://hptenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct
+
+2025-02-09 23:51:32,786 - __main__ - INFO - 11. India - News & Press Releases
+2025-02-09 23:51:32,786 - __main__ - INFO -    Value: Rs. 642.0 Cr
+2025-02-09 23:51:32,786 - __main__ - INFO -    Source: https://www.india.gov.in/news_lists?a607355970
+
+2025-02-09 23:51:32,786 - __main__ - INFO - 12. Unknown Company - sidhi,madhya pradesh,india tenders.
+2025-02-09 23:51:32,786 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,787 - __main__ - INFO -    Source: https://www.tendertiger.co.in/global-city/india/madhya-pradesh/sidhi-tenders
+
+2025-02-09 23:51:32,787 - __main__ - INFO - 13. Unknown Company - Defence News - The Economic Times
+2025-02-09 23:51:32,787 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,787 - __main__ - INFO -    Source: https://www.businessinsider.in/defense
+
+2025-02-09 23:51:32,787 - __main__ - INFO - 14. BJP - Breaking News Today, Top Headlines, Live Updates
+2025-02-09 23:51:32,787 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,787 - __main__ - INFO -    Source: https://mizoram.nic.in/pop31.htm
+
+2025-02-09 23:51:32,788 - __main__ - INFO - 15. Unknown Company - India News Live. India news headlines today
+2025-02-09 23:51:32,788 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,788 - __main__ - INFO -    Source: http://www.ecoti.in/micron/redirect.html?str=ah9w9Y
+
+2025-02-09 23:51:32,788 - __main__ - INFO - 16. Unknown Company - Judiciary Mains Exam Papers Daily Questions For Judicial ...
+2025-02-09 23:51:32,788 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,788 - __main__ - INFO -    Source: https://www.dhyeyalaw.in/mains-daily-questions
+
+2025-02-09 23:51:32,788 - __main__ - INFO - 17. Explore a wide range of government tenders for fabrication work projects - Fabrication Work Government Tenders
+2025-02-09 23:51:32,788 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,788 - __main__ - INFO -    Source: https://tender247.co.in/keyword/fabrication+work+tenders
+
+2025-02-09 23:51:32,788 - __main__ - INFO - 18. INDIA LIMITED - Fresh Applications
+2025-02-09 23:51:32,788 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,788 - __main__ - INFO -    Source: https://copyright.gov.in/Fresh_Applications.aspx
+
+2025-02-09 23:51:32,789 - __main__ - INFO - 19. Unknown Company - Jamshedpur Latest News | News In English - Page 6488
+2025-02-09 23:51:32,789 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,789 - __main__ - INFO -    Source: https://avenuemail.in/page/6488/?adsforwp_front_js=1
+
+2025-02-09 23:51:32,789 - __main__ - INFO - 20. Unknown Company - Streamline Operations with Offline Sales Management ...
+2025-02-09 23:51:32,789 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,789 - __main__ - INFO -    Source: https://breezefsm.in/breaking-free-from-boundaries-the-importance-of-offline-functionality-for-field-sales-reps-in-fsm-tools/
+
+2025-02-09 23:51:32,789 - __main__ - INFO - 21. Unknown Company - Tablet Computers Tenders | Tablet Computers Government ...
+2025-02-09 23:51:32,789 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,789 - __main__ - INFO -    Source: https://railwaytenders.co.in/
+
+2025-02-09 23:51:32,790 - __main__ - INFO - 22. Unknown Company - https://www.punjabkesari.in/sitemap-national.xml.gz
+2025-02-09 23:51:32,790 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,790 - __main__ - INFO -    Source: https://www.punjabkesari.in/sitemap-national.xml.gz
+
+2025-02-09 23:51:32,790 - __main__ - INFO - 23. Explore a wide range of government tenders for crane projects - Crane Government Tenders
+2025-02-09 23:51:32,790 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,791 - __main__ - INFO -    Source: https://www.tender247.co.in/keyword/crane+tenders
+
+2025-02-09 23:51:32,791 - __main__ - INFO - 24. Unknown Company - WeRIndia: Top news India | Breaking news stories | Latest ...
+2025-02-09 23:51:32,791 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,791 - __main__ - INFO -    Source: http://www.werindia.in/
+
+2025-02-09 23:51:32,791 - __main__ - INFO - 25. Unknown Company - The Navhind Times | Goa News | Covering Goa since 1963 | Goa News
+2025-02-09 23:51:32,791 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,792 - __main__ - INFO -    Source: https://www.navhindtimes.in/
+
+2025-02-09 23:51:32,792 - __main__ - INFO - 26. due to construction - Mumbai Exit On Mumbai-Pune Expressway To Remain Closed For Six Months. Check Alternative Route
+2025-02-09 23:51:32,792 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,792 - __main__ - INFO -    Source: https://www.doonited.in/mumbai-exit-on-mumbai-pune-expressway-to-remain-closed-for-six-months-check-alternative-route/
+
+2025-02-09 23:51:32,792 - __main__ - INFO - 27. Unknown Company - Kota Man 'Buys' Railway Job For Wife, Reports It After She Leaves Him; CBI Probe Unveils Recrui
+2025-02-09 23:51:32,793 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,793 - __main__ - INFO -    Source: https://www.doonited.in/kota-man-buys-railway-job-for-wife-reports-it-after-she-leaves-him-cbi-probe-unveils-recrui/
+
+2025-02-09 23:51:32,793 - __main__ - INFO - 28. Unknown Company - Tenders/Auctions
+2025-02-09 23:51:32,793 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,793 - __main__ - INFO -    Source: https://www.concorindia.co.in/Tenders.aspx
+
+2025-02-09 23:51:32,794 - __main__ - INFO - 29. Unknown Company - eProcurement System Government of India
+2025-02-09 23:51:32,794 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,794 - __main__ - INFO -    Source: https://eprocure.gov.in/eprocure/app?page=FrontEndLatestActiveTendersOrgwise&service=page&org=Jawahar
+
+2025-02-09 23:51:32,795 - __main__ - INFO - 30. limited - tenders & business options
+2025-02-09 23:51:32,795 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,795 - __main__ - INFO -    Source: https://cochinshipyard.in/Tender
+
+2025-02-09 23:51:32,796 - __main__ - INFO - 31. Unknown Company - Tenders
+2025-02-09 23:51:32,796 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,796 - __main__ - INFO -    Source: https://etenders.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SpUU0rj42FI3UoCfR2Ztdaw%3D%3D
+
+2025-02-09 23:51:32,796 - __main__ - INFO - 32. Unknown Company - eProcurement System Government of India
+2025-02-09 23:51:32,796 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,797 - __main__ - INFO -    Source: https://eprocure.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=Sgmutrp7bK%2Bn0WYXHFVsGUNS0Fec7wUuNy1YFXyqSerE%3D
+
+2025-02-09 23:51:32,797 - __main__ - INFO - 33.  - eProcurement System Government of Tamil Nadu
+2025-02-09 23:51:32,797 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,797 - __main__ - INFO -    Source: https://tntenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=S0g8N%2FzBGK2IUXzIfka6LnQ%3D%3D
+
+2025-02-09 23:51:32,797 - __main__ - INFO - 34. Unknown Company - Transportation Industry News, Transportation Sector Latest ...
+2025-02-09 23:51:32,798 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,798 - __main__ - INFO -    Source: https://www.businessinsider.in/transportation
+
+2025-02-09 23:51:32,798 - __main__ - INFO - 35. India - News & Press Releases
+2025-02-09 23:51:32,799 - __main__ - INFO -    Value: Rs. 642.0 Cr
+2025-02-09 23:51:32,799 - __main__ - INFO -    Source: https://www.india.gov.in/news_lists?a669662395
+
+2025-02-09 23:51:32,799 - __main__ - INFO - 36. Unknown Company - ping test port | Get ₹400 When You Improve Security 17+
+2025-02-09 23:51:32,799 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,799 - __main__ - INFO -    Source: https://scert.kerala.gov.in/yono-ping-test-port-v-104041t46.html
+
+2025-02-09 23:51:32,799 - __main__ - INFO - 37. Unknown Company - Jawaharlal Nehru Technological University Kakinada
+2025-02-09 23:51:32,799 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,799 - __main__ - INFO -    Source: https://www.jntuk.edu.in/
+
+2025-02-09 23:51:32,800 - __main__ - INFO - 38. wii sports resort games ranked Global - wii sports resort games ranked | Android IOS V- 6.75
+2025-02-09 23:51:32,800 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,800 - __main__ - INFO -    Source: https://erp.nirdpr.in/craps/wii-sports-resort-games-ranked-apk-50147t51/
+
+2025-02-09 23:51:32,800 - __main__ - INFO - 39. Unknown Company - Latest Tech News and Technology New Headlines India ...
+2025-02-09 23:51:32,801 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,801 - __main__ - INFO -    Source: https://www.businesstoday.in/technology/news
+
+2025-02-09 23:51:32,801 - __main__ - INFO - 40. Explore a wide range of government tenders for mobile application projects - Mobile Application Government Tenders
+2025-02-09 23:51:32,801 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,801 - __main__ - INFO -    Source: https://tender247.co.in/keyword/mobile+application+tenders
+
+2025-02-09 23:51:32,802 - __main__ - INFO - 41. Unknown Company - SBI Recruitment 2025 for Internal Ombudsman (IO) Post
+2025-02-09 23:51:32,802 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,802 - __main__ - INFO -    Source: https://www.updatesmarugujarat.in/2025/02/sbi-recruitment-2025-for-internal.html
+
+2025-02-09 23:51:32,802 - __main__ - INFO - 42. Unknown Company - DD News
+2025-02-09 23:51:32,803 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,803 - __main__ - INFO -    Source: https://ddnews.gov.in/en/
+
+2025-02-09 23:51:32,809 - __main__ - INFO - 43. Unknown Company - 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada
+2025-02-09 23:51:32,809 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,809 - __main__ - INFO -    Source: https://remaxrealtysolutions.co.in/properties/3-bhk-farmhouse-for-sale-weekend-villa/
+
+2025-02-09 23:51:32,810 - __main__ - INFO - 44. Unknown Company - 2025 Doing Business with DRPA A.C.E. Series - Inside the DRPA
+2025-02-09 23:51:32,810 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,810 - __main__ - INFO -    Source: https://allevents.in/camden/2025-doing-business-with-drpa-ace-series-inside-the-drpa/100001234784546819
+
+2025-02-09 23:51:32,810 - __main__ - INFO - 45. Unknown Company - Urdu Duniya News | Latest urdu news | latest urdu news portal
+2025-02-09 23:51:32,810 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,810 - __main__ - INFO -    Source: https://urduduniya.in/
+
+2025-02-09 23:51:32,810 - __main__ - INFO - 46. India - News & Press Releases
+2025-02-09 23:51:32,811 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,811 - __main__ - INFO -    Source: https://www.india.gov.in/news_lists?a301800965
+
+2025-02-09 23:51:32,811 - __main__ - INFO - 47. Unknown Company - Jamshedpur Latest News | News In English - Page 6486
+2025-02-09 23:51:32,812 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,812 - __main__ - INFO -    Source: https://avenuemail.in/page/6486/?adsforwp_front_js=1
+
+2025-02-09 23:51:32,812 - __main__ - INFO - 48. Unknown Company - Lucknow - Times of India
+2025-02-09 23:51:32,812 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,812 - __main__ - INFO -    Source: http://www.timesoflucknow.in/
+
+2025-02-09 23:51:32,812 - __main__ - INFO - 49. Unknown Company - IANS LIVE-
+2025-02-09 23:51:32,812 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,813 - __main__ - INFO -    Source: https://ianslive.in/index.php
+
+2025-02-09 23:51:32,813 - __main__ - INFO - 50. Unknown Company - Adam Zampa – Latest Cricket News and Articles 2025
+2025-02-09 23:51:32,813 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,813 - __main__ - INFO -    Source: https://sportscafe.in/cricket/player/adam_zampa
+
+2025-02-09 23:51:32,814 - __main__ - INFO - 51. Unknown Company - Bush Radio
+2025-02-09 23:51:32,814 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,814 - __main__ - INFO -    Source: http://bushradionews.blogspot.in/
+
+2025-02-09 23:51:32,814 - __main__ - INFO - 52. Unknown Company - Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address
+2025-02-09 23:51:32,814 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,814 - __main__ - INFO -    Source: https://www.bankofbaroda.in/locate-us/branches/uttar-pradesh/kanpur/kanpur-metro/rokanp
+
+2025-02-09 23:51:32,814 - __main__ - INFO - 53. Expert in - Construction Xperts - Expert in Construction & Civil Industry
+2025-02-09 23:51:32,815 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,815 - __main__ - INFO -    Source: https://constructionxperts.co.in/
+
+2025-02-09 23:51:32,815 - __main__ - INFO - 54. Unknown Company - eProcurement System Government of India
+2025-02-09 23:51:32,815 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,815 - __main__ - INFO -    Source: https://eprocure.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SaNQkFYrq2Ejxc9TMUtutTtS0Fec7wUuNy1YFXyqSerE%3D
+
+2025-02-09 23:51:32,815 - __main__ - INFO - 55. NTPC - NTPC Limited eProcurement Portal
+2025-02-09 23:51:32,815 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,816 - __main__ - INFO -    Source: https://eprocurentpc.nic.in/
+
+2025-02-09 23:51:32,816 - __main__ - INFO - 56. BSE Ashoka Buildcon has secured an EPC contract from Banglore International Airport for construction - Ashoka Buildcon Share Price NSE/BSE
+2025-02-09 23:51:32,816 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,816 - __main__ - INFO -    Source: https://www.tickertape.in/stocks/ashoka-buildcon-ABDL
+
+2025-02-09 23:51:32,816 - __main__ - INFO - 57. SEPC Stock Price Live Today SEPC - SEPC Share Price NSE/BSE - SEPC Stock Price Live Today
+2025-02-09 23:51:32,817 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,817 - __main__ - INFO -    Source: https://www.tickertape.in/stocks/shriram-epc-SHRI
+
+2025-02-09 23:51:32,817 - __main__ - INFO - 58. Explore a wide range of government tenders for earth work projects - Earth Work Government Tenders
+2025-02-09 23:51:32,817 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,817 - __main__ - INFO -    Source: https://tender247.in/keyword/earth+work+tenders
+
+2025-02-09 23:51:32,817 - __main__ - INFO - 59. & Tenders Highway construction - Projects & Tenders
+2025-02-09 23:51:32,817 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,817 - __main__ - INFO -    Source: https://www.constructionweekonline.in/projects-tenders
+
+2025-02-09 23:51:32,818 - __main__ - INFO - 60. s infra projects - 'Complete Mir Alam Lake bridge in 30 months': CM ...
+2025-02-09 23:51:32,818 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,818 - __main__ - INFO -    Source: https://newsmeter.in/hyderabad/complete-mir-alam-lake-bridge-in-30-months-cm-revanth-reviews-citys-infra-projects-743461
+
+2025-02-09 23:51:32,818 - __main__ - INFO - 61. and railway infrastructure - India's First Vertical Lift Railway Bridge to Open in ... - The Hawk
+2025-02-09 23:51:32,818 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,818 - __main__ - INFO -    Source: https://www.thehawk.in/news/states-and-uts/tamil-nadu/indias-first-vertical-lift-railway-bridge-to-open-in-rameswaram-soon
+
+2025-02-09 23:51:32,819 - __main__ - INFO - 62. Prime Minister Narendra Modi inaugurated a series of major urban development projects - PM Narendra Modi Launches Key Urban Development ...
+2025-02-09 23:51:32,819 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,819 - __main__ - INFO -    Source: https://timemotion.in/?p=4884
+
+2025-02-09 23:51:32,820 - __main__ - INFO - 63. Unknown Company - Government eProcurement System
+2025-02-09 23:51:32,820 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,820 - __main__ - INFO -    Source: https://etenders.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SBHgI013YJrPRYhqXDt5TRg%3D%3D
+
+2025-02-09 23:51:32,820 - __main__ - INFO - 64. Press Information Bureau - All Press Release: Press Information Bureau
+2025-02-09 23:51:32,820 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,820 - __main__ - INFO -    Source: https://pib.gov.in/allrelease.aspx
+
+2025-02-09 23:51:32,821 - __main__ - INFO - 65. Unknown Company - eProcurement System Government of India
+2025-02-09 23:51:32,821 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,821 - __main__ - INFO -    Source: https://eprocure.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SXOC9MTnuHi%2BoO6LiAOjEtdS0Fec7wUuNy1YFXyqSerE%3D
+
+2025-02-09 23:51:32,821 - __main__ - INFO - 66. stock engaged in constructing diverse infrastructure projects - Infra stock with orderbook 253% higher than its market cap ...
+2025-02-09 23:51:32,821 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,821 - __main__ - INFO -    Source: https://tradebrains.in/features/infra-stock-with-orderbook-253-higher-than-its-market-cap-to-keep-an-eye-on/
+
+2025-02-09 23:51:32,821 - __main__ - INFO - 67. CS reviews development of tourism infrastructure - CS reviews development of tourism infrastructure under ...
+2025-02-09 23:51:32,822 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,822 - __main__ - INFO -    Source: https://statetimes.in/cs-reviews-development-of-tourism-infrastructure-under-prashad/
+
+2025-02-09 23:51:32,822 - __main__ - INFO - 68. IRCON International - Government eProcurement System
+2025-02-09 23:51:32,822 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,822 - __main__ - INFO -    Source: https://etenders.gov.in/eprocure/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SDRJrn9Uk4%2BNbVN5Z%2B22JUA%3D%3D
+
+2025-02-09 23:51:32,822 - __main__ - INFO - 69. and cloud and AI infrastructure - India embraces AI companies, regulation takes a back seat
+2025-02-09 23:51:32,822 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,822 - __main__ - INFO -    Source: https://scroll.in/article/1078864/india-embraces-ai-companies-regulation-takes-a-back-seat
+
+2025-02-09 23:51:32,822 - __main__ - INFO - 70. News Transportation infrastructure projects - Latest Events / News
+2025-02-09 23:51:32,823 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,823 - __main__ - INFO -    Source: https://wii.gov.in/latest-events?page=19
+
+2025-02-09 23:51:32,823 - __main__ - INFO - 71. in terms of infrastructure - Tender - AMC
+2025-02-09 23:51:32,823 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,823 - __main__ - INFO -    Source: https://ahmedabadcity.gov.in/DC/Tenders
+
+2025-02-09 23:51:32,823 - __main__ - INFO - 72. Upgradation of - eProcurement System Government of Jammu And Kashmir
+2025-02-09 23:51:32,823 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,824 - __main__ - INFO -    Source: https://jktenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SoF6FjpQuIeRKmQtPduGlRQ%3D%3D
+
+2025-02-09 23:51:32,824 - __main__ - INFO - 73. Unknown Company - CSIR - IMMT | Institute of Minerals and Materials Technology ...
+2025-02-09 23:51:32,824 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,824 - __main__ - INFO -    Source: https://www.immt.res.in/
+
+2025-02-09 23:51:32,824 - __main__ - INFO - 74. Gujarat leading building and construction - BuiltIndia - Gujarat leading building and construction ...
+2025-02-09 23:51:32,824 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,824 - __main__ - INFO -    Source: https://builtindia.in/
+
+2025-02-09 23:51:32,825 - __main__ - INFO - 75. Belagavi infra - Belagavi infra: Belagavi Latest News | Belagavi | Belgaum
+2025-02-09 23:51:32,825 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,825 - __main__ - INFO -    Source: https://belagaviinfra.co.in/
+
+2025-02-09 23:51:32,825 - __main__ - INFO - 76. Unknown Company - National Institute of Rural Development and Panchayati Raj ...
+2025-02-09 23:51:32,825 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,825 - __main__ - INFO -    Source: https://nirdpr.org.in/
+
+2025-02-09 23:51:32,825 - __main__ - INFO - 77. s Voice for Policy Change Transport - FICCI : Industry's Voice for Policy Change
+2025-02-09 23:51:32,825 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,826 - __main__ - INFO -    Source: https://ficci.in/
+
+2025-02-09 23:51:32,826 - __main__ - INFO - 78. Unknown Company - eProcurement System Government of Madhya Pradesh
+2025-02-09 23:51:32,826 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,826 - __main__ - INFO -    Source: https://mptenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=S%2Bt7ylexecXeEINPR4PWtnw%3D%3D
+
+2025-02-09 23:51:32,826 - __main__ - INFO - 79. ITI - ITI Limited Tender Portal
+2025-02-09 23:51:32,826 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,826 - __main__ - INFO -    Source: https://tenders.itiltd.in/
+
+2025-02-09 23:51:32,826 - __main__ - INFO - 80.  - Read and Discover Latest News on Indian Economy ...
+2025-02-09 23:51:32,826 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,826 - __main__ - INFO -    Source: https://www.businessinsider.in/finance/news
+
+2025-02-09 23:51:32,827 - __main__ - INFO - 81. s technical infrastructure - Google Ready To Spend Rs 6 Lakh Crore To Win The AI ...
+2025-02-09 23:51:32,827 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,827 - __main__ - INFO -    Source: https://trak.in/stories/google-ready-to-spend-rs-6-lakh-crore-to-win-the-ai-race/
+
+2025-02-09 23:51:32,827 - __main__ - INFO - 82. Department of Electrical - Tenders Notice
+2025-02-09 23:51:32,827 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,827 - __main__ - INFO -    Source: https://www.iitk.ac.in/new/tenders-notice
+
+2025-02-09 23:51:32,827 - __main__ - INFO - 83. s State Insurance - Tenders | Employee's State Insurance Corporation, Ministry ...
+2025-02-09 23:51:32,827 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,828 - __main__ - INFO -    Source: https://www.esic.gov.in/tenders
+
+2025-02-09 23:51:32,828 - __main__ - INFO - 84. Research - Advertisement for Recruitment to Project Posts Consultant ...
+2025-02-09 23:51:32,828 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,828 - __main__ - INFO -    Source: https://jipmer.edu.in/announcement/advertisement-recruitment-project-posts-consultant-scientific-technical-medicalnon
+
+2025-02-09 23:51:32,828 - __main__ - INFO - 85. United for Road Safety Project The Road Safety Project marked the Road Safety month by participating in a live projects - United for Road Safety Project
+2025-02-09 23:51:32,829 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,829 - __main__ - INFO -    Source: https://www.mahatmandc.ac.in/united-for-road-safety-project/
+
+2025-02-09 23:51:32,830 - __main__ - INFO - 86. Unknown Company - Export Promotion Council for Handicrafts (EPCH ...
+2025-02-09 23:51:32,830 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,830 - __main__ - INFO -    Source: https://www.epch.in/
+
+2025-02-09 23:51:32,830 - __main__ - INFO - 87. Ircon International - Stocks in Focus: Jai Balaji & 9 other companies that will ...
+2025-02-09 23:51:32,830 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,831 - __main__ - INFO -    Source: https://tradebrains.in/stocks-in-focus-jai-balaji-9-other-companies-that-will-announce-results-this-week/
+
+2025-02-09 23:51:32,831 - __main__ - INFO - 88. Unknown Company - Confederation of Indian Industry
+2025-02-09 23:51:32,831 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,831 - __main__ - INFO -    Source: https://www.cii.in/linkedin
+
+2025-02-09 23:51:32,832 - __main__ - INFO - 89.  - Company Details | Corporates | Metropolitan Stock ...
+2025-02-09 23:51:32,832 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,832 - __main__ - INFO -    Source: https://www.msei.in/corporates/corporate-securities-information/company-detail
+
+2025-02-09 23:51:32,832 - __main__ - INFO - 90. Pillai HOC College of - PHCET | Pillai HOC College of Engineering and Technology
+2025-02-09 23:51:32,832 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,832 - __main__ - INFO -    Source: https://phcet.ac.in/
+
+2025-02-09 23:51:32,832 - __main__ - INFO - 91. M India Pvt - M3M India Pvt Ltd Gurgaon
+2025-02-09 23:51:32,832 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,832 - __main__ - INFO -    Source: https://realtyassistant.in/real-estate-developer/m3m-india
+
+2025-02-09 23:51:32,832 - __main__ - INFO - 92. Unknown Company - IIT Delhi: Home Page
+2025-02-09 23:51:32,832 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,833 - __main__ - INFO -    Source: https://home.iitd.ac.in/
+
+2025-02-09 23:51:32,833 - __main__ - INFO - 93. Unknown Company - Announcement | Jawaharlal Institute of Postgraduate ...
+2025-02-09 23:51:32,833 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,833 - __main__ - INFO -    Source: https://jipmer.edu.in/announcement?title=&page=6
+
+2025-02-09 23:51:32,833 - __main__ - INFO - 94. Wire and Cable Industry News Rail Vikas Nigam - Wire and Cable Industry News
+2025-02-09 23:51:32,833 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,833 - __main__ - INFO -    Source: https://www.wirecable.in/category/news/
+
+2025-02-09 23:51:32,834 - __main__ - INFO - 95. infrastructure projects - News Archives - National Law School of India University
+2025-02-09 23:51:32,834 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,834 - __main__ - INFO -    Source: https://www.nls.ac.in/news_type/news/
+
+2025-02-09 23:51:32,834 - __main__ - INFO - 96. In case of infrastructure - Amendment of clause 15
+2025-02-09 23:51:32,834 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,835 - __main__ - INFO -    Source: https://tender.bsnl.co.in/bsnltenders/pdf/clause15.doc
+
+2025-02-09 23:51:32,835 - __main__ - INFO - 97. infrastructure - Bihar Agricultural University
+2025-02-09 23:51:32,835 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,836 - __main__ - INFO -    Source: https://bausabour.ac.in/
+
+2025-02-09 23:51:32,836 - __main__ - INFO - 98. crore in the Union Budget for infrastructure - About Us | Guwahati Off-Campus
+2025-02-09 23:51:32,836 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,836 - __main__ - INFO -    Source: https://tiss.ac.in/view/6/guwahati-campus/about-us-21/
+
+2025-02-09 23:51:32,836 - __main__ - INFO - 99. Project Finance & - Screen Reader Accessibilty | Punjab National Bank
+2025-02-09 23:51:32,836 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,836 - __main__ - INFO -    Source: https://www.pnbindia.in/Screen-Reader-Accessibilty.html
+
+2025-02-09 23:51:32,837 - __main__ - INFO - 100. India to prioritize energy infrastructure - ANI Business News - India Stock Market, Sensex ...
+2025-02-09 23:51:32,837 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,837 - __main__ - INFO -    Source: https://www.aninews.in/category/business/page/12414/
+
+2025-02-09 23:51:32,837 - __main__ - INFO - 101.  - Our Navigators / The Official Website of CSIR-National ...
+2025-02-09 23:51:32,837 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,837 - __main__ - INFO -    Source: https://www.neeri.res.in/abouts/navigators
+
+2025-02-09 23:51:32,837 - __main__ - INFO - 102. INFRASTRUCTURE - Literary- केंद्रीय यूनानी चिकित्सा अनुसंधान परिषद | ...
+2025-02-09 23:51:32,838 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,838 - __main__ - INFO -    Source: https://ccrum.res.in/home/LiteraryResearch?mid=1456
+
+2025-02-09 23:51:32,838 - __main__ - INFO - 103. CVR College of - CVR College of Engineering
+2025-02-09 23:51:32,838 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,838 - __main__ - INFO -    Source: https://cvr.ac.in/home4/
+
+2025-02-09 23:51:32,838 - __main__ - INFO - 104. Jbm Auto  vs Uravi Defence Technology - Jbm Auto Ltd vs Uravi Defence Technology Ltd Stock ...
+2025-02-09 23:51:32,839 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,839 - __main__ - INFO -    Source: https://blinkx.in/insights/stock-comparison/jbm-auto-ltd-vs-uravi-defence-technology-ltd
+
+2025-02-09 23:51:32,839 - __main__ - INFO - 105. Guidelines & Circulars - Exam Schedule, Guidelines & Circulars
+2025-02-09 23:51:32,839 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,839 - __main__ - INFO -    Source: https://www.gtu.ac.in/Circular.aspx
+
+2025-02-09 23:51:32,839 - __main__ - INFO - 106. Unknown Company - ARMY INSTITUTE OF MANAGEMENT – KOLKATA (ISO 9001 ...
+2025-02-09 23:51:32,839 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,840 - __main__ - INFO -    Source: https://aim.ac.in/
+
+2025-02-09 23:51:32,840 - __main__ - INFO - 107. development projects - Himachal Pradesh Government
+2025-02-09 23:51:32,840 - __main__ - INFO -    Value: Rs. 127.09 Cr
+2025-02-09 23:51:32,840 - __main__ - INFO -    Source: http://himachalpr.gov.in/
+
+2025-02-09 23:51:32,841 - __main__ - INFO - 108. Tripura CM highlights - Enewstime.in
+2025-02-09 23:51:32,841 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,841 - __main__ - INFO -    Source: https://enewstime.in/
+
+2025-02-09 23:51:32,842 - __main__ - INFO - 109. Quotation Notice for supply of Diagnostic - Tenders Archive
+2025-02-09 23:51:32,842 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,842 - __main__ - INFO -    Source: https://www.wbhealth.gov.in/pages/tender_archive
+
+2025-02-09 23:51:32,842 - __main__ - INFO - 110.  - News & Announcements
+2025-02-09 23:51:32,842 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,843 - __main__ - INFO -    Source: https://www.allduniv.ac.in/all_news
+
+2025-02-09 23:51:32,843 - __main__ - INFO - 111. s Electric Vehicle Charging - Science & Technology Current Affairs
+2025-02-09 23:51:32,843 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,843 - __main__ - INFO -    Source: https://www.gktoday.in/current-affairs/science-technology-current-affairs/
+
+2025-02-09 23:51:32,843 - __main__ - INFO - 112. Get the details of its projects - Sushant Golf City Levana Group Lucknow
+2025-02-09 23:51:32,843 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,844 - __main__ - INFO -    Source: https://realtyassistant.in/real-estate-developer/levana-group
+
+2025-02-09 23:51:32,844 - __main__ - INFO - 113.  - Notices | K.J Somaiya College of Arts and Commerce, Mumbai ...
+2025-02-09 23:51:32,844 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,844 - __main__ - INFO -    Source: https://kjsac.somaiya.edu.in/en/notices/
+
+2025-02-09 23:51:32,845 - __main__ - INFO - 114. Faculty positions - Faculty positions
+2025-02-09 23:51:32,846 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,846 - __main__ - INFO -    Source: https://www.terisas.ac.in/current-positions.php?id=85
+
+2025-02-09 23:51:32,846 - __main__ - INFO - 115. in terms of infrastructure - Circular/Office Orders - AMC
+2025-02-09 23:51:32,846 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,847 - __main__ - INFO -    Source: https://ahmedabadcity.gov.in/DC/Circular
+
+2025-02-09 23:51:32,847 - __main__ - INFO - 116. Research - Video Gallery | Jawaharlal Institute of Postgraduate Medical ...
+2025-02-09 23:51:32,847 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,847 - __main__ - INFO -    Source: https://jipmer.edu.in/gallery/video-gallery
+
+2025-02-09 23:51:32,847 - __main__ - INFO - 117. infrastructure projects - Events
+2025-02-09 23:51:32,848 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,848 - __main__ - INFO -    Source: https://www.cmdachennai.gov.in/events.html
+
+2025-02-09 23:51:32,848 - __main__ - INFO - 118. Project Finance & - Doorstep Banking | Door Step Banking Services
+2025-02-09 23:51:32,848 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,849 - __main__ - INFO -    Source: https://www.pnbindia.in/DoorStep-Banking.html
+
+2025-02-09 23:51:32,849 - __main__ - INFO - 119. SRMS College of - SRMS College of Engineering & Technology Bareilly- Lucknow
+2025-02-09 23:51:32,849 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,849 - __main__ - INFO -    Source: https://www.srms.ac.in/engineering/
+
+2025-02-09 23:51:32,849 - __main__ - INFO - 120.  - Company Directory | Corporates | Metropolitan Stock ...
+2025-02-09 23:51:32,849 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,849 - __main__ - INFO -    Source: https://www.msei.in/corporates/corporate-securities-information/company-directory
+
+2025-02-09 23:51:32,849 - __main__ - INFO - 121. The Hawk India to Focus on Energy - Rob Lowe Praises Demi Moore's Performance in ... - The Hawk
+2025-02-09 23:51:32,850 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,850 - __main__ - INFO -    Source: https://www.thehawk.in/news/showbiz/hollywood/rob-lowe-praises-demi-moores-performance-in-the-substance-amid-award-wins
+
+2025-02-09 23:51:32,850 - __main__ - INFO - 122.  - About Us
+2025-02-09 23:51:32,850 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,851 - __main__ - INFO -    Source: https://www.osmania.ac.in/oldsite/aboutus-universityglance.php
+
+2025-02-09 23:51:32,851 - __main__ - INFO - 123. infrastructure - Amity University Haryana Hosts 11th Convocation, Confers ...
+2025-02-09 23:51:32,851 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,851 - __main__ - INFO -    Source: https://tennews.in/amity-university-haryana-hosts-11th-convocation-confers-degrees-to-1528-graduates/
+
+2025-02-09 23:51:32,852 - __main__ - INFO - 124. Seminar on Sustainable Military - AIT Pune's Innerve 9.0 Crowns Team Luminosity as ...
+2025-02-09 23:51:32,852 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,852 - __main__ - INFO -    Source: https://www.punekarnews.in/ait-punes-innerve-9-0-crowns-team-luminosity-as-hackathon-winners/
+
+2025-02-09 23:51:32,852 - __main__ - INFO - 125. India Pvt - IBC Monthly Digest: January 2025
+2025-02-09 23:51:32,852 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,852 - __main__ - INFO -    Source: https://www.livelaw.in/ibc-cases/ibc-monthly-digest-january-2025-283341
+
+2025-02-09 23:51:32,853 - __main__ - INFO - 126. Unknown Company - Coal India and 3 other PSU stocks with PE less than 10 to add to your watchlist
+2025-02-09 23:51:32,853 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,853 - __main__ - INFO -    Source: https://tradebrains.in/coal-india-and-3-other-psu-stocks-with-pe-less-than-10-to-add-to-your-watchlist/
+
+2025-02-09 23:51:32,853 - __main__ - INFO - 127. Unknown Company - ATTENTION COMMUTERS! Mumbai-Bound Exit At Panvel On Mumbai-Pune Expressway To Close For 6 Months From Feb 11
+2025-02-09 23:51:32,853 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,853 - __main__ - INFO -    Source: https://www.freepressjournal.in/mumbai/attention-commuters-mumbai-bound-exit-at-panvel-on-mumbai-pune-expressway-to-close-for-6-months-from-feb-11
+
+2025-02-09 23:51:32,854 - __main__ - INFO - 128. Unknown Company - Welcome to TISS
+2025-02-09 23:51:32,854 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,854 - __main__ - INFO -    Source: https://tiss.ac.in/
+
+2025-02-09 23:51:32,854 - __main__ - INFO - 129. Unknown Company - Mumbai Real Estate: On The Right Track Towards Shaping New Skylines?
+2025-02-09 23:51:32,854 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,855 - __main__ - INFO -    Source: https://www.freepressjournal.in/business/mumbai-real-estate-on-the-right-track-towards-shaping-new-skylines
+
+2025-02-09 23:51:32,855 - __main__ - INFO - 130. Unknown Company - Actor Darshan Thanks Fans For Support During Jail Time In Murder Case, Requests No Birthday Visits: Cant
+2025-02-09 23:51:32,855 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,855 - __main__ - INFO -    Source: https://www.freepressjournal.in/entertainment/actor-darshan-thanks-fans-for-support-during-jail-time-in-murder-case-requests-no-birthday-visits-cant-stand-for-long-video
+
+2025-02-09 23:51:32,855 - __main__ - INFO - 131. Punjab - Home | Punjab Engineering College, (Deemed to be University), Chandigarh
+2025-02-09 23:51:32,855 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,855 - __main__ - INFO -    Source: https://pec.ac.in/
+
+2025-02-09 23:51:32,855 - __main__ - INFO - 132. Unknown Company - Exciting Nokia Work From Home Opportunities| Apply Now 2025
+2025-02-09 23:51:32,856 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,856 - __main__ - INFO -    Source: https://alexahire.in/exciting-nokia-work-from-home-opportunities/
+
+2025-02-09 23:51:32,856 - __main__ - INFO - 133. Unknown Company - Governance Archives
+2025-02-09 23:51:32,856 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,857 - __main__ - INFO -    Source: https://theprint.in/category/india/governance/
+
+2025-02-09 23:51:32,857 - __main__ - INFO - 134. Bharat Electronics Bharat Electronics - BEL Recruitment 2021-22 for Project Engineer | Bharat Electronics
+2025-02-09 23:51:32,857 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,857 - __main__ - INFO -    Source: https://blog.madeeasy.in/bel-recruitment-for-project-engineer
+
+2025-02-09 23:51:32,857 - __main__ - INFO - 135. Get the various details of its projects - Kunal Group Builders
+2025-02-09 23:51:32,857 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,858 - __main__ - INFO -    Source: https://realtyassistant.in/real-estate-developer/kunal-group-builders
+
+2025-02-09 23:51:32,858 - __main__ - INFO - 136. Unknown Company - Asia’s Premier News Agency - India News, Business & Political, National & International, Bollywood, Sports
+2025-02-09 23:51:32,858 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,858 - __main__ - INFO -    Source: https://www.aninews.in/category/business/page/4/
+
+2025-02-09 23:51:32,858 - __main__ - INFO - 137. Real Estate in Greater Noida Check out the details of Real Estate projects - Real Estate in Greater Noida
+2025-02-09 23:51:32,858 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,858 - __main__ - INFO -    Source: https://realtyassistant.in/real-estate-in-greater-noida
+
+2025-02-09 23:51:32,859 - __main__ - INFO - 138. Faculty Financing Urban - Faculty
+2025-02-09 23:51:32,859 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,859 - __main__ - INFO -    Source: https://www.svc.ac.in/SVC_MAIN/Departments/FacultyEconomics/Abhishek.php
+
+2025-02-09 23:51:32,859 - __main__ - INFO - 139. Unknown Company - PM Modi hails BJP's victory in Delhi polls: 'Delhi freed from AAPda, people filled with excitement and relief'
+2025-02-09 23:51:32,859 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,859 - __main__ - INFO -    Source: https://ddindia.co.in/2025/02/pm-modi-hails-bjps-victory-in-delhi-polls-delhi-freed-from-aapda-people-filled-with-excitement-and-relief/
+
+2025-02-09 23:51:32,859 - __main__ - INFO - 140. Unknown Company - 360 Property Management Solutions | Buy Real Estate In India
+2025-02-09 23:51:32,859 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,860 - __main__ - INFO -    Source: https://realtyassistant.in/
+
+2025-02-09 23:51:32,860 - __main__ - INFO - 141. under construction - Property In Sector 143 Noida | Property For Sale In Sector 143
+2025-02-09 23:51:32,860 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,860 - __main__ - INFO -    Source: https://realtyassistant.in/property-in-noida/sector-143
+
+2025-02-09 23:51:32,860 - __main__ - INFO - 142. Unknown Company - Home - Public Works Department, West Bengal
+2025-02-09 23:51:32,860 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,861 - __main__ - INFO -    Source: https://wbpwd.gov.in/
+
+2025-02-09 23:51:32,861 - __main__ - INFO - 143. Unknown Company - Test hits T20 out of the park: Enduring beats fleeting as elite-democratic argument fails to cut ice at debate
+2025-02-09 23:51:32,861 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,862 - __main__ - INFO -    Source: https://obeta.ttef.in/sports/cricket/test-cricket-hits-t20-out-of-the-park-calcutta-club-hosts-the-telegraph-national-debate-2025/cid/2082450
+
+2025-02-09 23:51:32,862 - __main__ - INFO - 144. Unknown Company - NRI Services | NRI Banking and Services
+2025-02-09 23:51:32,862 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,862 - __main__ - INFO -    Source: https://www.pnbindia.in/NRI-services.html
+
+2025-02-09 23:51:32,863 - __main__ - INFO - 145. Highways construction - Highways construction in India gets slower by the day?
+2025-02-09 23:51:32,863 - __main__ - INFO -    Value: Rs. 40000.0 Cr
+2025-02-09 23:51:32,863 - __main__ - INFO -    Source: https://www.constructionweekonline.in/projects-tenders/highway-construction-under-ham-worth-rs-1-trillion-see-prolonged-delay
+
+2025-02-09 23:51:32,864 - __main__ - INFO - 146. Unknown Company - eProcurement System Government of Madhya Pradesh
+2025-02-09 23:51:32,864 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,864 - __main__ - INFO -    Source: https://mptenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=SHXzAeTkot7P4JDf%2FRD8GIA%3D%3D
+
+2025-02-09 23:51:32,864 - __main__ - INFO - 147. Unknown Company - CPCL e-Procurement Portal
+2025-02-09 23:51:32,864 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,865 - __main__ - INFO -    Source: https://cpcletenders.nic.in/
+
+2025-02-09 23:51:32,865 - __main__ - INFO - 148. Unknown Company - Tenders
+2025-02-09 23:51:32,865 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,865 - __main__ - INFO -    Source: https://recindia.nic.in/tender_list.php
+
+2025-02-09 23:51:32,865 - __main__ - INFO - 149. TENDER for - Tender & Contracts
+2025-02-09 23:51:32,865 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,865 - __main__ - INFO -    Source: http://www.aus.ac.in/tender-contracts/
+
+2025-02-09 23:51:32,866 - __main__ - INFO - 150. Unknown Company - Current Tenders
+2025-02-09 23:51:32,866 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,866 - __main__ - INFO -    Source: https://aiimsnagpur.edu.in/tendersfront/current_tenders
+
+2025-02-09 23:51:32,866 - __main__ - INFO - 151. All Rights Reserved - Ammann India
+2025-02-09 23:51:32,866 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,866 - __main__ - INFO -    Source: https://constructionopportunities.in/ammann-india/
+
+2025-02-09 23:51:32,866 - __main__ - INFO - 152. Unknown Company - Tenders | Jawaharlal Institute of Postgraduate Medical ...
+2025-02-09 23:51:32,866 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,866 - __main__ - INFO -    Source: https://jipmer.edu.in/tender?page=13
+
+2025-02-09 23:51:32,867 - __main__ - INFO - 153. Unknown Company - Procurement - Bhopal
+2025-02-09 23:51:32,867 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,867 - __main__ - INFO -    Source: https://aiimsbhopal.edu.in/index_controller/manualTender
+
+2025-02-09 23:51:32,867 - __main__ - INFO - 154. The company has been - Indian Oil & Gas
+2025-02-09 23:51:32,867 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,867 - __main__ - INFO -    Source: https://myspace.ongc.co.in/dogear/click?link=b8fd75f7-41a6-40dd-a8c5-af543f621054
+
+2025-02-09 23:51:32,868 - __main__ - INFO - 155. Unknown Company - Supreme Court News, Latest India Legal News, Supreme ...
+2025-02-09 23:51:32,868 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,868 - __main__ - INFO -    Source: https://www.livelaw.in/
+
+2025-02-09 23:51:32,868 - __main__ - INFO - 156. Unknown Company - Spread Contracts | Currency | Live-Report
+2025-02-09 23:51:32,869 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,869 - __main__ - INFO -    Source: https://www.msei.in/markets/currency/live-report/spreadcontracts.aspx
+
+2025-02-09 23:51:32,869 - __main__ - INFO - 157. for - Central University of Kerala
+2025-02-09 23:51:32,870 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,870 - __main__ - INFO -    Source: https://cukerala.ac.in/
+
+2025-02-09 23:51:32,870 - __main__ - INFO - 158. Action  Equipment - Action Construction Equipment Ltd - ACE
+2025-02-09 23:51:32,870 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,870 - __main__ - INFO -    Source: https://www.tickertape.in/stocks/action-construction-equipment-ACEL
+
+2025-02-09 23:51:32,871 - __main__ - INFO - 159. Unknown Company - Outdoor activities in South Africa
+2025-02-09 23:51:32,871 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,871 - __main__ - INFO -    Source: https://www.tripadvisor.in/Attractions-g293740-Activities-c61-South_Africa.html
+
+2025-02-09 23:51:32,871 - __main__ - INFO - 160. Unknown Company - Data Mining Jobs for February 2025
+2025-02-09 23:51:32,871 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,871 - __main__ - INFO -    Source: https://www.freelancer.in/jobs/data-mining
+
+2025-02-09 23:51:32,871 - __main__ - INFO - 161. Unknown Company - 127 talent acquisition jobs in Jaipur, Rajasthan, February 2025
+2025-02-09 23:51:32,871 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,871 - __main__ - INFO -    Source: https://www.glassdoor.co.in/Job/jaipur-rajasthan-talent-acquisition-jobs-SRCH_IL.0,16_IC2942216_KO17,35.htm
+
+2025-02-09 23:51:32,872 - __main__ - INFO - 162. Unknown Company - Tripura's Shrabani Debnath: The coaching force behind ...
+2025-02-09 23:51:32,872 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,872 - __main__ - INFO -    Source: https://www.indiatodayne.in/tripura/story/tripuras-shrabani-debnath-the-coaching-force-behind-indias-u-19-womens-t20-world-cup-victory-1168302-2025-02-09
+
+2025-02-09 23:51:32,872 - __main__ - INFO - 163. construction - Rate per page typing Jobs, Employment
+2025-02-09 23:51:32,872 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,872 - __main__ - INFO -    Source: https://www.freelancer.in/job-search/rate-per-page-typing/
+
+2025-02-09 23:51:32,872 - __main__ - INFO - 164. Food Technology NuMix Industries Pvt - Recent Posts - Food Technology
+2025-02-09 23:51:32,872 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,872 - __main__ - INFO -    Source: https://www.foodtechnetwork.in/recent-post/
+
+2025-02-09 23:51:32,872 - __main__ - INFO - 165. Unknown Company - Blockchain Training in Madurai
+2025-02-09 23:51:32,873 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,873 - __main__ - INFO -    Source: https://www.acte.in/blockchain-training-course-madurai
+
+2025-02-09 23:51:32,873 - __main__ - INFO - 166. Unknown Company - Dinner & Divination (February 2025) - Chicago
+2025-02-09 23:51:32,873 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,873 - __main__ - INFO -    Source: https://allevents.in/chicago/dinner-and-divination-february-2025/100001236783335249
+
+2025-02-09 23:51:32,873 - __main__ - INFO - 167.  - Online News 9: Home
+2025-02-09 23:51:32,873 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,874 - __main__ - INFO -    Source: https://onlinenews9.in/
+
+2025-02-09 23:51:32,874 - __main__ - INFO - 168. ABB India - newsmantra.in l Latest news on Politics, World, Bollywood, Sports, Delhi, Jammu & Kashmir, Trending news
+2025-02-09 23:51:32,874 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,874 - __main__ - INFO -    Source: https://newsmantra.in/tag/abb-india-limited/
+
+2025-02-09 23:51:32,874 - __main__ - INFO - 169. Unknown Company - Kaun Banega Investor?
+2025-02-09 23:51:32,874 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,874 - __main__ - INFO -    Source: https://www.msei.in/WorldInvestorsWeek2022/KaunBanegaInvestor
+
+2025-02-09 23:51:32,874 - __main__ - INFO - 170.  - HPCL Recruitment 2024-25 for 158 Engineering Posts, Apply Now
+2025-02-09 23:51:32,875 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,875 - __main__ - INFO -    Source: https://blog.madeeasy.in/hpcl-recruitment
+
+2025-02-09 23:51:32,875 - __main__ - INFO - 171. s Judgment by which the death penalty - Read all Latest Updates on and about Justice Vikram Nath
+2025-02-09 23:51:32,875 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,875 - __main__ - INFO -    Source: https://www.verdictum.in/tags/justice-vikram-nath
+
+2025-02-09 23:51:32,875 - __main__ - INFO - 172. Unknown Company - THE BEST Kochi (Cochin) Transportation (Updated 2025)
+2025-02-09 23:51:32,876 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,876 - __main__ - INFO -    Source: https://www.tripadvisor.in/Attractions-g297633-Activities-c59-Kochi_Cochin_Ernakulam_District_Kerala.html
+
+2025-02-09 23:51:32,876 - __main__ - INFO - 173. Unknown Company - Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV
+2025-02-09 23:51:32,876 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,877 - __main__ - INFO -    Source: https://odishatv.in/
+
+2025-02-09 23:51:32,877 - __main__ - INFO - 174.  - I-Western Carriers ikhusela i-Rs 1,089-Crore Logistics Contract esuka eVedanta
+2025-02-09 23:51:32,877 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,877 - __main__ - INFO -    Source: https://www.psuconnect.in/xh/corporate-news/western-carriers-secures-rs-1089-crore-logistics-contract-from-vedanta
+
+2025-02-09 23:51:32,877 - __main__ - INFO - 175. Unknown Company - Epilogue – Leading News Magazine Jammu Kashmir
+2025-02-09 23:51:32,877 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,878 - __main__ - INFO -    Source: https://epilogue.in/
+
+2025-02-09 23:51:32,878 - __main__ - INFO - 176. Unknown Company - BengaluruVartha – First Malayalam Online News Portal Published From Bengaluru-Bangalore
+2025-02-09 23:51:32,879 - __main__ - INFO -    Value: Rs. 0 Cr
+2025-02-09 23:51:32,879 - __main__ - INFO -    Source: https://bengaluruvartha.in/
+
+2025-02-09 23:51:32,880 - __main__ - INFO - Quality projects to be sent:
+2025-02-09 23:51:32,880 - __main__ - INFO - 1. Highways construction - Highways construction in India gets slower by the day? (Rs. 40000.0 Cr)
+2025-02-09 23:51:32,880 - __main__ - INFO - 2. India - News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 23:51:32,881 - __main__ - INFO - 3. India - News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 23:51:32,881 - __main__ - INFO - 4. development projects - Himachal Pradesh Government (Rs. 127.09 Cr)
+2025-02-09 23:51:32,881 - __main__ - INFO - 5. has - Rail Analysis India – Gateway to the Rail & Metro Sector of India (Rs. 0 Cr)
+2025-02-09 23:51:32,881 - __main__ - INFO - 6. eProcurement System Government of India Delhi Metro Rail - eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 7. Johnson Lifts Pvt - Metro Rail News: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 8. NTPC - NTPC Limited eProcurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 9. Unknown Company - India Strategic: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 10. Operational Metro - Operational Metro Projects (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 11. Unknown Company - Press Information Bureau (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 12. G R projects - Smartequity (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 13. V Signs MoU with Namchi District for - PSU Connect (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 14. Unknown Company - eProcurement System Government of Himachal Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,882 - __main__ - INFO - 15. Unknown Company - sidhi,madhya pradesh,india tenders. (Rs. 0 Cr)
+2025-02-09 23:51:32,883 - __main__ - INFO - 16. Unknown Company - Defence News - The Economic Times (Rs. 0 Cr)
+2025-02-09 23:51:32,883 - __main__ - INFO - 17. BJP - Breaking News Today, Top Headlines, Live Updates (Rs. 0 Cr)
+2025-02-09 23:51:32,883 - __main__ - INFO - 18. Unknown Company - India News Live. India news headlines today (Rs. 0 Cr)
+2025-02-09 23:51:32,883 - __main__ - INFO - 19. Unknown Company - Judiciary Mains Exam Papers Daily Questions For Judicial ... (Rs. 0 Cr)
+2025-02-09 23:51:32,883 - __main__ - INFO - 20. Explore a wide range of government tenders for fabrication work projects - Fabrication Work Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,884 - __main__ - INFO - 21. INDIA LIMITED - Fresh Applications (Rs. 0 Cr)
+2025-02-09 23:51:32,884 - __main__ - INFO - 22. Unknown Company - Jamshedpur Latest News | News In English - Page 6488 (Rs. 0 Cr)
+2025-02-09 23:51:32,884 - __main__ - INFO - 23. Unknown Company - Streamline Operations with Offline Sales Management ... (Rs. 0 Cr)
+2025-02-09 23:51:32,884 - __main__ - INFO - 24. Unknown Company - Tablet Computers Tenders | Tablet Computers Government ... (Rs. 0 Cr)
+2025-02-09 23:51:32,884 - __main__ - INFO - 25. Unknown Company - https://www.punjabkesari.in/sitemap-national.xml.gz (Rs. 0 Cr)
+2025-02-09 23:51:32,885 - __main__ - INFO - 26. Explore a wide range of government tenders for crane projects - Crane Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,885 - __main__ - INFO - 27. Unknown Company - WeRIndia: Top news India | Breaking news stories | Latest ... (Rs. 0 Cr)
+2025-02-09 23:51:32,885 - __main__ - INFO - 28. Unknown Company - The Navhind Times | Goa News | Covering Goa since 1963 | Goa News (Rs. 0 Cr)
+2025-02-09 23:51:32,885 - __main__ - INFO - 29. due to construction - Mumbai Exit On Mumbai-Pune Expressway To Remain Closed For Six Months. Check Alternative Route (Rs. 0 Cr)
+2025-02-09 23:51:32,885 - __main__ - INFO - 30. Unknown Company - Kota Man 'Buys' Railway Job For Wife, Reports It After She Leaves Him; CBI Probe Unveils Recrui (Rs. 0 Cr)
+2025-02-09 23:51:32,886 - __main__ - INFO - 31. Unknown Company - Tenders/Auctions (Rs. 0 Cr)
+2025-02-09 23:51:32,886 - __main__ - INFO - 32. Unknown Company - eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,886 - __main__ - INFO - 33. limited - tenders & business options (Rs. 0 Cr)
+2025-02-09 23:51:32,886 - __main__ - INFO - 34. Unknown Company - Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,887 - __main__ - INFO - 35. Unknown Company - eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,887 - __main__ - INFO - 36.  - eProcurement System Government of Tamil Nadu (Rs. 0 Cr)
+2025-02-09 23:51:32,887 - __main__ - INFO - 37. Unknown Company - Transportation Industry News, Transportation Sector Latest ... (Rs. 0 Cr)
+2025-02-09 23:51:32,887 - __main__ - INFO - 38. Unknown Company - ping test port | Get ₹400 When You Improve Security 17+ (Rs. 0 Cr)
+2025-02-09 23:51:32,887 - __main__ - INFO - 39. Unknown Company - Jawaharlal Nehru Technological University Kakinada (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 40. wii sports resort games ranked Global - wii sports resort games ranked | Android IOS V- 6.75 (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 41. Unknown Company - Latest Tech News and Technology New Headlines India ... (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 42. Explore a wide range of government tenders for mobile application projects - Mobile Application Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 43. Unknown Company - SBI Recruitment 2025 for Internal Ombudsman (IO) Post (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 44. Unknown Company - DD News (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 45. Unknown Company - 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 46. Unknown Company - 2025 Doing Business with DRPA A.C.E. Series - Inside the DRPA (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 47. Unknown Company - Urdu Duniya News | Latest urdu news | latest urdu news portal (Rs. 0 Cr)
+2025-02-09 23:51:32,888 - __main__ - INFO - 48. India - News & Press Releases (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 49. Unknown Company - Jamshedpur Latest News | News In English - Page 6486 (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 50. Unknown Company - Lucknow - Times of India (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 51. Unknown Company - IANS LIVE- (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 52. Unknown Company - Adam Zampa – Latest Cricket News and Articles 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 53. Unknown Company - Bush Radio (Rs. 0 Cr)
+2025-02-09 23:51:32,889 - __main__ - INFO - 54. Unknown Company - Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address (Rs. 0 Cr)
+2025-02-09 23:51:32,890 - __main__ - INFO - 55. Expert in - Construction Xperts - Expert in Construction & Civil Industry (Rs. 0 Cr)
+2025-02-09 23:51:32,890 - __main__ - INFO - 56. Unknown Company - eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,890 - __main__ - INFO - 57. NTPC - NTPC Limited eProcurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,890 - __main__ - INFO - 58. BSE Ashoka Buildcon has secured an EPC contract from Banglore International Airport for construction - Ashoka Buildcon Share Price NSE/BSE (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 59. SEPC Stock Price Live Today SEPC - SEPC Share Price NSE/BSE - SEPC Stock Price Live Today (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 60. Explore a wide range of government tenders for earth work projects - Earth Work Government Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 61. & Tenders Highway construction - Projects & Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 62. s infra projects - 'Complete Mir Alam Lake bridge in 30 months': CM ... (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 63. and railway infrastructure - India's First Vertical Lift Railway Bridge to Open in ... - The Hawk (Rs. 0 Cr)
+2025-02-09 23:51:32,891 - __main__ - INFO - 64. Prime Minister Narendra Modi inaugurated a series of major urban development projects - PM Narendra Modi Launches Key Urban Development ... (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 65. Unknown Company - Government eProcurement System (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 66. Press Information Bureau - All Press Release: Press Information Bureau (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 67. Unknown Company - eProcurement System Government of India (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 68. stock engaged in constructing diverse infrastructure projects - Infra stock with orderbook 253% higher than its market cap ... (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 69. CS reviews development of tourism infrastructure - CS reviews development of tourism infrastructure under ... (Rs. 0 Cr)
+2025-02-09 23:51:32,892 - __main__ - INFO - 70. IRCON International - Government eProcurement System (Rs. 0 Cr)
+2025-02-09 23:51:32,893 - __main__ - INFO - 71. and cloud and AI infrastructure - India embraces AI companies, regulation takes a back seat (Rs. 0 Cr)
+2025-02-09 23:51:32,893 - __main__ - INFO - 72. News Transportation infrastructure projects - Latest Events / News (Rs. 0 Cr)
+2025-02-09 23:51:32,893 - __main__ - INFO - 73. in terms of infrastructure - Tender - AMC (Rs. 0 Cr)
+2025-02-09 23:51:32,893 - __main__ - INFO - 74. Upgradation of - eProcurement System Government of Jammu And Kashmir (Rs. 0 Cr)
+2025-02-09 23:51:32,893 - __main__ - INFO - 75. Unknown Company - CSIR - IMMT | Institute of Minerals and Materials Technology ... (Rs. 0 Cr)
+2025-02-09 23:51:32,894 - __main__ - INFO - 76. Gujarat leading building and construction - BuiltIndia - Gujarat leading building and construction ... (Rs. 0 Cr)
+2025-02-09 23:51:32,894 - __main__ - INFO - 77. Belagavi infra - Belagavi infra: Belagavi Latest News | Belagavi | Belgaum (Rs. 0 Cr)
+2025-02-09 23:51:32,895 - __main__ - INFO - 78. Unknown Company - National Institute of Rural Development and Panchayati Raj ... (Rs. 0 Cr)
+2025-02-09 23:51:32,895 - __main__ - INFO - 79. s Voice for Policy Change Transport - FICCI : Industry's Voice for Policy Change (Rs. 0 Cr)
+2025-02-09 23:51:32,896 - __main__ - INFO - 80. Unknown Company - eProcurement System Government of Madhya Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,896 - __main__ - INFO - 81. ITI - ITI Limited Tender Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,896 - __main__ - INFO - 82.  - Read and Discover Latest News on Indian Economy ... (Rs. 0 Cr)
+2025-02-09 23:51:32,897 - __main__ - INFO - 83. s technical infrastructure - Google Ready To Spend Rs 6 Lakh Crore To Win The AI ... (Rs. 0 Cr)
+2025-02-09 23:51:32,897 - __main__ - INFO - 84. Department of Electrical - Tenders Notice (Rs. 0 Cr)
+2025-02-09 23:51:32,897 - __main__ - INFO - 85. s State Insurance - Tenders | Employee's State Insurance Corporation, Ministry ... (Rs. 0 Cr)
+2025-02-09 23:51:32,897 - __main__ - INFO - 86. Research - Advertisement for Recruitment to Project Posts Consultant ... (Rs. 0 Cr)
+2025-02-09 23:51:32,898 - __main__ - INFO - 87. United for Road Safety Project The Road Safety Project marked the Road Safety month by participating in a live projects - United for Road Safety Project (Rs. 0 Cr)
+2025-02-09 23:51:32,898 - __main__ - INFO - 88. Unknown Company - Export Promotion Council for Handicrafts (EPCH ... (Rs. 0 Cr)
+2025-02-09 23:51:32,899 - __main__ - INFO - 89. Ircon International - Stocks in Focus: Jai Balaji & 9 other companies that will ... (Rs. 0 Cr)
+2025-02-09 23:51:32,899 - __main__ - INFO - 90. Unknown Company - Confederation of Indian Industry (Rs. 0 Cr)
+2025-02-09 23:51:32,899 - __main__ - INFO - 91.  - Company Details | Corporates | Metropolitan Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,899 - __main__ - INFO - 92. Pillai HOC College of - PHCET | Pillai HOC College of Engineering and Technology (Rs. 0 Cr)
+2025-02-09 23:51:32,899 - __main__ - INFO - 93. M India Pvt - M3M India Pvt Ltd Gurgaon (Rs. 0 Cr)
+2025-02-09 23:51:32,900 - __main__ - INFO - 94. Unknown Company - IIT Delhi: Home Page (Rs. 0 Cr)
+2025-02-09 23:51:32,900 - __main__ - INFO - 95. Unknown Company - Announcement | Jawaharlal Institute of Postgraduate ... (Rs. 0 Cr)
+2025-02-09 23:51:32,900 - __main__ - INFO - 96. Wire and Cable Industry News Rail Vikas Nigam - Wire and Cable Industry News (Rs. 0 Cr)
+2025-02-09 23:51:32,900 - __main__ - INFO - 97. infrastructure projects - News Archives - National Law School of India University (Rs. 0 Cr)
+2025-02-09 23:51:32,901 - __main__ - INFO - 98. In case of infrastructure - Amendment of clause 15 (Rs. 0 Cr)
+2025-02-09 23:51:32,901 - __main__ - INFO - 99. infrastructure - Bihar Agricultural University (Rs. 0 Cr)
+2025-02-09 23:51:32,901 - __main__ - INFO - 100. crore in the Union Budget for infrastructure - About Us | Guwahati Off-Campus (Rs. 0 Cr)
+2025-02-09 23:51:32,902 - __main__ - INFO - 101. Project Finance & - Screen Reader Accessibilty | Punjab National Bank (Rs. 0 Cr)
+2025-02-09 23:51:32,902 - __main__ - INFO - 102. India to prioritize energy infrastructure - ANI Business News - India Stock Market, Sensex ... (Rs. 0 Cr)
+2025-02-09 23:51:32,902 - __main__ - INFO - 103.  - Our Navigators / The Official Website of CSIR-National ... (Rs. 0 Cr)
+2025-02-09 23:51:32,903 - __main__ - INFO - 104. INFRASTRUCTURE - Literary- केंद्रीय यूनानी चिकित्सा अनुसंधान परिषद | ... (Rs. 0 Cr)
+2025-02-09 23:51:32,903 - __main__ - INFO - 105. CVR College of - CVR College of Engineering (Rs. 0 Cr)
+2025-02-09 23:51:32,903 - __main__ - INFO - 106. Jbm Auto  vs Uravi Defence Technology - Jbm Auto Ltd vs Uravi Defence Technology Ltd Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 107. Guidelines & Circulars - Exam Schedule, Guidelines & Circulars (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 108. Unknown Company - ARMY INSTITUTE OF MANAGEMENT – KOLKATA (ISO 9001 ... (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 109. Tripura CM highlights - Enewstime.in (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 110. Quotation Notice for supply of Diagnostic - Tenders Archive (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 111.  - News & Announcements (Rs. 0 Cr)
+2025-02-09 23:51:32,904 - __main__ - INFO - 112. s Electric Vehicle Charging - Science & Technology Current Affairs (Rs. 0 Cr)
+2025-02-09 23:51:32,905 - __main__ - INFO - 113. Get the details of its projects - Sushant Golf City Levana Group Lucknow (Rs. 0 Cr)
+2025-02-09 23:51:32,905 - __main__ - INFO - 114.  - Notices | K.J Somaiya College of Arts and Commerce, Mumbai ... (Rs. 0 Cr)
+2025-02-09 23:51:32,905 - __main__ - INFO - 115. Faculty positions - Faculty positions (Rs. 0 Cr)
+2025-02-09 23:51:32,905 - __main__ - INFO - 116. in terms of infrastructure - Circular/Office Orders - AMC (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 117. Research - Video Gallery | Jawaharlal Institute of Postgraduate Medical ... (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 118. infrastructure projects - Events (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 119. Project Finance & - Doorstep Banking | Door Step Banking Services (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 120. SRMS College of - SRMS College of Engineering & Technology Bareilly- Lucknow (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 121.  - Company Directory | Corporates | Metropolitan Stock ... (Rs. 0 Cr)
+2025-02-09 23:51:32,906 - __main__ - INFO - 122. The Hawk India to Focus on Energy - Rob Lowe Praises Demi Moore's Performance in ... - The Hawk (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 123.  - About Us (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 124. infrastructure - Amity University Haryana Hosts 11th Convocation, Confers ... (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 125. Seminar on Sustainable Military - AIT Pune's Innerve 9.0 Crowns Team Luminosity as ... (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 126. India Pvt - IBC Monthly Digest: January 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 127. Unknown Company - Coal India and 3 other PSU stocks with PE less than 10 to add to your watchlist (Rs. 0 Cr)
+2025-02-09 23:51:32,907 - __main__ - INFO - 128. Unknown Company - ATTENTION COMMUTERS! Mumbai-Bound Exit At Panvel On Mumbai-Pune Expressway To Close For 6 Months From Feb 11 (Rs. 0 Cr)
+2025-02-09 23:51:32,908 - __main__ - INFO - 129. Unknown Company - Welcome to TISS (Rs. 0 Cr)
+2025-02-09 23:51:32,908 - __main__ - INFO - 130. Unknown Company - Mumbai Real Estate: On The Right Track Towards Shaping New Skylines? (Rs. 0 Cr)
+2025-02-09 23:51:32,909 - __main__ - INFO - 131. Unknown Company - Actor Darshan Thanks Fans For Support During Jail Time In Murder Case, Requests No Birthday Visits: Cant (Rs. 0 Cr)
+2025-02-09 23:51:32,909 - __main__ - INFO - 132. Punjab - Home | Punjab Engineering College, (Deemed to be University), Chandigarh (Rs. 0 Cr)
+2025-02-09 23:51:32,909 - __main__ - INFO - 133. Unknown Company - Exciting Nokia Work From Home Opportunities| Apply Now 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,909 - __main__ - INFO - 134. Unknown Company - Governance Archives (Rs. 0 Cr)
+2025-02-09 23:51:32,909 - __main__ - INFO - 135. Bharat Electronics Bharat Electronics - BEL Recruitment 2021-22 for Project Engineer | Bharat Electronics (Rs. 0 Cr)
+2025-02-09 23:51:32,910 - __main__ - INFO - 136. Get the various details of its projects - Kunal Group Builders (Rs. 0 Cr)
+2025-02-09 23:51:32,910 - __main__ - INFO - 137. Unknown Company - Asia’s Premier News Agency - India News, Business & Political, National & International, Bollywood, Sports (Rs. 0 Cr)
+2025-02-09 23:51:32,910 - __main__ - INFO - 138. Real Estate in Greater Noida Check out the details of Real Estate projects - Real Estate in Greater Noida (Rs. 0 Cr)
+2025-02-09 23:51:32,911 - __main__ - INFO - 139. Faculty Financing Urban - Faculty (Rs. 0 Cr)
+2025-02-09 23:51:32,911 - __main__ - INFO - 140. Unknown Company - PM Modi hails BJP's victory in Delhi polls: 'Delhi freed from AAPda, people filled with excitement and relief' (Rs. 0 Cr)
+2025-02-09 23:51:32,912 - __main__ - INFO - 141. Unknown Company - 360 Property Management Solutions | Buy Real Estate In India (Rs. 0 Cr)
+2025-02-09 23:51:32,912 - __main__ - INFO - 142. under construction - Property In Sector 143 Noida | Property For Sale In Sector 143 (Rs. 0 Cr)
+2025-02-09 23:51:32,912 - __main__ - INFO - 143. Unknown Company - Home - Public Works Department, West Bengal (Rs. 0 Cr)
+2025-02-09 23:51:32,913 - __main__ - INFO - 144. Unknown Company - Test hits T20 out of the park: Enduring beats fleeting as elite-democratic argument fails to cut ice at debate (Rs. 0 Cr)
+2025-02-09 23:51:32,913 - __main__ - INFO - 145. Unknown Company - NRI Services | NRI Banking and Services (Rs. 0 Cr)
+2025-02-09 23:51:32,914 - __main__ - INFO - 146. Unknown Company - eProcurement System Government of Madhya Pradesh (Rs. 0 Cr)
+2025-02-09 23:51:32,914 - __main__ - INFO - 147. Unknown Company - CPCL e-Procurement Portal (Rs. 0 Cr)
+2025-02-09 23:51:32,914 - __main__ - INFO - 148. Unknown Company - Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 149. TENDER for - Tender & Contracts (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 150. Unknown Company - Current Tenders (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 151. All Rights Reserved - Ammann India (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 152. Unknown Company - Tenders | Jawaharlal Institute of Postgraduate Medical ... (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 153. Unknown Company - Procurement - Bhopal (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 154. The company has been - Indian Oil & Gas (Rs. 0 Cr)
+2025-02-09 23:51:32,915 - __main__ - INFO - 155. Unknown Company - Supreme Court News, Latest India Legal News, Supreme ... (Rs. 0 Cr)
+2025-02-09 23:51:32,916 - __main__ - INFO - 156. Unknown Company - Spread Contracts | Currency | Live-Report (Rs. 0 Cr)
+2025-02-09 23:51:32,916 - __main__ - INFO - 157. for - Central University of Kerala (Rs. 0 Cr)
+2025-02-09 23:51:32,916 - __main__ - INFO - 158. Action  Equipment - Action Construction Equipment Ltd - ACE (Rs. 0 Cr)
+2025-02-09 23:51:32,916 - __main__ - INFO - 159. Unknown Company - Outdoor activities in South Africa (Rs. 0 Cr)
+2025-02-09 23:51:32,916 - __main__ - INFO - 160. Unknown Company - Data Mining Jobs for February 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 161. Unknown Company - 127 talent acquisition jobs in Jaipur, Rajasthan, February 2025 (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 162. Unknown Company - Tripura's Shrabani Debnath: The coaching force behind ... (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 163. construction - Rate per page typing Jobs, Employment (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 164. Food Technology NuMix Industries Pvt - Recent Posts - Food Technology (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 165. Unknown Company - Blockchain Training in Madurai (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 166. Unknown Company - Dinner & Divination (February 2025) - Chicago (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 167.  - Online News 9: Home (Rs. 0 Cr)
+2025-02-09 23:51:32,917 - __main__ - INFO - 168. ABB India - newsmantra.in l Latest news on Politics, World, Bollywood, Sports, Delhi, Jammu & Kashmir, Trending news (Rs. 0 Cr)
+2025-02-09 23:51:32,918 - __main__ - INFO - 169. Unknown Company - Kaun Banega Investor? (Rs. 0 Cr)
+2025-02-09 23:51:32,918 - __main__ - INFO - 170.  - HPCL Recruitment 2024-25 for 158 Engineering Posts, Apply Now (Rs. 0 Cr)
+2025-02-09 23:51:32,918 - __main__ - INFO - 171. s Judgment by which the death penalty - Read all Latest Updates on and about Justice Vikram Nath (Rs. 0 Cr)
+2025-02-09 23:51:32,918 - __main__ - INFO - 172. Unknown Company - THE BEST Kochi (Cochin) Transportation (Updated 2025) (Rs. 0 Cr)
+2025-02-09 23:51:32,919 - __main__ - INFO - 173. Unknown Company - Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV (Rs. 0 Cr)
+2025-02-09 23:51:32,919 - __main__ - INFO - 174.  - I-Western Carriers ikhusela i-Rs 1,089-Crore Logistics Contract esuka eVedanta (Rs. 0 Cr)
+2025-02-09 23:51:32,919 - __main__ - INFO - 175. Unknown Company - Epilogue – Leading News Magazine Jammu Kashmir (Rs. 0 Cr)
+2025-02-09 23:51:32,919 - __main__ - INFO - 176. Unknown Company - BengaluruVartha – First Malayalam Online News Portal Published From Bengaluru-Bangalore (Rs. 0 Cr)
+2025-02-09 23:51:32,920 - __main__ - INFO - Sending notifications for 176 quality projects...
+2025-02-09 23:51:32,920 - utilities.email_handler - INFO - Starting to send 176 projects via email
+2025-02-09 23:51:32,920 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-09 23:51:34,149 - utilities.email_handler - INFO - Attempting login with aagamfirebase33@gmail.com
+2025-02-09 23:51:34,561 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-09 23:51:34,784 - utilities.email_handler - INFO - Processing project: Highways construction in India gets slower by the day? for team TMT_BARS
+2025-02-09 23:51:34,784 - utilities.email_handler - INFO - Processing project: News & Press Releases for team TMT_BARS
+2025-02-09 23:51:34,785 - utilities.email_handler - INFO - Processing project: News & Press Releases for team TMT_BARS
+2025-02-09 23:51:34,785 - utilities.email_handler - INFO - Processing project: Himachal Pradesh Government for team HSLA
+2025-02-09 23:51:34,785 - utilities.email_handler - INFO - Processing project: Rail Analysis India – Gateway to the Rail & Metro Sector of India for team HR_CR_PLATES
+2025-02-09 23:51:34,785 - utilities.email_handler - INFO - Processing project: eProcurement System Government of India for team HR_CR_PLATES
+2025-02-09 23:51:34,785 - utilities.email_handler - INFO - Processing project: Metro Rail News: Home for team HR_CR_PLATES
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: NTPC Limited eProcurement Portal for team HR_CR_PLATES
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: India Strategic: Home for team HR_CR_PLATES
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: Operational Metro Projects for team HR_CR_PLATES
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: Press Information Bureau for team HSLA
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: Smartequity for team HR_CR_PLATES
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: PSU Connect for team TMT_BARS
+2025-02-09 23:51:34,786 - utilities.email_handler - INFO - Processing project: eProcurement System Government of Himachal Pradesh for team COATED_PRODUCTS
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: sidhi,madhya pradesh,india tenders. for team TMT_BARS
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: Defence News - The Economic Times for team TMT_BARS
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: Breaking News Today, Top Headlines, Live Updates for team HR_CR_PLATES
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: India News Live. India news headlines today for team HR_CR_PLATES
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: Judiciary Mains Exam Papers Daily Questions For Judicial ... for team COATED_PRODUCTS
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: Fabrication Work Government Tenders for team TMT_BARS
+2025-02-09 23:51:34,787 - utilities.email_handler - INFO - Processing project: Fresh Applications for team HR_CR_PLATES
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: Jamshedpur Latest News | News In English - Page 6488 for team HR_CR_PLATES
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: Streamline Operations with Offline Sales Management ... for team TMT_BARS
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: Tablet Computers Tenders | Tablet Computers Government ... for team HR_CR_PLATES
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: https://www.punjabkesari.in/sitemap-national.xml.gz for team TMT_BARS
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: Crane Government Tenders for team TMT_BARS
+2025-02-09 23:51:34,788 - utilities.email_handler - INFO - Processing project: WeRIndia: Top news India | Breaking news stories | Latest ... for team HR_CR_PLATES
+2025-02-09 23:51:34,789 - utilities.email_handler - INFO - Processing project: The Navhind Times | Goa News | Covering Goa since 1963 | Goa News for team HR_CR_PLATES
+2025-02-09 23:51:34,789 - utilities.email_handler - INFO - Processing project: Mumbai Exit On Mumbai-Pune Expressway To Remain Closed For Six Months. Check Alternative Route for team TMT_BARS
+2025-02-09 23:51:34,789 - utilities.email_handler - INFO - Processing project: Kota Man 'Buys' Railway Job For Wife, Reports It After She Leaves Him; CBI Probe Unveils Recrui for team HR_CR_PLATES
+2025-02-09 23:51:34,790 - utilities.email_handler - INFO - Processing project: Tenders/Auctions for team HSLA
+2025-02-09 23:51:34,790 - utilities.email_handler - INFO - Processing project: eProcurement System Government of India for team HR_CR_PLATES
+2025-02-09 23:51:34,791 - utilities.email_handler - INFO - Processing project: tenders & business options for team TMT_BARS
+2025-02-09 23:51:34,791 - utilities.email_handler - INFO - Processing project: Tenders for team HR_CR_PLATES
+2025-02-09 23:51:34,791 - utilities.email_handler - INFO - Processing project: eProcurement System Government of India for team TMT_BARS
+2025-02-09 23:51:34,791 - utilities.email_handler - INFO - Processing project: eProcurement System Government of Tamil Nadu for team HR_CR_PLATES
+2025-02-09 23:51:34,792 - utilities.email_handler - INFO - Processing project: Transportation Industry News, Transportation Sector Latest ... for team HR_CR_PLATES
+2025-02-09 23:51:34,792 - utilities.email_handler - INFO - Processing project: ping test port | Get ₹400 When You Improve Security 17+ for team HSLA
+2025-02-09 23:51:34,793 - utilities.email_handler - INFO - Processing project: Jawaharlal Nehru Technological University Kakinada for team HR_CR_PLATES
+2025-02-09 23:51:34,793 - utilities.email_handler - INFO - Processing project: wii sports resort games ranked | Android IOS V- 6.75 for team HR_CR_PLATES
+2025-02-09 23:51:34,794 - utilities.email_handler - INFO - Processing project: Latest Tech News and Technology New Headlines India ... for team TMT_BARS
+2025-02-09 23:51:34,794 - utilities.email_handler - INFO - Processing project: Mobile Application Government Tenders for team TMT_BARS
+2025-02-09 23:51:34,795 - utilities.email_handler - INFO - Processing project: SBI Recruitment 2025 for Internal Ombudsman (IO) Post for team HR_CR_PLATES
+2025-02-09 23:51:34,795 - utilities.email_handler - INFO - Processing project: DD News for team HR_CR_PLATES
+2025-02-09 23:51:34,796 - utilities.email_handler - INFO - Processing project: 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada for team TMT_BARS
+2025-02-09 23:51:34,796 - utilities.email_handler - INFO - Processing project: 2025 Doing Business with DRPA A.C.E. Series - Inside the DRPA for team HR_CR_PLATES
+2025-02-09 23:51:34,797 - utilities.email_handler - INFO - Processing project: Urdu Duniya News | Latest urdu news | latest urdu news portal for team HR_CR_PLATES
+2025-02-09 23:51:34,797 - utilities.email_handler - INFO - Processing project: News & Press Releases for team TMT_BARS
+2025-02-09 23:51:34,797 - utilities.email_handler - INFO - Processing project: Jamshedpur Latest News | News In English - Page 6486 for team HR_CR_PLATES
+2025-02-09 23:51:34,797 - utilities.email_handler - INFO - Processing project: Lucknow - Times of India for team HR_CR_PLATES
+2025-02-09 23:51:34,798 - utilities.email_handler - INFO - Processing project: IANS LIVE- for team HSLA
+2025-02-09 23:51:34,798 - utilities.email_handler - INFO - Processing project: Adam Zampa – Latest Cricket News and Articles 2025 for team HR_CR_PLATES
+2025-02-09 23:51:34,798 - utilities.email_handler - INFO - Processing project: Bush Radio for team HR_CR_PLATES
+2025-02-09 23:51:34,798 - utilities.email_handler - INFO - Processing project: Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address for team HR_CR_PLATES
+2025-02-09 23:51:34,798 - utilities.email_handler - INFO - Processing project: Construction Xperts - Expert in Construction & Civil Industry for team HR_CR_PLATES
+2025-02-09 23:51:34,799 - utilities.email_handler - INFO - Processing project: eProcurement System Government of India for team COATED_PRODUCTS
+2025-02-09 23:51:34,799 - utilities.email_handler - INFO - Processing project: NTPC Limited eProcurement Portal for team HR_CR_PLATES
+2025-02-09 23:51:34,799 - utilities.email_handler - INFO - Processing project: Ashoka Buildcon Share Price NSE/BSE for team HR_CR_PLATES
+2025-02-09 23:51:34,799 - utilities.email_handler - INFO - Processing project: SEPC Share Price NSE/BSE - SEPC Stock Price Live Today for team TMT_BARS
+2025-02-09 23:51:34,799 - utilities.email_handler - INFO - Processing project: Earth Work Government Tenders for team TMT_BARS
+2025-02-09 23:51:34,800 - utilities.email_handler - INFO - Processing project: Projects & Tenders for team TMT_BARS
+2025-02-09 23:51:34,800 - utilities.email_handler - INFO - Processing project: 'Complete Mir Alam Lake bridge in 30 months': CM ... for team HSLA
+2025-02-09 23:51:34,800 - utilities.email_handler - INFO - Processing project: India's First Vertical Lift Railway Bridge to Open in ... - The Hawk for team TMT_BARS
+2025-02-09 23:51:34,801 - utilities.email_handler - INFO - Processing project: PM Narendra Modi Launches Key Urban Development ... for team HSLA
+2025-02-09 23:51:34,801 - utilities.email_handler - INFO - Processing project: Government eProcurement System for team TMT_BARS
+2025-02-09 23:51:34,801 - utilities.email_handler - INFO - Processing project: All Press Release: Press Information Bureau for team HSLA
+2025-02-09 23:51:34,802 - utilities.email_handler - INFO - Processing project: eProcurement System Government of India for team COATED_PRODUCTS
+2025-02-09 23:51:34,802 - utilities.email_handler - INFO - Processing project: Infra stock with orderbook 253% higher than its market cap ... for team TMT_BARS
+2025-02-09 23:51:34,802 - utilities.email_handler - INFO - Processing project: CS reviews development of tourism infrastructure under ... for team HSLA
+2025-02-09 23:51:34,802 - utilities.email_handler - INFO - Processing project: Government eProcurement System for team HSLA
+2025-02-09 23:51:34,803 - utilities.email_handler - INFO - Processing project: India embraces AI companies, regulation takes a back seat for team HSLA
+2025-02-09 23:51:34,803 - utilities.email_handler - INFO - Processing project: Latest Events / News for team HSLA
+2025-02-09 23:51:34,803 - utilities.email_handler - INFO - Processing project: Tender - AMC for team TMT_BARS
+2025-02-09 23:51:34,803 - utilities.email_handler - INFO - Processing project: eProcurement System Government of Jammu And Kashmir for team HSLA
+2025-02-09 23:51:34,804 - utilities.email_handler - INFO - Processing project: CSIR - IMMT | Institute of Minerals and Materials Technology ... for team TMT_BARS
+2025-02-09 23:51:34,804 - utilities.email_handler - INFO - Processing project: BuiltIndia - Gujarat leading building and construction ... for team TMT_BARS
+2025-02-09 23:51:34,804 - utilities.email_handler - INFO - Processing project: Belagavi infra: Belagavi Latest News | Belagavi | Belgaum for team TMT_BARS
+2025-02-09 23:51:34,804 - utilities.email_handler - INFO - Processing project: National Institute of Rural Development and Panchayati Raj ... for team HSLA
+2025-02-09 23:51:34,805 - utilities.email_handler - INFO - Processing project: FICCI : Industry's Voice for Policy Change for team HSLA
+2025-02-09 23:51:34,805 - utilities.email_handler - INFO - Processing project: eProcurement System Government of Madhya Pradesh for team HR_CR_PLATES
+2025-02-09 23:51:34,805 - utilities.email_handler - INFO - Processing project: ITI Limited Tender Portal for team HR_CR_PLATES
+2025-02-09 23:51:34,805 - utilities.email_handler - INFO - Processing project: Read and Discover Latest News on Indian Economy ... for team HSLA
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: Google Ready To Spend Rs 6 Lakh Crore To Win The AI ... for team HR_CR_PLATES
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: Tenders Notice for team TMT_BARS
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: Tenders | Employee's State Insurance Corporation, Ministry ... for team TMT_BARS
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: Advertisement for Recruitment to Project Posts Consultant ... for team TMT_BARS
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: United for Road Safety Project for team TMT_BARS
+2025-02-09 23:51:34,806 - utilities.email_handler - INFO - Processing project: Export Promotion Council for Handicrafts (EPCH ... for team HR_CR_PLATES
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: Stocks in Focus: Jai Balaji & 9 other companies that will ... for team HR_CR_PLATES
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: Confederation of Indian Industry for team HSLA
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: Company Details | Corporates | Metropolitan Stock ... for team HR_CR_PLATES
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: PHCET | Pillai HOC College of Engineering and Technology for team HSLA
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: M3M India Pvt Ltd Gurgaon for team HSLA
+2025-02-09 23:51:34,807 - utilities.email_handler - INFO - Processing project: IIT Delhi: Home Page for team HSLA
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: Announcement | Jawaharlal Institute of Postgraduate ... for team TMT_BARS
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: Wire and Cable Industry News for team TMT_BARS
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: News Archives - National Law School of India University for team TMT_BARS
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: Amendment of clause 15 for team TMT_BARS
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: Bihar Agricultural University for team TMT_BARS
+2025-02-09 23:51:34,808 - utilities.email_handler - INFO - Processing project: About Us | Guwahati Off-Campus for team HSLA
+2025-02-09 23:51:34,809 - utilities.email_handler - INFO - Processing project: Screen Reader Accessibilty | Punjab National Bank for team HR_CR_PLATES
+2025-02-09 23:51:34,809 - utilities.email_handler - INFO - Processing project: ANI Business News - India Stock Market, Sensex ... for team HR_CR_PLATES
+2025-02-09 23:51:34,809 - utilities.email_handler - INFO - Processing project: Our Navigators / The Official Website of CSIR-National ... for team TMT_BARS
+2025-02-09 23:51:34,809 - utilities.email_handler - INFO - Processing project: Literary- केंद्रीय यूनानी चिकित्सा अनुसंधान परिषद | ... for team HR_CR_PLATES
+2025-02-09 23:51:34,809 - utilities.email_handler - INFO - Processing project: CVR College of Engineering for team HR_CR_PLATES
+2025-02-09 23:51:34,810 - utilities.email_handler - INFO - Processing project: Jbm Auto Ltd vs Uravi Defence Technology Ltd Stock ... for team HR_CR_PLATES
+2025-02-09 23:51:34,810 - utilities.email_handler - INFO - Processing project: Exam Schedule, Guidelines & Circulars for team HR_CR_PLATES
+2025-02-09 23:51:34,810 - utilities.email_handler - INFO - Processing project: ARMY INSTITUTE OF MANAGEMENT – KOLKATA (ISO 9001 ... for team HSLA
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: Enewstime.in for team TMT_BARS
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: Tenders Archive for team TMT_BARS
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: News & Announcements for team HSLA
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: Science & Technology Current Affairs for team HSLA
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: Sushant Golf City Levana Group Lucknow for team HSLA
+2025-02-09 23:51:34,811 - utilities.email_handler - INFO - Processing project: Notices | K.J Somaiya College of Arts and Commerce, Mumbai ... for team HSLA
+2025-02-09 23:51:34,812 - utilities.email_handler - INFO - Processing project: Faculty positions for team TMT_BARS
+2025-02-09 23:51:34,812 - utilities.email_handler - INFO - Processing project: Circular/Office Orders - AMC for team TMT_BARS
+2025-02-09 23:51:34,812 - utilities.email_handler - INFO - Processing project: Video Gallery | Jawaharlal Institute of Postgraduate Medical ... for team TMT_BARS
+2025-02-09 23:51:34,812 - utilities.email_handler - INFO - Processing project: Events for team HSLA
+2025-02-09 23:51:34,813 - utilities.email_handler - INFO - Processing project: Doorstep Banking | Door Step Banking Services for team HR_CR_PLATES
+2025-02-09 23:51:34,813 - utilities.email_handler - INFO - Processing project: SRMS College of Engineering & Technology Bareilly- Lucknow for team COATED_PRODUCTS
+2025-02-09 23:51:34,813 - utilities.email_handler - INFO - Processing project: Company Directory | Corporates | Metropolitan Stock ... for team HR_CR_PLATES
+2025-02-09 23:51:34,813 - utilities.email_handler - INFO - Processing project: Rob Lowe Praises Demi Moore's Performance in ... - The Hawk for team HR_CR_PLATES
+2025-02-09 23:51:34,813 - utilities.email_handler - INFO - Processing project: About Us for team HSLA
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: Amity University Haryana Hosts 11th Convocation, Confers ... for team TMT_BARS
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: AIT Pune's Innerve 9.0 Crowns Team Luminosity as ... for team HSLA
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: IBC Monthly Digest: January 2025 for team TMT_BARS
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: Coal India and 3 other PSU stocks with PE less than 10 to add to your watchlist for team HR_CR_PLATES
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: ATTENTION COMMUTERS! Mumbai-Bound Exit At Panvel On Mumbai-Pune Expressway To Close For 6 Months From Feb 11 for team HR_CR_PLATES
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: Welcome to TISS for team HSLA
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: Mumbai Real Estate: On The Right Track Towards Shaping New Skylines? for team HR_CR_PLATES
+2025-02-09 23:51:34,814 - utilities.email_handler - INFO - Processing project: Actor Darshan Thanks Fans For Support During Jail Time In Murder Case, Requests No Birthday Visits: Cant for team HR_CR_PLATES
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: Home | Punjab Engineering College, (Deemed to be University), Chandigarh for team HSLA
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: Exciting Nokia Work From Home Opportunities| Apply Now 2025 for team HR_CR_PLATES
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: Governance Archives for team TMT_BARS
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: BEL Recruitment 2021-22 for Project Engineer | Bharat Electronics for team TMT_BARS
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: Kunal Group Builders for team HSLA
+2025-02-09 23:51:34,815 - utilities.email_handler - INFO - Processing project: Asia’s Premier News Agency - India News, Business & Political, National & International, Bollywood, Sports for team HR_CR_PLATES
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: Real Estate in Greater Noida for team TMT_BARS
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: Faculty for team TMT_BARS
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: PM Modi hails BJP's victory in Delhi polls: 'Delhi freed from AAPda, people filled with excitement and relief' for team HR_CR_PLATES
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: 360 Property Management Solutions | Buy Real Estate In India for team TMT_BARS
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: Property In Sector 143 Noida | Property For Sale In Sector 143 for team TMT_BARS
+2025-02-09 23:51:34,816 - utilities.email_handler - INFO - Processing project: Home - Public Works Department, West Bengal for team HR_CR_PLATES
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: Test hits T20 out of the park: Enduring beats fleeting as elite-democratic argument fails to cut ice at debate for team HR_CR_PLATES
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: NRI Services | NRI Banking and Services for team HR_CR_PLATES
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: eProcurement System Government of Madhya Pradesh for team TMT_BARS
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: CPCL e-Procurement Portal for team HR_CR_PLATES
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: Tenders for team COATED_PRODUCTS
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: Tender & Contracts for team TMT_BARS
+2025-02-09 23:51:34,817 - utilities.email_handler - INFO - Processing project: Current Tenders for team TMT_BARS
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Ammann India for team HR_CR_PLATES
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Tenders | Jawaharlal Institute of Postgraduate Medical ... for team TMT_BARS
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Procurement - Bhopal for team TMT_BARS
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Indian Oil & Gas for team HSLA
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Supreme Court News, Latest India Legal News, Supreme ... for team TMT_BARS
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Spread Contracts | Currency | Live-Report for team HR_CR_PLATES
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Central University of Kerala for team TMT_BARS
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Action Construction Equipment Ltd - ACE for team HSLA
+2025-02-09 23:51:34,818 - utilities.email_handler - INFO - Processing project: Outdoor activities in South Africa for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: Data Mining Jobs for February 2025 for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: 127 talent acquisition jobs in Jaipur, Rajasthan, February 2025 for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: Tripura's Shrabani Debnath: The coaching force behind ... for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: Rate per page typing Jobs, Employment for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: Recent Posts - Food Technology for team TMT_BARS
+2025-02-09 23:51:34,819 - utilities.email_handler - INFO - Processing project: Blockchain Training in Madurai for team TMT_BARS
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: Dinner & Divination (February 2025) - Chicago for team HSLA
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: Online News 9: Home for team HSLA
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: newsmantra.in l Latest news on Politics, World, Bollywood, Sports, Delhi, Jammu & Kashmir, Trending news for team HR_CR_PLATES
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: Kaun Banega Investor? for team TMT_BARS
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: HPCL Recruitment 2024-25 for 158 Engineering Posts, Apply Now for team HR_CR_PLATES
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: Read all Latest Updates on and about Justice Vikram Nath for team TMT_BARS
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: THE BEST Kochi (Cochin) Transportation (Updated 2025) for team TMT_BARS
+2025-02-09 23:51:34,820 - utilities.email_handler - INFO - Processing project: Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV for team HR_CR_PLATES
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Processing project: I-Western Carriers ikhusela i-Rs 1,089-Crore Logistics Contract esuka eVedanta for team HSLA
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Processing project: Epilogue – Leading News Magazine Jammu Kashmir for team TMT_BARS
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Processing project: BengaluruVartha – First Malayalam Online News Portal Published From Bengaluru-Bangalore for team COATED_PRODUCTS
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Projects grouped by team: TMT_BARS: 68, HSLA: 37, HR_CR_PLATES: 64, COATED_PRODUCTS: 7
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Total portfolio value: Rs. 41,411 Cr
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Total steel requirement: 981,154 MT
+2025-02-09 23:51:34,821 - utilities.email_handler - INFO - Preparing email for TMT_BARS team (68 projects)
+2025-02-09 23:51:38,452 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-09 23:51:38,671 - utilities.email_handler - INFO - Preparing email for HR_CR_PLATES team (64 projects)
+2025-02-09 23:51:42,355 - utilities.email_handler - INFO - Successfully sent email to harsh@meresu.in for HR_CR_PLATES
+2025-02-09 23:51:42,579 - utilities.email_handler - INFO - Preparing email for COATED_PRODUCTS team (7 projects)
+2025-02-09 23:51:46,438 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@icloud.com for COATED_PRODUCTS
+2025-02-09 23:51:46,660 - utilities.email_handler - INFO - Preparing email for HSLA team (37 projects)
+2025-02-09 23:51:49,831 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh220@gmail.com for HSLA
+2025-02-09 23:51:50,086 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 4 teams
+2025-02-09 23:51:50,097 - __main__ - INFO - Successfully sent email notifications
+2025-02-09 23:51:50,564 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 23:51:50,565 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 23:51:50,565 - twilio.http_client - INFO - Headers:
+2025-02-09 23:51:50,565 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 23:51:50,565 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 23:51:50,566 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 23:51:50,566 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 23:51:50,566 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 23:51:50,566 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 23:51:51,011 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 23:51:51,012 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 18:21:50 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ445d054ebe796adf62c6259b5018b87e', 'Twilio-Request-Duration': '0.019', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 b51f06534550bd51b115c6a809767232.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'ca22TPzhvj1KZz2HhnGlwuX4BOOuFMK9iHwATmFywNd1v_yAZB-0Bg=='}
+2025-02-09 23:51:51,013 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for 917715018407, retrying in 2 seconds...
+2025-02-09 23:51:53,019 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 23:51:53,019 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 23:51:53,020 - twilio.http_client - INFO - Headers:
+2025-02-09 23:51:53,020 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 23:51:53,020 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 23:51:53,020 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 23:51:53,020 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 23:51:53,021 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 23:51:53,021 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 23:51:53,306 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 23:51:53,306 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 18:21:53 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ400206b4555ef3b151fd24885c1f69a2', 'Twilio-Request-Duration': '0.009', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 b51f06534550bd51b115c6a809767232.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '2H_USU6AJ25yk14Ew4YzGz0hfVC_zTwNqTtNT_cvQ5gnJdp8GK2zSw=='}
+2025-02-09 23:51:53,306 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for 917715018407, retrying in 2 seconds...
+2025-02-09 23:51:55,310 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 23:51:55,311 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 23:51:55,311 - twilio.http_client - INFO - Headers:
+2025-02-09 23:51:55,311 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 23:51:55,312 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 23:51:55,312 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 23:51:55,312 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 23:51:55,312 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 23:51:55,312 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 23:51:55,607 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 23:51:55,607 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 18:21:55 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQe44d8ceeba2aa3770cfc79d02cbbe908', 'Twilio-Request-Duration': '0.016', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 b51f06534550bd51b115c6a809767232.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'ilpQtHrEo9V1ssGYNLuoDpONxolaOeipLj9X12La1iwMM6nXNTkcIQ=='}
+2025-02-09 23:51:55,608 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to 917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Authenticate[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/20003[0m
+
+
+2025-02-09 23:51:55,608 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-09 23:51:55,671 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 23:51:55,676 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 23:51:55,676 - apscheduler.scheduler - INFO - Scheduler started

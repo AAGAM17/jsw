@@ -1,0 +1,31 @@
+2025-02-10 09:58:21,995 - utilities.logger - INFO - Logging initialized
+2025-02-10 09:58:22,002 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 09:58:22,003 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 09:58:22,008 - utilities.email_handler - ERROR - Failed to initialize SMTP connection: [Errno 8] nodename nor servname provided, or not known
+2025-02-10 09:58:22,008 - __main__ - ERROR - Pipeline failed: [Errno 8] nodename nor servname provided, or not known
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/main.py", line 329, in run_pipeline
+    email_handler = EmailHandler()
+                    ^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/utilities/email_handler.py", line 32, in __init__
+    with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 827, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+2025-02-10 09:58:22,229 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-10 09:58:22,232 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-10 09:58:22,232 - apscheduler.scheduler - INFO - Scheduler started

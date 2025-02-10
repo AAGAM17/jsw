@@ -1,0 +1,9 @@
+2025-02-09 20:53:59,960 - utilities.logger - INFO - Logging initialized
+2025-02-09 20:53:59,964 - utilities.logger - INFO - Logging initialized
+2025-02-09 20:54:00,201 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.86.13:8080
+2025-02-09 20:54:00,201 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-09 20:54:00,211 - werkzeug - INFO -  * Restarting with stat
+2025-02-09 20:56:45,458 - werkzeug - INFO -  * Restarting with stat

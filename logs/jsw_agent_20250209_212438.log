@@ -1,0 +1,32 @@
+2025-02-09 21:24:38,271 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:24:38,274 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 21:24:38,275 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 21:24:39,927 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 21:24:40,146 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 21:24:40,147 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 21:24:44,783 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 21:24:46,439 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 21:24:47,977 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 21:24:47,977 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 21:24:47,977 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 21:24:47,977 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 21:24:55,832 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:24:55,832 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 21:25:04,886 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:25:04,886 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-09 21:25:17,123 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:25:17,123 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-09 21:25:17,123 - scrapers.perplexity_client - ERROR - No projects found after all attempts
+2025-02-09 21:25:17,123 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-09 21:25:17,123 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 21:25:17,123 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India last hour
+2025-02-09 21:25:17,245 - __main__ - INFO - Searching SERP API for: Port Development contract wins India last hour
+2025-02-09 21:25:17,348 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins India last hour
+2025-02-09 21:25:17,480 - __main__ - INFO - Searching SERP API for: EPC Contract Wins India last hour
+2025-02-09 21:25:17,569 - __main__ - INFO - Found 27 unique results from SERP API
+2025-02-09 21:25:17,569 - __main__ - INFO - Found 27 projects from SERP API
+2025-02-09 21:25:17,570 - __main__ - INFO - Processing 27 projects for quality filtering...
+2025-02-09 21:25:17,570 - __main__ - WARNING - No quality projects found after filtering
+2025-02-09 21:25:17,600 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 21:25:17,601 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 21:25:17,601 - apscheduler.scheduler - INFO - Scheduler started

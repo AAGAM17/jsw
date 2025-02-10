@@ -1,0 +1,37 @@
+2025-02-09 15:38:50,861 - utilities.logger - INFO - Logging initialized
+2025-02-09 15:38:50,868 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 15:38:50,869 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 15:38:52,628 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 15:38:52,851 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 15:38:52,851 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 15:38:57,238 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 15:38:58,931 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 15:39:00,720 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 15:39:00,720 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 15:39:00,720 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 15:39:00,720 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 15:39:08,631 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 15:39:08,631 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 15:39:16,803 - scrapers.perplexity_client - INFO - Successfully parsed 5 projects
+2025-02-09 15:39:16,803 - scrapers.perplexity_client - INFO - Found 5 projects
+2025-02-09 15:39:16,803 - __main__ - INFO - Found 5 projects from Perplexity
+2025-02-09 15:39:16,803 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 15:39:16,804 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 15:39:16,940 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 15:39:17,038 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins
+2025-02-09 15:39:17,126 - __main__ - INFO - Searching SERP API for: EPC Contract Wins
+2025-02-09 15:39:17,245 - __main__ - INFO - Found 703 results from SERP API
+2025-02-09 15:39:17,245 - __main__ - INFO - Found 703 projects from SERP API
+2025-02-09 15:39:17,249 - __main__ - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.com', port=443): Max retries exceeded with url: /v1/extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10f2a6fd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 15:39:17,255 - __main__ - INFO - Sending notifications for 56 quality projects...
+2025-02-09 15:39:17,255 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-09 15:39:18,448 - utilities.email_handler - INFO - Attempting login with aagamfirebase33@gmail.com
+2025-02-09 15:39:18,844 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-09 15:39:19,070 - utilities.contact_enricher - INFO - Found existing contacts in CRM for 
+2025-02-09 15:39:19,086 - utilities.email_handler - ERROR - Error sending project opportunities: 'company'
+2025-02-09 15:39:19,086 - __main__ - ERROR - Failed to send email notifications
+2025-02-09 15:39:19,086 - utilities.whatsapp_handler - ERROR - Error sending WhatsApp notifications: 'company'
+2025-02-09 15:39:19,087 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-09 15:39:19,148 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 15:39:19,150 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 15:39:19,166 - apscheduler.scheduler - INFO - Scheduler started

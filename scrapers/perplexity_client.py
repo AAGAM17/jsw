@@ -309,4 +309,53 @@ class PerplexityClient:
         else:
             factor = Config.STEEL_FACTORS['default']
         
-        return project_value * factor 
+        return project_value * factor
+
+    def get_project_info(self, project_context):
+        """Get detailed project information based on context and user query"""
+        try:
+            # Prepare system message for project-specific context
+            system_message = """You are a specialized project assistant for JSW Steel. You have deep knowledge about:
+            1. Infrastructure and construction projects in India
+            2. Steel requirements and specifications for different project types
+            3. Project timelines and milestones
+            4. Key stakeholders and procurement processes
+            5. Market trends and competitive analysis
+            
+            Provide detailed, accurate responses based on the project context provided.
+            If you're not sure about something, acknowledge it and suggest where to find that information.
+            Keep responses concise but informative."""
+            
+            response = self.session.post(
+                'https://api.perplexity.ai/chat/completions',
+                json={
+                    'model': 'sonar-pro',
+                    'messages': [
+                        {
+                            'role': 'system',
+                            'content': system_message
+                        },
+                        {
+                            'role': 'user',
+                            'content': project_context
+                        }
+                    ],
+                    'temperature': 0.3,  # Lower temperature for more focused responses
+                    'max_tokens': 1000,
+                    'top_p': 0.9,
+                    'web_search': True
+                },
+                timeout=30
+            )
+            
+            response.raise_for_status()
+            response_data = response.json()
+            
+            if 'choices' in response_data and response_data['choices']:
+                return response_data['choices'][0]['message']['content']
+            else:
+                raise Exception("No response from Perplexity API")
+                
+        except Exception as e:
+            self.logger.error(f"Error getting project info: {str(e)}")
+            return "I apologize, but I encountered an error while retrieving that information. Please try asking in a different way or contact support for assistance." 

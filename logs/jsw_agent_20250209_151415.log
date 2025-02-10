@@ -1,0 +1,90 @@
+2025-02-09 15:14:15,886 - utilities.logger - INFO - Logging initialized
+2025-02-09 15:14:15,894 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 15:14:15,895 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 15:14:17,438 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 15:14:17,659 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 15:14:17,659 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 15:14:21,988 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 15:14:23,918 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 15:14:25,602 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 15:14:25,602 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 15:14:25,602 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 15:14:25,603 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 15:14:36,898 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 15:14:36,899 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 15:14:44,066 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-09 15:14:44,067 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-09 15:14:44,067 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-09 15:14:44,067 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 15:14:44,068 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 15:14:44,169 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 15:14:44,271 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins
+2025-02-09 15:14:44,370 - __main__ - INFO - Searching SERP API for: EPC Contract Wins
+2025-02-09 15:14:44,479 - __main__ - INFO - Found 703 results from SERP API
+2025-02-09 15:14:44,479 - __main__ - INFO - Found 703 projects from SERP API
+2025-02-09 15:14:44,481 - __main__ - INFO - Total projects found: 705
+2025-02-09 15:14:44,491 - __main__ - INFO - Unique projects after deduplication: 645
+2025-02-09 15:14:44,492 - __main__ - INFO - Enriching projects with Firecrawl...
+2025-02-09 15:14:51,190 - __main__ - WARNING - Basic scrape failed for https://www.facebook.com/story.php?story_fbid=1003377351846196&id=100065218222022: 400 Client Error: Bad Request for url: https://www.facebook.com/story.php?story_fbid=1003377351846196&id=100065218222022
+2025-02-09 15:14:52,217 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:14:55,314 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:14:56,738 - __main__ - WARNING - Basic scrape failed for https://cablecommunity.com/beml-emerges-l1-bidder-for-rolling-stock-supply-contract-in-chennai/: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-02-09 15:14:57,748 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:14:58,136 - __main__ - WARNING - Basic scrape failed for https://ibgnews.com/2025/02/08/western-carriers-secures-rs-1089-crore-order-from-vedanta-limited/: 403 Client Error: Forbidden for url: https://ibgnews.com/2025/02/08/western-carriers-secures-rs-1089-crore-order-from-vedanta-limited/
+2025-02-09 15:14:59,146 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:00,317 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:02,157 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:03,614 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:09,206 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:10,428 - __main__ - WARNING - Basic scrape failed for https://nsearchives.nseindia.com/corporate/WCIL_08022025155409_media_release.pdf: 'NoneType' object has no attribute 'find_all'
+2025-02-09 15:15:11,439 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:18,749 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:29,621 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:33,861 - __main__ - WARNING - Basic scrape failed for https://iica.nic.in/images/Fothcoming_Program-24/Detailed_Program_17-20_Feb_2025.pdf: 'NoneType' object has no attribute 'find_all'
+2025-02-09 15:15:34,875 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:51,390 - __main__ - WARNING - Basic scrape failed for https://www.business-standard.com/author/si-reporter/page-734: 403 Client Error: Forbidden for url: https://www.business-standard.com/author/si-reporter/page-734
+2025-02-09 15:15:52,400 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:15:57,789 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:16:00,334 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:16:06,071 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:16:16,053 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:16:17,371 - urllib3.connection - WARNING - Certificate did not match expected hostname: www.ianslive.in. Certificate: {'subject': ((('commonName', 'ianslive.in'),),), 'issuer': ((('countryName', 'US'),), (('organizationName', "Let's Encrypt"),), (('commonName', 'E5'),)), 'version': 3, 'serialNumber': '045CD6CEE43BF2F851B0B56FC2F9E3B75CA6', 'notBefore': 'Jan 14 18:32:25 2025 GMT', 'notAfter': 'Apr 14 18:32:24 2025 GMT', 'subjectAltName': (('DNS', 'ianslive.in'),), 'OCSP': ('http://e5.o.lencr.org',), 'caIssuers': ('http://e5.i.lencr.org/',)}
+2025-02-09 15:16:17,371 - __main__ - WARNING - Basic scrape failed for https://www.ianslive.in/hansi-flick-not-under-pressure-for-contract-extension-with-fc-barcelona--20250208202539: HTTPSConnectionPool(host='www.ianslive.in', port=443): Max retries exceeded with url: /hansi-flick-not-under-pressure-for-contract-extension-with-fc-barcelona--20250208202539 (Caused by SSLError(CertificateError("hostname 'www.ianslive.in' doesn't match 'ianslive.in'")))
+2025-02-09 15:16:18,381 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:23,790 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:28,993 - __main__ - WARNING - Basic scrape failed for https://dst.news/: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-02-09 15:17:30,004 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:32,552 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:34,461 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:36,938 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:38,233 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:39,838 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:41,363 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:42,949 - __main__ - WARNING - Basic scrape failed for https://in.investing.com/news/transcripts/earnings-call-transcript-construction-partners-beats-q1-fy2025-forecasts-shares-rise-4654740: 403 Client Error: Forbidden for url: https://in.investing.com/news/transcripts/earnings-call-transcript-construction-partners-beats-q1-fy2025-forecasts-shares-rise-4654740
+2025-02-09 15:17:43,961 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:17:59,757 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:00,888 - urllib3.connection - WARNING - Certificate did not match expected hostname: www.ianslive.in. Certificate: {'subject': ((('commonName', 'ianslive.in'),),), 'issuer': ((('countryName', 'US'),), (('organizationName', "Let's Encrypt"),), (('commonName', 'E5'),)), 'version': 3, 'serialNumber': '045CD6CEE43BF2F851B0B56FC2F9E3B75CA6', 'notBefore': 'Jan 14 18:32:25 2025 GMT', 'notAfter': 'Apr 14 18:32:24 2025 GMT', 'subjectAltName': (('DNS', 'ianslive.in'),), 'OCSP': ('http://e5.o.lencr.org',), 'caIssuers': ('http://e5.i.lencr.org/',)}
+2025-02-09 15:18:00,890 - __main__ - WARNING - Basic scrape failed for https://www.ianslive.in/virat-kohli-is-fit-and-available-for-selection-in-second-odi-confirms-sitanshu-kotak--20250208182822: HTTPSConnectionPool(host='www.ianslive.in', port=443): Max retries exceeded with url: /virat-kohli-is-fit-and-available-for-selection-in-second-odi-confirms-sitanshu-kotak--20250208182822 (Caused by SSLError(CertificateError("hostname 'www.ianslive.in' doesn't match 'ianslive.in'")))
+2025-02-09 15:18:01,903 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:01,963 - __main__ - WARNING - Basic scrape failed for https://www.simplyhired.co.uk/job/ewOQGz1GjTDS1yH2tHxfCuZDdo7twiKJ79utmLO0oz0YdhJGVA5JSw: 403 Client Error: Forbidden for url: https://www.simplyhired.co.uk/job/ewOQGz1GjTDS1yH2tHxfCuZDdo7twiKJ79utmLO0oz0YdhJGVA5JSw
+2025-02-09 15:18:02,975 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:05,663 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:19,487 - __main__ - WARNING - Basic scrape failed for https://epaper.live7tv.com/uploads/epaper/2025-02/67a74920de656.pdf: 'NoneType' object has no attribute 'find_all'
+2025-02-09 15:18:20,504 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:23,236 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:30,170 - __main__ - WARNING - Basic scrape failed for https://www.business-standard.com/companies/news/beml-wins-rs-866-87-crore-contract-to-build-made-in-india-bullet-trains-124101600214_1.html: 403 Client Error: Forbidden for url: https://www.business-standard.com/companies/news/beml-wins-rs-866-87-crore-contract-to-build-made-in-india-bullet-trains-124101600214_1.html
+2025-02-09 15:18:31,184 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:32,744 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:38,787 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:41,783 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:18:51,736 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:12,824 - __main__ - WARNING - Basic scrape failed for https://www.constructionweekonline.in/projects-tenders/kr-rail-engineering-wins-rs-300-cr-railway-siding-project-contract: 403 Client Error: HTTP Forbidden for url: https://www.constructionweekonline.in/projects-tenders/kr-rail-engineering-wins-rs-300-cr-railway-siding-project-contract
+2025-02-09 15:19:13,833 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:15,024 - __main__ - WARNING - Basic scrape failed for https://www.business-standard.com/article/news-cm/siemens-bags-rs-26-000-cr-locomotive-contract-from-indian-railways-123011700134_1.html: 403 Client Error: Forbidden for url: https://www.business-standard.com/article/news-cm/siemens-bags-rs-26-000-cr-locomotive-contract-from-indian-railways-123011700134_1.html
+2025-02-09 15:19:16,039 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:18,722 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:18,773 - __main__ - WARNING - Basic scrape failed for https://www.business-standard.com/markets/news/responsive-industries-hits-record-high-on-order-win-from-indian-railways-123090700461_1.html: 403 Client Error: Forbidden for url: https://www.business-standard.com/markets/news/responsive-industries-hits-record-high-on-order-win-from-indian-railways-123090700461_1.html
+2025-02-09 15:19:19,785 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:26,862 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data
+2025-02-09 15:19:30,115 - __main__ - WARNING - Basic scrape failed for https://www.railway.supply/en/hitachi-rail-wins-200m-contract-in-india/: 429 Client Error: Too Many Requests for url: https://www.railway.supply/en/hitachi-rail-wins-200m-contract-in-india/
+2025-02-09 15:19:31,123 - __main__ - WARNING - Connection error with Firecrawl, using basic scrape data

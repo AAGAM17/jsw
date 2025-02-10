@@ -1,0 +1,29 @@
+2025-02-09 17:05:11,185 - utilities.logger - INFO - Logging initialized
+2025-02-09 17:05:11,195 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 17:05:11,196 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 17:05:13,020 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 17:05:13,240 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 17:05:13,240 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 17:05:18,509 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 17:05:20,786 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 17:05:22,647 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 17:05:22,647 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 17:05:22,648 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 17:05:22,648 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 17:05:30,331 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 17:05:30,332 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 17:05:39,348 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-09 17:05:39,348 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-09 17:05:39,349 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-09 17:05:39,349 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 17:05:39,349 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India last hour
+2025-02-09 17:05:42,629 - __main__ - INFO - Searching SERP API for: Port Development contract wins India last hour
+2025-02-09 17:05:46,608 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins India last hour
+2025-02-09 17:05:54,802 - __main__ - INFO - Searching SERP API for: EPC Contract Wins India last hour
+2025-02-09 17:05:57,990 - __main__ - INFO - Found 6 unique results from SERP API
+2025-02-09 17:05:57,990 - __main__ - INFO - Found 6 projects from SERP API
+2025-02-09 17:05:57,999 - __main__ - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.com', port=443): Max retries exceeded with url: /v1/extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10586a490>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 17:05:58,000 - __main__ - WARNING - No quality projects found after filtering
+2025-02-09 17:05:58,037 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 17:05:58,039 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 17:05:58,039 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,34 @@
+2025-02-09 14:21:47,613 - utilities.logger - INFO - Logging initialized
+2025-02-09 14:21:47,619 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 14:21:47,620 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 14:21:49,757 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 14:21:49,981 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 14:21:49,981 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 14:21:54,846 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 14:21:56,714 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 14:21:58,512 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 14:21:58,512 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 14:21:58,512 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 14:21:58,513 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 14:22:05,494 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 14:22:05,494 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 14:22:13,512 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-09 14:22:13,512 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-09 14:22:13,512 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-09 14:22:13,516 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 14:22:13,517 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 14:22:14,226 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 14:22:14,916 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins
+2025-02-09 14:22:15,862 - __main__ - INFO - Searching SERP API for: EPC Contract Wins
+2025-02-09 14:22:16,675 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-09 14:22:16,676 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-09 14:22:16,676 - __main__ - INFO - Total unique projects found: 4
+2025-02-09 14:22:16,676 - __main__ - INFO - Enriching projects with Firecrawl...
+2025-02-09 14:22:16,748 - __main__ - ERROR - Error enriching project with Firecrawl: HTTPSConnectionPool(host='api.firecrawl.io', port=443): Max retries exceeded with url: /extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10a0d2e90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 14:22:16,753 - __main__ - ERROR - Error enriching project with Firecrawl: HTTPSConnectionPool(host='api.firecrawl.io', port=443): Max retries exceeded with url: /extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10a0d2fd0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 14:22:16,760 - __main__ - ERROR - Error enriching project with Firecrawl: HTTPSConnectionPool(host='api.firecrawl.io', port=443): Max retries exceeded with url: /extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10a0d25d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 14:22:16,767 - __main__ - ERROR - Error enriching project with Firecrawl: HTTPSConnectionPool(host='api.firecrawl.io', port=443): Max retries exceeded with url: /extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x10a0d2e90>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 14:22:16,767 - __main__ - WARNING - No projects were successfully enriched by Firecrawl
+2025-02-09 14:22:16,832 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 14:22:16,834 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 14:22:16,834 - apscheduler.scheduler - INFO - Scheduler started

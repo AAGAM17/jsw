@@ -1,0 +1,29 @@
+2025-02-09 14:52:33,867 - utilities.logger - INFO - Logging initialized
+2025-02-09 14:52:33,885 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 14:52:33,886 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 14:52:35,531 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 14:52:35,750 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 14:52:35,750 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 14:52:41,232 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 14:52:43,112 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 14:52:44,859 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 14:52:44,859 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 14:52:44,859 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 14:52:44,860 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 14:52:53,611 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 14:52:53,612 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 14:53:00,518 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-09 14:53:00,518 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-09 14:53:00,518 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-09 14:53:00,518 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 14:53:00,519 - __main__ - ERROR - Pipeline failed: name 'logger' is not defined
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/main.py", line 194, in run_pipeline
+    serp_projects = _search_google()
+  File "/Users/aagamshah/React/jsw/main.py", line 42, in _search_google
+    logger.info(f"Searching SERP API for: {query}")
+    ^^^^^^
+NameError: name 'logger' is not defined
+2025-02-09 14:53:00,571 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 14:53:00,573 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 14:53:00,573 - apscheduler.scheduler - INFO - Scheduler started

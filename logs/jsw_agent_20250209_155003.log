@@ -1,0 +1,225 @@
+2025-02-09 15:50:03,024 - utilities.logger - INFO - Logging initialized
+2025-02-09 15:50:03,031 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 15:50:03,032 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 15:50:04,793 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 15:50:05,012 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 15:50:05,012 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 15:50:09,952 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 15:50:12,007 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 15:50:14,368 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 15:50:14,368 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 15:50:14,369 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 15:50:14,369 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 15:50:20,676 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 15:50:20,677 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 15:50:28,883 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-09 15:50:28,884 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-09 15:50:28,884 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-09 15:50:28,885 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 15:50:28,885 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 15:50:29,044 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 15:50:29,201 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins
+2025-02-09 15:50:29,345 - __main__ - INFO - Searching SERP API for: EPC Contract Wins
+2025-02-09 15:50:29,542 - __main__ - INFO - Found 703 results from SERP API
+2025-02-09 15:50:29,543 - __main__ - INFO - Found 703 projects from SERP API
+2025-02-09 15:50:29,564 - __main__ - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.com', port=443): Max retries exceeded with url: /v1/extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x106b37110>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 15:50:29,695 - __main__ - INFO - Quality projects to be sent:
+2025-02-09 15:50:29,696 - __main__ - INFO - 1. Siemens - Siemens wins Rs 26000 cr order from Indian Railways (Rs. 26000.0 Cr)
+2025-02-09 15:50:29,697 - __main__ - INFO - 2. Megha  & - Megha Engineering & Infra wins Rs 12,800 crore EPC contract by NPCIL (Rs. 12800.0 Cr)
+2025-02-09 15:50:29,698 - __main__ - INFO - 3. crore with Goa Shipyard - Indian Navy's Next-Generation Offshore Patrol Vessels To ... (Rs. 9781.0 Cr)
+2025-02-09 15:50:29,699 - __main__ - INFO - 4. Titagarh Rail Systems - Rs 7100 crore! Titagarh Rail Systems wins additional order for wagons from Indian Railways (Rs. 7100.0 Cr)
+2025-02-09 15:50:29,699 - __main__ - INFO - 5. Triveni Engicons - Order worth over Rs 6000 crore bagged by Solar Industries (Rs. 6000.0 Cr)
+2025-02-09 15:50:29,700 - __main__ - INFO - 6. Unknown Company - Cube Highways Trust acquires 2 road assets (Rs. 5452.0 Cr)
+2025-02-09 15:50:29,714 - __main__ - INFO - 7. JSW - Eknath Shinde government’s parting shot: JSW Infrastructure wins Murbe port deal costing Rs 4,259 crore (Rs. 4259.0 Cr)
+2025-02-09 15:50:29,714 - __main__ - INFO - 8. JSW - JSW Infra wins bid to develop Rs 4,119 crore port in Karnataka (Rs. 4119.0 Cr)
+2025-02-09 15:50:29,725 - __main__ - INFO - 9. Agra metro projects - Afcons, SAM JV wins Rs 2,907 cr deal for Kanpur-Agra metro projects (Rs. 2907.0 Cr)
+2025-02-09 15:50:29,729 - __main__ - INFO - 10. Unknown Company - Indian Railways awards Rs 2,041 crore order for installation of KAVACH to Kernex Micro Systems – Details inside (Rs. 2041.0 Cr)
+2025-02-09 15:50:29,731 - __main__ - INFO - 11. Unknown Company - ITD Cementation shares up 1% after Rs 1,648 crore Vadhvan Port contract win (Rs. 1648.0 Cr)
+2025-02-09 15:50:29,775 - __main__ - INFO - 12. cr marine construction - ITD Cementation secures Rs 1,648 cr marine construction contract for Vadhvan Port (Rs. 1648.0 Cr)
+2025-02-09 15:50:29,781 - __main__ - INFO - 13. cr contract for construction - ITD Cementation bags Rs 1,648 cr contract for construction at Vadhvan Port (Rs. 1648.0 Cr)
+2025-02-09 15:50:29,783 - __main__ - INFO - 14. Unknown Company - Indian Railways awards big steel procurement orders for Rs 1,586 crore; Tata, SAIL, Jindal among top 5 co (Rs. 1586.0 Cr)
+2025-02-09 15:50:29,791 - __main__ - INFO - 15. crore contract from Vedanta - Western Carriers Wins Rs 1089cr Vedanta Logistics Contract (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,793 - __main__ - INFO - 16.  - Western Carriers bags Rs 1089 crore logistics contract ... (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,794 - __main__ - INFO - 17.  - Western Carriers bags Rs 1089cr logistics contract from ... (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,794 - __main__ - INFO - 18.  - Western Carriers Bags Rs 1089-Crore Logistics Contract ... (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,795 - __main__ - INFO - 19. crore order from Vedanta - Western Carriers secures Rs. 1089 crore order from ... (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,795 - __main__ - INFO - 20. Stock Market BEL - BSE NSE Share Prices | Mutual Fund India | Stock Market (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,796 - __main__ - INFO - 21.  - Western Carriers bags Rs 1089 crore logistics contract ... (Rs. 1089.0 Cr)
+2025-02-09 15:50:29,796 - __main__ - INFO - 22. led JV - Gulermak-led JV wins Rs 1,073 crore civil contract package of Surat Metro Rail Project (Rs. 1073.0 Cr)
+2025-02-09 15:50:29,796 - __main__ - INFO - 23. JV - Sam India led-JV wins Rs 1042 crore underground package of Kanpur Metro Project (Rs. 1042.0 Cr)
+2025-02-09 15:50:29,797 - __main__ - INFO - 24. Gensol - Rs 967.98 Crore Worth Order! This Company Secures 245 ... (Rs. 967.98 Cr)
+2025-02-09 15:50:29,797 - __main__ - INFO - 25. Gensol - Gensol Engineering share price rallies 5% on Rs 967.98 cr ... (Rs. 967.98 Cr)
+2025-02-09 15:50:29,797 - __main__ - INFO - 26. Gensol - Latest Share Market News Updates | Rediff Moneywiz (Rs. 967.98 Cr)
+2025-02-09 15:50:29,798 - __main__ - INFO - 27. Gensol - Read Stories By Rediff Money Desk (Rs. 967.98 Cr)
+2025-02-09 15:50:29,798 - __main__ - INFO - 28. BEML - BEML wins Rs 866.87 crore contract to build 'Made in India' bullet trains (Rs. 866.87 Cr)
+2025-02-09 15:50:29,798 - __main__ - INFO - 29. Bharat Forge - Bharat Forge Ltd Share Price Today Live NSE/BSE (Rs. 775.0 Cr)
+2025-02-09 15:50:29,799 - __main__ - INFO - 30. owned Bharat Electronics - Centre inks Rs 642 cr contract with BEL for 28 EON-51 ... (Rs. 642.0 Cr)
+2025-02-09 15:50:29,799 - __main__ - INFO - 31. crore contract with Bharat Electronics - India Inks Rs 642 Cr Defence Deal with BEL for Navy ... (Rs. 642.0 Cr)
+2025-02-09 15:50:29,800 - __main__ - INFO - 32. Unknown Company - Press Information Bureau (Rs. 642.0 Cr)
+2025-02-09 15:50:29,801 - __main__ - INFO - 33. s SpaceX - Bengaluru Metro revises ticket prices, new fares range from ... (Rs. 642.0 Cr)
+2025-02-09 15:50:29,801 - __main__ - INFO - 34. India - News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 15:50:29,801 - __main__ - INFO - 35. Unknown Company - All Press Release: Press Information Bureau (Rs. 642.0 Cr)
+2025-02-09 15:50:29,802 - __main__ - INFO - 36. Unknown Company - MoD, BEL Sign INR 642 Crore Contract for 28 EON-51 ' ... (Rs. 642.0 Cr)
+2025-02-09 15:50:29,802 - __main__ - INFO - 37. Unknown Company - Bihar: Union Railway Minister to inaugurate cantonment ... (Rs. 642.0 Cr)
+2025-02-09 15:50:29,803 - __main__ - INFO - 38. Unknown Company - Press Information Bureau (Rs. 642.0 Cr)
+2025-02-09 15:50:29,803 - __main__ - INFO - 39. India - News & Press Releases (Rs. 642.0 Cr)
+2025-02-09 15:50:29,804 - __main__ - INFO - 40. Ircon International JV - Ircon International JV wins EPC project of Rs 631 cr (Rs. 631.0 Cr)
+2025-02-09 15:50:29,805 - __main__ - INFO - 41. India - News & Press Releases (Rs. 624.0 Cr)
+2025-02-09 15:50:29,805 - __main__ - INFO - 42. BEL - BEL Secures Rs 962 Crore Orders, Expands Defence ... (Rs. 610.0 Cr)
+2025-02-09 15:50:29,805 - __main__ - INFO - 43. URC - Rail Analysis India – Gateway to the Rail & Metro Sector of India (Rs. 596.0 Cr)
+2025-02-09 15:50:29,805 - __main__ - INFO - 44. NCC - NCC wins first civil contract worth Rs 553 crore of Patna Metro project (Rs. 553.0 Cr)
+2025-02-09 15:50:29,806 - __main__ - INFO - 45. s JV - Ircon International's JV wins EPC contract worth Rs 531.90 ... (Rs. 531.9 Cr)
+2025-02-09 15:50:29,806 - __main__ - INFO - 46. Ircon International - Ircon International Ltd Share Price Today Live NSE/BSE (Rs. 531.9 Cr)
+2025-02-09 15:50:29,806 - __main__ - INFO - 47. Unknown Company - Bengaluru Suburban Railway project: KRIDE awards Rs 501 crore contract to NCC to build 8 stations (Rs. 501.0 Cr)
+2025-02-09 15:50:29,807 - __main__ - INFO - 48. crores Track Supply Contract of Kanpur and Agra Metro Rail - L&T wins Rs 391 crores Track Supply Contract of Kanpur and Agra Metro Rail Projects (Rs. 391.0 Cr)
+2025-02-09 15:50:29,807 - __main__ - INFO - 49. Ray - Kolte Patil signs pact for residential project in Pune (Rs. 363.0 Cr)
+2025-02-09 15:50:29,808 - __main__ - INFO - 50. K&R Rail - K&R Rail Engineering wins Rs 300 cr railway siding project contract (Rs. 300.0 Cr)
+2025-02-09 15:50:29,808 - __main__ - INFO - 51. RVNL - South Eastern Railway: RVNL wins bid for power system upgrade project on Kharagpur-Bhadrak Rail Section worth Rs 203 crore (Rs. 203.0 Cr)
+2025-02-09 15:50:29,809 - __main__ - INFO - 52. RVNL - South Eastern Railway: RVNL wins bid for power system upgrade project on Kharagpur-Bhadrak Rail Section worth Rs 203 crore (Rs. 203.0 Cr)
+2025-02-09 15:50:29,809 - __main__ - INFO - 53. Ircon International - IRCON wins contract worth Rs 194.46 crore for 665 Kavach ... (Rs. 194.46 Cr)
+2025-02-09 15:50:29,809 - __main__ - INFO - 54. crore EPC contract for infrastructure - IRCON wins contract worth Rs 194.46 crore for 665 Kavach ... (Rs. 194.46 Cr)
+2025-02-09 15:50:29,809 - __main__ - INFO - 55. BHEL and Hitachi Energy - WABAG bags consortium order worth Rs ... (Rs. 194.46 Cr)
+2025-02-09 15:50:29,810 - __main__ - INFO - 56. RVNL - RVNL wins Rs 191.53 crore contract from the South Eastern Railway (Rs. 191.53 Cr)
+2025-02-09 15:50:29,810 - __main__ - INFO - Sending notifications for 56 quality projects...
+2025-02-09 15:50:29,811 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-09 15:50:31,020 - utilities.email_handler - INFO - Attempting login with aagamfirebase33@gmail.com
+2025-02-09 15:50:31,520 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-09 15:50:31,746 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Megha  &
+2025-02-09 15:50:32,857 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:32,858 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crore with Goa Shipyard
+2025-02-09 15:50:33,978 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:33,979 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:50:35,054 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:35,055 - utilities.contact_enricher - INFO - Found existing contacts in CRM for 
+2025-02-09 15:50:35,055 - utilities.contact_enricher - INFO - Found existing contacts in CRM for 
+2025-02-09 15:50:35,056 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crore order from Vedanta
+2025-02-09 15:50:36,335 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:36,336 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Stock Market BEL
+2025-02-09 15:50:37,463 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:37,463 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Gensol
+2025-02-09 15:50:38,588 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:38,589 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Gensol
+2025-02-09 15:50:38,924 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:38,925 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Gensol
+2025-02-09 15:50:40,022 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:40,023 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for BEML
+2025-02-09 15:50:41,147 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:41,148 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for owned Bharat Electronics
+2025-02-09 15:50:42,275 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:42,276 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crore contract with Bharat Electronics
+2025-02-09 15:50:43,350 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:43,351 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for India
+2025-02-09 15:50:43,724 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:43,725 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:50:44,068 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:44,069 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:50:44,428 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:44,429 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for India
+2025-02-09 15:50:45,552 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:45,553 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Ircon International JV
+2025-02-09 15:50:46,679 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:46,680 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for India
+2025-02-09 15:50:47,088 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:47,089 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for s JV
+2025-02-09 15:50:48,217 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:48,217 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Ircon International
+2025-02-09 15:50:49,343 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:49,344 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Ray
+2025-02-09 15:50:50,467 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:50,468 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Ircon International
+2025-02-09 15:50:50,818 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:54,262 - utilities.email_handler - INFO - Successfully sent consolidated email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-09 15:50:54,485 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Siemens
+2025-02-09 15:50:55,587 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:55,588 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Titagarh Rail Systems
+2025-02-09 15:50:56,099 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:56,100 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Triveni Engicons
+2025-02-09 15:50:57,229 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:57,230 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for JSW
+2025-02-09 15:50:58,370 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:58,372 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Agra metro projects
+2025-02-09 15:50:58,763 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:58,765 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:50:59,887 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:50:59,888 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:00,299 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:00,300 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for cr marine construction
+2025-02-09 15:51:01,425 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:01,426 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for cr contract for construction
+2025-02-09 15:51:01,836 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:01,837 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:02,270 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:02,271 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crore contract from Vedanta
+2025-02-09 15:51:02,757 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:02,758 - utilities.contact_enricher - INFO - Found existing contacts in CRM for 
+2025-02-09 15:51:02,758 - utilities.contact_enricher - INFO - Found existing contacts in CRM for 
+2025-02-09 15:51:02,758 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for led JV
+2025-02-09 15:51:03,094 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:03,094 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for JV
+2025-02-09 15:51:03,466 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:03,467 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for s SpaceX
+2025-02-09 15:51:04,551 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:04,553 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:05,010 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:05,011 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:06,086 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:06,086 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for BEL
+2025-02-09 15:51:06,441 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:06,442 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for URC
+2025-02-09 15:51:07,523 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:07,525 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for NCC
+2025-02-09 15:51:08,711 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:08,712 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:09,820 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:09,822 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crores Track Supply Contract of Kanpur and Agra Metro Rail
+2025-02-09 15:51:10,387 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:10,388 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for K&R Rail
+2025-02-09 15:51:10,746 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:10,748 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for RVNL
+2025-02-09 15:51:11,153 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:11,154 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for RVNL
+2025-02-09 15:51:11,577 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:11,578 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for RVNL
+2025-02-09 15:51:12,689 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:16,956 - utilities.email_handler - INFO - Successfully sent consolidated email to harsh@meresu.in for HR_CR_PLATES
+2025-02-09 15:51:17,178 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for JSW
+2025-02-09 15:51:17,563 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:17,564 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Bharat Forge
+2025-02-09 15:51:18,040 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:18,042 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Unknown Company
+2025-02-09 15:51:19,246 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:19,247 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for crore EPC contract for infrastructure
+2025-02-09 15:51:19,604 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:19,605 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for BHEL and Hitachi Energy
+2025-02-09 15:51:20,724 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:23,968 - utilities.email_handler - INFO - Successfully sent consolidated email to chaudhariharsh220@gmail.com for HSLA
+2025-02-09 15:51:24,195 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Gensol
+2025-02-09 15:51:25,372 - utilities.contact_enricher - ERROR - Error searching ContactOut: 405 Client Error: Method Not Allowed for url: https://api.contactout.com/v2/search
+2025-02-09 15:51:28,366 - utilities.email_handler - INFO - Successfully sent consolidated email to harshchaudhari1990@gmail.com for SOLAR
+2025-02-09 15:51:28,593 - __main__ - INFO - Successfully sent email notifications
+2025-02-09 15:51:29,115 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 15:51:29,115 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 15:51:29,116 - twilio.http_client - INFO - Headers:
+2025-02-09 15:51:29,116 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 15:51:29,116 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 15:51:29,116 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 15:51:29,116 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 15:51:29,117 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 15:51:29,117 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 15:51:29,565 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 15:51:29,565 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 10:21:29 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQe8df2458830e4c0206160e84554fb765', 'Twilio-Request-Duration': '0.016', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 91006f46dbd24a109160583f4b3c096a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '_3RPOZbVTRMjP5xf5lwQFCEcxtiDsz468K9G7qI9kKZIgH2a-216zA=='}
+2025-02-09 15:51:29,567 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for +917715018407, retrying...
+2025-02-09 15:51:29,567 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 15:51:29,568 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 15:51:29,568 - twilio.http_client - INFO - Headers:
+2025-02-09 15:51:29,569 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 15:51:29,570 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 15:51:29,570 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 15:51:29,571 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 15:51:29,571 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 15:51:29,571 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 15:55:29,864 - utilities.whatsapp_handler - ERROR - Error sending WhatsApp notifications: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+2025-02-09 15:55:29,869 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-09 15:55:29,971 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 15:55:29,978 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 15:55:29,978 - apscheduler.scheduler - INFO - Scheduler started

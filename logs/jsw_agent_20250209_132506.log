@@ -1,0 +1,24 @@
+2025-02-09 13:25:06,692 - utilities.logger - INFO - Logging initialized
+2025-02-09 13:25:06,714 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 13:25:06,716 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 13:25:08,629 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 13:25:08,852 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 13:25:08,852 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 13:25:14,367 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 13:25:16,519 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 13:25:18,609 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 13:25:18,609 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 13:25:18,610 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 13:25:18,610 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 13:25:24,860 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 13:25:24,860 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 13:25:32,494 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-09 13:25:32,494 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-09 13:25:32,494 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-09 13:25:32,494 - __main__ - INFO - Total projects found: 4
+2025-02-09 13:25:32,494 - __main__ - INFO - Sending notifications...
+2025-02-09 13:25:32,495 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-09 13:25:33,591 - utilities.email_handler - INFO - Attempting login with aagamfirebase33@gmail.com
+2025-02-09 13:25:34,028 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-09 13:25:34,249 - utilities.contact_enricher - INFO - Found existing contacts in CRM for Larsen & Toubro
+2025-02-09 13:25:34,249 - utilities.contact_enricher - INFO - No CRM data found, searching ContactOut for Afcons Infrastructure

@@ -1,0 +1,20 @@
+2025-02-09 23:36:33,768 - utilities.logger - INFO - Logging initialized
+2025-02-09 23:36:33,782 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 23:36:33,783 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 23:36:35,383 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 23:36:35,602 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 23:36:35,602 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 23:36:40,508 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 23:36:42,710 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 23:36:44,547 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 23:36:44,547 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 23:36:44,547 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 23:36:44,548 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 23:36:56,455 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 23:36:56,456 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 23:37:06,217 - scrapers.perplexity_client - INFO - Successfully parsed 1 projects
+2025-02-09 23:37:06,218 - scrapers.perplexity_client - INFO - Found 1 projects
+2025-02-09 23:37:06,218 - __main__ - INFO - Found 1 projects from Perplexity
+2025-02-09 23:37:06,218 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 23:37:06,218 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 23:37:09,265 - __main__ - INFO - Searching SERP API for: Port Development contract wins India

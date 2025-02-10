@@ -1,0 +1,4 @@
+2025-02-09 20:53:52,088 - utilities.logger - INFO - Logging initialized
+2025-02-09 20:53:52,094 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 20:53:52,095 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 20:53:53,843 - utilities.email_handler - INFO - SMTP connection test successful on initialization

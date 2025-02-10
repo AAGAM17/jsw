@@ -1,0 +1,8 @@
+2025-02-10 12:04:52,166 - utilities.logger - INFO - Logging initialized
+2025-02-10 12:04:52,171 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 12:04:52,172 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 12:04:52,175 - utilities.email_handler - WARNING - Could not establish SMTP connection: [Errno 8] nodename nor servname provided, or not known
+2025-02-10 12:04:52,175 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 12:04:52,176 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-10 12:04:52,210 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x105858850>: Failed to resolve 'themetrorailguy.com' ([Errno 8] nodename nor servname provided, or not known)")': /
+2025-02-10 12:04:54,215 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x105858e90>: Failed to resolve 'themetrorailguy.com' ([Errno 8] nodename nor servname provided, or not known)")': /

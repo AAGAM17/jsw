@@ -1,0 +1,42 @@
+2025-02-09 15:08:02,911 - utilities.logger - INFO - Logging initialized
+2025-02-09 15:08:02,915 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 15:08:02,916 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 15:08:04,601 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 15:08:04,822 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 15:08:04,823 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 15:08:09,979 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 15:08:12,180 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 15:08:14,330 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 15:08:14,330 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 15:08:14,330 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 15:08:14,331 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 15:08:22,322 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 15:08:22,322 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 15:08:31,694 - scrapers.perplexity_client - INFO - Successfully parsed 5 projects
+2025-02-09 15:08:31,694 - scrapers.perplexity_client - INFO - Found 5 projects
+2025-02-09 15:08:31,695 - __main__ - INFO - Found 5 projects from Perplexity
+2025-02-09 15:08:31,695 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 15:08:31,695 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India
+2025-02-09 15:08:38,193 - __main__ - INFO - Searching SERP API for: Port Development contract wins India
+2025-02-09 15:08:44,337 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins
+2025-02-09 15:08:48,131 - __main__ - INFO - Searching SERP API for: EPC Contract Wins
+2025-02-09 15:08:53,346 - __main__ - INFO - Found 703 results from SERP API
+2025-02-09 15:08:53,347 - __main__ - INFO - Found 703 projects from SERP API
+2025-02-09 15:08:53,348 - __main__ - INFO - Total projects found: 708
+2025-02-09 15:08:53,356 - __main__ - INFO - Unique projects after deduplication: 649
+2025-02-09 15:08:53,356 - __main__ - INFO - Enriching projects with Firecrawl...
+2025-02-09 15:08:56,446 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:08:59,463 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:02,476 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:05,491 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:08,510 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:11,526 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:14,541 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:17,556 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:20,571 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:23,591 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:26,611 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:29,630 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:32,649 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:35,661 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts
+2025-02-09 15:09:38,679 - __main__ - ERROR - Connection error with Firecrawl after 3 attempts

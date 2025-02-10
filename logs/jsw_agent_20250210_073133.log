@@ -1,0 +1,8 @@
+2025-02-10 07:31:33,730 - utilities.logger - INFO - Logging initialized
+2025-02-10 07:31:33,733 - utilities.logger - INFO - Logging initialized
+2025-02-10 07:31:33,788 - werkzeug - WARNING -  * Debugger is active!
+2025-02-10 07:31:33,814 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-10 07:31:38,949 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 07:31:38] "GET /status HTTP/1.1" 200 -
+2025-02-10 07:31:39,398 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 07:31:39] "[32mGET / HTTP/1.1[0m" 302 -
+2025-02-10 07:31:39,542 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 07:31:39] "GET /projects HTTP/1.1" 200 -
+2025-02-10 07:36:54,331 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/app.py', reloading

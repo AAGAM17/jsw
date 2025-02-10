@@ -3,6 +3,7 @@ from twilio.base.exceptions import TwilioRestException
 import logging
 from config.settings import Config
 from datetime import datetime
+import time
 
 class WhatsAppHandler:
     def __init__(self):
@@ -25,81 +26,102 @@ class WhatsAppHandler:
     
     def send_project_opportunities(self, projects):
         """Send project opportunities via WhatsApp"""
-        if not self.enabled:
+        if not self.enabled or not projects:
             return False
             
-        try:
-            # Group projects by product type
-            team_projects = {}
-            for project in projects:
-                product_type = project.get('product_type', 'UNKNOWN')
-                if product_type not in team_projects:
-                    team_projects[product_type] = []
-                team_projects[product_type].append(project)
-            
-            # Create and send summary message for each team
-            for product_type, product_projects in team_projects.items():
-                total_value = sum(p.get('value', 0) for p in product_projects)
-                total_steel = sum(p.get('steel_requirement', 0) for p in product_projects)
+        success = True
+        for recipient in self.recipients:
+            try:
+                # Format recipient number
+                to_number = recipient.strip().strip('+')
                 
-                message = f"""🏗️ *New {product_type.replace('_', ' ')} Projects*
-
-📊 *Summary:*
-• Projects: {len(product_projects)}
-• Total Value: ₹{total_value:.1f}Cr
-• Steel Required: {total_steel:.0f}MT
-
-*Top Projects:*"""
+                # Send overview message first
+                overview = f"🏗️ *New Project Opportunities*\n\nFound {len(projects)} new projects:\n"
+                for idx, project in enumerate(projects, 1):
+                    overview += f"\n{idx}. {project['company']} - {project['title']}"
+                    if project.get('value'):
+                        overview += f" (₹{project['value']:.1f} Cr)"
                 
-                # Add top 3 projects by priority
-                sorted_projects = sorted(product_projects, key=lambda x: x.get('priority_score', 0), reverse=True)
-                for idx, project in enumerate(sorted_projects[:3], 1):
-                    message += f"""
-
-{idx}. *{project['company']}*
-• {project['title']}
-• Value: ₹{project.get('value', 0):.1f}Cr
-• Steel: {project.get('steel_requirement', 0):.0f}MT
-• Start: {project.get('start_date', datetime.now()).strftime('%b %Y')}"""
+                if not self._send_whatsapp(overview, to_number):
+                    success = False
+                    continue
                 
-                message += """
-
-💡 Check your email for complete details and links."""
+                # Send detailed messages for each project
+                for idx, project in enumerate(projects, 1):
+                    message = self._format_project_message(project, idx)
+                    if not self._send_whatsapp(message, to_number):
+                        success = False
+                        break
+                    time.sleep(1)  # Add delay between messages
+                    
+            except Exception as e:
+                self.logger.error(f"Error sending WhatsApp to {recipient}: {str(e)}")
+                success = False
                 
-                self._send_whatsapp(message)
-            
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"Error sending WhatsApp notifications: {str(e)}")
-            return False
+        return success
     
-    def _send_whatsapp(self, message):
+    def _format_project_message(self, project, idx):
+        """Format a single project message"""
+        message = f"*Project #{idx} Details*\n\n"
+        
+        # Basic info
+        message += f"*Company:* {project['company']}\n"
+        message += f"*Project:* {project['title']}\n\n"
+        
+        # Value and timeline
+        if project.get('value'):
+            message += f"*Value:* ₹{project['value']:.1f} Crore\n"
+        
+        if project.get('start_date'):
+            message += f"*Start Date:* {project['start_date'].strftime('%B %Y')}\n"
+        if project.get('end_date'):
+            message += f"*End Date:* {project['end_date'].strftime('%B %Y')}\n"
+        message += "\n"
+        
+        # Steel requirements if available
+        if project.get('steel_requirements'):
+            message += "*Steel Requirements:*\n"
+            for steel_type, amount in project['steel_requirements'].items():
+                message += f"• {steel_type}: {amount} MT\n"
+            message += "\n"
+        
+        # Source and additional info
+        if project.get('source_url'):
+            message += f"*Source:* {project['source_url']}\n"
+        if project.get('description'):
+            message += f"\n*Description:*\n{project['description'][:300]}..."
+        
+        return message
+    
+    def _send_whatsapp(self, message, to_number, max_retries=3):
         """Send WhatsApp message with retries"""
         if not self.enabled:
             return False
             
-        max_retries = 3
-        for recipient in self.recipients:
-            for attempt in range(max_retries):
-                try:
-                    # Format WhatsApp numbers
-                    from_number = self.whatsapp_from.strip('+')
-                    to_number = recipient.strip().strip('+')
-                    
-                    # Send message
-                    response = self.client.messages.create(
-                        body=message,
-                        from_=f"whatsapp:+{from_number}",
-                        to=f"whatsapp:+{to_number}"
-                    )
-                    
-                    self.logger.info(f"Sent WhatsApp message to {to_number} (SID: {response.sid})")
-                    break
-                    
-                except TwilioRestException as e:
-                    if attempt == max_retries - 1:
-                        self.logger.error(f"Failed to send WhatsApp to {recipient} after {max_retries} attempts: {str(e)}")
-                    else:
-                        self.logger.warning(f"Attempt {attempt + 1} failed for {recipient}, retrying...")
-                        continue 
+        for attempt in range(max_retries):
+            try:
+                # Format WhatsApp numbers
+                from_number = self.whatsapp_from.strip('+')
+                
+                # Send message
+                response = self.client.messages.create(
+                    from_=f"whatsapp:+{from_number}",
+                    body=message,
+                    to=f"whatsapp:+{to_number}"
+                )
+                
+                self.logger.info(f"Sent WhatsApp message to {to_number} (SID: {response.sid})")
+                return True
+                
+            except TwilioRestException as e:
+                if attempt == max_retries - 1:
+                    self.logger.error(f"Failed to send WhatsApp to {to_number} after {max_retries} attempts: {str(e)}")
+                else:
+                    self.logger.warning(f"Attempt {attempt + 1} failed for {to_number}, retrying in 2 seconds...")
+                    time.sleep(2)  # Wait before retry
+                    continue
+            except Exception as e:
+                self.logger.error(f"Unexpected error sending WhatsApp to {to_number}: {str(e)}")
+                return False
+                
+        return False 

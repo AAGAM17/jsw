@@ -1,0 +1,196 @@
+2025-02-09 21:49:35,533 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:49:35,537 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 21:49:35,537 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 21:49:37,209 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 21:49:37,429 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 21:49:37,430 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 21:49:42,143 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 21:49:43,955 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 21:49:45,624 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 21:49:45,624 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 21:49:45,624 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 21:49:45,624 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 21:49:57,239 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:49:57,240 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 21:50:03,189 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:50:03,190 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-09 21:50:14,586 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:50:14,588 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-09 21:50:14,588 - scrapers.perplexity_client - ERROR - No projects found after all attempts
+2025-02-09 21:50:14,589 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-09 21:50:14,589 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 21:50:14,589 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India last hour
+2025-02-09 21:50:14,706 - __main__ - INFO - Searching SERP API for: Port Development contract wins India last hour
+2025-02-09 21:50:14,787 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins India last hour
+2025-02-09 21:50:14,905 - __main__ - INFO - Searching SERP API for: EPC Contract Wins India last hour
+2025-02-09 21:50:14,991 - __main__ - INFO - Found 27 unique results from SERP API
+2025-02-09 21:50:14,992 - __main__ - INFO - Found 27 projects from SERP API
+2025-02-09 21:50:14,992 - __main__ - INFO - Processing 27 projects for quality filtering...
+2025-02-09 21:50:14,992 - __main__ - INFO - 
+Processing project: Metro Rail News: Home
+2025-02-09 21:50:14,993 - __main__ - INFO - 
+Processing project: Delhi High Court Weekly Round-Up: February 03 To ...
+2025-02-09 21:50:14,993 - __main__ - INFO - 
+Processing project: Breaking News Today, Top Headlines, Live Updates
+2025-02-09 21:50:14,994 - __main__ - INFO - 
+Processing project: Judiciary Mains Exam Papers Daily Questions For Judicial ...
+2025-02-09 21:50:14,994 - __main__ - INFO - 
+Processing project: Latest News on ahmedabad
+2025-02-09 21:50:14,994 - __main__ - INFO - 
+Processing project: IT Helpdesk Supervisor - Navi Mumbai, Maharashtra
+2025-02-09 21:50:14,994 - __main__ - INFO - 
+Processing project: North-east News
+2025-02-09 21:50:14,995 - __main__ - INFO - 
+Processing project: THE BEST Kerala Transportation (Updated 2025)
+2025-02-09 21:50:14,995 - __main__ - INFO - 
+Processing project: https://www.punjabkesari.in/sitemap-national.xml.gz
+2025-02-09 21:50:14,995 - __main__ - INFO - 
+Processing project: sitemaps-v1--sitemap-latest-videos.xml
+2025-02-09 21:50:14,995 - __main__ - INFO - 
+Processing project: Blockchain Training in Madurai
+2025-02-09 21:50:14,996 - __main__ - INFO - 
+Processing project: Legal Tech and Taxation News Portal - Trends, Insights, and ...
+2025-02-09 21:50:14,996 - __main__ - INFO - 
+Processing project: National Institute of Rural Development and Panchayati Raj - Home
+2025-02-09 21:50:14,996 - __main__ - INFO - 
+Processing project: Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV
+2025-02-09 21:50:14,996 - __main__ - INFO - 
+Processing project: 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada
+2025-02-09 21:50:14,997 - __main__ - INFO - 
+Processing project: Delhi International Leather Expo 2025 vindt plaats op 20-21 februari in Yashobhoomi
+2025-02-09 21:50:14,997 - __main__ - INFO - 
+Processing project: BJP's Capital gain shows the 'door to AAP-da'
+2025-02-09 21:50:14,997 - __main__ - INFO - 
+Processing project: DD News
+2025-02-09 21:50:14,997 - __main__ - INFO - 
+Processing project: History of England compromising the reign of Queen Anne until the peace of Utrecht (v.02)|Philip Henry Stanhope Stanhope 2025
+2025-02-09 21:50:14,998 - __main__ - INFO - 
+Processing project: Technology News India: Latest Tech News Today, Gadgets, Smartphone News
+2025-02-09 21:50:14,998 - __main__ - INFO - 
+Processing project: eProcurement System Government of Tamil Nadu
+2025-02-09 21:50:14,998 - __main__ - INFO - 
+Processing project: eProcurement System Government of Madhya Pradesh
+2025-02-09 21:50:14,998 - __main__ - INFO - 
+Processing project: Bush Radio
+2025-02-09 21:50:14,999 - __main__ - INFO - 
+Processing project: Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address
+2025-02-09 21:50:14,999 - __main__ - INFO - 
+Processing project: Ashoka Buildcon Share Price NSE/BSE
+2025-02-09 21:50:14,999 - __main__ - INFO - 
+Processing project: Export Promotion Council for Handicrafts (EPCH ...
+2025-02-09 21:50:14,999 - __main__ - INFO - 
+Processing project: Mumbai Newsbox
+2025-02-09 21:50:15,000 - __main__ - WARNING - No quality projects found after filtering
+2025-02-09 21:50:15,000 - __main__ - INFO - 
+All projects considered:
+2025-02-09 21:50:15,000 - __main__ - INFO - 1. Title: Metro Rail News: Home
+2025-02-09 21:50:15,000 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,000 - __main__ - INFO -    Source: https://metrorailnews.in/
+
+2025-02-09 21:50:15,001 - __main__ - INFO - 2. Title: Delhi High Court Weekly Round-Up: February 03 To ...
+2025-02-09 21:50:15,001 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,001 - __main__ - INFO -    Source: https://www.livelaw.in/high-court/delhi-high-court/delhi-high-court-weekly-round-up-february-03-to-february-09-2025-283382
+
+2025-02-09 21:50:15,001 - __main__ - INFO - 3. Title: Breaking News Today, Top Headlines, Live Updates
+2025-02-09 21:50:15,001 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,001 - __main__ - INFO -    Source: https://mizoram.nic.in/pop31.htm
+
+2025-02-09 21:50:15,002 - __main__ - INFO - 4. Title: Judiciary Mains Exam Papers Daily Questions For Judicial ...
+2025-02-09 21:50:15,002 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,003 - __main__ - INFO -    Source: https://www.dhyeyalaw.in/mains-daily-questions
+
+2025-02-09 21:50:15,003 - __main__ - INFO - 5. Title: Latest News on ahmedabad
+2025-02-09 21:50:15,003 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,003 - __main__ - INFO -    Source: https://www.aninews.in/topic/ahmedabad/
+
+2025-02-09 21:50:15,003 - __main__ - INFO - 6. Title: IT Helpdesk Supervisor - Navi Mumbai, Maharashtra
+2025-02-09 21:50:15,004 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,004 - __main__ - INFO -    Source: https://www.simplyhired.co.in/job/ZCaTAg4nN2PLLTTYnQhwecGEIucjdqPQ89saTsjUh49oClxB2uNexw
+
+2025-02-09 21:50:15,004 - __main__ - INFO - 7. Title: North-east News
+2025-02-09 21:50:15,004 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,005 - __main__ - INFO -    Source: https://www.tripuraindia.in/category/index/north-east
+
+2025-02-09 21:50:15,005 - __main__ - INFO - 8. Title: THE BEST Kerala Transportation (Updated 2025)
+2025-02-09 21:50:15,005 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,005 - __main__ - INFO -    Source: https://www.tripadvisor.in/Attractions-g297631-Activities-c59-Kerala.html
+
+2025-02-09 21:50:15,006 - __main__ - INFO - 9. Title: https://www.punjabkesari.in/sitemap-national.xml.gz
+2025-02-09 21:50:15,006 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,007 - __main__ - INFO -    Source: https://www.punjabkesari.in/sitemap-national.xml.gz
+
+2025-02-09 21:50:15,007 - __main__ - INFO - 10. Title: sitemaps-v1--sitemap-latest-videos.xml
+2025-02-09 21:50:15,008 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,008 - __main__ - INFO -    Source: https://www.divyabhaskar.co.in/sitemaps-v1--sitemap-latest-videos.xml
+
+2025-02-09 21:50:15,008 - __main__ - INFO - 11. Title: Blockchain Training in Madurai
+2025-02-09 21:50:15,008 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,008 - __main__ - INFO -    Source: https://www.acte.in/blockchain-training-course-madurai
+
+2025-02-09 21:50:15,009 - __main__ - INFO - 12. Title: Legal Tech and Taxation News Portal - Trends, Insights, and ...
+2025-02-09 21:50:15,009 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,009 - __main__ - INFO -    Source: http://dailylawtimes.in/
+
+2025-02-09 21:50:15,009 - __main__ - INFO - 13. Title: National Institute of Rural Development and Panchayati Raj - Home
+2025-02-09 21:50:15,010 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,010 - __main__ - INFO -    Source: https://nirdpr.org.in/
+
+2025-02-09 21:50:15,010 - __main__ - INFO - 14. Title: Odisha Latest News: Politics, Weather News Updates | Breaking News - Odisha TV
+2025-02-09 21:50:15,010 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,011 - __main__ - INFO -    Source: https://odishatv.in/
+
+2025-02-09 21:50:15,011 - __main__ - INFO - 15. Title: 3 BHK Farmhouse For Sale At 129 Weekend Villa, Vansajada
+2025-02-09 21:50:15,011 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,011 - __main__ - INFO -    Source: https://remaxrealtysolutions.co.in/properties/3-bhk-farmhouse-for-sale-weekend-villa/
+
+2025-02-09 21:50:15,011 - __main__ - INFO - 16. Title: Delhi International Leather Expo 2025 vindt plaats op 20-21 februari in Yashobhoomi
+2025-02-09 21:50:15,011 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,011 - __main__ - INFO -    Source: https://www.psuconnect.in/nl/ministry-of-india-news/delhi-international-leather-expo-2025-to-be-held-on-20-21st-feb-at-yashobhoomi
+
+2025-02-09 21:50:15,011 - __main__ - INFO - 17. Title: BJP's Capital gain shows the 'door to AAP-da'
+2025-02-09 21:50:15,011 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,011 - __main__ - INFO -    Source: https://thehillstimes.in/wp-content/uploads/2025/02/Net-Edition-Feb-9-Diphu_compressed.pdf
+
+2025-02-09 21:50:15,012 - __main__ - INFO - 18. Title: DD News
+2025-02-09 21:50:15,012 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,012 - __main__ - INFO -    Source: https://ddnews.gov.in/en/
+
+2025-02-09 21:50:15,012 - __main__ - INFO - 19. Title: History of England compromising the reign of Queen Anne until the peace of Utrecht (v.02)|Philip Henry Stanhope Stanhope 2025
+2025-02-09 21:50:15,012 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,012 - __main__ - INFO -    Source: http://biharvidhanparishad.gov.in/gqt/xliy/bs6ffe08
+
+2025-02-09 21:50:15,012 - __main__ - INFO - 20. Title: Technology News India: Latest Tech News Today, Gadgets, Smartphone News
+2025-02-09 21:50:15,012 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,013 - __main__ - INFO -    Source: https://www.businesstoday.in/technology
+
+2025-02-09 21:50:15,013 - __main__ - INFO - 21. Title: eProcurement System Government of Tamil Nadu
+2025-02-09 21:50:15,013 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,013 - __main__ - INFO -    Source: https://tntenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=S0g8N%2FzBGK2IUXzIfka6LnQ%3D%3D
+
+2025-02-09 21:50:15,013 - __main__ - INFO - 22. Title: eProcurement System Government of Madhya Pradesh
+2025-02-09 21:50:15,013 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,013 - __main__ - INFO -    Source: https://mptenders.gov.in/nicgep/app?component=%24DirectLink&page=FrontEndTendersByOrganisation&service=direct&sp=S%2Bt7ylexecXeEINPR4PWtnw%3D%3D
+
+2025-02-09 21:50:15,013 - __main__ - INFO - 23. Title: Bush Radio
+2025-02-09 21:50:15,014 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,014 - __main__ - INFO -    Source: http://bushradionews.blogspot.in/
+
+2025-02-09 21:50:15,014 - __main__ - INFO - 24. Title: Bank of Baroda Regional Office, Kanpur Metro Office, IFSC Code, Address
+2025-02-09 21:50:15,014 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,014 - __main__ - INFO -    Source: https://www.bankofbaroda.in/locate-us/branches/uttar-pradesh/kanpur/kanpur-metro/rokanp
+
+2025-02-09 21:50:15,014 - __main__ - INFO - 25. Title: Ashoka Buildcon Share Price NSE/BSE
+2025-02-09 21:50:15,014 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,015 - __main__ - INFO -    Source: https://www.tickertape.in/stocks/ashoka-buildcon-ABDL
+
+2025-02-09 21:50:15,015 - __main__ - INFO - 26. Title: Export Promotion Council for Handicrafts (EPCH ...
+2025-02-09 21:50:15,015 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,016 - __main__ - INFO -    Source: https://www.epch.in/
+
+2025-02-09 21:50:15,016 - __main__ - INFO - 27. Title: Mumbai Newsbox
+2025-02-09 21:50:15,016 - __main__ - INFO -    Value: None
+2025-02-09 21:50:15,016 - __main__ - INFO -    Source: https://mumbainewsbox.blogspot.in/
+
+2025-02-09 21:50:15,116 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 21:50:15,121 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 21:50:15,122 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,6 @@
+2025-02-10 00:42:47,690 - utilities.logger - INFO - Logging initialized
+2025-02-10 00:42:47,695 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 00:42:47,696 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-10 00:42:49,465 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 00:42:49,694 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 00:42:49,694 - __main__ - INFO - Scraping themetrorailguy.com...

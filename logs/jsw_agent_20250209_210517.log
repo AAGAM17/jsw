@@ -1,0 +1,5 @@
+2025-02-09 21:05:17,305 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:05:17,310 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:05:17,390 - werkzeug - WARNING -  * Debugger is active!
+2025-02-09 21:05:17,423 - werkzeug - INFO -  * Debugger PIN: 188-707-127
+2025-02-09 21:05:22,122 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:05:22] "GET /status HTTP/1.1" 200 -

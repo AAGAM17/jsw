@@ -1,0 +1,56 @@
+2025-02-09 21:02:37,547 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:02:37,551 - utilities.logger - INFO - Logging initialized
+2025-02-09 21:02:37,612 - werkzeug - WARNING -  * Debugger is active!
+2025-02-09 21:02:37,661 - werkzeug - INFO -  * Debugger PIN: 188-707-127
+2025-02-09 21:02:39,749 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:02:39] "GET / HTTP/1.1" 200 -
+2025-02-09 21:02:39,895 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:02:39] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:02:44,890 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:02:44] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:02:49,923 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:02:49] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:03,822 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:03] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:09,379 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:09] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:20,026 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:20] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:29,774 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:29] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:42,763 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:42] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:47,874 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:47] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:54,081 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:54] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:59,076 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:59] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:03:59,330 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 21:03:59,331 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:03:59] "POST /run HTTP/1.1" 200 -
+2025-02-09 21:03:59,333 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 21:04:00,985 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 21:04:01,208 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 21:04:01,208 - main - INFO - Scraping themetrorailguy.com...
+2025-02-09 21:04:04,175 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:04] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:05,911 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 21:04:08,330 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 21:04:10,128 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 21:04:10,128 - main - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 21:04:10,128 - main - INFO - Discovering projects using Perplexity AI...
+2025-02-09 21:04:10,128 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 21:04:10,676 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:10] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:15,670 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:15] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:17,779 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:04:17,780 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 21:04:20,677 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:20] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:25,677 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:25] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:25,864 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:04:25,864 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-09 21:04:30,678 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:30] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:35,678 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:35] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:38,356 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 21:04:38,357 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-09 21:04:38,357 - scrapers.perplexity_client - ERROR - No projects found after all attempts
+2025-02-09 21:04:38,358 - main - INFO - Found 0 projects from Perplexity
+2025-02-09 21:04:38,358 - main - INFO - Fetching projects from SERP API...
+2025-02-09 21:04:38,358 - main - INFO - Searching SERP API for: Railway Contract wins in India last hour
+2025-02-09 21:04:38,466 - main - INFO - Searching SERP API for: Port Development contract wins India last hour
+2025-02-09 21:04:38,569 - main - INFO - Searching SERP API for: Metro Rail Tender Wins India last hour
+2025-02-09 21:04:38,650 - main - INFO - Searching SERP API for: EPC Contract Wins India last hour
+2025-02-09 21:04:38,773 - main - INFO - Found 4 unique results from SERP API
+2025-02-09 21:04:38,774 - main - INFO - Found 4 projects from SERP API
+2025-02-09 21:04:38,775 - main - WARNING - No quality projects found after filtering
+2025-02-09 21:04:40,677 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:40] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:45,776 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:45] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:04:56,123 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:04:56] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:05:08,423 - werkzeug - INFO - 127.0.0.1 - - [09/Feb/2025 21:05:08] "GET /status HTTP/1.1" 200 -
+2025-02-09 21:05:15,292 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/app.py', reloading

@@ -1,0 +1,248 @@
+2025-02-09 20:01:10,104 - utilities.logger - INFO - Logging initialized
+2025-02-09 20:01:10,114 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-09 20:01:10,116 - utilities.email_handler - INFO - Initialized EmailHandler with sender: aagamfirebase33@gmail.com
+2025-02-09 20:01:12,584 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-09 20:01:12,954 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-09 20:01:12,954 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-09 20:01:46,193 - urllib3.connectionpool - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='themetrorailguy.com', port=443): Read timed out. (read timeout=30)")': /category/tenders
+2025-02-09 20:01:49,232 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-09 20:01:51,319 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-09 20:01:53,512 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-09 20:01:53,514 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-09 20:01:53,514 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-09 20:01:53,516 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-09 20:02:02,458 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-09 20:02:02,461 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-09 20:02:10,369 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-09 20:02:10,369 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-09 20:02:10,370 - __main__ - INFO - Found 4 projects from Perplexity
+2025-02-09 20:02:10,370 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-09 20:02:10,370 - __main__ - INFO - Searching SERP API for: Railway Contract wins in India last hour
+2025-02-09 20:02:10,494 - __main__ - INFO - Searching SERP API for: Port Development contract wins India last hour
+2025-02-09 20:02:10,577 - __main__ - INFO - Searching SERP API for: Metro Rail Tender Wins India last hour
+2025-02-09 20:02:10,663 - __main__ - INFO - Searching SERP API for: EPC Contract Wins India last hour
+2025-02-09 20:02:10,784 - __main__ - INFO - Found 4 unique results from SERP API
+2025-02-09 20:02:10,784 - __main__ - INFO - Found 4 projects from SERP API
+2025-02-09 20:02:10,800 - __main__ - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.com', port=443): Max retries exceeded with url: /v1/extract (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x106d26d50>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+2025-02-09 20:02:10,801 - __main__ - INFO - Quality projects to be sent:
+2025-02-09 20:02:10,802 - __main__ - INFO - 1. L&T - Mumbai-Ahmedabad High Speed Rail Project C6 Package (Rs. 24985.0 Cr)
+2025-02-09 20:02:10,802 - __main__ - INFO - 2. Tata Projects - Noida International Airport Terminal Building (Rs. 6538.0 Cr)
+2025-02-09 20:02:10,802 - __main__ - INFO - 3. Larsen & Toubro - Chennai Peripheral Ring Road Project (Rs. 3338.0 Cr)
+2025-02-09 20:02:10,802 - __main__ - INFO - 4. Afcons Infrastructure - Bengaluru Metro Phase 3 ORR West Extension (Rs. 1997.0 Cr)
+2025-02-09 20:02:10,802 - __main__ - INFO - Sending notifications for 4 quality projects...
+2025-02-09 20:02:10,802 - utilities.email_handler - INFO - Attempting to send 4 projects via email
+2025-02-09 20:02:10,803 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-09 20:02:12,016 - utilities.email_handler - INFO - Attempting login with aagamfirebase33@gmail.com
+2025-02-09 20:02:12,439 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-09 20:02:12,662 - utilities.email_handler - INFO - Processing project: Mumbai-Ahmedabad High Speed Rail Project C6 Package for team HR_CR_PLATES
+2025-02-09 20:02:12,663 - utilities.email_handler - INFO - Processing project: Noida International Airport Terminal Building for team HR_CR_PLATES
+2025-02-09 20:02:12,663 - utilities.email_handler - INFO - Processing project: Chennai Peripheral Ring Road Project for team TMT_BARS
+2025-02-09 20:02:12,663 - utilities.email_handler - INFO - Processing project: Bengaluru Metro Phase 3 ORR West Extension for team HR_CR_PLATES
+2025-02-09 20:02:12,663 - utilities.email_handler - INFO - Total projects by team: HR_CR_PLATES: 3, TMT_BARS: 1
+2025-02-09 20:02:12,664 - utilities.email_handler - INFO - Sending 1 projects to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-09 20:02:14,306 - utilities.email_handler - INFO - Sending email to chaudhariharsh86@gmail.com (Attempt 1)
+2025-02-09 20:02:15,858 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-09 20:02:16,089 - utilities.email_handler - INFO - Sending 3 projects to harsh@meresu.in for HR_CR_PLATES
+2025-02-09 20:02:17,967 - utilities.email_handler - INFO - Sending email to harsh@meresu.in (Attempt 1)
+2025-02-09 20:02:19,606 - utilities.email_handler - INFO - Successfully sent email to harsh@meresu.in for HR_CR_PLATES
+2025-02-09 20:02:19,833 - __main__ - INFO - Successfully sent email notifications
+2025-02-09 20:02:20,013 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:20,014 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:20,014 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:20,014 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:20,014 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:20,014 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:20,015 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:20,015 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:20,015 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:20,425 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:20,425 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:20 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ804f12d7c3ab9c1ef555a4e320e2fa47', 'Twilio-Request-Duration': '0.017', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '3K1OhebFmBOs5BOI-OtsvxMugrMNgFrnmKYR2wzHscRbgtwAeXq3yg=='}
+2025-02-09 20:02:20,426 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for +917715018407, retrying...
+2025-02-09 20:02:20,426 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:20,426 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:20,426 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:20,426 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:20,426 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:20,427 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:20,427 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:20,427 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:20,427 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:20,674 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:20,674 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:20 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ22e58921c9e01e968420f88ef9029434', 'Twilio-Request-Duration': '0.017', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'Wn1EA_U1Ji4VxjLa5vaC2iguSUnbjgwM6y24Wg1tqwAKGlsIkDTgNA=='}
+2025-02-09 20:02:20,675 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for +917715018407, retrying...
+2025-02-09 20:02:20,675 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:20,675 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:20,675 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:20,676 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:21,040 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:21,040 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:20 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQa9b6db9287d89ac7b9eb753ff0c0f575', 'Twilio-Request-Duration': '0.015', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'wozwE1rk3vl02Rx8gcJVOAjipXgPCnq9naZsYHC6zO-Gvjl1ySDsAQ=='}
+2025-02-09 20:02:21,041 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to +917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Authenticate[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/20003[0m
+
+
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:21,041 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:21,042 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:21,042 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:21,042 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:21,347 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:21,348 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:21 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQc78a7250cc9b72879a01929e764f735e', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '2dQnC5pktI9ugrYa4is6A3V8FVkRP2oGjLIJEnzOYWtwxu9xEoavFw=='}
+2025-02-09 20:02:21,348 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for +917715018407, retrying...
+2025-02-09 20:02:21,348 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:21,349 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:21,349 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:21,349 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:21,349 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:21,349 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:21,350 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:21,350 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:21,350 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:21,601 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:21,601 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:21 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ2f6499c3a6e0609a44ee3b97cca873bd', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '1_addyV7q4jwoGg5GlqNSB2Si0kdPwgDz-uwnQKefjb_35F6256nGg=='}
+2025-02-09 20:02:21,602 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for +917715018407, retrying...
+2025-02-09 20:02:21,602 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:21,602 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:21,602 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:21,603 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:21,845 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:21,845 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:21 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ52f74c69b533a05b89abd8f327942fd6', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'rhL7zt7nzL4isWKL8gi7_K4hFwQkzRDsuqMxQudh5LnFatzPQHgUww=='}
+2025-02-09 20:02:21,846 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to +917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Authenticate[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/20003[0m
+
+
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:21,846 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:21,847 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:21,847 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:22,400 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:22,400 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:22 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ464e31a9e44dc3e49a28b245272c82fc', 'Twilio-Request-Duration': '0.009', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'RCkBZbAo-YKDoBMX5ZpvLJtmwiC0y7wyzqUnEPmAVXQfzRN0ueBGEw=='}
+2025-02-09 20:02:22,401 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for +917715018407, retrying...
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:22,401 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:22,402 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:22,402 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:22,402 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:23,054 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:23,055 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:22 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ0ecac61152d00260655654b3f84c332c', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'XGBgFjt5FHtuOCHnUtZKYr5UHiQ-oZLbNzd730sHQ9oEBZZFo6LWHA=='}
+2025-02-09 20:02:23,055 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for +917715018407, retrying...
+2025-02-09 20:02:23,055 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:23,055 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:23,055 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:23,056 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:23,524 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:23,525 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:23 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ7008088d4ba66f3aad65ba14a9a06c1e', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'jenIlC-p_UVoYm3AYeYEGe06Nccd6osoXuBnrYLUCk2Ln0-U87AlAQ=='}
+2025-02-09 20:02:23,525 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to +917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Authenticate[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/20003[0m
+
+
+2025-02-09 20:02:23,525 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:23,526 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:23,526 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:23,526 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:23,526 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:23,527 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:23,527 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:23,527 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:23,527 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:24,198 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:24,198 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:24 GMT', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQfc4edcf95a5a120836bc550e05fdb5e2', 'Twilio-Request-Duration': '0.007', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Powered-By': 'AT-5000', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '0BjnpMZBP1aYjuOk0fd2hNKa2pOf_bFa5JAoPiIJXEjmBTQ1g_md7A=='}
+2025-02-09 20:02:24,199 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for +917715018407, retrying...
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:24,199 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:24,200 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:24,200 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:24,200 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:24 GMT', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ397c4270736e40af196712ab3c3a1421', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Powered-By': 'AT-5000', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'dC4gZhkdfzLzmlJfmY6kYowkbIEK_oYj4PIvwsBfCSLijMkcUrgxOw=='}
+2025-02-09 20:02:24,876 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for +917715018407, retrying...
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - Headers:
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.13.1
+2025-02-09 20:02:24,876 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-09 20:02:24,877 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-09 20:02:24,877 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-09 20:02:24,877 - twilio.http_client - INFO - Accept : application/json
+2025-02-09 20:02:24,877 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-09 20:02:25,109 - twilio.http_client - INFO - Response Status Code: 401
+2025-02-09 20:02:25,110 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '107', 'Connection': 'keep-alive', 'Date': 'Sun, 09 Feb 2025 14:32:25 GMT', 'X-Twilio-Error-Code': '20003', 'Twilio-Request-Id': 'RQ9cea697bb76fa6981a29785052b600fe', 'Twilio-Request-Duration': '0.008', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Www-Authenticate': 'Basic realm="Twilio API"', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Powered-By': 'AT-5000', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 760649275eaee828a7b74657fa46c0c2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'NqWinbQWj6xmQ1sa1633KMQXxDThSvz9JKmV-7M1V5Iy6T-C2G6kVg=='}
+2025-02-09 20:02:25,110 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to +917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC262098a183ab695833f6d3cac4bd1a35/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Authenticate[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/20003[0m
+
+
+2025-02-09 20:02:25,110 - __main__ - INFO - Successfully sent WhatsApp notifications
+2025-02-09 20:02:25,141 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-09 20:02:25,143 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-09 20:02:25,143 - apscheduler.scheduler - INFO - Scheduler started

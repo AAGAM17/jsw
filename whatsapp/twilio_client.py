@@ -2,6 +2,7 @@ from twilio.rest import Client # type: ignore
 from twilio.base.exceptions import TwilioRestException # type: ignore
 from config.settings import Config
 import logging
+import json
 
 class TwilioClient:
     MAX_LENGTH = 1500  # WhatsApp message limit with some buffer
@@ -18,13 +19,13 @@ class TwilioClient:
     def send_whatsapp(self, message):
         """Send WhatsApp message, splitting into multiple parts if too long"""
         success = True
-        self.logger.info(f"Attempting to send message to {len(Config.RECIPIENTS)} recipients")
+        self.logger.info(f"Attempting to send message to {len(Config.WHATSAPP_TO)} recipients")
         
         # Split message if too long
         messages = self._split_message(message)
         total_parts = len(messages)
         
-        for recipient in Config.RECIPIENTS:
+        for recipient in Config.WHATSAPP_TO:
             try:
                 self.logger.info(f"Sending to {recipient}...")
                 
@@ -38,8 +39,9 @@ class TwilioClient:
                     to_number = recipient.strip().strip('+')  # Remove + and whitespace
                     
                     response = self.client.messages.create(
-                        body=msg_part,
                         from_=f"whatsapp:+{from_number}",
+                        content_sid='HXb5b62575e6e4ff6129ad7c8efe1f983e',
+                        content_variables=json.dumps({"1": msg_part}),
                         to=f"whatsapp:+{to_number}"
                     )
                     self.logger.info(f"Successfully sent part {idx}/{total_parts} to {recipient} (SID: {response.sid})")
