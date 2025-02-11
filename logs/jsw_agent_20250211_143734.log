@@ -1,0 +1,173 @@
+2025-02-11 14:37:34,187 - utilities.logger - INFO - Logging initialized
+2025-02-11 14:37:34,198 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 14:37:34,579 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 14:37:36,915 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 14:37:37,135 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 14:37:37,136 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 14:37:43,923 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-11 14:37:46,594 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-11 14:37:48,977 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-11 14:37:48,977 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 14:37:48,978 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 14:37:48,978 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 14:38:07,576 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-11 14:38:07,576 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-11 14:38:07,577 - __main__ - INFO - Found 3 projects from Perplexity
+2025-02-11 14:38:07,577 - __main__ - INFO - Searching for projects using Exa.ai...
+2025-02-11 14:38:07,577 - scrapers.exa_client - INFO - Starting Exa.ai search...
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,402 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,403 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,403 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:12,403 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,111 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,112 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,112 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,112 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:17,112 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,243 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:22,244 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,799 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:27,800 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,049 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,050 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,050 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,050 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:32,050 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:39,330 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,522 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:42,523 - scrapers.exa_client - ERROR - Error checking result date: 'Result' object has no attribute 'metadata'
+2025-02-11 14:38:43,526 - scrapers.exa_client - INFO - Found 0 unique results from Exa.ai
+2025-02-11 14:38:43,527 - __main__ - INFO - Found 0 projects from Exa.ai
+2025-02-11 14:38:43,527 - __main__ - INFO - Processing 3 projects for quality filtering...
+2025-02-11 14:38:43,527 - __main__ - INFO - Adding quality project: Installation of Kavach Railway Safety System (Ircon International Limited (IRCON)) - Rs. 194.5 Cr
+2025-02-11 14:38:43,527 - __main__ - INFO - Adding quality project: Infrastructure Development in Manipur (IRCON-AMRIL Joint Venture) - Rs. 531.9 Cr
+2025-02-11 14:38:43,527 - __main__ - INFO - Adding quality project: Improvement of Thoppur Ghat Section Alignment (Dilip Buildcon Ltd.) - Rs. 548.0 Cr
+2025-02-11 14:38:43,527 - __main__ - INFO - 
+Quality projects found (3):
+2025-02-11 14:38:43,528 - __main__ - INFO - 1. Ircon International Limited (IRCON) - Installation of Kavach Railway Safety System
+2025-02-11 14:38:43,528 - __main__ - INFO -    Value: Rs. 194.46 Cr
+2025-02-11 14:38:43,528 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-11 14:38:43,528 - __main__ - INFO - 2. IRCON-AMRIL Joint Venture - Infrastructure Development in Manipur
+2025-02-11 14:38:43,528 - __main__ - INFO -    Value: Rs. 531.9 Cr
+2025-02-11 14:38:43,528 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-11 14:38:43,528 - __main__ - INFO - 3. Dilip Buildcon Ltd. - Improvement of Thoppur Ghat Section Alignment
+2025-02-11 14:38:43,528 - __main__ - INFO -    Value: Rs. 548.0 Cr
+2025-02-11 14:38:43,529 - __main__ - INFO -    Source: https://www.cnbctv18.com/market/dilip-buildcon-wins-548-crore-project-from-nhai-in-tamil-nadu-19241201.htm
+
+2025-02-11 14:38:43,529 - __main__ - INFO - Sending notifications for 3 quality projects...
+2025-02-11 14:38:43,529 - utilities.email_handler - INFO - Starting to send 3 projects via email
+2025-02-11 14:38:43,529 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-11 14:38:45,236 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-11 14:38:45,620 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-11 14:38:45,839 - utilities.email_handler - ERROR - Error grouping projects: 'EmailHandler' object has no attribute '_determine_team'
+2025-02-11 14:38:45,839 - utilities.email_handler - INFO - Projects grouped by team: 
+2025-02-11 14:38:45,839 - utilities.email_handler - INFO - Total portfolio value: Rs. 0 Cr
+2025-02-11 14:38:45,839 - utilities.email_handler - INFO - Total steel requirement: 0 MT
+2025-02-11 14:38:45,840 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 0 teams
+2025-02-11 14:38:45,840 - __main__ - ERROR - Failed to send email notifications
+2025-02-11 14:38:45,951 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 14:38:45,951 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - Headers:
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 14:38:45,952 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 14:38:46,370 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 14:38:46,370 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1135', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 09:08:46 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ096deb43249060a8e129d4a357b901ed', 'Twilio-Request-Duration': '0.125', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 1ad884bdec2db9559f6147db99ff9e96.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'c5QlAQO0DpkjFJ6Z-MtGT4t7drmmM-doRsJX_41BozVEZAsO16f50A=='}
+2025-02-11 14:38:46,370 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM096deb43249060a8e129d4a357b901ed)
+2025-02-11 14:38:46,370 - utilities.whatsapp_handler - ERROR - Error sending WhatsApp to +917715018407: 'str' object has no attribute 'strftime'
+2025-02-11 14:38:46,370 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-11 14:38:46,440 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 14:38:46,440 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 14:38:46,440 - apscheduler.scheduler - INFO - Scheduler started

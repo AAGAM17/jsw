@@ -1,0 +1,13 @@
+2025-02-12 00:38:12,515 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:38:12,519 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:38:12,670 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:38:12,736 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:38:12,849 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:38:12] "GET / HTTP/1.1" 200 -
+2025-02-12 00:38:13,536 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:38:13] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:38:15,715 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:38:17,988 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:38:22,201 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:38:26,257 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:38:29,408 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:38:29,409 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:38:29] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:40:08,291 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/app.py', reloading

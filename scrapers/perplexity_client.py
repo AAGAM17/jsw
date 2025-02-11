@@ -21,44 +21,75 @@ class PerplexityClient:
         
         # Primary query focusing on recent contract awards
         primary_query = """
-        Find recent infrastructure and construction project contract awards in India. Include:
-        
-        1. Metro Rail Projects:
-        - Metro rail construction
-        - Station works
-        - Viaduct construction
-        - Underground tunneling
-        
-        2. Infrastructure Projects:
-        - Highway construction
-        - Bridge and flyover projects
-        - Port development
-        - Airport expansion
-        - Smart city projects
-        
-        3. Building Projects:
-        - Commercial complexes
-        - Industrial facilities
-        - Residential townships
-        - Warehouses and logistics
-        
-        4. Industrial Projects:
-        - Steel plants
-        - Manufacturing units
-        - Processing facilities
-        - Power plants
-        
-        For each project, provide:
-        - Company Name
-        - Project Name
-        - Contract Value in Crores
-        - Project Timeline
-        - Source URL
-        
+        Search for the latest infrastructure contract wins by companies in India only, particularly in sectors such as construction, transportation, energy, and urban development, rail, metro. Strictly exclude any news or contracts from abroad.
+
+        Check these specific websites for contract wins news:
+        - https://www.biddetail.com/procurement-news/epc-contract
+        - https://newsonprojects.com
+        - https://constructionopportunities.in/
+        - https://projectxindia.com
+        - https://metrorailtoday.com
+        - https://themetrorailguy.com
+        - https://www.projectstoday.com
+        - https://www.biltrax.com
+
+        Monitor these priority companies:
+        - Dilip Buildcon
+        - Larsen & Toubro (L&T) and its various arms (L&T Construction, etc.)
+        - PNC Infratech
+        - HG Infra Engineering
+        - IRB Infrastructure Trust
+        - Cube Highways and Infrastructure
+        - GR Infraprojects
+        - Afcons Infrastructure
+        - Rail Vikas Nigam Limited (RVNL)
+        - J Kumar Infraprojects
+        - Megha Engineering and Infrastructure (MEIL)
+        - Ashoka Buildcon
+        - Torrent Power
+        - Genus Power Infrastructure
+        - Patel Engineering
+        - NHAI (National Highways Authority of India)
+        - NHSRCL (National High-Speed Rail Corporation Limited)
+        - MSRDC (Maharashtra State Road Development Corporation)
+        - RSIIL (Roadway Solutions India Infra Limited)
+        - Madhaav Infra Projects
+
+        Format each project as:
+        Company: [Company Name]
+        Title: [Project Title]
+        Value: [Value in Crores]
+        Location: [Project Location]
+        Timeline: [Start Date - End Date]
+        Steel Requirement: [Quantity in MT]
+        Description: [Full article text]
+        Source: [Complete https:// URL]
+
         Focus on:
-        - Projects worth Rs. 0.2 Cr to 100 Cr
-        - Recently awarded contracts
-        - Verified information from reliable sources
+        1. Contract awards in the last day with possible steel requirements
+        2. New project announcements with steel procurement needs
+        3. Priority projects including:
+           - Road/rail infrastructure
+           - Metro rail projects
+           - Commercial and residential real estate
+           - Port developments
+
+        Auto-filter criteria:
+        - Projects above 20 lakhs in value
+        - Only Indian news
+        - Relevant to steel supply
+
+        JSW-specific criteria:
+        - Projects requiring TMT Bars
+        - Projects needing HR Plates
+        - HSLA requirements
+        - Coated products demand
+        - Solar-specific steel needs
+
+        High-priority opportunities:
+        - Large-scale infrastructure (>100 crore)
+        - Significant steel requirement (>1000 MT)
+        - Urgent timeline (starting within 6 months)
         """
         
         try:
@@ -66,28 +97,31 @@ class PerplexityClient:
             results = self._query_perplexity(primary_query)
             projects.extend(self._parse_project_results(results))
             
-            # If no projects found, try backup query
+            # If no projects found, try backup query focusing on company announcements
             if not projects:
                 backup_query = """
-                Search for the most recent construction and infrastructure tenders awarded in India.
-                Check these specific sources:
-                - www.themetrorailguy.com
-                - www.constructionworld.in
-                - www.projectstoday.com
-                - Government tender websites
-                - Infrastructure news portals
+                Search for recent project announcements from these companies in India:
+                1. L&T Construction - Check https://www.larsentoubro.com/corporate/media/news-room/
+                2. Dilip Buildcon - Check BSE/NSE announcements
+                3. RVNL - Check https://rvnl.org/en/news
+                4. NHAI - Check https://nhai.gov.in/
+                5. Afcons - Check company website news section
                 
-                Look for:
-                1. Metro rail and railway projects
-                2. Road and highway projects
-                3. Building construction projects
-                4. Industrial projects
+                Format each project as:
+                Company: [Company Name]
+                Title: [Project Title]
+                Value: [Value in Crores]
+                Location: [Project Location]
+                Timeline: [Start Date - End Date]
+                Steel Requirement: [Quantity in MT]
+                Description: [Full article text]
+                Source: [Complete https:// URL]
                 
-                Format each result exactly as:
-                [Company Name] wins [Project Name]
-                Contract Value: Rs. [X] Cr
-                Timeline: Start [Month Year] to End [Month Year]
-                Source: [URL]
+                Focus on:
+                - Contract awards and wins only
+                - Projects requiring steel supply
+                - Full article text and source links
+                - Projects announced in last 24 hours
                 """
                 
                 self.logger.info("Trying backup query...")
@@ -97,10 +131,29 @@ class PerplexityClient:
             # If still no projects, try emergency query
             if not projects:
                 emergency_query = """
-                List ALL infrastructure and construction projects announced in India in the last 30 days.
-                Include ANY project announcements, contract awards, or tenders.
-                Do not filter by value.
-                Must return at least 5 projects with company names and values.
+                Find ANY infrastructure or construction project announcements from India in the last 24 hours.
+                
+                Check:
+                - All news websites
+                - Company announcements
+                - Stock exchange filings
+                - Government tender portals
+                
+                Format each project as:
+                Company: [Company Name]
+                Title: [Project Title]
+                Value: [Value in Crores]
+                Location: [Project Location]
+                Timeline: [Start Date - End Date]
+                Steel Requirement: [Quantity in MT]
+                Description: [Full article text]
+                Source: [Complete https:// URL]
+                
+                Include:
+                - Any projects with steel requirements
+                - Any procurement announcements
+                - Full article text for analysis
+                - Proper source URLs
                 """
                 
                 self.logger.info("Trying emergency query...")
@@ -109,8 +162,9 @@ class PerplexityClient:
             
             # Log results
             self.logger.info(f"Found {len(projects)} projects")
+            
             if not projects:
-                self.logger.error("No projects found after all attempts")
+                self.logger.warning("No projects found after all attempts")
             
             return projects
             
@@ -175,61 +229,109 @@ class PerplexityClient:
                 
             content = results['choices'][0]['message']['content']
             
-            # Split content into project sections
-            sections = re.split(r'\n\s*\n', content)
+            # Split into project blocks using stronger delimiters
+            project_blocks = re.split(r'\n\s*(?=Company:|Source:https://)', content)
             
-            for section in sections:
-                if not section.strip():
+            for block in project_blocks:
+                if not block.strip():
                     continue
-                
+                    
                 try:
-                    # Try to parse project details
-                    project = {}
+                    project = {
+                        'news_date': datetime.now().strftime('%Y-%m-%d'),
+                        'source': 'perplexity'
+                    }
                     
-                    # Look for company and project name
-                    if 'wins' in section.lower():
-                        match = re.search(r'([^:\n]+)\s+wins\s+([^:\n]+)', section, re.IGNORECASE)
-                        if match:
-                            project['company'] = match.group(1).strip()
-                            project['title'] = match.group(2).strip()
+                    # Extract company name
+                    if company_match := re.search(r'Company:\s*([^\n]+)', block):
+                        project['company'] = company_match.group(1).strip()
                     
-                    # Look for contract value
-                    value_match = re.search(r'(?:Contract Value|Value|Worth|Cost):\s*(?:Rs\.|₹|INR)?\s*([\d,]+(?:\.\d+)?)\s*(?:Cr|Crore)', section, re.IGNORECASE)
-                    if value_match:
+                    # Extract project title
+                    if title_match := re.search(r'Title:\s*([^\n]+)', block):
+                        project['title'] = title_match.group(1).strip()
+                    
+                    # Extract value (handle crore/lakh formats)
+                    if value_match := re.search(r'Value:\s*(?:Rs\.)?\s*(\d+(?:\.\d+)?)\s*(Crores?|Lakhs?|Cr)', block, re.IGNORECASE):
+                        value = float(value_match.group(1))
+                        unit = value_match.group(2).lower()
+                        if 'lakh' in unit:
+                            value = value / 100  # Convert to crores
+                        project['value'] = value
+                    
+                    # Extract location
+                    if location_match := re.search(r'Location:\s*([^\n]+)', block):
+                        project['location'] = location_match.group(1).strip()
+                    
+                    # Enhanced timeline extraction
+                    if timeline_match := re.search(r'Timeline:\s*([^\n]+)', block):
+                        timeline = timeline_match.group(1).strip()
+                        
+                        # Try different timeline formats
                         try:
-                            project['value'] = float(value_match.group(1).replace(',', ''))
-                        except ValueError:
-                            continue
-                    
-                    # Look for timeline
-                    timeline_match = re.search(r'(?:Timeline|Duration|Period):\s*(?:Start)?\s*([A-Za-z]+\s+\d{4})\s*(?:to|till|until|-)?\s*(?:End)?\s*([A-Za-z]+\s+\d{4})', section, re.IGNORECASE)
-                    if timeline_match:
-                        try:
-                            project['start_date'] = datetime.strptime(timeline_match.group(1), '%B %Y')
-                            project['end_date'] = datetime.strptime(timeline_match.group(2), '%B %Y')
-                        except ValueError:
-                            # Try alternate date format
-                            try:
-                                project['start_date'] = datetime.strptime(timeline_match.group(1), '%b %Y')
-                                project['end_date'] = datetime.strptime(timeline_match.group(2), '%b %Y')
-                            except ValueError:
+                            # Format: "Month Year - Month Year"
+                            if ' - ' in timeline:
+                                start_str, end_str = timeline.split(' - ')
+                                project['start_date'] = datetime.strptime(start_str.strip(), '%B %Y')
+                                project['end_date'] = datetime.strptime(end_str.strip(), '%B %Y')
+                            
+                            # Format: "X months" or "X years"
+                            elif duration_match := re.search(r'(\d+)\s*(month|year)s?', timeline, re.IGNORECASE):
+                                duration = int(duration_match.group(1))
+                                unit = duration_match.group(2).lower()
+                                
                                 project['start_date'] = datetime.now()
-                                project['end_date'] = datetime.now() + timedelta(days=365*2)
+                                if 'year' in unit:
+                                    duration *= 12
+                                project['end_date'] = project['start_date'] + timedelta(days=duration * 30)
+                            
+                            # Format: "Expected completion by Month Year"
+                            elif completion_match := re.search(r'(?:completion|complete|end)\s+by\s+([A-Za-z]+\s+\d{4})', timeline, re.IGNORECASE):
+                                end_date = datetime.strptime(completion_match.group(1), '%B %Y')
+                                project['start_date'] = datetime.now()
+                                project['end_date'] = end_date
+                            
+                            # Format: "Starting from Month Year"
+                            elif start_match := re.search(r'(?:start|begin|commence)\s+(?:from|in|by)?\s+([A-Za-z]+\s+\d{4})', timeline, re.IGNORECASE):
+                                start_date = datetime.strptime(start_match.group(1), '%B %Y')
+                                project['start_date'] = start_date
+                                project['end_date'] = start_date + timedelta(days=730)  # Default 24 months
+                            
+                            # Default case: use current date and add default duration
+                            else:
+                                project['start_date'] = datetime.now()
+                                project['end_date'] = project['start_date'] + timedelta(days=730)  # Default 24 months
+                                
+                        except ValueError as ve:
+                            self.logger.debug(f"Timeline parsing detail: {str(ve)}")
+                            # Set default dates if parsing fails
+                            project['start_date'] = datetime.now()
+                            project['end_date'] = project['start_date'] + timedelta(days=730)
                     
-                    # Look for source URL
-                    url_match = re.search(r'(?:Source|Link|URL):\s*(https?://\S+)', section, re.IGNORECASE)
-                    if url_match:
-                        project['source_url'] = url_match.group(1).strip()
+                    # Extract steel requirement
+                    if steel_match := re.search(r'Steel Requirement:\s*(\d+(?:\.\d+)?)\s*(?:MT|Tonnes?)', block, re.IGNORECASE):
+                        project['steel_requirement'] = round(float(steel_match.group(1)))
+                        project['steel_requirement_display'] = f"~{project['steel_requirement']:,} MT"
                     
-                    # Extract description
-                    project['description'] = section.strip()[:500]
+                    # Extract full article text
+                    if desc_match := re.search(r'Description:\s*([^\n]*(?:\n(?!Source:)[^\n]+)*)', block):
+                        project['description'] = desc_match.group(1).strip()
                     
-                    # Add project if it has minimum required fields
-                    if project.get('company') and project.get('title') and project.get('value'):
+                    # Extract complete source URL
+                    if source_match := re.search(r'Source:\s*(https?://[^\s\n]+)', block):
+                        project['source_url'] = source_match.group(1).strip()
+                    
+                    # Add steel demand estimation
+                    if (project.get('company') and project.get('title') and 
+                        project.get('source_url') and project.get('description') and
+                        (project.get('value', 0) >= 0.2 or project.get('steel_requirement', 0) > 0)):
+                        project['steel_demand'] = self._estimate_steel_demand(project)
+                        if project.get('steel_requirement'):
+                            project['steel_requirement'] = round(project['steel_requirement'])
+                            project['steel_requirement_display'] = f"~{project['steel_requirement']:,} MT"
                         projects.append(project)
                         
                 except Exception as e:
-                    self.logger.error(f"Error parsing section: {str(e)}")
+                    self.logger.error(f"Error parsing block: {str(e)}")
                     continue
             
             self.logger.info(f"Successfully parsed {len(projects)} projects")
@@ -310,6 +412,95 @@ class PerplexityClient:
             factor = Config.STEEL_FACTORS['default']
         
         return project_value * factor
+
+    def _estimate_steel_demand(self, project):
+        """Estimate steel demand for primary and secondary products based on project details"""
+        try:
+            # Step 1: Extract Project Data
+            description = project.get('description', '').lower()
+            title = project.get('title', '').lower()
+            value = project.get('value', 0)  # in crores
+            
+            # Identify industry and sub-sector
+            industry = None
+            sub_sector = None
+            
+            # Infrastructure checks
+            if any(word in description + title for word in ['highway', 'road', 'bridge', 'flyover']):
+                industry = 'infrastructure'
+                sub_sector = 'highways' if 'highway' in description + title else 'bridges'
+            elif any(word in description + title for word in ['railway', 'rail', 'track']):
+                industry = 'infrastructure'
+                sub_sector = 'railways'
+            elif any(word in description + title for word in ['metro', 'rapid transit']):
+                industry = 'infrastructure'
+                sub_sector = 'metro'
+            elif any(word in description + title for word in ['port', 'harbor', 'dock']):
+                industry = 'infrastructure'
+                sub_sector = 'ports'
+            elif any(word in description + title for word in ['smart city', 'urban development']):
+                industry = 'infrastructure'
+                sub_sector = 'smart_cities'
+            
+            # Construction checks
+            elif any(word in description + title for word in ['residential', 'housing', 'apartment']):
+                industry = 'construction'
+                sub_sector = 'residential'
+            elif any(word in description + title for word in ['commercial', 'office', 'mall']):
+                industry = 'construction'
+                sub_sector = 'commercial'
+            elif any(word in description + title for word in ['factory', 'plant', 'industrial']):
+                industry = 'construction'
+                sub_sector = 'industrial'
+            
+            # Renewable checks
+            elif any(word in description + title for word in ['solar', 'pv', 'photovoltaic']):
+                industry = 'renewable'
+                sub_sector = 'solar'
+            elif any(word in description + title for word in ['wind', 'turbine']):
+                industry = 'renewable'
+                sub_sector = 'wind'
+            elif any(word in description + title for word in ['hydro', 'dam']):
+                industry = 'renewable'
+                sub_sector = 'hydro'
+            
+            # Industrial checks
+            elif any(word in description + title for word in ['machinery', 'equipment']):
+                industry = 'industrial'
+                sub_sector = 'machinery' if 'machinery' in description + title else 'equipment'
+            
+            # Default to infrastructure if no clear match
+            if not industry:
+                industry = 'infrastructure'
+                sub_sector = 'highways'
+            
+            # Step 2: Map to Products
+            products = Config.PRODUCT_MAPPING.get(industry, {}).get(sub_sector, {
+                'primary': 'TMT_BARS',
+                'secondary': 'HR_PLATES'
+            })
+            
+            # Step 3: Estimate Quantities
+            def calculate_tonnage(product_type, sub_sector):
+                base_rate = Config.STEEL_RATES.get(product_type, {}).get(sub_sector, 
+                    Config.STEEL_RATES.get(product_type, {}).get('default', 10))
+                return round(base_rate * value * 0.8)  # Apply 0.8 conservative factor
+            
+            primary_product = products['primary']
+            secondary_product = products['secondary']
+            
+            primary_tonnage = calculate_tonnage(primary_product, sub_sector)
+            secondary_tonnage = calculate_tonnage(secondary_product, sub_sector)
+            
+            # Format the output string with rounded numbers and ~ symbol
+            output = f"Primary Product: {primary_product.replace('_', ' ')}: ~{primary_tonnage:,}MT\n"
+            output += f"Secondary Product: {secondary_product.replace('_', ' ')}: ~{secondary_tonnage:,}MT"
+            
+            return output
+            
+        except Exception as e:
+            self.logger.error(f"Error estimating steel demand: {str(e)}")
+            return "Could not estimate steel demand due to insufficient data"
 
     def get_project_info(self, project_context):
         """Get detailed project information based on context and user query"""

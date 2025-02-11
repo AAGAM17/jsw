@@ -1,0 +1,50 @@
+2025-02-12 00:22:19,075 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:22:19,078 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:22:19,232 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:22:19,286 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:22:19,415 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:19] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:22:21,857 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:21] "GET / HTTP/1.1" 200 -
+2025-02-12 00:22:22,766 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:22] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:22:28,144 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:29,992 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:33,615 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:34,495 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:34,685 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:34,845 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:35,022 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:35,902 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:36,166 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:36,461 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:36,834 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:37,063 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:37,350 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:38,510 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:39,191 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:39,347 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:39,776 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:40,133 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:40,243 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:42,011 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:42,012 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:42] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:42,051 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:22:42,815 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:42,998 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:43,125 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:43,354 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:43,551 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:22:44,110 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:45,907 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:45,908 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:45] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:46,502 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:46,503 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:46] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:46,698 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:46,700 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:46] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:46,940 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:46,942 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:46] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:47,628 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:47,652 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:47,653 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:47] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:22:50,988 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:22:54,321 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:22:54,323 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:22:54] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 00:24:32,264 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/utilities/email_handler.py', reloading

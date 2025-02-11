@@ -5,33 +5,150 @@ from scrapers.metro_scraper import MetroScraper
 from utilities.email_handler import EmailHandler
 from utilities.whatsapp_handler import WhatsAppHandler
 from utilities.logger import configure_logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from config.settings import Config
 import requests
 import re
 import time
+from exa_py import Exa
 
 configure_logging()
 logger = logging.getLogger(__name__)
 
-def _query_serp(query, site=None):
-    """Make SERP API call with retries"""
+def _search_with_exa():
+    """Search for projects using Exa API"""
+    all_results = []
+    exa = Exa(api_key=Config.EXA_API_KEY)
+    
     try:
+        logger.info("Starting Exa API search...")
+        
+        # Search using configured queries
+        for query in Config.EXA_SETTINGS['search_queries']:
+            try:
+                # Rate limit - sleep 1 second between calls
+                time.sleep(1)
+                
+                # First do a search to get relevant URLs - limit to 2 results per query to get 6-8 total results
+                search_results = exa.search(
+                    query,
+                    num_results=2,  # Reduced from 50 to 2 per query
+                    include_domains=Config.EXA_SETTINGS['search_parameters']['include_domains']
+                )
+                
+                if search_results and search_results.results:
+                    # Get content for each relevant URL
+                    for result in search_results.results:
+                        try:
+                            # Skip social media and unwanted domains
+                            if any(domain in result.url.lower() for domain in Config.EXA_SETTINGS['search_parameters']['exclude_domains']):
+                                continue
+                                
+                            # Get full content
+                            content = exa.get_contents(
+                                urls=[result.url],
+                                text={"max_characters": Config.EXA_SETTINGS['search_parameters']['max_characters']}
+                            )
+                            
+                            if content and content.results:
+                                text_content = content.results[0].text
+                                
+                                if _is_relevant_result({
+                                    'title': result.title,
+                                    'snippet': text_content,
+                                    'link': result.url
+                                }):
+                                    # Convert published_date to datetime if it exists
+                                    published_date = None
+                                    if hasattr(result, 'published_date') and result.published_date:
+                                        try:
+                                            if isinstance(result.published_date, str):
+                                                published_date = datetime.strptime(result.published_date, '%Y-%m-%d')
+                                            elif isinstance(result.published_date, datetime):
+                                                published_date = result.published_date
+                                        except (ValueError, TypeError):
+                                            published_date = datetime.now()
+                                    else:
+                                        published_date = datetime.now()
+                                    
+                                    all_results.append({
+                                        'title': result.title,
+                                        'description': text_content[:1000],  # Limit description length
+                                        'source_url': result.url,
+                                        'source': 'exa_web',
+                                        'query': query,
+                                        'published_date': published_date,
+                                        'start_date': published_date,  # Use published date as start date if not found
+                                        'end_date': None  # Will be calculated later if needed
+                                    })
+                            
+                        except Exception as e:
+                            logger.error(f"Error getting content for {result.url}: {str(e)}")
+                            continue
+                
+            except Exception as e:
+                logger.error(f"Exa API error for query '{query}': {str(e)}")
+                continue
+        
+        # Remove duplicates based on URL
+        seen_urls = set()
+        unique_results = []
+        for result in all_results:
+            url = result.get('source_url', '').lower()
+            if url and url not in seen_urls:
+                seen_urls.add(url)
+                unique_results.append(result)
+        
+        # Limit to top 7 results if we have more
+        if len(unique_results) > 7:
+            unique_results = unique_results[:7]
+        
+        logger.info(f"Found {len(unique_results)} unique results from Exa API")
+        return unique_results
+        
+    except Exception as e:
+        logger.error(f"Error in Exa search: {str(e)}")
+        return []
+
+def _query_serp(query, site=None):
+    """Make SERP API call with retries and rate limiting"""
+    try:
+        # Rate limit - sleep 2 seconds between calls
+        time.sleep(2)
+        
         params = {
             'api_key': Config.SERP_API_KEY,
-            'q': query + (' site:' + site if site else ' site:.in'),
+            'q': query,
             'gl': 'in',  # Set location to India
             'hl': 'en',  # Set language to English
             'tbs': 'qdr:d',  # Last day
             'location': 'India',
             'google_domain': 'google.co.in',
-            'num': 100  # Maximum results
+            'num': 50  # Reduced from 100 to avoid rate limits
         }
         
+        # Add site filter if specified
+        if site:
+            if isinstance(site, list):
+                # Multiple sites using OR operator
+                site_filter = ' OR '.join(f'site:{s}' for s in site[:5])  # Limit to top 5 sites
+                params['q'] = f"({query}) ({site_filter})"
+            else:
+                params['q'] = f"{query} site:{site}"
+        else:
+            params['q'] = f"{query} site:.in"
+            
         response = requests.get('https://serpapi.com/search.json', params=params)
+        
+        # Handle rate limits
+        if response.status_code == 429:
+            logger.warning("SERP API rate limit hit, waiting 60 seconds...")
+            time.sleep(60)  # Wait longer on rate limit
+            response = requests.get('https://serpapi.com/search.json', params=params)
+        
         response.raise_for_status()
         return response.json()
-    except Exception as e:
+    except requests.exceptions.RequestException as e:
         logger.error(f"SERP API error for query '{query}': {str(e)}")
         return None
 
@@ -39,106 +156,82 @@ def _search_google():
     """Search for projects using SERP API"""
     all_results = []
     
-    # Core search queries
-    core_queries = [
-        "contract win construction infrastructure india",
-        "project announcement foundation laying tender result construction start india",
-        "infrastructure project awarded india",
-        "construction contract awarded india"
-    ]
-    
-    # Priority sector queries
-    sector_queries = [
-        "road infrastructure contract win india",
-        "rail infrastructure project awarded india",
-        "metro rail contract awarded india",
-        "commercial real estate construction india",
-        "residential real estate project india",
-        "port development contract india"
-    ]
-    
-    # Company-specific queries
-    company_queries = [
-        "Dilip Buildcon wins contract",
-        "L&T Construction awarded project",
-        "PNC Infratech wins contract",
-        "HG Infra Engineering project",
-        "IRB Infrastructure contract",
-        "Cube Highways project",
-        "GR Infraprojects awarded",
-        "Afcons Infrastructure contract",
-        "RVNL project awarded",
-        "J Kumar Infrastructure contract",
-        "MEIL project awarded",
-        "Ashoka Buildcon contract"
-    ]
-    
-    # Target websites to search
-    target_sites = [
-        "epc.gov.in",
-        "nseindia.com",
-        "nhai.gov.in",
-        "constructionworld.in",
-        "themetrorailguy.com",
-        "biddetail.com",
-        "newsonprojects.com",
-        "constructionopportunities.in",
-        "projectxindia.com",
-        "metrorailtoday.com",
-        "projectstoday.com"
-    ]
-    
-    # Steel-specific queries
-    steel_queries = [
-        "steel requirement TMT bars india",
-        "steel procurement HR plates india",
-        "HSLA steel requirement project india",
-        "coated steel products construction india",
-        "solar steel structure requirement india"
-    ]
-    
-    logger.info("Starting comprehensive SERP API search...")
-    
-    # Search each query combination
-    for query in core_queries + sector_queries + company_queries + steel_queries:
-        # Try general search first
-        results = _query_serp(query)
-        if results and 'organic_results' in results:
-            for result in results['organic_results']:
-                if _is_relevant_result(result):
-                    all_results.append({
-                        'title': result.get('title', ''),
-                        'description': result.get('snippet', ''),
-                        'source_url': result.get('link', ''),
-                        'source': 'serp_web',
-                        'query': query
-                    })
+    try:
+        # Core search queries with site filters
+        core_queries = [
+            "contract win construction infrastructure india",
+            "project announcement foundation laying tender result construction start india",
+            "infrastructure project awarded india",
+            "construction contract awarded india"
+        ]
         
-        # Then search specific sites
-        for site in target_sites:
-            site_results = _query_serp(query, site)
-            if site_results and 'organic_results' in site_results:
-                for result in site_results['organic_results']:
+        # Priority sector queries
+        sector_queries = [
+            "road infrastructure contract win india",
+            "rail infrastructure project awarded india",
+            "metro rail contract awarded india"
+        ]
+        
+        # Target websites to search
+        target_sites = [
+            "constructionworld.in",
+            "themetrorailguy.com",
+            "projectstoday.com",
+            "nhai.gov.in",
+            "epc.gov.in"
+        ]
+        
+        logger.info("Starting optimized SERP API search...")
+        
+        # Search core queries across all target sites at once
+        for query in core_queries:
+            results = _query_serp(query, target_sites)
+            if results and 'organic_results' in results:
+                for result in results['organic_results']:
                     if _is_relevant_result(result):
                         all_results.append({
                             'title': result.get('title', ''),
                             'description': result.get('snippet', ''),
                             'source_url': result.get('link', ''),
-                            'source': f'serp_{site}',
-                            'query': f"{query} site:{site}"
+                            'source': 'serp_web',
+                            'query': query
                         })
-    
-    # Remove duplicates based on URL
-    seen_urls = set()
-    unique_results = []
-    for result in all_results:
-        url = result.get('source_url', '').lower()
-        if url and url not in seen_urls:
-            seen_urls.add(url)
-            unique_results.append(result)
-    
-    logger.info(f"Found {len(unique_results)} unique results from SERP API")
-    return unique_results
+            elif results is None:
+                logger.warning("SERP API failed, continuing with other sources...")
+                return []  # Return empty list to skip SERP results
+        
+        # Search sector queries across relevant sites
+        for query in sector_queries:
+            results = _query_serp(query, target_sites[:3])  # Use top 3 most relevant sites
+            if results and 'organic_results' in results:
+                for result in results['organic_results']:
+                    if _is_relevant_result(result):
+                        all_results.append({
+                            'title': result.get('title', ''),
+                            'description': result.get('snippet', ''),
+                            'source_url': result.get('link', ''),
+                            'source': 'serp_sector',
+                            'query': query
+                        })
+            elif results is None:
+                logger.warning("SERP API failed, continuing with other sources...")
+                break  # Stop trying more queries if API is failing
+        
+        # Remove duplicates based on URL
+        seen_urls = set()
+        unique_results = []
+        for result in all_results:
+            url = result.get('source_url', '').lower()
+            if url and url not in seen_urls:
+                seen_urls.add(url)
+                unique_results.append(result)
+        
+        logger.info(f"Found {len(unique_results)} unique results from SERP API")
+        return unique_results
+        
+    except Exception as e:
+        logger.error(f"Error in SERP search: {str(e)}")
+        return []  # Return empty list to skip SERP results
 
 def _is_relevant_result(result):
     """Check if a SERP result is relevant"""
@@ -176,6 +269,30 @@ def _enrich_with_firecrawl(projects):
     firecrawl_attempts = 0
     max_firecrawl_attempts = 4  # Limit total Firecrawl attempts
     
+    # Test Firecrawl API connection first with retries
+    firecrawl_available = False
+    for attempt in range(3):  # Try 3 times
+        try:
+            response = requests.post(
+                'https://api.firecrawl.io/v1/test',
+                headers={
+                    'Authorization': f'Bearer {Config.FIRECRAWL_API_KEY}',
+                    'Content-Type': 'application/json'
+                },
+                json={},
+                timeout=10
+            )
+            response.raise_for_status()
+            firecrawl_available = True
+            logger.info("Firecrawl API connection test successful")
+            break
+        except requests.exceptions.RequestException as e:
+            logger.warning(f"Firecrawl API test attempt {attempt + 1} failed: {str(e)}")
+            time.sleep(2)  # Wait before retry
+    
+    if not firecrawl_available:
+        logger.warning("Firecrawl API unavailable after retries, using basic scraping only")
+    
     for project in projects:
         if not project.get('source_url'):
             continue
@@ -190,57 +307,77 @@ def _enrich_with_firecrawl(projects):
         try:
             # First try basic scraping
             basic_data = _basic_scrape(project['source_url'])
-            if basic_data.get('description') and basic_data.get('value'):
+            if basic_data and basic_data.get('description') and basic_data.get('value'):
                 project.update(basic_data)
                 enriched_projects.append(project)
                 continue
             
-            # Only try Firecrawl for high-priority sources and if we haven't hit the limit
-            if firecrawl_attempts < max_firecrawl_attempts:
+            # Only try Firecrawl if it's available and we haven't hit the limit
+            if firecrawl_available and firecrawl_attempts < max_firecrawl_attempts:
                 # Prioritize specific domains
                 priority_domains = ['themetrorailguy.com', 'constructionworld.in', 'projectstoday.com']
                 if any(domain in project['source_url'].lower() for domain in priority_domains):
-                    try:
-                        response = requests.post(
-                            'https://api.firecrawl.com/v1/extract',
-                            headers={
-                                'Authorization': f'Bearer {Config.FIRECRAWL_API_KEY}',
-                                'Content-Type': 'application/json'
-                            },
-                            json={
-                                'url': project['source_url'],
-                                'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules'],
-                                'options': Config.FIRECRAWL_SETTINGS['extraction_options']
-                            },
-                            timeout=10
-                        )
-                        
-                        if response.status_code == 200:
-                            firecrawl_data = response.json()
-                            project['firecrawl_data'] = firecrawl_data
-                            logger.info(f"Successfully enriched project with Firecrawl: {project['title']}")
-                            firecrawl_attempts += 1
-                        
+                    success = False
+                    for attempt in range(2):  # Try twice for each URL
+                        try:
+                            response = requests.post(
+                                'https://api.firecrawl.io/v1/extract',
+                                headers={
+                                    'Authorization': f'Bearer {Config.FIRECRAWL_API_KEY}',
+                                    'Content-Type': 'application/json'
+                                },
+                                json={
+                                    'url': project['source_url'],
+                                    'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules'],
+                                    'options': Config.FIRECRAWL_SETTINGS['extraction_options']
+                                },
+                                timeout=15
+                            )
+                            
+                            if response.status_code == 200:
+                                firecrawl_data = response.json()
+                                project['firecrawl_data'] = firecrawl_data
+                                
+                                # Extract key information from Firecrawl data
+                                if 'extracted_text' in firecrawl_data:
+                                    project['description'] = firecrawl_data['extracted_text'][:1000]
+                                
+                                if 'metadata' in firecrawl_data:
+                                    metadata = firecrawl_data['metadata']
+                                    if 'project_value' in metadata:
+                                        project['value'] = float(metadata['project_value'])
+                                    if 'start_date' in metadata:
+                                        project['start_date'] = metadata['start_date']
+                                    if 'end_date' in metadata:
+                                        project['end_date'] = metadata['end_date']
+                                
+                                logger.info(f"Successfully enriched project with Firecrawl: {project['title']}")
+                                firecrawl_attempts += 1
+                                success = True
+                                break
+                            
+                        except requests.exceptions.RequestException as e:
+                            logger.warning(f"Firecrawl attempt {attempt + 1} failed for {project['source_url']}: {str(e)}")
+                            time.sleep(2)  # Wait before retry
+                            
+                    if success:
                         enriched_projects.append(project)
-                        
-                    except Exception as e:
-                        logger.warning(f"Firecrawl failed for priority domain: {str(e)}")
-                        if basic_data.get('description'):
-                            project.update(basic_data)
-                            enriched_projects.append(project)
+                    elif basic_data and basic_data.get('description'):
+                        project.update(basic_data)
+                        enriched_projects.append(project)
                 else:
                     # For non-priority domains, use basic scrape if it got any data
-                    if basic_data.get('description'):
+                    if basic_data and basic_data.get('description'):
                         project.update(basic_data)
                         enriched_projects.append(project)
             else:
-                # If we've hit the Firecrawl limit, just use basic scrape data
-                if basic_data.get('description'):
+                # If Firecrawl is unavailable or we've hit the limit, just use basic scrape data
+                if basic_data and basic_data.get('description'):
                     project.update(basic_data)
                     enriched_projects.append(project)
                     
         except Exception as e:
-            logger.error(f"Error in enrichment process: {str(e)}")
+            logger.error(f"Error in enrichment process for {project.get('title', 'Unknown')}: {str(e)}")
             continue
     
     return enriched_projects
@@ -297,25 +434,189 @@ def _basic_scrape(url):
         }
 
 def _extract_company_name(text):
-    """Extract company name from text using common patterns"""
-    # Common company name patterns
+    """Extract company name from text using enhanced patterns"""
+    # Common company name patterns - ordered by reliability
     patterns = [
-        r'([A-Za-z\s&]+(?:Limited|Ltd|Corporation|Corp|Infrastructure|Infra|Construction|Engineering|Projects))',
-        r'([A-Za-z\s&]+) wins',
-        r'([A-Za-z\s&]+) bags',
-        r'([A-Za-z\s&]+) secures',
-        r'([A-Za-z\s&]+) awarded'
+        # Direct company mentions with suffixes
+        r'(?:M/s\.|M/s|Messrs\.)?\s*([A-Za-z\s&\.]+(?:Limited|Ltd|Corporation|Corp|Infrastructure|Infra|Construction|Engineering|Projects|Builders|Industries|Enterprises|Company|Pvt|Private|Public))',
+        
+        # Company names in action contexts
+        r'(?:M/s\.|M/s|Messrs\.)?\s*([A-Za-z\s&\.]+)\s+(?:has been awarded|has won|wins|awarded to|bags|secures|emerges|selected for)',
+        
+        # L&T style abbreviations
+        r'([A-Z&]+(?:\s+[A-Z][a-z]+)*(?:\s+(?:Limited|Ltd|Corp|Infrastructure|Construction))?)',
+        
+        # Joint Venture patterns
+        r'([A-Za-z\s&\.]+)-([A-Za-z\s&\.]+)\s+(?:JV|Joint Venture|Consortium)',
+        
+        # Simpler company patterns as fallback
+        r'([A-Za-z\s&\.]{2,}(?:Limited|Ltd|Corp|Infra|Construction))',
+        r'([A-Za-z\s&\.]{2,})\s+(?:Group|Company|Enterprises)'
     ]
     
+    # Known major companies to validate against
+    known_companies = {
+        'larsen': 'Larsen & Toubro',
+        'l&t': 'Larsen & Toubro',
+        'lt construction': 'Larsen & Toubro',
+        'afcons': 'Afcons Infrastructure',
+        'tata': 'Tata Projects',
+        'irb': 'IRB Infrastructure',
+        'dilip buildcon': 'Dilip Buildcon',
+        'ncc': 'NCC Limited',
+        'shapoorji': 'Shapoorji Pallonji',
+        'gmr': 'GMR Infrastructure',
+        'reliance infra': 'Reliance Infrastructure',
+        'hindustan construction': 'HCC',
+        'hcc': 'HCC',
+        'simplex': 'Simplex Infrastructure',
+        'gammon': 'Gammon India',
+        'pnc infratech': 'PNC Infratech',
+        'kalpataru': 'Kalpataru Power',
+        'kec': 'KEC International',
+        'rvnl': 'Rail Vikas Nigam Limited',
+        'ircon': 'IRCON International',
+        'nbcc': 'NBCC India',
+        'meil': 'Megha Engineering'
+    }
+    
+    text = text.strip()
+    if not text:
+        return None
+        
+    # First try to match known companies
+    text_lower = text.lower()
+    for key, company in known_companies.items():
+        if key in text_lower:
+            return company
+    
+    # Then try patterns
     for pattern in patterns:
         if match := re.search(pattern, text, re.IGNORECASE):
             company = match.group(1).strip()
-            # Clean up common suffixes
-            for suffix in ['Limited', 'Ltd', 'Corporation', 'Corp', 'Infrastructure', 'Infra', 'Construction', 'Engineering', 'Projects']:
-                company = company.replace(suffix, '').strip()
-            return company
+            
+            # Clean up common prefixes
+            company = re.sub(r'^(?:M/s\.|M/s|Messrs\.)\s*', '', company)
+            
+            # Clean up common suffixes while preserving important ones
+            company = re.sub(r'\s+(?:Private|Pvt|Public|Company)\s+(?:Limited|Ltd)$', ' Limited', company)
+            company = re.sub(r'\s+(?:Private|Pvt|Public|Company)$', '', company)
+            
+            # Remove extra whitespace and normalize "&"
+            company = re.sub(r'\s+', ' ', company)
+            company = company.replace(' and ', ' & ')
+            
+            # Validate company name
+            if len(company) > 3 and not any(term in company.lower() for term in ['404', 'error', 'not found', 'page']):
+                return company
     
-    return 'Unknown Company'
+    return None
+
+def _process_project_value(text):
+    """Extract and validate project value from text"""
+    # Value patterns ordered by reliability
+    value_patterns = [
+        # Values with clear currency markers
+        r'(?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)',
+        r'(?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)',
+        
+        # Values in billion/lakh converted to crore
+        r'(?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*billion',
+        r'(?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*lakh',
+        
+        # Contract/project value mentions
+        r'contract value of (?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)',
+        r'project value of (?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)',
+        r'worth (?:Rs\.|Rs|INR|₹)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)',
+        
+        # Numerical values with crore/cr suffix
+        r'(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore|Cr)'
+    ]
+    
+    for pattern in value_patterns:
+        if match := re.search(pattern, text, re.IGNORECASE):
+            try:
+                value = float(match.group(1).replace(',', ''))
+                
+                # Convert billions to crores
+                if 'billion' in match.group().lower():
+                    value = value * 100
+                
+                # Convert lakhs to crores
+                elif 'lakh' in match.group().lower():
+                    value = value / 100
+                
+                # Validate value is reasonable (between 1 crore and 1 lakh crore)
+                if 1 <= value <= 100000:
+                    return value
+                    
+            except ValueError:
+                continue
+    
+    return None
+
+def _determine_product_teams(project_info):
+    """Determine which product teams should receive this project"""
+    try:
+        text = f"{project_info.get('title', '')} {project_info.get('description', '')}"
+        text = text.lower()
+        
+        # Default to TMT_BARS if no specific match
+        teams = ['TMT_BARS']
+        
+        # Check for specific product indicators
+        if any(term in text for term in ['plate', 'hr plate', 'hot rolled']):
+            teams = ['HR_CR_PLATES']
+        elif any(term in text for term in ['coated', 'galvanized', 'colour coated']):
+            teams = ['COATED_PRODUCTS']
+        elif any(term in text for term in ['hsla', 'high strength', 'automotive']):
+            teams = ['HSLA']
+        elif any(term in text for term in ['solar', 'renewable', 'pv']):
+            teams = ['SOLAR']
+        elif any(term in text for term in ['wire', 'rod', 'mesh']):
+            teams = ['WIRE_RODS']
+        
+        return teams
+    except Exception as e:
+        logger.error(f"Error determining product teams: {str(e)}")
+        return ['TMT_BARS']  # Default to TMT_BARS on error
+
+def _calculate_priority_score(project):
+    """Calculate priority score for a project"""
+    try:
+        # Get project value
+        value = float(project.get('value', 0))
+        
+        # Get start date
+        start_date = project.get('start_date')
+        if isinstance(start_date, str):
+            try:
+                start_date = datetime.strptime(start_date, '%Y-%m-%d')
+            except ValueError:
+                start_date = datetime.now()
+        elif not isinstance(start_date, datetime):
+            start_date = datetime.now()
+        
+        # Calculate days until start
+        days_until_start = (start_date - datetime.now()).days
+        
+        # Calculate time factor (higher score for closer start dates)
+        time_factor = max(0, 1 - (days_until_start / 365))  # Scale to 1 year
+        
+        # Calculate value factor (higher score for higher values)
+        value_factor = min(1, value / 1000)  # Scale to 1000 crore
+        
+        # Combine factors with weights from config
+        priority_score = (
+            time_factor * Config.PRIORITY_WEIGHTS['time_factor'] +
+            value_factor * Config.PRIORITY_WEIGHTS['value_factor']
+        )
+        
+        return round(priority_score * 100)  # Convert to 0-100 scale
+        
+    except Exception as e:
+        logger.error(f"Error calculating priority score: {str(e)}")
+        return 50  # Default medium priority
 
 def run_pipeline():
     """Main data processing pipeline"""
@@ -338,42 +639,18 @@ def run_pipeline():
         ai_projects = perplexity.research_infrastructure_projects()
         logger.info(f"Found {len(ai_projects)} projects from Perplexity")
         
-        logger.info("Fetching projects from SERP API...")
-        serp_projects = _search_google()
-        logger.info(f"Found {len(serp_projects)} projects from SERP API")
+        logger.info("Fetching projects from Exa API...")
+        exa_projects = _search_with_exa()
+        logger.info(f"Found {len(exa_projects)} projects from Exa API")
         
         # Combine all projects
-        all_projects = metro_projects + ai_projects + serp_projects
+        all_projects = metro_projects + ai_projects + exa_projects
         
         if not all_projects:
             logger.warning("No projects found - check sources")
             return
             
-        # Try Firecrawl for one high-priority project first
-        firecrawl_working = True
-        for project in all_projects:
-            if any(domain in project.get('source_url', '').lower() for domain in ['themetrorailguy.com', 'constructionworld.in', 'projectstoday.com']):
-                try:
-                    response = requests.post(
-                        'https://api.firecrawl.com/v1/extract',
-                        headers={
-                            'Authorization': f'Bearer {Config.FIRECRAWL_API_KEY}',
-                            'Content-Type': 'application/json'
-                        },
-                        json={
-                            'url': project['source_url'],
-                            'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules'],
-                            'options': Config.FIRECRAWL_SETTINGS['extraction_options']
-                        },
-                        timeout=10
-                    )
-                    response.raise_for_status()
-                except Exception as e:
-                    logger.warning(f"Firecrawl test failed, bypassing Firecrawl enrichment: {str(e)}")
-                    firecrawl_working = False
-                break
-        
-        # Process projects based on Firecrawl status
+        # Process projects
         quality_projects = []
         logger.info(f"Processing {len(all_projects)} projects for quality filtering...")
         
@@ -388,75 +665,62 @@ def run_pipeline():
                 logger.debug(f"Skipping invalid title: {project.get('title')}")
                 continue
             
-            # Try to extract value from title or description
-            value = None
-            value_pattern = r'(?:Rs\.?|INR)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore)'
+            # Extract and validate company name
             text = f"{project.get('title', '')} {project.get('description', '')}"
-            value_match = re.search(value_pattern, text)
-            if value_match:
-                try:
-                    value = float(value_match.group(1).replace(',', ''))
-                except ValueError:
-                    value = None
+            company_name = project.get('company') or _extract_company_name(text)
             
-            # If no value found in text, use the project's value field
+            if not company_name:
+                logger.debug(f"Skipping project with no valid company name: {project.get('title')}")
+                continue
+            
+            # Extract and validate project value
+            value = project.get('value') or _process_project_value(text)
+            
             if not value:
-                value = project.get('value')
+                logger.debug(f"Skipping project with no valid value: {project.get('title')}")
+                continue
             
-            # More lenient value check - include all projects with any value
-            if value is not None or project.get('description'):  # Allow projects even without value if they have description
-                # Ensure all required fields are present
-                project.update({
-                    'value': value or 0,  # Default to 0 if no value found
-                    'company': project.get('company') or _extract_company_name(text),
-                    'description': project.get('description', ''),
-                    'start_date': project.get('start_date', datetime.now()),
-                    'end_date': project.get('end_date', datetime.now()),
-                    'source': project.get('source', 'web'),
-                    'source_url': project.get('source_url', ''),
-                    'title': project.get('title', '').replace('&amp;', '&')
-                })
-                
-                # Check for relevant terms - be more lenient
-                relevant_terms = [
-                    'contract', 'project', 'construction', 'infrastructure',
-                    'metro', 'railway', 'port', 'highway', 'bridge', 'building',
-                    'development', 'tender', 'awarded', 'win', 'steel',
-                    'road', 'residential', 'commercial', 'industrial', 'power',
-                    'energy', 'plant', 'factory', 'expansion', 'upgrade',
-                    'modernization', 'new', 'phase', 'work', 'epc',
-                    'contractor', 'builder', 'engineering', 'procurement'
-                ]
-                
-                # More lenient term matching - check individual words and partial matches
-                text_words = set(text.lower().split())
-                if any(term in text.lower() for term in relevant_terms) or \
-                   any(any(term in word for term in relevant_terms) for word in text_words):
-                    logger.info(f"Adding quality project: {project['title']} (Rs. {value or 0} Cr)")
-                    quality_projects.append(project)
-                else:
-                    logger.debug(f"Project lacks relevant terms: {project['title']}")
-            else:
-                logger.debug(f"Project has no value or description: {project['title']}")
-        
+            # Ensure dates are datetime objects
+            start_date = project.get('start_date')
+            if isinstance(start_date, str):
+                try:
+                    start_date = datetime.strptime(start_date, '%Y-%m-%d')
+                except ValueError:
+                    start_date = datetime.now()
+            elif not isinstance(start_date, datetime):
+                start_date = datetime.now()
+            
+            end_date = project.get('end_date')
+            if isinstance(end_date, str):
+                try:
+                    end_date = datetime.strptime(end_date, '%Y-%m-%d')
+                except ValueError:
+                    end_date = start_date + timedelta(days=365)  # Default 1 year duration
+            elif not isinstance(end_date, datetime):
+                end_date = start_date + timedelta(days=365)
+            
+            # Update project with validated data
+            project.update({
+                'value': value,
+                'company': company_name,
+                'description': project.get('description', ''),
+                'start_date': start_date,
+                'end_date': end_date,
+                'source': project.get('source', 'web'),
+                'source_url': project.get('source_url', ''),
+                'title': project.get('title', '').replace('&amp;', '&'),
+                'priority_score': _calculate_priority_score(project),
+                'teams': _determine_product_teams(project)
+            })
+            
+            quality_projects.append(project)
+            
         if not quality_projects:
             logger.warning("No quality projects found after filtering")
             return
         
-        # Log detailed project information
-        logger.info(f"\nQuality projects found ({len(quality_projects)}):")
-        for idx, project in enumerate(quality_projects, 1):
-            logger.info(f"{idx}. {project['company']} - {project['title']}")
-            logger.info(f"   Value: Rs. {project.get('value', 0)} Cr")
-            logger.info(f"   Source: {project.get('source_url', 'N/A')}\n")
-        
-        # Sort by value (simple priority)
-        sorted_projects = sorted(quality_projects, key=lambda x: x.get('value', 0), reverse=True)
-        
-        # Log project details for debugging
-        logger.info("Quality projects to be sent:")
-        for idx, project in enumerate(sorted_projects, 1):
-            logger.info(f"{idx}. {project['company']} - {project['title']} (Rs. {project.get('value', 0)} Cr)")
+        # Sort by priority score
+        sorted_projects = sorted(quality_projects, key=lambda x: x.get('priority_score', 0), reverse=True)
         
         # Send notifications
         logger.info(f"Sending notifications for {len(sorted_projects)} quality projects...")

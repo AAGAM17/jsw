@@ -1,0 +1,447 @@
+2025-02-11 16:33:55,645 - utilities.logger - INFO - Logging initialized
+2025-02-11 16:33:55,667 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 16:33:57,107 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 16:33:58,908 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 16:33:59,133 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 16:33:59,134 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 16:34:06,700 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-11 16:34:09,310 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-11 16:34:11,510 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-11 16:34:11,510 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 16:34:11,511 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 16:34:11,511 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 16:34:27,866 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-11 16:34:27,866 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-11 16:34:27,866 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-11 16:34:27,867 - __main__ - INFO - Searching for projects using Exa.ai...
+2025-02-11 16:34:27,867 - scrapers.exa_client - INFO - Starting Exa.ai search...
+2025-02-11 16:34:34,294 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:34,297 - openai._base_client - INFO - Retrying request to /chat/completions in 0.439715 seconds
+2025-02-11 16:34:35,034 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:35,036 - openai._base_client - INFO - Retrying request to /chat/completions in 0.958201 seconds
+2025-02-11 16:34:36,279 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:36,290 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:36,598 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:36,600 - openai._base_client - INFO - Retrying request to /chat/completions in 0.444082 seconds
+2025-02-11 16:34:37,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:37,367 - openai._base_client - INFO - Retrying request to /chat/completions in 0.822358 seconds
+2025-02-11 16:34:38,477 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:38,479 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:38,815 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:38,817 - openai._base_client - INFO - Retrying request to /chat/completions in 0.483463 seconds
+2025-02-11 16:34:39,598 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:39,604 - openai._base_client - INFO - Retrying request to /chat/completions in 0.886565 seconds
+2025-02-11 16:34:40,786 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:40,789 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:41,117 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:41,118 - openai._base_client - INFO - Retrying request to /chat/completions in 0.404747 seconds
+2025-02-11 16:34:41,809 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:41,811 - openai._base_client - INFO - Retrying request to /chat/completions in 0.893895 seconds
+2025-02-11 16:34:42,993 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:42,996 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:43,293 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:43,295 - openai._base_client - INFO - Retrying request to /chat/completions in 0.408614 seconds
+2025-02-11 16:34:43,992 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:43,994 - openai._base_client - INFO - Retrying request to /chat/completions in 0.959516 seconds
+2025-02-11 16:34:45,273 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:45,275 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:45,574 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:45,576 - openai._base_client - INFO - Retrying request to /chat/completions in 0.470462 seconds
+2025-02-11 16:34:46,347 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:46,349 - openai._base_client - INFO - Retrying request to /chat/completions in 0.815885 seconds
+2025-02-11 16:34:47,466 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:47,470 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:47,779 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:47,782 - openai._base_client - INFO - Retrying request to /chat/completions in 0.386751 seconds
+2025-02-11 16:34:48,470 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:48,473 - openai._base_client - INFO - Retrying request to /chat/completions in 0.978048 seconds
+2025-02-11 16:34:49,740 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:49,742 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:50,067 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:50,069 - openai._base_client - INFO - Retrying request to /chat/completions in 0.443163 seconds
+2025-02-11 16:34:50,805 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:50,808 - openai._base_client - INFO - Retrying request to /chat/completions in 0.785387 seconds
+2025-02-11 16:34:51,930 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:51,933 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:52,237 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:52,238 - openai._base_client - INFO - Retrying request to /chat/completions in 0.387230 seconds
+2025-02-11 16:34:52,915 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:52,918 - openai._base_client - INFO - Retrying request to /chat/completions in 0.948500 seconds
+2025-02-11 16:34:54,152 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:54,158 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:54,508 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:54,510 - openai._base_client - INFO - Retrying request to /chat/completions in 0.381170 seconds
+2025-02-11 16:34:55,176 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:55,177 - openai._base_client - INFO - Retrying request to /chat/completions in 0.793256 seconds
+2025-02-11 16:34:56,267 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:56,269 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:56,585 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:56,589 - openai._base_client - INFO - Retrying request to /chat/completions in 0.384547 seconds
+2025-02-11 16:34:57,271 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:57,273 - openai._base_client - INFO - Retrying request to /chat/completions in 0.803627 seconds
+2025-02-11 16:34:58,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:58,369 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:34:58,669 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:58,672 - openai._base_client - INFO - Retrying request to /chat/completions in 0.402854 seconds
+2025-02-11 16:34:59,360 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:34:59,362 - openai._base_client - INFO - Retrying request to /chat/completions in 0.830393 seconds
+2025-02-11 16:35:00,529 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:00,531 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:01,220 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:01,221 - openai._base_client - INFO - Retrying request to /chat/completions in 0.433175 seconds
+2025-02-11 16:35:01,951 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:01,953 - openai._base_client - INFO - Retrying request to /chat/completions in 0.878418 seconds
+2025-02-11 16:35:03,141 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:03,144 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:03,445 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:03,447 - openai._base_client - INFO - Retrying request to /chat/completions in 0.475386 seconds
+2025-02-11 16:35:04,215 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:04,217 - openai._base_client - INFO - Retrying request to /chat/completions in 0.870815 seconds
+2025-02-11 16:35:05,387 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:05,390 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:05,688 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:05,689 - openai._base_client - INFO - Retrying request to /chat/completions in 0.393414 seconds
+2025-02-11 16:35:06,414 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:06,418 - openai._base_client - INFO - Retrying request to /chat/completions in 0.909264 seconds
+2025-02-11 16:35:07,696 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:07,698 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:08,136 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:08,137 - openai._base_client - INFO - Retrying request to /chat/completions in 0.462124 seconds
+2025-02-11 16:35:08,908 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:08,909 - openai._base_client - INFO - Retrying request to /chat/completions in 0.933336 seconds
+2025-02-11 16:35:10,301 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:10,302 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:16,179 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:16,184 - openai._base_client - INFO - Retrying request to /chat/completions in 0.471938 seconds
+2025-02-11 16:35:16,968 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:16,981 - openai._base_client - INFO - Retrying request to /chat/completions in 0.778056 seconds
+2025-02-11 16:35:18,050 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:18,050 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:18,319 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:18,320 - openai._base_client - INFO - Retrying request to /chat/completions in 0.469500 seconds
+2025-02-11 16:35:19,112 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:19,113 - openai._base_client - INFO - Retrying request to /chat/completions in 0.774029 seconds
+2025-02-11 16:35:20,170 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:20,171 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:20,477 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:20,478 - openai._base_client - INFO - Retrying request to /chat/completions in 0.421057 seconds
+2025-02-11 16:35:21,176 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:21,177 - openai._base_client - INFO - Retrying request to /chat/completions in 0.759040 seconds
+2025-02-11 16:35:22,219 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:22,220 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:22,504 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:22,505 - openai._base_client - INFO - Retrying request to /chat/completions in 0.386729 seconds
+2025-02-11 16:35:23,202 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:23,205 - openai._base_client - INFO - Retrying request to /chat/completions in 0.836851 seconds
+2025-02-11 16:35:24,323 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:24,325 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:24,619 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:24,620 - openai._base_client - INFO - Retrying request to /chat/completions in 0.447596 seconds
+2025-02-11 16:35:25,340 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:25,341 - openai._base_client - INFO - Retrying request to /chat/completions in 0.879892 seconds
+2025-02-11 16:35:26,499 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:26,501 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:26,815 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:26,816 - openai._base_client - INFO - Retrying request to /chat/completions in 0.472064 seconds
+2025-02-11 16:35:27,564 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:27,565 - openai._base_client - INFO - Retrying request to /chat/completions in 0.989988 seconds
+2025-02-11 16:35:28,830 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:28,833 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:29,108 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:29,110 - openai._base_client - INFO - Retrying request to /chat/completions in 0.380369 seconds
+2025-02-11 16:35:29,791 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:29,792 - openai._base_client - INFO - Retrying request to /chat/completions in 0.784045 seconds
+2025-02-11 16:35:30,884 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:30,885 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:31,166 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:31,167 - openai._base_client - INFO - Retrying request to /chat/completions in 0.399414 seconds
+2025-02-11 16:35:31,840 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:31,841 - openai._base_client - INFO - Retrying request to /chat/completions in 0.970060 seconds
+2025-02-11 16:35:33,095 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:33,096 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:33,383 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:33,383 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487058 seconds
+2025-02-11 16:35:34,145 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:34,146 - openai._base_client - INFO - Retrying request to /chat/completions in 0.758943 seconds
+2025-02-11 16:35:35,202 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:35,202 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:40,769 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:40,770 - openai._base_client - INFO - Retrying request to /chat/completions in 0.377452 seconds
+2025-02-11 16:35:41,435 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:41,436 - openai._base_client - INFO - Retrying request to /chat/completions in 0.842645 seconds
+2025-02-11 16:35:42,566 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:42,568 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:42,852 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:42,853 - openai._base_client - INFO - Retrying request to /chat/completions in 0.416774 seconds
+2025-02-11 16:35:43,578 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:43,579 - openai._base_client - INFO - Retrying request to /chat/completions in 0.967031 seconds
+2025-02-11 16:35:44,839 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:44,839 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:45,122 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:45,123 - openai._base_client - INFO - Retrying request to /chat/completions in 0.379759 seconds
+2025-02-11 16:35:45,783 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:45,784 - openai._base_client - INFO - Retrying request to /chat/completions in 0.787058 seconds
+2025-02-11 16:35:46,895 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:46,896 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:47,188 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:47,189 - openai._base_client - INFO - Retrying request to /chat/completions in 0.428603 seconds
+2025-02-11 16:35:47,896 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:47,897 - openai._base_client - INFO - Retrying request to /chat/completions in 0.901964 seconds
+2025-02-11 16:35:49,111 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:49,151 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:49,479 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:49,479 - openai._base_client - INFO - Retrying request to /chat/completions in 0.405463 seconds
+2025-02-11 16:35:50,201 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:50,202 - openai._base_client - INFO - Retrying request to /chat/completions in 0.830491 seconds
+2025-02-11 16:35:51,336 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:51,337 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:51,620 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:51,621 - openai._base_client - INFO - Retrying request to /chat/completions in 0.449620 seconds
+2025-02-11 16:35:52,366 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:52,367 - openai._base_client - INFO - Retrying request to /chat/completions in 0.752292 seconds
+2025-02-11 16:35:53,411 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:53,413 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:53,702 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:53,703 - openai._base_client - INFO - Retrying request to /chat/completions in 0.499352 seconds
+2025-02-11 16:35:54,481 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:54,482 - openai._base_client - INFO - Retrying request to /chat/completions in 0.925240 seconds
+2025-02-11 16:35:55,698 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:55,699 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:55,997 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:55,998 - openai._base_client - INFO - Retrying request to /chat/completions in 0.477400 seconds
+2025-02-11 16:35:56,773 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:56,774 - openai._base_client - INFO - Retrying request to /chat/completions in 0.903381 seconds
+2025-02-11 16:35:57,960 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:57,961 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:35:58,275 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:58,276 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487386 seconds
+2025-02-11 16:35:59,068 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:35:59,072 - openai._base_client - INFO - Retrying request to /chat/completions in 0.998569 seconds
+2025-02-11 16:36:00,368 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:00,370 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:00,696 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:00,697 - openai._base_client - INFO - Retrying request to /chat/completions in 0.488466 seconds
+2025-02-11 16:36:01,466 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:01,467 - openai._base_client - INFO - Retrying request to /chat/completions in 0.788256 seconds
+2025-02-11 16:36:02,541 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:02,542 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:02,837 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:02,838 - openai._base_client - INFO - Retrying request to /chat/completions in 0.376821 seconds
+2025-02-11 16:36:03,492 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:03,493 - openai._base_client - INFO - Retrying request to /chat/completions in 0.951150 seconds
+2025-02-11 16:36:04,719 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:04,720 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:10,962 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:10,963 - openai._base_client - INFO - Retrying request to /chat/completions in 0.428702 seconds
+2025-02-11 16:36:11,674 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:11,674 - openai._base_client - INFO - Retrying request to /chat/completions in 0.987076 seconds
+2025-02-11 16:36:12,957 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:12,959 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:13,270 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:13,271 - openai._base_client - INFO - Retrying request to /chat/completions in 0.379876 seconds
+2025-02-11 16:36:13,931 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:13,932 - openai._base_client - INFO - Retrying request to /chat/completions in 0.786285 seconds
+2025-02-11 16:36:15,045 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:15,046 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:15,343 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:15,344 - openai._base_client - INFO - Retrying request to /chat/completions in 0.446373 seconds
+2025-02-11 16:36:16,068 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:16,070 - openai._base_client - INFO - Retrying request to /chat/completions in 0.863086 seconds
+2025-02-11 16:36:17,218 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:17,220 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:17,519 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:17,520 - openai._base_client - INFO - Retrying request to /chat/completions in 0.488560 seconds
+2025-02-11 16:36:18,295 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:18,296 - openai._base_client - INFO - Retrying request to /chat/completions in 0.806251 seconds
+2025-02-11 16:36:19,391 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:19,392 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:19,696 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:19,699 - openai._base_client - INFO - Retrying request to /chat/completions in 0.427021 seconds
+2025-02-11 16:36:20,410 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:20,411 - openai._base_client - INFO - Retrying request to /chat/completions in 0.834306 seconds
+2025-02-11 16:36:21,521 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:21,523 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:21,810 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:21,811 - openai._base_client - INFO - Retrying request to /chat/completions in 0.454485 seconds
+2025-02-11 16:36:22,538 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:22,539 - openai._base_client - INFO - Retrying request to /chat/completions in 0.801113 seconds
+2025-02-11 16:36:23,620 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:23,628 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:23,927 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:23,930 - openai._base_client - INFO - Retrying request to /chat/completions in 0.449872 seconds
+2025-02-11 16:36:24,662 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:24,664 - openai._base_client - INFO - Retrying request to /chat/completions in 0.761713 seconds
+2025-02-11 16:36:25,718 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:25,719 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:26,001 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:26,002 - openai._base_client - INFO - Retrying request to /chat/completions in 0.385453 seconds
+2025-02-11 16:36:26,694 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:26,695 - openai._base_client - INFO - Retrying request to /chat/completions in 0.771287 seconds
+2025-02-11 16:36:27,755 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:27,756 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:28,053 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:28,054 - openai._base_client - INFO - Retrying request to /chat/completions in 0.465462 seconds
+2025-02-11 16:36:28,842 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:28,842 - openai._base_client - INFO - Retrying request to /chat/completions in 0.763800 seconds
+2025-02-11 16:36:29,891 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:29,892 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:34,355 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:34,359 - openai._base_client - INFO - Retrying request to /chat/completions in 0.393574 seconds
+2025-02-11 16:36:35,038 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:35,038 - openai._base_client - INFO - Retrying request to /chat/completions in 0.988785 seconds
+2025-02-11 16:36:36,333 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:36,334 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:36,649 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:36,650 - openai._base_client - INFO - Retrying request to /chat/completions in 0.485182 seconds
+2025-02-11 16:36:37,430 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:37,431 - openai._base_client - INFO - Retrying request to /chat/completions in 0.789427 seconds
+2025-02-11 16:36:38,503 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:38,505 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:38,782 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:38,782 - openai._base_client - INFO - Retrying request to /chat/completions in 0.463534 seconds
+2025-02-11 16:36:39,527 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:39,528 - openai._base_client - INFO - Retrying request to /chat/completions in 0.776520 seconds
+2025-02-11 16:36:40,582 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:40,583 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:40,862 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:40,863 - openai._base_client - INFO - Retrying request to /chat/completions in 0.384540 seconds
+2025-02-11 16:36:41,534 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:41,535 - openai._base_client - INFO - Retrying request to /chat/completions in 0.940468 seconds
+2025-02-11 16:36:42,753 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:42,753 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:43,036 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:43,037 - openai._base_client - INFO - Retrying request to /chat/completions in 0.391795 seconds
+2025-02-11 16:36:43,701 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:43,702 - openai._base_client - INFO - Retrying request to /chat/completions in 0.897616 seconds
+2025-02-11 16:36:44,884 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:44,885 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:45,163 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:45,164 - openai._base_client - INFO - Retrying request to /chat/completions in 0.408855 seconds
+2025-02-11 16:36:45,864 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:45,865 - openai._base_client - INFO - Retrying request to /chat/completions in 0.939915 seconds
+2025-02-11 16:36:47,090 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:47,091 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:47,376 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:47,377 - openai._base_client - INFO - Retrying request to /chat/completions in 0.416235 seconds
+2025-02-11 16:36:48,074 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:48,075 - openai._base_client - INFO - Retrying request to /chat/completions in 0.880040 seconds
+2025-02-11 16:36:49,239 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:49,239 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:53,009 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:53,010 - openai._base_client - INFO - Retrying request to /chat/completions in 0.441380 seconds
+2025-02-11 16:36:53,734 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:53,735 - openai._base_client - INFO - Retrying request to /chat/completions in 0.883632 seconds
+2025-02-11 16:36:54,898 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:54,899 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:55,195 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:55,196 - openai._base_client - INFO - Retrying request to /chat/completions in 0.468326 seconds
+2025-02-11 16:36:55,940 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:55,941 - openai._base_client - INFO - Retrying request to /chat/completions in 0.822366 seconds
+2025-02-11 16:36:57,052 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:57,053 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:57,351 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:57,352 - openai._base_client - INFO - Retrying request to /chat/completions in 0.377592 seconds
+2025-02-11 16:36:58,023 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:58,024 - openai._base_client - INFO - Retrying request to /chat/completions in 0.819969 seconds
+2025-02-11 16:36:59,152 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:59,155 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:36:59,466 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:36:59,467 - openai._base_client - INFO - Retrying request to /chat/completions in 0.471933 seconds
+2025-02-11 16:37:00,229 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:00,230 - openai._base_client - INFO - Retrying request to /chat/completions in 0.816294 seconds
+2025-02-11 16:37:01,340 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:01,341 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:01,626 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:01,627 - openai._base_client - INFO - Retrying request to /chat/completions in 0.483697 seconds
+2025-02-11 16:37:02,394 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:02,394 - openai._base_client - INFO - Retrying request to /chat/completions in 0.901618 seconds
+2025-02-11 16:37:03,594 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:03,595 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:08,103 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:08,103 - openai._base_client - INFO - Retrying request to /chat/completions in 0.428947 seconds
+2025-02-11 16:37:08,822 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:08,823 - openai._base_client - INFO - Retrying request to /chat/completions in 0.870975 seconds
+2025-02-11 16:37:09,980 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:09,980 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:10,253 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:10,254 - openai._base_client - INFO - Retrying request to /chat/completions in 0.464897 seconds
+2025-02-11 16:37:11,028 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:11,029 - openai._base_client - INFO - Retrying request to /chat/completions in 0.899937 seconds
+2025-02-11 16:37:12,209 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:12,211 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:12,497 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:12,499 - openai._base_client - INFO - Retrying request to /chat/completions in 0.441880 seconds
+2025-02-11 16:37:13,231 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:13,232 - openai._base_client - INFO - Retrying request to /chat/completions in 0.800799 seconds
+2025-02-11 16:37:14,338 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:14,338 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:14,635 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:14,636 - openai._base_client - INFO - Retrying request to /chat/completions in 0.471900 seconds
+2025-02-11 16:37:15,383 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:15,384 - openai._base_client - INFO - Retrying request to /chat/completions in 0.864303 seconds
+2025-02-11 16:37:16,544 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:16,545 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:16,831 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:16,833 - openai._base_client - INFO - Retrying request to /chat/completions in 0.476524 seconds
+2025-02-11 16:37:17,592 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:17,593 - openai._base_client - INFO - Retrying request to /chat/completions in 0.943532 seconds
+2025-02-11 16:37:18,814 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:18,816 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:19,096 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:19,097 - openai._base_client - INFO - Retrying request to /chat/completions in 0.378123 seconds
+2025-02-11 16:37:19,806 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:19,810 - openai._base_client - INFO - Retrying request to /chat/completions in 0.972784 seconds
+2025-02-11 16:37:21,065 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:21,067 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:21,355 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:21,356 - openai._base_client - INFO - Retrying request to /chat/completions in 0.405661 seconds
+2025-02-11 16:37:22,051 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:22,052 - openai._base_client - INFO - Retrying request to /chat/completions in 0.809534 seconds
+2025-02-11 16:37:23,142 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2025-02-11 16:37:23,144 - scrapers.exa_client - ERROR - Error extracting project info: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-02-11 16:37:24,146 - scrapers.exa_client - INFO - Found 0 unique results from Exa.ai
+2025-02-11 16:37:24,147 - __main__ - INFO - Found 0 projects from Exa.ai
+2025-02-11 16:37:24,147 - __main__ - INFO - Processing 2 projects for quality filtering...
+2025-02-11 16:37:24,148 - __main__ - INFO - Adding quality project: Ludhiana Bypass Development (Ceigall India) - Rs. 923.0 Cr
+2025-02-11 16:37:24,148 - __main__ - INFO - Adding quality project: Tamil Nadu Highway Improvement Project (Dilip Buildcon Ltd.) - Rs. 548.0 Cr
+2025-02-11 16:37:24,148 - __main__ - INFO - 
+Quality projects found (2):
+2025-02-11 16:37:24,149 - __main__ - INFO - 1. Ceigall India - Ludhiana Bypass Development
+2025-02-11 16:37:24,149 - __main__ - INFO -    Value: Rs. 923.0 Cr
+2025-02-11 16:37:24,149 - __main__ - INFO -    Source: https://economictimes.indiatimes.com/industry/indl-goods/svs/construction/ceigall-india-wins-contract-for-ludhiana-bypass-to-built-the-25-24-km-stretch-under-ham/articleshow/117574706.cms
+
+2025-02-11 16:37:24,149 - __main__ - INFO - 2. Dilip Buildcon Ltd. - Tamil Nadu Highway Improvement Project
+2025-02-11 16:37:24,149 - __main__ - INFO -    Value: Rs. 548.0 Cr
+2025-02-11 16:37:24,149 - __main__ - INFO -    Source: https://www.cnbctv18.com/market/dilip-buildcon-wins-548-crore-project-from-nhai-in-tamil-nadu-19241201.htm
+
+2025-02-11 16:37:24,149 - __main__ - INFO - Sending notifications for 2 quality projects...
+2025-02-11 16:37:24,150 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-11 16:37:24,150 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-11 16:37:25,277 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-11 16:37:25,630 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-11 16:37:25,850 - utilities.email_handler - INFO - Projects grouped by team: HSLA: 1, TMT_BARS: 1
+2025-02-11 16:37:25,850 - utilities.email_handler - INFO - Total portfolio value: Rs. 1,471 Cr
+2025-02-11 16:37:25,851 - utilities.email_handler - INFO - Total steel requirement: 0 MT
+2025-02-11 16:37:25,851 - utilities.email_handler - INFO - Preparing email for TMT_BARS team (1 projects)
+2025-02-11 16:37:25,851 - utilities.email_handler - ERROR - Error sending email to TMT_BARS team: 'str' object has no attribute 'strftime'
+2025-02-11 16:37:25,851 - utilities.email_handler - INFO - Preparing email for HSLA team (1 projects)
+2025-02-11 16:37:25,852 - utilities.email_handler - ERROR - Error sending email to HSLA team: 'str' object has no attribute 'strftime'
+2025-02-11 16:37:25,852 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 0 teams
+2025-02-11 16:37:25,852 - __main__ - ERROR - Failed to send email notifications
+2025-02-11 16:37:26,136 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 16:37:26,137 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 16:37:26,137 - twilio.http_client - INFO - Headers:
+2025-02-11 16:37:26,137 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 16:37:26,137 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 16:37:26,137 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 16:37:26,138 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 16:37:26,138 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 16:37:26,138 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 16:37:26,727 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 16:37:26,728 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1002', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:07:26 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ82a220bd0ee040b5036eccd6af0d0108', 'Twilio-Request-Duration': '0.138', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 f7ee847c2bd335d62c54ba4fa1347686.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '6ap0kIkTqynQeAl8cHt9bA2H4NFFraK-Cag4e-9Maun9txUkr6pVOA=='}
+2025-02-11 16:37:26,729 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM82a220bd0ee040b5036eccd6af0d0108)
+2025-02-11 16:37:26,729 - utilities.whatsapp_handler - ERROR - Error sending WhatsApp to +917715018407: 'str' object has no attribute 'strftime'
+2025-02-11 16:37:26,730 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-11 16:37:26,926 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 16:37:26,929 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 16:37:26,930 - apscheduler.scheduler - INFO - Scheduler started

@@ -261,3 +261,49 @@ Reply:
         except Exception as e:
             self.logger.error(f"Error estimating steel requirement: {str(e)}")
             return 0 
+
+    def _format_project_message(self, project, idx):
+        """Format a single project message"""
+        message = f"*Project #{idx} Details*\n\n"
+        
+        # Basic info
+        message += f"*Company:* {project['company']}\n"
+        message += f"*Project:* {project['title']}\n\n"
+        
+        # Value and timeline
+        if project.get('value'):
+            message += f"*Value:* ₹{project['value']:.1f} Crore\n"
+        
+        if project.get('start_date'):
+            message += f"*Start Date:* {project['start_date'].strftime('%B %Y')}\n"
+        if project.get('end_date'):
+            message += f"*End Date:* {project['end_date'].strftime('%B %Y')}\n"
+        message += "\n"
+        
+        # Steel requirements if available
+        if project.get('steel_requirements'):
+            message += "*Steel Requirements:*\n"
+            for steel_type, amount in project['steel_requirements'].items():
+                message += f"• {steel_type}: {amount} MT\n"
+            message += "\n"
+        
+        # Add contact information
+        if project.get('contacts'):
+            message += "*Key Contacts:*\n"
+            for contact in project['contacts']:
+                message += f"• {contact['name']} - {contact['role']}\n"
+                if contact.get('email'):
+                    message += f"  Email: {contact['email']}\n"
+                if contact.get('phone'):
+                    message += f"  Phone: {contact['phone']}\n"
+                if contact.get('relationship_notes'):
+                    message += f"  Note: {contact['relationship_notes']}\n"
+                message += "\n"
+        
+        # Source and additional info
+        if project.get('source_url'):
+            message += f"*Source:* {project['source_url']}\n"
+        if project.get('description'):
+            message += f"\n*Description:*\n{project['description'][:300]}..."
+        
+        return message 

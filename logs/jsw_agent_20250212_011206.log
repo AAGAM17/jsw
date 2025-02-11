@@ -1,0 +1,14 @@
+2025-02-12 01:12:06,696 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:12:06,699 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:12:06,855 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 01:12:06,897 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 01:12:12,306 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:12:12] "GET / HTTP/1.1" 200 -
+2025-02-12 01:12:13,532 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:12:13] "GET /status HTTP/1.1" 200 -
+2025-02-12 01:12:17,706 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 01:12:20,128 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 01:12:20,381 - utilities.email_handler - ERROR - Error formatting project: 'secondary'
+2025-02-12 01:12:23,800 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 01:12:23,801 - utilities.email_handler - ERROR - Error formatting project: 'secondary'
+2025-02-12 01:12:27,039 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-12 01:12:27,040 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:12:27] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 01:16:28,332 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/utilities/email_handler.py', reloading

@@ -1,0 +1,4 @@
+2025-02-10 16:45:37,509 - utilities.logger - INFO - Logging initialized
+2025-02-10 16:45:37,513 - utilities.logger - INFO - Logging initialized
+2025-02-10 16:45:37,588 - werkzeug - WARNING -  * Debugger is active!
+2025-02-10 16:45:37,622 - werkzeug - INFO -  * Debugger PIN: 523-126-883

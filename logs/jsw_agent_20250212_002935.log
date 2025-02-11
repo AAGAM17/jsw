@@ -1,0 +1,5 @@
+2025-02-12 00:29:35,510 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:29:35,513 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:29:35,679 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:29:35,724 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:29:41,034 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/app.py', reloading

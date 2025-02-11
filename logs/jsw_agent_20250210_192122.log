@@ -1,0 +1,111 @@
+2025-02-10 19:21:22,179 - utilities.logger - INFO - Logging initialized
+2025-02-10 19:21:22,184 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 19:21:22,184 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 19:21:23,689 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 19:21:23,912 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 19:21:23,912 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-10 19:21:28,738 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-10 19:21:30,353 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-10 19:21:31,989 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-10 19:21:31,990 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-10 19:21:31,990 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-10 19:21:31,990 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-10 19:21:37,543 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 19:21:37,543 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-10 19:21:41,949 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 19:21:41,949 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-10 19:21:53,932 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-10 19:21:53,933 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-10 19:21:53,934 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-10 19:21:53,934 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-10 19:21:53,934 - __main__ - INFO - Starting optimized SERP API search...
+2025-02-10 19:21:56,427 - __main__ - WARNING - SERP API rate limit hit, waiting 60 seconds...
+2025-02-10 19:22:56,877 - __main__ - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Aprojectstoday.com+OR+site%3Anhai.gov.in+OR+site%3Aepc.gov.in%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=50
+2025-02-10 19:22:56,881 - __main__ - WARNING - SERP API failed, continuing with other sources...
+2025-02-10 19:22:56,881 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-10 19:22:56,881 - __main__ - INFO - Processing 2 projects for quality filtering...
+2025-02-10 19:22:56,881 - __main__ - INFO - Adding quality project: Q3 FY25 Financial Results (JSW Infrastructure reported a 32.35% rise in consolidated net profit to Rs 335.62 crore in the December quarter, driven by higher income. The company is likely to continue infrastructure development projects across its port facilities.) - Rs. 335.6 Cr
+2025-02-10 19:22:56,882 - __main__ - INFO - Adding quality project: Union Budget 2025 Infrastructure Allocation (Union Budget 2025 Infrastructure Allocation) - Rs. 0.1 Cr
+2025-02-10 19:22:56,882 - __main__ - INFO - 
+Quality projects found (2):
+2025-02-10 19:22:56,882 - __main__ - INFO - 1. JSW Infrastructure reported a 32.35% rise in consolidated net profit to Rs 335.62 crore in the December quarter, driven by higher income. The company is likely to continue infrastructure development projects across its port facilities. - Q3 FY25 Financial Results
+2025-02-10 19:22:56,882 - __main__ - INFO -    Value: Rs. 335.62 Cr
+2025-02-10 19:22:56,882 - __main__ - INFO -    Source: https://economictimes.indiatimes.com/jsw-infrastructure-ltd/stocksupdate/companyid-42080.cms
+
+2025-02-10 19:22:56,882 - __main__ - INFO - 2. Union Budget 2025 Infrastructure Allocation - Union Budget 2025 Infrastructure Allocation
+2025-02-10 19:22:56,882 - __main__ - INFO -    Value: Rs. 0.11199999999999999 Cr
+2025-02-10 19:22:56,882 - __main__ - INFO -    Source: https://www.constructionbriefing.com/news/indian-budget-2025-infrastructure-remains-a-priority/8050353.article
+
+2025-02-10 19:22:56,882 - __main__ - INFO - Quality projects to be sent:
+2025-02-10 19:22:56,883 - __main__ - INFO - 1. JSW Infrastructure reported a 32.35% rise in consolidated net profit to Rs 335.62 crore in the December quarter, driven by higher income. The company is likely to continue infrastructure development projects across its port facilities. - Q3 FY25 Financial Results (Rs. 335.62 Cr)
+2025-02-10 19:22:56,883 - __main__ - INFO - 2. Union Budget 2025 Infrastructure Allocation - Union Budget 2025 Infrastructure Allocation (Rs. 0.11199999999999999 Cr)
+2025-02-10 19:22:56,883 - __main__ - INFO - Sending notifications for 2 quality projects...
+2025-02-10 19:22:56,883 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-10 19:22:56,883 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-10 19:22:58,101 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-10 19:22:58,510 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-10 19:22:58,734 - utilities.email_handler - INFO - Processing project: Q3 FY25 Financial Results for team HSLA
+2025-02-10 19:22:58,734 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-10 19:22:58,735 - utilities.email_handler - INFO - Processing project: Union Budget 2025 Infrastructure Allocation for team TMT_BARS
+2025-02-10 19:22:58,735 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-10 19:22:58,735 - utilities.email_handler - INFO - Projects grouped by team: HSLA: 1, TMT_BARS: 1
+2025-02-10 19:22:58,735 - utilities.email_handler - INFO - Total portfolio value: Rs. 336 Cr
+2025-02-10 19:22:58,736 - utilities.email_handler - INFO - Total steel requirement: 1,614 MT
+2025-02-10 19:22:58,736 - utilities.email_handler - INFO - Preparing email for TMT_BARS team (1 projects)
+2025-02-10 19:23:01,791 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-10 19:23:02,012 - utilities.email_handler - INFO - Preparing email for HSLA team (1 projects)
+2025-02-10 19:23:05,063 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh220@gmail.com for HSLA
+2025-02-10 19:23:05,288 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 2 teams
+2025-02-10 19:23:05,288 - __main__ - INFO - Successfully sent email notifications
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - Headers:
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 19:23:05,428 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 19:23:05,728 - twilio.http_client - INFO - Response Status Code: 429
+2025-02-10 19:23:05,729 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '176', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 13:53:05 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '63038', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ76e7d595323bb639ddbde6d721bae783', 'Twilio-Request-Duration': '0.052', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'bEgYlPCN-CAo8Ku4l9oMaIDXOuVSTYEGBtJHr6CInTORRiLiQpgb5w=='}
+2025-02-10 19:23:05,730 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for 917715018407, retrying in 2 seconds...
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - Headers:
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 19:23:07,733 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 19:23:07,734 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 19:23:07,734 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 19:23:07,734 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 19:23:08,142 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 19:23:08,142 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1249', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 13:53:08 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQa3fd67d2b7c0caffc926db93976e9534', 'Twilio-Request-Duration': '0.118', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'C8J_xF1MaOk0T6QYG0BNhMjER6a4ufWZhXoqI_jhptYgrfICimhdGQ=='}
+2025-02-10 19:23:08,144 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMa3fd67d2b7c0caffc926db93976e9534)
+2025-02-10 19:23:08,144 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 19:23:08,144 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 19:23:08,144 - twilio.http_client - INFO - Headers:
+2025-02-10 19:23:08,145 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 19:23:08,145 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 19:23:08,145 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 19:23:08,165 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 19:23:08,165 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 19:23:08,194 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 19:23:08,648 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 19:23:08,648 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1605', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 13:53:08 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ630c39f4f2d1a9f12fa9e425b5dc4ce6', 'Twilio-Request-Duration': '0.125', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '0mmyx-kbzbgRVhlSfHNLrqrDbF9DATg0cGyfh4ryEqlMhQ_5kD5gng=='}
+2025-02-10 19:23:08,648 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM630c39f4f2d1a9f12fa9e425b5dc4ce6)
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - Headers:
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 19:23:09,651 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 19:23:09,652 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 19:23:09,652 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 19:23:09,970 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 19:23:09,970 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1447', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 13:53:09 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQdeac648a8115d3dc55013862223849ff', 'Twilio-Request-Duration': '0.107', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'gjvn1CDJQRutb1xoCgxALRYm8aGcmcpPcIkoDAHcaP2bGfEvMpIqQA=='}
+2025-02-10 19:23:09,971 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMdeac648a8115d3dc55013862223849ff)
+2025-02-10 19:23:10,972 - __main__ - INFO - Successfully sent WhatsApp notifications
+2025-02-10 19:23:11,110 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-10 19:23:11,112 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-10 19:23:11,112 - apscheduler.scheduler - INFO - Scheduler started

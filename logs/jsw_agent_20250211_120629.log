@@ -1,0 +1,25 @@
+2025-02-11 12:06:29,809 - utilities.logger - INFO - Logging initialized
+2025-02-11 12:06:29,816 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 12:06:29,819 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 12:06:32,078 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 12:06:32,331 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 12:06:32,331 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 12:06:53,976 - scrapers.metro_scraper - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 12:06:53,976 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 12:06:53,976 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 12:06:53,977 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 12:06:54,728 - scrapers.perplexity_client - WARNING - Attempt 1/3 failed: 404 Client Error: Not Found for url: https://api.perplexity.ai/v1/chat/completions
+2025-02-11 12:06:56,261 - scrapers.perplexity_client - WARNING - Attempt 2/3 failed: 404 Client Error: Not Found for url: https://api.perplexity.ai/v1/chat/completions
+2025-02-11 12:06:58,703 - scrapers.perplexity_client - WARNING - Attempt 3/3 failed: 404 Client Error: Not Found for url: https://api.perplexity.ai/v1/chat/completions
+2025-02-11 12:06:58,703 - scrapers.perplexity_client - ERROR - Error researching projects: All retries failed. Last error: 404 Client Error: Not Found for url: https://api.perplexity.ai/v1/chat/completions
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 145, in research_infrastructure_projects
+    results = self._query_perplexity(primary_query)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 285, in _query_perplexity
+    raise Exception(f"All retries failed. Last error: {last_error}")
+Exception: All retries failed. Last error: 404 Client Error: Not Found for url: https://api.perplexity.ai/v1/chat/completions
+2025-02-11 12:06:58,707 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-11 12:06:58,707 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-11 12:06:58,707 - __main__ - INFO - Starting optimized SERP API search...
+2025-02-11 12:07:01,613 - __main__ - WARNING - SERP API rate limit hit, waiting 60 seconds...

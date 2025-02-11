@@ -1,0 +1,181 @@
+2025-02-10 13:21:12,090 - utilities.logger - INFO - Logging initialized
+2025-02-10 13:21:12,092 - utilities.logger - INFO - Logging initialized
+2025-02-10 13:21:12,194 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.20.10.2:8080
+2025-02-10 13:21:12,195 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-02-10 13:21:12,200 - werkzeug - INFO -  * Restarting with stat
+2025-02-10 13:21:12,729 - utilities.logger - INFO - Logging initialized
+2025-02-10 13:21:12,731 - utilities.logger - INFO - Logging initialized
+2025-02-10 13:21:12,783 - werkzeug - WARNING -  * Debugger is active!
+2025-02-10 13:21:12,802 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-10 13:21:13,261 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:13] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:16,028 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:16] "GET / HTTP/1.1" 200 -
+2025-02-10 13:21:16,054 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:16] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:18,418 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 13:21:18,418 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:18] "POST /run HTTP/1.1" 200 -
+2025-02-10 13:21:18,419 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 13:21:20,843 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 13:21:21,060 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:21] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:21,209 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 13:21:21,209 - main - INFO - Scraping themetrorailguy.com...
+2025-02-10 13:21:26,160 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:26] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:26,598 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-10 13:21:28,526 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-10 13:21:30,611 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-10 13:21:30,612 - main - INFO - Found 0 projects from Metro Rail Guy
+2025-02-10 13:21:30,612 - main - INFO - Discovering projects using Perplexity AI...
+2025-02-10 13:21:30,612 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-10 13:21:33,018 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:33] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:38,013 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:38] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:41,995 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 13:21:41,995 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-10 13:21:43,159 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:43] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:49,165 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 13:21:49,166 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-10 13:21:55,761 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:21:55] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:21:56,955 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 13:21:56,956 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-10 13:21:56,956 - scrapers.perplexity_client - ERROR - No projects found after all attempts
+2025-02-10 13:21:56,957 - main - INFO - Found 0 projects from Perplexity
+2025-02-10 13:21:56,957 - main - INFO - Fetching projects from SERP API...
+2025-02-10 13:21:56,957 - main - INFO - Starting optimized SERP API search...
+2025-02-10 13:21:58,662 - main - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:01,003 - main - ERROR - SERP API error for query 'project announcement foundation laying tender result construction start india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28project+announcement+foundation+laying+tender+result+construction+start+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:03,081 - main - ERROR - SERP API error for query 'infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:04,833 - main - ERROR - SERP API error for query 'construction contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28construction+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:06,752 - main - ERROR - SERP API error for query 'road infrastructure contract win india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28road+infrastructure+contract+win+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:08,362 - main - ERROR - SERP API error for query 'rail infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28rail+infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:10,241 - main - ERROR - SERP API error for query 'metro rail contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28metro+rail+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:11,895 - main - ERROR - SERP API error for query 'commercial real estate construction india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28commercial+real+estate+construction+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:13,503 - main - ERROR - SERP API error for query 'residential real estate project india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28residential+real+estate+project+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:16,041 - main - ERROR - SERP API error for query 'port development contract india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28port+development+contract+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:16,043 - main - INFO - Found 0 unique results from SERP API
+2025-02-10 13:22:16,043 - main - INFO - Found 0 projects from SERP API
+2025-02-10 13:22:16,043 - main - WARNING - No projects found - check sources
+2025-02-10 13:22:21,791 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:21] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:22:23,064 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 13:22:23,064 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:23] "POST /run HTTP/1.1" 200 -
+2025-02-10 13:22:23,064 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 13:22:25,713 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 13:22:26,019 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 13:22:26,019 - main - INFO - Scraping themetrorailguy.com...
+2025-02-10 13:22:26,806 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:26] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:22:30,831 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-10 13:22:33,701 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-10 13:22:35,876 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-10 13:22:35,876 - main - INFO - Found 0 projects from Metro Rail Guy
+2025-02-10 13:22:35,876 - main - INFO - Discovering projects using Perplexity AI...
+2025-02-10 13:22:35,876 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-10 13:22:36,150 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:36] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:22:44,211 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:44] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:22:44,876 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 13:22:44,877 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-10 13:22:51,451 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:22:51] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:22:53,716 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-10 13:22:53,717 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-10 13:22:53,717 - main - INFO - Found 2 projects from Perplexity
+2025-02-10 13:22:53,717 - main - INFO - Fetching projects from SERP API...
+2025-02-10 13:22:53,717 - main - INFO - Starting optimized SERP API search...
+2025-02-10 13:22:55,293 - main - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:56,851 - main - ERROR - SERP API error for query 'project announcement foundation laying tender result construction start india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28project+announcement+foundation+laying+tender+result+construction+start+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:22:58,687 - main - ERROR - SERP API error for query 'infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:00,206 - main - ERROR - SERP API error for query 'construction contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28construction+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:01,840 - main - ERROR - SERP API error for query 'road infrastructure contract win india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28road+infrastructure+contract+win+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:03,704 - main - ERROR - SERP API error for query 'rail infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28rail+infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:05,446 - main - ERROR - SERP API error for query 'metro rail contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28metro+rail+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:07,039 - main - ERROR - SERP API error for query 'commercial real estate construction india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28commercial+real+estate+construction+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:08,720 - main - ERROR - SERP API error for query 'residential real estate project india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28residential+real+estate+project+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:10,472 - main - ERROR - SERP API error for query 'port development contract india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28port+development+contract+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 13:23:10,474 - main - INFO - Found 0 unique results from SERP API
+2025-02-10 13:23:10,474 - main - INFO - Found 0 projects from SERP API
+2025-02-10 13:23:10,477 - main - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.com', port=443): Max retries exceeded with url: /v1/extract (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x1113fc4d0>: Failed to resolve 'api.firecrawl.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-02-10 13:23:10,478 - main - INFO - Processing 2 projects for quality filtering...
+2025-02-10 13:23:10,478 - main - INFO - Adding quality project: [Redevelopment and Modernization of Government Presses] ([NBCC (India)]) - Rs. 749.3 Cr
+2025-02-10 13:23:10,478 - main - INFO - Adding quality project: [Construction of 'The Arbour Project' in Gurugram] ([Ahluwalia Contracts (India)]) - Rs. 744.7 Cr
+2025-02-10 13:23:10,478 - main - INFO - 
+Quality projects found (2):
+2025-02-10 13:23:10,478 - main - INFO - 1. [NBCC (India)] - [Redevelopment and Modernization of Government Presses]
+2025-02-10 13:23:10,478 - main - INFO -    Value: Rs. 749.28 Cr
+2025-02-10 13:23:10,479 - main - INFO -    Source: https://www.projectstoday.com/ProjectSurvey/SurveyDetail/orders91
+
+2025-02-10 13:23:10,479 - main - INFO - 2. [Ahluwalia Contracts (India)] - [Construction of 'The Arbour Project' in Gurugram]
+2025-02-10 13:23:10,479 - main - INFO -    Value: Rs. 744.68 Cr
+2025-02-10 13:23:10,479 - main - INFO -    Source: https://www.projectstoday.com/ProjectSurvey/SurveyDetail/orders91
+
+2025-02-10 13:23:10,479 - main - INFO - Quality projects to be sent:
+2025-02-10 13:23:10,479 - main - INFO - 1. [NBCC (India)] - [Redevelopment and Modernization of Government Presses] (Rs. 749.28 Cr)
+2025-02-10 13:23:10,479 - main - INFO - 2. [Ahluwalia Contracts (India)] - [Construction of 'The Arbour Project' in Gurugram] (Rs. 744.68 Cr)
+2025-02-10 13:23:10,480 - main - INFO - Sending notifications for 2 quality projects...
+2025-02-10 13:23:10,480 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-10 13:23:10,480 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-10 13:23:12,475 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-10 13:23:12,892 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-10 13:23:13,210 - utilities.email_handler - INFO - Processing project: [Redevelopment and Modernization of Government Presses] for team HSLA
+2025-02-10 13:23:13,211 - utilities.email_handler - INFO - Processing project: [Construction of 'The Arbour Project' in Gurugram] for team TMT_BARS
+2025-02-10 13:23:13,211 - utilities.email_handler - INFO - Projects grouped by team: HSLA: 1, TMT_BARS: 1
+2025-02-10 13:23:13,211 - utilities.email_handler - INFO - Total portfolio value: Rs. 1,494 Cr
+2025-02-10 13:23:13,211 - utilities.email_handler - INFO - Total steel requirement: 15,511 MT
+2025-02-10 13:23:13,211 - utilities.email_handler - INFO - Preparing email for TMT_BARS team (1 projects)
+2025-02-10 13:23:15,957 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:23:15] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:23:17,241 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-10 13:23:17,573 - utilities.email_handler - INFO - Preparing email for HSLA team (1 projects)
+2025-02-10 13:23:21,554 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh220@gmail.com for HSLA
+2025-02-10 13:23:21,859 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 2 teams
+2025-02-10 13:23:21,859 - main - INFO - Successfully sent email notifications
+2025-02-10 13:23:22,258 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 13:23:22,258 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 13:23:22,258 - twilio.http_client - INFO - Headers:
+2025-02-10 13:23:22,258 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 13:23:22,259 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 13:23:22,259 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 13:23:22,259 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 13:23:22,259 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 13:23:22,259 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 13:23:23,327 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 13:23:23,328 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1053', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 07:53:23 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ4add4c8719ed78fa3ea5b72bdfaa6dc6', 'Twilio-Request-Duration': '0.132', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a350b33d1751e84a40e7bb071a6e78f2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '3IpDQbsTqsx794oDyyH9OXFsBpztsZGorCwLH8wDzlG0lvS_vqG9pw=='}
+2025-02-10 13:23:23,329 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM4add4c8719ed78fa3ea5b72bdfaa6dc6)
+2025-02-10 13:23:23,329 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - Headers:
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 13:23:23,330 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 13:23:23,331 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 13:23:23,977 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 13:23:23,977 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1320', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 07:53:23 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQd17603034aacfcd793482536f0b14093', 'Twilio-Request-Duration': '0.112', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a350b33d1751e84a40e7bb071a6e78f2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'SaV2vYf4-Km9XQgh-I4MBQ-6nRDAu9i78XO5Pb3yfoxHhDlwbNOJWQ=='}
+2025-02-10 13:23:23,978 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMd17603034aacfcd793482536f0b14093)
+2025-02-10 13:23:24,981 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - Headers:
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 13:23:24,982 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 13:23:24,983 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 13:23:24,983 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 13:23:25,513 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 13:23:25,513 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1340', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 07:53:25 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ665089ea8b5959e050fc5caee624ffdf', 'Twilio-Request-Duration': '0.108', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 a350b33d1751e84a40e7bb071a6e78f2.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'pe6-Di1d4g7nWNub3bZjHYwMUfI1_FThhKggz-PyjH-r5VrfgmTPWg=='}
+2025-02-10 13:23:25,514 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM665089ea8b5959e050fc5caee624ffdf)
+2025-02-10 13:23:26,515 - main - INFO - Successfully sent WhatsApp notifications
+2025-02-10 13:23:54,733 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:23:54] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:23:59,810 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:23:59] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:24:06,257 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:24:06] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:24:14,166 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:24:14] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:24:28,407 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:24:28] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:24:47,116 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:24:47] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:25:07,459 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:25:07] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:25:49,157 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:25:49] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:26:54,162 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:26:54] "GET /status HTTP/1.1" 200 -
+2025-02-10 13:27:14,559 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 13:27:14] "GET /status HTTP/1.1" 200 -
+2025-02-10 14:06:29,440 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 14:06:29] "GET /status HTTP/1.1" 200 -
+2025-02-10 14:07:27,480 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 14:07:27] "GET /status HTTP/1.1" 200 -
+2025-02-10 16:38:56,986 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 16:38:56] "GET /status HTTP/1.1" 200 -
+2025-02-10 16:41:55,452 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 16:41:55] "GET /status HTTP/1.1" 200 -
+2025-02-10 16:44:38,086 - werkzeug - INFO - 127.0.0.1 - - [10/Feb/2025 16:44:38] "GET /status HTTP/1.1" 200 -
+2025-02-10 16:45:03,205 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/utilities/contact_enricher.py', reloading
+2025-02-10 16:45:03,639 - werkzeug - INFO -  * Restarting with stat
+2025-02-10 16:45:36,439 - werkzeug - INFO -  * Restarting with stat

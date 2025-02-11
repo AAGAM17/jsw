@@ -1,0 +1,159 @@
+2025-02-10 16:52:53,325 - utilities.logger - INFO - Logging initialized
+2025-02-10 16:52:53,332 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 16:52:53,332 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 16:52:54,998 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 16:52:55,224 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 16:52:55,225 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-10 16:53:00,164 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-10 16:53:01,818 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-10 16:53:03,770 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-10 16:53:03,770 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-10 16:53:03,771 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-10 16:53:03,771 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-10 16:53:13,290 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 16:53:13,290 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-10 16:53:22,070 - scrapers.perplexity_client - INFO - Successfully parsed 5 projects
+2025-02-10 16:53:22,070 - scrapers.perplexity_client - INFO - Found 5 projects
+2025-02-10 16:53:22,071 - __main__ - INFO - Found 5 projects from Perplexity
+2025-02-10 16:53:22,071 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-10 16:53:22,071 - __main__ - INFO - Starting optimized SERP API search...
+2025-02-10 16:53:23,526 - __main__ - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:24,857 - __main__ - ERROR - SERP API error for query 'project announcement foundation laying tender result construction start india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28project+announcement+foundation+laying+tender+result+construction+start+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:26,293 - __main__ - ERROR - SERP API error for query 'infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:27,608 - __main__ - ERROR - SERP API error for query 'construction contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28construction+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Abiddetail.com+OR+site%3Anewsonprojects.com+OR+site%3Aconstructionopportunities.in+OR+site%3Aprojectxindia.com+OR+site%3Ametrorailtoday.com+OR+site%3Aprojectstoday.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:28,951 - __main__ - ERROR - SERP API error for query 'road infrastructure contract win india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28road+infrastructure+contract+win+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:30,287 - __main__ - ERROR - SERP API error for query 'rail infrastructure project awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28rail+infrastructure+project+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:31,597 - __main__ - ERROR - SERP API error for query 'metro rail contract awarded india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28metro+rail+contract+awarded+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:32,944 - __main__ - ERROR - SERP API error for query 'commercial real estate construction india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28commercial+real+estate+construction+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:34,241 - __main__ - ERROR - SERP API error for query 'residential real estate project india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28residential+real+estate+project+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:35,709 - __main__ - ERROR - SERP API error for query 'port development contract india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28port+development+contract+india%29+%28site%3Aepc.gov.in+OR+site%3Anseindia.com+OR+site%3Anhai.gov.in+OR+site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=100
+2025-02-10 16:53:35,713 - __main__ - INFO - Found 0 unique results from SERP API
+2025-02-10 16:53:35,713 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-10 16:53:35,794 - __main__ - WARNING - Firecrawl test failed, bypassing Firecrawl enrichment: HTTPSConnectionPool(host='api.firecrawl.io', port=443): Max retries exceeded with url: /v1/extract (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x108362610>: Failed to resolve 'api.firecrawl.io' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-02-10 16:53:35,794 - __main__ - INFO - Processing 5 projects for quality filtering...
+2025-02-10 16:53:35,794 - __main__ - INFO - Adding quality project: [Mumbai-Ahmedabad High Speed Rail Project C6 Package] ([Larsen & Toubro]) - Rs. 24985.0 Cr
+2025-02-10 16:53:35,794 - __main__ - INFO - Adding quality project: [Bengaluru Metro Phase 3 ORR West Extension] ([Afcons Infrastructure]) - Rs. 1999.0 Cr
+2025-02-10 16:53:35,794 - __main__ - INFO - Adding quality project: [Chennai Metro Phase 2 Corridor 3 Package C3-08] ([Tata Projects]) - Rs. 1999.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO - Adding quality project: [Surat Metro Rail Project Package CS3] ([Dilip Buildcon]) - Rs. 851.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO - Adding quality project: [Nagpur Metro Phase 2 Package RT-01] ([NCC Limited]) - Rs. 614.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO - 
+Quality projects found (5):
+2025-02-10 16:53:35,795 - __main__ - INFO - 1. [Larsen & Toubro] - [Mumbai-Ahmedabad High Speed Rail Project C6 Package]
+2025-02-10 16:53:35,795 - __main__ - INFO -    Value: Rs. 24985.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO -    Source: https://www.themetrorailguy.com/lt-wins-24985-cr-mumbai-ahmedabad-bullet-train-c6-package/
+
+2025-02-10 16:53:35,795 - __main__ - INFO - 2. [Afcons Infrastructure] - [Bengaluru Metro Phase 3 ORR West Extension]
+2025-02-10 16:53:35,795 - __main__ - INFO -    Value: Rs. 1999.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO -    Source: https://www.themetrorailguy.com/afcons-wins-1999-cr-bengaluru-metro-phase-3-orr-west-extension-contract/
+
+2025-02-10 16:53:35,795 - __main__ - INFO - 3. [Tata Projects] - [Chennai Metro Phase 2 Corridor 3 Package C3-08]
+2025-02-10 16:53:35,795 - __main__ - INFO -    Value: Rs. 1999.0 Cr
+2025-02-10 16:53:35,795 - __main__ - INFO -    Source: https://www.themetrorailguy.com/tata-projects-wins-1999-cr-chennai-metro-phase-2-c3-08-contract/
+
+2025-02-10 16:53:35,795 - __main__ - INFO - 4. [Dilip Buildcon] - [Surat Metro Rail Project Package CS3]
+2025-02-10 16:53:35,796 - __main__ - INFO -    Value: Rs. 851.0 Cr
+2025-02-10 16:53:35,796 - __main__ - INFO -    Source: https://www.constructionworld.in/latest-construction-news/infrastructure-news/dilip-buildcon-bags-rs-851-cr-surat-metro-project/35909
+
+2025-02-10 16:53:35,796 - __main__ - INFO - 5. [NCC Limited] - [Nagpur Metro Phase 2 Package RT-01]
+2025-02-10 16:53:35,796 - __main__ - INFO -    Value: Rs. 614.0 Cr
+2025-02-10 16:53:35,796 - __main__ - INFO -    Source: https://www.projectstoday.com/News/NCC-bags-Rs-614-crore-Nagpur-Metro-contract
+
+2025-02-10 16:53:35,796 - __main__ - INFO - Quality projects to be sent:
+2025-02-10 16:53:35,796 - __main__ - INFO - 1. [Larsen & Toubro] - [Mumbai-Ahmedabad High Speed Rail Project C6 Package] (Rs. 24985.0 Cr)
+2025-02-10 16:53:35,796 - __main__ - INFO - 2. [Afcons Infrastructure] - [Bengaluru Metro Phase 3 ORR West Extension] (Rs. 1999.0 Cr)
+2025-02-10 16:53:35,796 - __main__ - INFO - 3. [Tata Projects] - [Chennai Metro Phase 2 Corridor 3 Package C3-08] (Rs. 1999.0 Cr)
+2025-02-10 16:53:35,796 - __main__ - INFO - 4. [Dilip Buildcon] - [Surat Metro Rail Project Package CS3] (Rs. 851.0 Cr)
+2025-02-10 16:53:35,796 - __main__ - INFO - 5. [NCC Limited] - [Nagpur Metro Phase 2 Package RT-01] (Rs. 614.0 Cr)
+2025-02-10 16:53:35,796 - __main__ - INFO - Sending notifications for 5 quality projects...
+2025-02-10 16:53:35,796 - utilities.email_handler - INFO - Starting to send 5 projects via email
+2025-02-10 16:53:35,796 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-10 16:53:36,956 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-10 16:53:37,311 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-10 16:53:37,536 - utilities.email_handler - INFO - Processing project: [Mumbai-Ahmedabad High Speed Rail Project C6 Package] for team HR_CR_PLATES
+2025-02-10 16:53:37,537 - utilities.email_handler - INFO - Processing project: [Bengaluru Metro Phase 3 ORR West Extension] for team HR_CR_PLATES
+2025-02-10 16:53:37,537 - utilities.email_handler - INFO - Processing project: [Chennai Metro Phase 2 Corridor 3 Package C3-08] for team HR_CR_PLATES
+2025-02-10 16:53:37,538 - utilities.email_handler - INFO - Processing project: [Surat Metro Rail Project Package CS3] for team HR_CR_PLATES
+2025-02-10 16:53:37,538 - utilities.email_handler - INFO - Processing project: [Nagpur Metro Phase 2 Package RT-01] for team HR_CR_PLATES
+2025-02-10 16:53:37,538 - utilities.email_handler - INFO - Projects grouped by team: HR_CR_PLATES: 5
+2025-02-10 16:53:37,539 - utilities.email_handler - INFO - Total portfolio value: Rs. 30,448 Cr
+2025-02-10 16:53:37,539 - utilities.email_handler - INFO - Total steel requirement: 608,960 MT
+2025-02-10 16:53:37,539 - utilities.email_handler - INFO - Preparing email for HR_CR_PLATES team (5 projects)
+2025-02-10 16:53:40,625 - utilities.email_handler - INFO - Successfully sent email to harsh@meresu.in for HR_CR_PLATES
+2025-02-10 16:53:40,847 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 1 teams
+2025-02-10 16:53:40,848 - __main__ - INFO - Successfully sent email notifications
+2025-02-10 16:53:41,236 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:41,236 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:41,237 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:41,644 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:41,645 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1287', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:41 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ055bff2e661564874b143a4640c351e6', 'Twilio-Request-Duration': '0.128', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'eqqXjF5fM3SgGsZHwe8WnRs2h1SJV3hs9JFyJLF5ODNiQKRCVzhudg=='}
+2025-02-10 16:53:41,645 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM055bff2e661564874b143a4640c351e6)
+2025-02-10 16:53:41,646 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:41,646 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:41,646 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:41,647 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:41,647 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:41,647 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:41,647 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:41,647 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:41,648 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:41,975 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:41,976 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1374', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:41 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ0be41e136e892971864c21ea037f2e01', 'Twilio-Request-Duration': '0.123', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'Vlx6NzoZ-K17mlgaL6qKOXXL7fKFlyHD4zDaaNp68Aigy1Uhdyn9hw=='}
+2025-02-10 16:53:41,977 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM0be41e136e892971864c21ea037f2e01)
+2025-02-10 16:53:42,981 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:42,981 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:42,982 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:42,982 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:42,982 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:42,982 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:42,982 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:42,983 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:42,984 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:43,309 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:43,309 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1390', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:43 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ319a23c85de697da3b714296f089c80e', 'Twilio-Request-Duration': '0.121', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': '9tvyykeLLtpc52SohiEWPShzb_aE4yoFprZYnxmFWHFtjLBF8TFxfg=='}
+2025-02-10 16:53:43,309 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM319a23c85de697da3b714296f089c80e)
+2025-02-10 16:53:44,314 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:44,314 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:44,315 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:44,315 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:44,315 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:44,315 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:44,315 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:44,316 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:44,316 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:44,725 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:44,725 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1358', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:44 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ7809fba73b45e5419e893879c58d109a', 'Twilio-Request-Duration': '0.126', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'HFCA5VFfhjDHZZ7r3iVNQN3BkN3WLUaTDjYB8U4EFeODuKMrVW8o0g=='}
+2025-02-10 16:53:44,726 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM7809fba73b45e5419e893879c58d109a)
+2025-02-10 16:53:45,731 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:45,732 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:45,733 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:45,733 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:45,733 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:45,734 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:45,734 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:45,734 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:45,734 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:46,154 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:46,155 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1419', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:46 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ6a2cfca31e99bf3f799e0d6270714308', 'Twilio-Request-Duration': '0.110', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'hc7YFscaxm0krN80ldPvfDP1iF0kDbVGQTtSwjC9TZ9gwRFCJg4HXw=='}
+2025-02-10 16:53:46,156 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM6a2cfca31e99bf3f799e0d6270714308)
+2025-02-10 16:53:47,158 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 16:53:47,158 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 16:53:47,158 - twilio.http_client - INFO - Headers:
+2025-02-10 16:53:47,158 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 16:53:47,159 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 16:53:47,159 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 16:53:47,159 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 16:53:47,159 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 16:53:47,159 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 16:53:47,589 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-10 16:53:47,589 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1293', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 11:23:47 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ87aa15c5da7ac42c95a7e2a46165ff8b', 'Twilio-Request-Duration': '0.120', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 dcb14d00fec8b0365ecd2bc8f674ffc4.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'lcFww9WjdSEXo5vdh-6jnirKgAuzHCYcVAYkj9IzefhlJXgyMrlOXA=='}
+2025-02-10 16:53:47,590 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM87aa15c5da7ac42c95a7e2a46165ff8b)
+2025-02-10 16:53:48,592 - __main__ - INFO - Successfully sent WhatsApp notifications
+2025-02-10 16:53:48,702 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-10 16:53:48,703 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-10 16:53:48,703 - apscheduler.scheduler - INFO - Scheduler started

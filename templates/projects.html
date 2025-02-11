@@ -101,18 +101,20 @@
         }
 
         .btn-details {
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
+            color: var(--primary-color);
             text-decoration: none;
             font-size: 0.9rem;
-            transition: background 0.2s ease;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            padding: 0;
         }
 
         .btn-details:hover {
-            background: #1557b0;
-            color: white;
+            color: #1557b0;
+            text-decoration: underline;
         }
 
         .filters {
@@ -226,11 +228,11 @@
                 </div>
                 <div class="project-footer">
                     <a href="{{ project.source_url }}" class="source-link" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Source
+                        <i class="fas fa-external-link-alt"></i> View Announcement
                     </a>
                     <a href="{{ url_for('project_details', project_id=project.company + '_' + project.title|lower|replace(' ', '_')) }}" 
                        class="btn-details">
-                        Get More Info <i class="fas fa-arrow-right ms-2"></i>
+                        Get More Info <i class="fas fa-chevron-right"></i>
                     </a>
                 </div>
             </div>

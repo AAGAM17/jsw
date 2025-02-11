@@ -1,0 +1,12 @@
+2025-02-12 01:17:53,460 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:17:53,463 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:17:53,610 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 01:17:53,674 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 01:17:53,774 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:17:53] "GET / HTTP/1.1" 200 -
+2025-02-12 01:17:55,538 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:17:55] "GET /status HTTP/1.1" 200 -
+2025-02-12 01:17:58,939 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 01:18:00,501 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 01:18:04,510 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 01:18:08,638 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-12 01:18:08,639 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:18:08] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 01:18:40,878 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/app.py', reloading

@@ -1,0 +1,250 @@
+2025-02-11 17:18:42,744 - utilities.logger - INFO - Logging initialized
+2025-02-11 17:18:42,748 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 17:18:42,748 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 17:18:44,315 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 17:18:44,534 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 17:18:44,535 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 17:18:49,231 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-11 17:18:50,973 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-11 17:18:52,907 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-11 17:18:52,908 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 17:18:52,908 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 17:18:52,908 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 17:19:05,213 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-11 17:19:05,214 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-11 17:19:10,327 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-11 17:19:10,327 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-11 17:19:17,083 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-11 17:19:17,083 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-11 17:19:17,083 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-11 17:19:17,084 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-11 17:19:17,084 - __main__ - INFO - Fetching projects from Exa API...
+2025-02-11 17:19:17,084 - __main__ - INFO - Starting Exa API search...
+2025-02-11 17:22:49,358 - __main__ - INFO - Found 194 unique results from Exa API
+2025-02-11 17:22:49,359 - __main__ - INFO - Found 194 projects from Exa API
+2025-02-11 17:22:49,359 - __main__ - INFO - Processing 194 projects for quality filtering...
+2025-02-11 17:22:49,751 - __main__ - INFO - Sending notifications for 81 quality projects...
+2025-02-11 17:22:49,751 - utilities.email_handler - INFO - Starting to send 81 projects via email
+2025-02-11 17:22:49,751 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-11 17:22:50,932 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-11 17:22:51,514 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-11 17:22:51,736 - utilities.email_handler - INFO - Processing project: SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,736 - utilities.email_handler - ERROR - Error processing project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today: unhashable type: 'dict'
+2025-02-11 17:22:51,736 - utilities.email_handler - INFO - Processing project: PNC Wins Kanpur Lucknow Expressway’s Contract - The Metro Rail Guy for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project PNC Wins Kanpur Lucknow Expressway’s Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,737 - utilities.email_handler - INFO - Processing project: L&T wins ₹15,697 cr civil contract package C3 of Mumbai-Ahmedabad Bullet Train project | Metro Rail Today for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project L&T wins ₹15,697 cr civil contract package C3 of Mumbai-Ahmedabad Bullet Train project | Metro Rail Today: unhashable type: 'dict'
+2025-02-11 17:22:51,737 - utilities.email_handler - INFO - Processing project: Bhel emerges as fully Indian bidder for the Vande Bharat train for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project Bhel emerges as fully Indian bidder for the Vande Bharat train: unhashable type: 'dict'
+2025-02-11 17:22:51,737 - utilities.email_handler - INFO - Processing project: Afcons Wins Dharamtar Creek Bridge’s Contract Near Mumbai - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project Afcons Wins Dharamtar Creek Bridge’s Contract Near Mumbai - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,737 - utilities.email_handler - INFO - Processing project: Dilip Buildcon bags contract from Airport Authority of India for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project Dilip Buildcon bags contract from Airport Authority of India: unhashable type: 'dict'
+2025-02-11 17:22:51,737 - utilities.email_handler - INFO - Processing project: SCC-VRS Awarded Mumbai – Ahmedabad Bullet Train’s C8 Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,737 - utilities.email_handler - ERROR - Error processing project SCC-VRS Awarded Mumbai – Ahmedabad Bullet Train’s C8 Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,738 - utilities.email_handler - INFO - Processing project: Speeding up infra with Gati Shakti - National Master Plan | News and Analysis of projects in India for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,738 - utilities.email_handler - ERROR - Error processing project Speeding up infra with Gati Shakti - National Master Plan | News and Analysis of projects in India: unhashable type: 'dict'
+2025-02-11 17:22:51,738 - utilities.email_handler - INFO - Processing project: Delhi–Mumbai Expressway – Information & Status Update for team TMT_BARS
+2025-02-11 17:22:51,738 - utilities.email_handler - INFO - Processing project: NIP Task Force projects infrastructure investments of Rs 111 lakh cr during FY20-25 for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,738 - utilities.email_handler - ERROR - Error processing project NIP Task Force projects infrastructure investments of Rs 111 lakh cr during FY20-25: unhashable type: 'dict'
+2025-02-11 17:22:51,738 - utilities.email_handler - INFO - Processing project: Bombardier Wins Kanpur & Agra Metro’s 201 Coach Rolling Stock & Signalling Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,738 - utilities.email_handler - ERROR - Error processing project Bombardier Wins Kanpur & Agra Metro’s 201 Coach Rolling Stock & Signalling Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,738 - utilities.email_handler - INFO - Processing project: Sudhir Power Wins Delhi Metro Phase 4’s 1st JICA Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project Sudhir Power Wins Delhi Metro Phase 4’s 1st JICA Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,739 - utilities.email_handler - INFO - Processing project: L&T Awarded Mumbai – Ahmedabad Bullet Train’s C3 Contract in Maharashtra - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project L&T Awarded Mumbai – Ahmedabad Bullet Train’s C3 Contract in Maharashtra - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,739 - utilities.email_handler - INFO - Processing project: GPT Infra Awarded Rs. 196.30cr Kolkata Metro Line-3 Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project GPT Infra Awarded Rs. 196.30cr Kolkata Metro Line-3 Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,739 - utilities.email_handler - INFO - Processing project: India Archives | ProjectX India for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project India Archives | ProjectX India: unhashable type: 'dict'
+2025-02-11 17:22:51,739 - utilities.email_handler - INFO - Processing project: Krishna Wins Delhi-Dehradun Expressway Haridwar Spur’s Work - The Metro Rail Guy for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project Krishna Wins Delhi-Dehradun Expressway Haridwar Spur’s Work - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,739 - utilities.email_handler - INFO - Processing project: News on Projects - New projects information in India, Middle East, South Asia for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,739 - utilities.email_handler - ERROR - Error processing project News on Projects - New projects information in India, Middle East, South Asia: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: The government’s Smart Cities mission is keeping companies busy for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project The government’s Smart Cities mission is keeping companies busy: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: Varaha Wins Dholera Airport Phase 1’s Construction Work - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project Varaha Wins Dholera Airport Phase 1’s Construction Work - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: Tenders floated for works of Sivok to Rangpo new single BG railway line for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project Tenders floated for works of Sivok to Rangpo new single BG railway line: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: GHV Wins Delhi – Mumbai Expressway’s Packages 27 & 28 - The Metro Rail Guy for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project GHV Wins Delhi – Mumbai Expressway’s Packages 27 & 28 - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: Lisha Wins Agra Metro PAC Depot’s Construction Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project Lisha Wins Agra Metro PAC Depot’s Construction Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,740 - utilities.email_handler - INFO - Processing project: Senbo Engg wins ₹532 crore underground civil contracts for Kolkata Metro Line 4 | Metro Rail Today for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,740 - utilities.email_handler - ERROR - Error processing project Senbo Engg wins ₹532 crore underground civil contracts for Kolkata Metro Line 4 | Metro Rail Today: unhashable type: 'dict'
+2025-02-11 17:22:51,741 - utilities.email_handler - INFO - Processing project: Indian Oil Corporation to set up new crude oil pipeline system for team HR_CR_PLATES
+2025-02-11 17:22:51,741 - utilities.email_handler - ERROR - Error processing project Indian Oil Corporation to set up new crude oil pipeline system: 'default'
+2025-02-11 17:22:51,741 - utilities.email_handler - INFO - Processing project: Uttar Pradesh govt proposes Rs 1,736 cr for Madhya Ganga Canal project for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,741 - utilities.email_handler - ERROR - Error processing project Uttar Pradesh govt proposes Rs 1,736 cr for Madhya Ganga Canal project: unhashable type: 'dict'
+2025-02-11 17:22:51,741 - utilities.email_handler - INFO - Processing project: MoRTH issues tender for widening of road in Jharkhand for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,741 - utilities.email_handler - ERROR - Error processing project MoRTH issues tender for widening of road in Jharkhand: unhashable type: 'dict'
+2025-02-11 17:22:51,741 - utilities.email_handler - INFO - Processing project: Irrigation & Public Health Dept, Himachal Pradesh issues tender for LWSS works for team HR_CR_PLATES
+2025-02-11 17:22:51,741 - utilities.email_handler - ERROR - Error processing project Irrigation & Public Health Dept, Himachal Pradesh issues tender for LWSS works: 'default'
+2025-02-11 17:22:51,741 - utilities.email_handler - INFO - Processing project: NHAI floats tenders for six-laning of Durg-Raipur-Arang bypass section for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,743 - utilities.email_handler - ERROR - Error processing project NHAI floats tenders for six-laning of Durg-Raipur-Arang bypass section: unhashable type: 'dict'
+2025-02-11 17:22:51,743 - utilities.email_handler - INFO - Processing project: Work allocation for sea memorial to be decided by state govt for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,743 - utilities.email_handler - ERROR - Error processing project Work allocation for sea memorial to be decided by state govt: unhashable type: 'dict'
+2025-02-11 17:22:51,743 - utilities.email_handler - INFO - Processing project: ITD Cementation India bags a contract from Bharat Mumbai Container Terminals for team HR_CR_PLATES
+2025-02-11 17:22:51,743 - utilities.email_handler - ERROR - Error processing project ITD Cementation India bags a contract from Bharat Mumbai Container Terminals: 'default'
+2025-02-11 17:22:51,743 - utilities.email_handler - INFO - Processing project: Coal Sector to infuse Rs 12,500 cr for 35 first mile connectivity projects for team HR_CR_PLATES
+2025-02-11 17:22:51,745 - utilities.email_handler - ERROR - Error processing project Coal Sector to infuse Rs 12,500 cr for 35 first mile connectivity projects: 'default'
+2025-02-11 17:22:51,745 - utilities.email_handler - INFO - Processing project: ADB and EIB to help MahaMetro raise Rs 3,586 cr for Nagpur Metro phase-II for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,745 - utilities.email_handler - ERROR - Error processing project ADB and EIB to help MahaMetro raise Rs 3,586 cr for Nagpur Metro phase-II: unhashable type: 'dict'
+2025-02-11 17:22:51,745 - utilities.email_handler - INFO - Processing project: Bids invited for redevelopment of AIIMS’ Ayur Vigyan Nagar Campus for team {'primary': 'TMT_BARS', 'secondary': 'COATED_PRODUCTS'}
+2025-02-11 17:22:51,745 - utilities.email_handler - ERROR - Error processing project Bids invited for redevelopment of AIIMS’ Ayur Vigyan Nagar Campus: unhashable type: 'dict'
+2025-02-11 17:22:51,745 - utilities.email_handler - INFO - Processing project: Bids invited for const of elevated stabling depot at Noida for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,745 - utilities.email_handler - ERROR - Error processing project Bids invited for const of elevated stabling depot at Noida: unhashable type: 'dict'
+2025-02-11 17:22:51,745 - utilities.email_handler - INFO - Processing project: Infra projects show cost overruns of Rs 4.98 lakh cr for team {'primary': 'SPECIAL_ALLOY', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,746 - utilities.email_handler - ERROR - Error processing project Infra projects show cost overruns of Rs 4.98 lakh cr: unhashable type: 'dict'
+2025-02-11 17:22:51,746 - utilities.email_handler - INFO - Processing project: Tender floated for construction of cable stayed road-over-bridge in Mumbai for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,746 - utilities.email_handler - ERROR - Error processing project Tender floated for construction of cable stayed road-over-bridge in Mumbai: unhashable type: 'dict'
+2025-02-11 17:22:51,746 - utilities.email_handler - INFO - Processing project: News On Projects | India - Chhattisgarh for team {'primary': 'COATED_PRODUCTS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,746 - utilities.email_handler - ERROR - Error processing project News On Projects | India - Chhattisgarh: unhashable type: 'dict'
+2025-02-11 17:22:51,746 - utilities.email_handler - INFO - Processing project: News On Projects | India - Mizoram for team {'primary': 'COATED_PRODUCTS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,746 - utilities.email_handler - ERROR - Error processing project News On Projects | India - Mizoram: unhashable type: 'dict'
+2025-02-11 17:22:51,746 - utilities.email_handler - INFO - Processing project: India's #1 Projects Tracking Platform for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,746 - utilities.email_handler - ERROR - Error processing project India's #1 Projects Tracking Platform: unhashable type: 'dict'
+2025-02-11 17:22:51,746 - utilities.email_handler - INFO - Processing project: News On Projects | India - Multiple for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,747 - utilities.email_handler - ERROR - Error processing project News On Projects | India - Multiple: unhashable type: 'dict'
+2025-02-11 17:22:51,747 - utilities.email_handler - INFO - Processing project: Partners in Success for team {'primary': 'HR_PLATES', 'secondary': 'STRUCTURAL_STEEL'}
+2025-02-11 17:22:51,747 - utilities.email_handler - ERROR - Error processing project Partners in Success: unhashable type: 'dict'
+2025-02-11 17:22:51,747 - utilities.email_handler - INFO - Processing project: SMEC & AECOM-CEG Awarded Bangalore Metro Line-5 DDC Contracts - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,747 - utilities.email_handler - ERROR - Error processing project SMEC & AECOM-CEG Awarded Bangalore Metro Line-5 DDC Contracts - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,747 - utilities.email_handler - INFO - Processing project: Ahmedabad Metro Phase 1 – Information, Route Maps, Tenders & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,747 - utilities.email_handler - ERROR - Error processing project Ahmedabad Metro Phase 1 – Information, Route Maps, Tenders & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,747 - utilities.email_handler - INFO - Processing project: DBL & Raj Path Win Bangalore-Vijayawada Expressway’s Contracts - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,747 - utilities.email_handler - ERROR - Error processing project DBL & Raj Path Win Bangalore-Vijayawada Expressway’s Contracts - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,748 - utilities.email_handler - INFO - Processing project: Delhi Metro Phase 3 - Information, Route Maps, Tenders & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,748 - utilities.email_handler - ERROR - Error processing project Delhi Metro Phase 3 - Information, Route Maps, Tenders & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,748 - utilities.email_handler - INFO - Processing project: URCC Wins Bhopal Metro Package BH03’s Civil Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,748 - utilities.email_handler - ERROR - Error processing project URCC Wins Bhopal Metro Package BH03’s Civil Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,748 - utilities.email_handler - INFO - Processing project: 5 Bidders for Delhi Metro Phase 4’s 288 Coach Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,748 - utilities.email_handler - ERROR - Error processing project 5 Bidders for Delhi Metro Phase 4’s 288 Coach Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,748 - utilities.email_handler - INFO - Processing project: The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,748 - utilities.email_handler - ERROR - Error processing project The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,749 - utilities.email_handler - INFO - Processing project: Hyundai Rotem Wins Ahmedabad Metro’s 96 Coach Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,749 - utilities.email_handler - ERROR - Error processing project Hyundai Rotem Wins Ahmedabad Metro’s 96 Coach Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,749 - utilities.email_handler - INFO - Processing project: Pratibha-Ranjit Lowest Bidder for Ahmedabad’s 5 Station Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,749 - utilities.email_handler - ERROR - Error processing project Pratibha-Ranjit Lowest Bidder for Ahmedabad’s 5 Station Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,749 - utilities.email_handler - INFO - Processing project: L&T bags track contracts worth ₹501 crore for Bangalore Metro Phase 2A & 2B | Metro Rail Today for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,750 - utilities.email_handler - ERROR - Error processing project L&T bags track contracts worth ₹501 crore for Bangalore Metro Phase 2A & 2B | Metro Rail Today: unhashable type: 'dict'
+2025-02-11 17:22:51,750 - utilities.email_handler - INFO - Processing project: Gawar Wins Mumbai Metro Line 12’s Construction Contract CA-240 - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,750 - utilities.email_handler - ERROR - Error processing project Gawar Wins Mumbai Metro Line 12’s Construction Contract CA-240 - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,750 - utilities.email_handler - INFO - Processing project: STEC Awarded Delhi – Meerut RRTS Package 4’s Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,750 - utilities.email_handler - ERROR - Error processing project STEC Awarded Delhi – Meerut RRTS Package 4’s Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,750 - utilities.email_handler - INFO - Processing project: Jaipur Metro - Information, Route Maps, Fares, Tenders & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,750 - utilities.email_handler - ERROR - Error processing project Jaipur Metro - Information, Route Maps, Fares, Tenders & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,751 - utilities.email_handler - INFO - Processing project: Delhi Metro Phase 1 - Information, Route Maps & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,751 - utilities.email_handler - ERROR - Error processing project Delhi Metro Phase 1 - Information, Route Maps & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,751 - utilities.email_handler - INFO - Processing project: Jammu Metro – Information, Route Maps, Fares, Tenders & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,751 - utilities.email_handler - ERROR - Error processing project Jammu Metro – Information, Route Maps, Fares, Tenders & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,751 - utilities.email_handler - INFO - Processing project: Delhi - Dehradun Expressway - Information & Status Update for team TMT_BARS
+2025-02-11 17:22:51,751 - utilities.email_handler - INFO - Processing project: Dwarka Expressway – Information & Status Update for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,751 - utilities.email_handler - ERROR - Error processing project Dwarka Expressway – Information & Status Update: unhashable type: 'dict'
+2025-02-11 17:22:51,752 - utilities.email_handler - INFO - Processing project: Fifty Metro projects chugging smoothly | News and Analysis of projects in India for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,752 - utilities.email_handler - ERROR - Error processing project Fifty Metro projects chugging smoothly | News and Analysis of projects in India: unhashable type: 'dict'
+2025-02-11 17:22:51,752 - utilities.email_handler - INFO - Processing project: Sterling & Wilson – Zhejiang JV Wins Ahmedabad Metro’s TVS Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,752 - utilities.email_handler - ERROR - Error processing project Sterling & Wilson – Zhejiang JV Wins Ahmedabad Metro’s TVS Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,752 - utilities.email_handler - INFO - Processing project: 7 Bidders for Bhopal Metro Blue Line’s Civil Contract BH05 - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,752 - utilities.email_handler - ERROR - Error processing project 7 Bidders for Bhopal Metro Blue Line’s Civil Contract BH05 - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,752 - utilities.email_handler - INFO - Processing project: India's #1 Projects Tracking Platform for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,752 - utilities.email_handler - ERROR - Error processing project India's #1 Projects Tracking Platform: unhashable type: 'dict'
+2025-02-11 17:22:51,753 - utilities.email_handler - INFO - Processing project: NHAI floats tender for four-laning of Phagwara to Hoshiarpur Road for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,753 - utilities.email_handler - ERROR - Error processing project NHAI floats tender for four-laning of Phagwara to Hoshiarpur Road: unhashable type: 'dict'
+2025-02-11 17:22:51,753 - utilities.email_handler - INFO - Processing project: News on Projects | India - Automobile for team {'primary': 'HR_PLATES', 'secondary': 'SPECIAL_ALLOY'}
+2025-02-11 17:22:51,753 - utilities.email_handler - ERROR - Error processing project News on Projects | India - Automobile: unhashable type: 'dict'
+2025-02-11 17:22:51,753 - utilities.email_handler - INFO - Processing project: Ongoing Projects India Archives | ProjectX India for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,753 - utilities.email_handler - ERROR - Error processing project Ongoing Projects India Archives | ProjectX India: unhashable type: 'dict'
+2025-02-11 17:22:51,753 - utilities.email_handler - INFO - Processing project: Raipur - Visakhapatnam Economic Corridor – Information & Status Update for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,753 - utilities.email_handler - ERROR - Error processing project Raipur - Visakhapatnam Economic Corridor – Information & Status Update: unhashable type: 'dict'
+2025-02-11 17:22:51,754 - utilities.email_handler - INFO - Processing project: Atal Progressway (Chambal Expressway) – Information & Status for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,754 - utilities.email_handler - ERROR - Error processing project Atal Progressway (Chambal Expressway) – Information & Status: unhashable type: 'dict'
+2025-02-11 17:22:51,754 - utilities.email_handler - INFO - Processing project: Centre mulls building smart cities along Delhi-Mumbai Expressway for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,754 - utilities.email_handler - ERROR - Error processing project Centre mulls building smart cities along Delhi-Mumbai Expressway: unhashable type: 'dict'
+2025-02-11 17:22:51,754 - utilities.email_handler - INFO - Processing project: Sirhind - Sehna Expressway – Information & Status for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,754 - utilities.email_handler - ERROR - Error processing project Sirhind - Sehna Expressway – Information & Status: unhashable type: 'dict'
+2025-02-11 17:22:51,754 - utilities.email_handler - INFO - Processing project: Khammam-Devarapalli Expressway – Information & Status for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,754 - utilities.email_handler - ERROR - Error processing project Khammam-Devarapalli Expressway – Information & Status: unhashable type: 'dict'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: Ahmedabad - Dholera Expressway – Information & Status for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,755 - utilities.email_handler - ERROR - Error processing project Ahmedabad - Dholera Expressway – Information & Status: unhashable type: 'dict'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: India's #1 Projects Tracking Platform for team HR_CR_PLATES
+2025-02-11 17:22:51,755 - utilities.email_handler - ERROR - Error processing project India's #1 Projects Tracking Platform: 'default'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: KSM Awarded Delhi-Meerut RRTS Modipuram Depot’s Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,755 - utilities.email_handler - ERROR - Error processing project KSM Awarded Delhi-Meerut RRTS Modipuram Depot’s Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: NCC Wins Patna Metro Line-2's Construction Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,755 - utilities.email_handler - ERROR - Error processing project NCC Wins Patna Metro Line-2's Construction Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: L&T & NHSRCL Sign Contract for Bullet Train’s Package C6 - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,755 - utilities.email_handler - ERROR - Error processing project L&T & NHSRCL Sign Contract for Bullet Train’s Package C6 - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,755 - utilities.email_handler - INFO - Processing project: Sam India Wins Agra Metro Line-1’s Construction Work - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project Sam India Wins Agra Metro Line-1’s Construction Work - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,756 - utilities.email_handler - INFO - Processing project: Bombardier Wins Delhi-Meerut RRTS’ 210 Coach Contract - The Metro Rail Guy for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project Bombardier Wins Delhi-Meerut RRTS’ 210 Coach Contract - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,756 - utilities.email_handler - INFO - Processing project: Haryana Orbital Rail Corridor – Information, Route Map, Tenders & Updates for team {'primary': 'HR_PLATES', 'secondary': 'TMT_BARS'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project Haryana Orbital Rail Corridor – Information, Route Map, Tenders & Updates: unhashable type: 'dict'
+2025-02-11 17:22:51,756 - utilities.email_handler - INFO - Processing project: India's #1 Projects Tracking Platform for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project India's #1 Projects Tracking Platform: unhashable type: 'dict'
+2025-02-11 17:22:51,756 - utilities.email_handler - INFO - Processing project: 15 Bidders for Varanasi – Kolkata Expressway’s Construction Work - The Metro Rail Guy for team {'primary': 'TMT_BARS', 'secondary': 'HR_PLATES'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project 15 Bidders for Varanasi – Kolkata Expressway’s Construction Work - The Metro Rail Guy: unhashable type: 'dict'
+2025-02-11 17:22:51,756 - utilities.email_handler - INFO - Processing project: Tender issued for various works at Police Training Centre, Khalal for team {'primary': 'HR_PLATES', 'secondary': 'STRUCTURAL_STEEL'}
+2025-02-11 17:22:51,756 - utilities.email_handler - ERROR - Error processing project Tender issued for various works at Police Training Centre, Khalal: unhashable type: 'dict'
+2025-02-11 17:22:51,757 - utilities.email_handler - INFO - Projects grouped by team: TMT_BARS: 2
+2025-02-11 17:22:51,757 - utilities.email_handler - INFO - Total portfolio value: Rs. 113,000 Cr
+2025-02-11 17:22:51,757 - utilities.email_handler - INFO - Total steel requirement: 1,356,000 MT
+2025-02-11 17:22:51,757 - utilities.email_handler - INFO - Preparing email for TMT_BARS team (2 projects)
+2025-02-11 17:22:54,678 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com for TMT_BARS
+2025-02-11 17:22:54,897 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 1 teams
+2025-02-11 17:22:54,898 - __main__ - INFO - Successfully sent email notifications
+2025-02-11 17:22:55,041 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:22:55,041 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - Headers:
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:22:55,042 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:22:55,415 - twilio.http_client - INFO - Response Status Code: 400
+2025-02-11 17:22:55,415 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '157', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:52:55 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '21617', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQf23d3f6a476cb3e7c67d13223d97ae2f', 'Twilio-Request-Duration': '0.044', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5de1b74f4876cafa508db8303043b292.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'g1LrHwkjvYDBxzPnRevxDd0LQpjkjDePjEb-JNu39n4PiAveC1Mmtg=='}
+2025-02-11 17:22:55,415 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for 917715018407, retrying in 2 seconds...
+2025-02-11 17:22:57,416 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:22:57,416 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - Headers:
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:22:57,419 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:22:57,676 - twilio.http_client - INFO - Response Status Code: 400
+2025-02-11 17:22:57,676 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '157', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:52:57 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '21617', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQd626789b118455c7435db92956d73951', 'Twilio-Request-Duration': '0.024', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5de1b74f4876cafa508db8303043b292.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'FzAz7lhxhXJEFqvGo8iQ6sMiduVaVoWn6LTiO-ux0QHnFR2Ag_D2ww=='}
+2025-02-11 17:22:57,676 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for 917715018407, retrying in 2 seconds...
+2025-02-11 17:22:59,681 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - Headers:
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:22:59,682 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:23:00,002 - twilio.http_client - INFO - Response Status Code: 400
+2025-02-11 17:23:00,003 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '157', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:53:00 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '21617', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ6a13dd088486876314b52bc5d97a9036', 'Twilio-Request-Duration': '0.034', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 5de1b74f4876cafa508db8303043b292.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'Ln_rb86Ot_qHES-Nmb4DuhLimhi2FJq-zCAr0M2Q_Fta0fOnezvrQg=='}
+2025-02-11 17:23:00,003 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to 917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: The concatenated message body exceeds the 1600 character limit[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/21617[0m
+
+
+2025-02-11 17:23:00,003 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-11 17:23:00,131 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 17:23:00,131 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 17:23:00,131 - apscheduler.scheduler - INFO - Scheduler started

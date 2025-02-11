@@ -1,0 +1,32 @@
+2025-02-11 12:08:04,493 - utilities.logger - INFO - Logging initialized
+2025-02-11 12:08:04,497 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 12:08:04,498 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 12:08:06,608 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 12:08:06,851 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 12:08:06,851 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 12:08:28,736 - scrapers.metro_scraper - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 12:08:28,738 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 12:08:28,738 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 12:08:28,738 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 12:08:29,259 - scrapers.perplexity_client - WARNING - Attempt 1/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-11 12:08:30,573 - scrapers.perplexity_client - WARNING - Attempt 2/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-11 12:08:33,030 - scrapers.perplexity_client - WARNING - Attempt 3/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-11 12:08:33,030 - scrapers.perplexity_client - ERROR - Error researching projects: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 145, in research_infrastructure_projects
+    results = self._query_perplexity(primary_query)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 285, in _query_perplexity
+    raise Exception(f"All retries failed. Last error: {last_error}")
+Exception: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-11 12:08:33,031 - __main__ - INFO - Found 0 projects from Perplexity
+2025-02-11 12:08:33,032 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-11 12:08:33,032 - __main__ - INFO - Starting optimized SERP API search...
+2025-02-11 12:08:35,794 - __main__ - WARNING - SERP API rate limit hit, waiting 60 seconds...
+2025-02-11 12:09:36,934 - __main__ - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Aprojectstoday.com+OR+site%3Anhai.gov.in+OR+site%3Aepc.gov.in%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=50
+2025-02-11 12:09:36,938 - __main__ - WARNING - SERP API failed, continuing with other sources...
+2025-02-11 12:09:36,938 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-11 12:09:36,938 - __main__ - WARNING - No projects found - check sources
+2025-02-11 12:09:37,079 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 12:09:37,083 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 12:09:37,083 - apscheduler.scheduler - INFO - Scheduler started

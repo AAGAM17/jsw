@@ -1,0 +1,96 @@
+2025-02-11 17:13:52,277 - utilities.logger - INFO - Logging initialized
+2025-02-11 17:13:52,285 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 17:13:52,285 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 17:13:53,754 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 17:13:53,974 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 17:13:53,975 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 17:13:59,917 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-11 17:14:01,901 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-11 17:14:03,848 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-11 17:14:03,848 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 17:14:03,848 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 17:14:03,848 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 17:14:20,590 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-11 17:14:20,590 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-11 17:14:20,590 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-11 17:14:20,590 - __main__ - INFO - Fetching projects from Exa API...
+2025-02-11 17:14:20,590 - __main__ - INFO - Starting Exa API search...
+2025-02-11 17:14:23,714 - __main__ - ERROR - Exa API error for query 'infrastructure contract won india': Request failed with status code 400: {"requestId":"6a22b0272c47cd2a5b94c23bdadc8f5a","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:25,660 - __main__ - ERROR - Exa API error for query 'infrastructure project awarded india': Request failed with status code 400: {"requestId":"3487cb54ff28a85340e27d169c1a4247","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:28,439 - __main__ - ERROR - Exa API error for query 'construction contract win india': Request failed with status code 400: {"requestId":"995737fffecb9c079a85dbfa2bdce09f","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:31,232 - __main__ - ERROR - Exa API error for query 'metro contract awarded india': Request failed with status code 400: {"requestId":"ba01fca8de3a59166bafee1f172a2b45","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:33,123 - __main__ - ERROR - Exa API error for query 'highway project awarded india': Request failed with status code 400: {"requestId":"d6ae6d3eef64e373f15f5f91589abc8d","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:35,079 - __main__ - ERROR - Exa API error for query 'railway contract won india': Request failed with status code 400: {"requestId":"34cc8e9a81d697c7e93f58b81c36f0e9","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:38,150 - __main__ - ERROR - Exa API error for query 'infrastructure development contract india': Request failed with status code 400: {"requestId":"025fe5d22bddba8f51d01ef0fbbfb903","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:40,200 - __main__ - ERROR - Exa API error for query 'construction tender result india': Request failed with status code 400: {"requestId":"6a002a5f8796903f9c6ccae307c08238","error":"Invalid request body | Validation error: Only one of includeDomains or excludeDomains can be provided with content.","tag":"INVALID_REQUEST_BODY"}
+2025-02-11 17:14:40,204 - __main__ - INFO - Found 0 unique results from Exa API
+2025-02-11 17:14:40,204 - __main__ - INFO - Found 0 projects from Exa API
+2025-02-11 17:14:40,205 - __main__ - INFO - Processing 2 projects for quality filtering...
+2025-02-11 17:14:40,205 - __main__ - INFO - Sending notifications for 2 quality projects...
+2025-02-11 17:14:40,205 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-11 17:14:40,205 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-11 17:14:41,311 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-11 17:14:41,734 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-11 17:14:41,957 - utilities.email_handler - INFO - Processing project: Infrastructure Development in Manipur for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:14:41,957 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-11 17:14:41,957 - utilities.email_handler - ERROR - Error processing project Infrastructure Development in Manipur: unhashable type: 'dict'
+2025-02-11 17:14:41,958 - utilities.email_handler - INFO - Processing project: Kavach Railway Safety System Installation for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 17:14:41,958 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-11 17:14:41,958 - utilities.email_handler - ERROR - Error processing project Kavach Railway Safety System Installation: unhashable type: 'dict'
+2025-02-11 17:14:41,958 - utilities.email_handler - INFO - Projects grouped by team: 
+2025-02-11 17:14:41,958 - utilities.email_handler - INFO - Total portfolio value: Rs. 0 Cr
+2025-02-11 17:14:41,958 - utilities.email_handler - INFO - Total steel requirement: 0 MT
+2025-02-11 17:14:41,959 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 0 teams
+2025-02-11 17:14:41,959 - __main__ - ERROR - Failed to send email notifications
+2025-02-11 17:14:42,114 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:14:42,114 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:14:42,114 - twilio.http_client - INFO - Headers:
+2025-02-11 17:14:42,114 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:14:42,114 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:14:42,115 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:14:42,115 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:14:42,115 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:14:42,115 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:14:42,542 - twilio.http_client - INFO - Response Status Code: 429
+2025-02-11 17:14:42,542 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '176', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:44:42 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '63038', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQb3d9b09a99dd28992985860810404d8a', 'Twilio-Request-Duration': '0.049', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 f7ee847c2bd335d62c54ba4fa1347686.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'XyUCZ33xwcw9fOjQYu0f9NUUABNQaEFm44GbCgss-pCuppG7hNbMUg=='}
+2025-02-11 17:14:42,542 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for 917715018407, retrying in 2 seconds...
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - Headers:
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:14:44,544 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:14:44,545 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:14:44,909 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 17:14:44,909 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1053', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:44:44 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ67f997017801f5467468852161b0aadb', 'Twilio-Request-Duration': '0.125', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 f7ee847c2bd335d62c54ba4fa1347686.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'oYLtFPW0f_Uc6VZ6oTH0hJVl7Zg9u4mbrmkAMk2JSf-MNdk84V2Bbw=='}
+2025-02-11 17:14:44,910 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM67f997017801f5467468852161b0aadb)
+2025-02-11 17:14:44,910 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:14:44,910 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:14:44,911 - twilio.http_client - INFO - Headers:
+2025-02-11 17:14:44,911 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:14:44,911 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:14:44,912 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:14:44,912 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:14:44,912 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:14:44,912 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:14:45,318 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 17:14:45,318 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1429', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:44:45 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQf73f4097eed0e83abe76c3630bad7222', 'Twilio-Request-Duration': '0.119', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 f7ee847c2bd335d62c54ba4fa1347686.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'V8_q22MN6rB0q5kf0DVar-AGdCV0bRUWB5OKL04RGDxlHmkLNWquyQ=='}
+2025-02-11 17:14:45,319 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMf73f4097eed0e83abe76c3630bad7222)
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - Headers:
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 17:14:46,323 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 17:14:46,649 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 17:14:46,649 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1399', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 11:44:46 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ1b3bf1957076039540f07e28bf2866d8', 'Twilio-Request-Duration': '0.107', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 f7ee847c2bd335d62c54ba4fa1347686.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'DhYU3aB3LG1HcOCf_lFTY7MCEleDXzDdFMXzY1fhxhhvU41vZkUzRQ=='}
+2025-02-11 17:14:46,650 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM1b3bf1957076039540f07e28bf2866d8)
+2025-02-11 17:14:47,654 - __main__ - INFO - Successfully sent WhatsApp notifications
+2025-02-11 17:14:47,865 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 17:14:47,865 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 17:14:47,866 - apscheduler.scheduler - INFO - Scheduler started

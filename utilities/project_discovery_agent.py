@@ -8,6 +8,7 @@ from .contact_enricher import ContactEnricher
 from .email_handler import EmailHandler
 import re
 from bs4 import BeautifulSoup
+import time
 
 class Agent:
     def __init__(self, name: str, instructions: str, functions: List[callable]):
@@ -210,6 +211,18 @@ class ProjectDiscoverySystem:
                     opportunity = analyst_agent.functions[0](content)
                     
                     if self._validate_opportunity(opportunity):
+                        # Enrich with contact information using ContactOut
+                        self.logger.info(f"Enriching opportunity with contact information...")
+                        contact_info = self.contact_enricher.enrich_project_contacts(opportunity)
+                        
+                        if contact_info['status'] == 'success':
+                            opportunity['contacts'] = contact_info['contacts']
+                            opportunity['relationship'] = contact_info['relationship']
+                            opportunity['priority'] = contact_info['priority']
+                            self.logger.info(f"Successfully enriched opportunity with {len(contact_info['contacts'])} contacts")
+                        else:
+                            self.logger.warning(f"Contact enrichment failed: {contact_info['message']}")
+                            
                         opportunities.append(opportunity)
                         
                 except Exception as e:
@@ -370,75 +383,76 @@ class ProjectDiscoverySystem:
     def _scrape_url(self, urls: List[str]) -> List[Dict[str, Any]]:
         """Scrape content from URLs using Firecrawl"""
         try:
+            # Test Firecrawl API connection first
+            try:
+                test_response = requests.get(
+                    'https://api.firecrawl.com/v1/test',
+                    headers=self.firecrawl_headers,
+                    timeout=10
+                )
+                test_response.raise_for_status()
+                firecrawl_available = True
+            except requests.exceptions.RequestException as e:
+                self.logger.error(f"Firecrawl API test failed: {str(e)}")
+                firecrawl_available = False
+
+            if not firecrawl_available:
+                self.logger.warning("Falling back to basic scraping")
+                return [self._basic_scrape(url) for url in urls]
+
             scraped_content = []
+            max_retries = 3
+            
             for url in urls:
-                try:
-                    # Use Firecrawl's extraction API
-                    response = requests.post(
-                        'https://api.firecrawl.io/extract',
-                        headers=self.firecrawl_headers,
-                        json={
-                            'url': url,
-                            'elements': {
-                                'project_details': {
-                                    'selectors': [
-                                        'article',
-                                        '.entry-content',
-                                        '.project-details',
-                                        '.tender-details'
-                                    ]
-                                },
-                                'contact_info': {
-                                    'selectors': [
-                                        '.contact-details',
-                                        '.procurement-team',
-                                        '.project-contact'
-                                    ]
-                                },
-                                'dates': {
-                                    'selectors': [
-                                        '.project-timeline',
-                                        '.schedule',
-                                        '.dates'
-                                    ]
-                                },
-                                'specifications': {
-                                    'selectors': [
-                                        '.specifications',
-                                        '.requirements',
-                                        '.steel-specs'
-                                    ]
+                for attempt in range(max_retries):
+                    try:
+                        # Use Firecrawl's extraction API
+                        response = requests.post(
+                            'https://api.firecrawl.com/v1/extract',
+                            headers=self.firecrawl_headers,
+                            json={
+                                'url': url,
+                                'options': Config.FIRECRAWL_SETTINGS['extraction_options'],
+                                'elements': {
+                                    'project_details': {
+                                        'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules']['project_details']
+                                    },
+                                    'contact_info': {
+                                        'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules']['contact_info']
+                                    },
+                                    'dates': {
+                                        'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules']['dates']
+                                    },
+                                    'specifications': {
+                                        'selectors': Config.FIRECRAWL_SETTINGS['extraction_rules']['specifications']
+                                    }
                                 }
                             },
-                            'clean_html': True,
-                            'remove_ads': True,
-                            'extract_tables': True
-                        }
-                    )
-                    
-                    response.raise_for_status()
-                    data = response.json()
-                    
-                    # Process extracted content
-                    processed_content = self._process_firecrawl_response(data, url)
-                    if processed_content:
-                        scraped_content.append(processed_content)
+                            timeout=15
+                        )
+                        response.raise_for_status()
                         
-                except Exception as e:
-                    self.logger.error(f"Error scraping URL {url} with Firecrawl: {str(e)}")
-                    # Fallback to basic scraping if Firecrawl fails
-                    try:
-                        basic_content = self._basic_scrape(url)
-                        if basic_content:
-                            scraped_content.append(basic_content)
-                    except Exception as basic_error:
-                        self.logger.error(f"Basic scraping also failed for {url}: {str(basic_error)}")
-                    continue
-                    
+                        # Process the response
+                        content = self._process_firecrawl_response(response.json(), url)
+                        if content:
+                            scraped_content.append(content)
+                        break
+                        
+                    except requests.exceptions.RequestException as e:
+                        self.logger.warning(f"Firecrawl attempt {attempt + 1} failed for {url}: {str(e)}")
+                        if attempt == max_retries - 1:
+                            # If all retries fail, fall back to basic scraping
+                            self.logger.warning(f"Falling back to basic scraping for {url}")
+                            content = self._basic_scrape(url)
+                            if content:
+                                scraped_content.append(content)
+                        else:
+                            time.sleep(2)  # Wait before retry
+                            
             return scraped_content
             
         except Exception as e:
-            self.logger.error(f"Error in URL scraping: {str(e)}")
+            self.logger.error(f"Error in _scrape_url: {str(e)}")
             return []
     
     def _process_firecrawl_response(self, data: Dict[str, Any], url: str) -> Dict[str, Any]:
@@ -557,8 +571,118 @@ class ProjectDiscoverySystem:
     
     def _extract_project_info(self, content: Dict[str, Any]) -> Dict[str, Any]:
         """Extract project information from content"""
-        # Implementation would include parsing logic specific to each source
-        pass
+        try:
+            project_info = {}
+            
+            # Extract basic project details
+            raw_text = content.get('content', {}).get('raw_text', '')
+            project_details = content.get('content', {}).get('project_details', '')
+            full_text = f"{raw_text}\n{project_details}"
+            
+            # Extract company name
+            company_patterns = [
+                r'([A-Za-z\s]+(?:Limited|Ltd|Corporation|Corp|Infrastructure|Infratech|Construction|Constructions|Engineering))',
+                r'([A-Za-z\s]+) has been awarded',
+                r'([A-Za-z\s]+) wins',
+                r'contract to ([A-Za-z\s]+)',
+                r'([A-Za-z\s]+) emerges',
+                r'([A-Za-z\s]+) bags'
+            ]
+            
+            for pattern in company_patterns:
+                if match := re.search(pattern, full_text):
+                    project_info['company'] = match.group(1).strip()
+                    break
+            
+            # Extract project title
+            title_patterns = [
+                r'project titled "([^"]+)"',
+                r'project named "([^"]+)"',
+                r'awarded ([^\.]+) project',
+                r'construction of ([^\.]+)'
+            ]
+            
+            for pattern in title_patterns:
+                if match := re.search(pattern, full_text):
+                    project_info['title'] = match.group(1).strip()
+                    break
+            
+            # Extract project value
+            value_patterns = [
+                r'(?:Rs\.?|INR)\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore)',
+                r'worth\s*(?:Rs\.?|INR)?\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore)',
+                r'value\s*of\s*(?:Rs\.?|INR)?\s*(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:cr|crore)'
+            ]
+            
+            for pattern in value_patterns:
+                if match := re.search(pattern, full_text, re.IGNORECASE):
+                    try:
+                        project_info['value'] = float(match.group(1).replace(',', ''))
+                        break
+                    except ValueError:
+                        continue
+            
+            # Extract dates
+            date_patterns = [
+                r'(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}',
+                r'\d{1,2}\s+(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{4}',
+                r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d{4}'
+            ]
+            
+            dates = []
+            for pattern in date_patterns:
+                dates.extend(re.findall(pattern, full_text))
+            
+            if dates:
+                if len(dates) >= 2:
+                    try:
+                        project_info['start_date'] = datetime.strptime(dates[0], '%B %Y')
+                        project_info['end_date'] = datetime.strptime(dates[1], '%B %Y')
+                    except ValueError:
+                        try:
+                            project_info['start_date'] = datetime.strptime(dates[0], '%d %B %Y')
+                            project_info['end_date'] = datetime.strptime(dates[1], '%d %B %Y')
+                        except ValueError:
+                            project_info['start_date'] = datetime.strptime(dates[0], '%b %Y')
+                            project_info['end_date'] = datetime.strptime(dates[1], '%b %Y')
+                else:
+                    try:
+                        project_info['start_date'] = datetime.strptime(dates[0], '%B %Y')
+                        project_info['end_date'] = project_info['start_date'] + timedelta(days=365*2)
+                    except ValueError:
+                        try:
+                            project_info['start_date'] = datetime.strptime(dates[0], '%d %B %Y')
+                            project_info['end_date'] = project_info['start_date'] + timedelta(days=365*2)
+                        except ValueError:
+                            project_info['start_date'] = datetime.strptime(dates[0], '%b %Y')
+                            project_info['end_date'] = project_info['start_date'] + timedelta(days=365*2)
+            
+            # Extract steel requirement
+            steel_patterns = [
+                r'(\d+(?:,\d+)*(?:\.\d+)?)\s*(?:MT|ton)',
+                r'steel\s*requirement\s*of\s*(\d+(?:,\d+)*(?:\.\d+)?)',
+                r'steel\s*quantity\s*:\s*(\d+(?:,\d+)*(?:\.\d+)?)'
+            ]
+            
+            for pattern in steel_patterns:
+                if match := re.search(pattern, full_text, re.IGNORECASE):
+                    try:
+                        project_info['steel_requirement'] = float(match.group(1).replace(',', ''))
+                        break
+                    except ValueError:
+                        continue
+            
+            # Add source URL
+            project_info['source_url'] = content.get('url', '')
+            
+            # Add description
+            project_info['description'] = full_text[:500] if full_text else ''
+            
+            return project_info
+            
+        except Exception as e:
+            self.logger.error(f"Error extracting project info: {str(e)}")
+            return None
     
     def _validate_opportunity(self, opportunity: Dict[str, Any]) -> bool:
         """Validate if opportunity meets criteria"""

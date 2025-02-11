@@ -1,0 +1,9 @@
+2025-02-12 00:16:47,123 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:16:47,126 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:16:47,259 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:16:47,311 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:16:53,394 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:16:53] "GET / HTTP/1.1" 200 -
+2025-02-12 00:16:53,654 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:16:53] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:16:58,647 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:16:58] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:17:01,793 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:17:01] "GET / HTTP/1.1" 200 -
+2025-02-12 00:17:01,828 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:17:01] "GET /status HTTP/1.1" 200 -

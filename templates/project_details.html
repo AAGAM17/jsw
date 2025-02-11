@@ -195,6 +195,51 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-4px); }
         }
+
+        .project-contacts {
+            background: var(--secondary-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        .contact-role {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .contact-detail {
+            color: #444;
+            font-size: 0.9rem;
+            margin: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-notes {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -221,6 +266,35 @@
             <div class="project-description">
                 <h5>Project Description</h5>
                 <p>{{ project.description }}</p>
+            </div>
+
+            <div class="project-contacts mb-4">
+                <h5>Key Contacts</h5>
+                {% if project.contacts %}
+                    {% for contact in project.contacts %}
+                    <div class="contact-card">
+                        <div class="contact-name">{{ contact.name }}</div>
+                        <div class="contact-role">{{ contact.role }}</div>
+                        {% if contact.email %}
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i> {{ contact.email }}
+                        </div>
+                        {% endif %}
+                        {% if contact.phone %}
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i> {{ contact.phone }}
+                        </div>
+                        {% endif %}
+                        {% if contact.relationship_notes %}
+                        <div class="contact-notes">
+                            <i class="fas fa-info-circle"></i> {{ contact.relationship_notes }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">No contact information available</p>
+                {% endif %}
             </div>
 
             <div>

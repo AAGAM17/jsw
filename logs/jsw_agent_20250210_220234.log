@@ -1,0 +1,110 @@
+2025-02-10 22:02:34,291 - utilities.logger - INFO - Logging initialized
+2025-02-10 22:02:34,295 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-10 22:02:34,295 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-10 22:02:35,840 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-10 22:02:36,063 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-10 22:02:36,063 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-10 22:02:41,966 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-10 22:02:44,372 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-10 22:02:46,831 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-10 22:02:46,831 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-10 22:02:46,832 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-10 22:02:46,832 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-10 22:03:01,478 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 22:03:01,479 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-10 22:03:06,898 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-10 22:03:06,898 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-10 22:03:19,294 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-10 22:03:19,295 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-10 22:03:19,295 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-10 22:03:19,295 - __main__ - INFO - Fetching projects from SERP API...
+2025-02-10 22:03:19,295 - __main__ - INFO - Starting optimized SERP API search...
+2025-02-10 22:03:21,647 - __main__ - WARNING - SERP API rate limit hit, waiting 60 seconds...
+2025-02-10 22:04:22,132 - __main__ - ERROR - SERP API error for query 'contract win construction infrastructure india': 429 Client Error: Too Many Requests for url: https://serpapi.com/search.json?api_key=18c82794d16e3e6d6eef9e1da997bb1d1bd3bdada323737bc7da36c9310e4f43&q=%28contract+win+construction+infrastructure+india%29+%28site%3Aconstructionworld.in+OR+site%3Athemetrorailguy.com+OR+site%3Aprojectstoday.com+OR+site%3Anhai.gov.in+OR+site%3Aepc.gov.in%29&gl=in&hl=en&tbs=qdr%3Ad&location=India&google_domain=google.co.in&num=50
+2025-02-10 22:04:22,136 - __main__ - WARNING - SERP API failed, continuing with other sources...
+2025-02-10 22:04:22,136 - __main__ - INFO - Found 0 projects from SERP API
+2025-02-10 22:04:22,136 - __main__ - INFO - Processing 2 projects for quality filtering...
+2025-02-10 22:04:22,137 - __main__ - INFO - Adding quality project: Installation of Kavach Railway Safety System (IRCON International Limited (IRCON)) - Rs. 194.5 Cr
+2025-02-10 22:04:22,137 - __main__ - INFO - Adding quality project: Infrastructure Development in Manipur (IRCON International Limited (IRCON)) - Rs. 531.9 Cr
+2025-02-10 22:04:22,137 - __main__ - INFO - 
+Quality projects found (2):
+2025-02-10 22:04:22,137 - __main__ - INFO - 1. IRCON International Limited (IRCON) - Installation of Kavach Railway Safety System
+2025-02-10 22:04:22,137 - __main__ - INFO -    Value: Rs. 194.46 Cr
+2025-02-10 22:04:22,137 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-10 22:04:22,137 - __main__ - INFO - 2. IRCON International Limited (IRCON) - Infrastructure Development in Manipur
+2025-02-10 22:04:22,138 - __main__ - INFO -    Value: Rs. 531.9 Cr
+2025-02-10 22:04:22,138 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-10 22:04:22,138 - __main__ - INFO - Quality projects to be sent:
+2025-02-10 22:04:22,138 - __main__ - INFO - 1. IRCON International Limited (IRCON) - Infrastructure Development in Manipur (Rs. 531.9 Cr)
+2025-02-10 22:04:22,138 - __main__ - INFO - 2. IRCON International Limited (IRCON) - Installation of Kavach Railway Safety System (Rs. 194.46 Cr)
+2025-02-10 22:04:22,139 - __main__ - INFO - Sending notifications for 2 quality projects...
+2025-02-10 22:04:22,139 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-10 22:04:22,139 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-10 22:04:23,355 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-10 22:04:23,740 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-10 22:04:24,355 - utilities.email_handler - INFO - Processing project: Infrastructure Development in Manipur for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-10 22:04:24,356 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-10 22:04:24,356 - utilities.email_handler - ERROR - Error processing project Infrastructure Development in Manipur: unhashable type: 'dict'
+2025-02-10 22:04:24,356 - utilities.email_handler - INFO - Processing project: Installation of Kavach Railway Safety System for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-10 22:04:24,356 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-10 22:04:24,357 - utilities.email_handler - ERROR - Error processing project Installation of Kavach Railway Safety System: unhashable type: 'dict'
+2025-02-10 22:04:24,357 - utilities.email_handler - INFO - Projects grouped by team: 
+2025-02-10 22:04:24,357 - utilities.email_handler - INFO - Total portfolio value: Rs. 0 Cr
+2025-02-10 22:04:24,357 - utilities.email_handler - INFO - Total steel requirement: 0 MT
+2025-02-10 22:04:24,357 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 0 teams
+2025-02-10 22:04:24,357 - __main__ - ERROR - Failed to send email notifications
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - Headers:
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 22:04:24,728 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 22:04:25,025 - twilio.http_client - INFO - Response Status Code: 429
+2025-02-10 22:04:25,025 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '176', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 16:34:25 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '63038', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ138c85b44d291db08c679a51d86cdf2b', 'Twilio-Request-Duration': '0.053', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'uEIZP6E5g-yRLLG2-MBsya85s-icRuEET9G48SR_gsEyiSSsM5R2bw=='}
+2025-02-10 22:04:25,026 - utilities.whatsapp_handler - WARNING - Attempt 1 failed for 917715018407, retrying in 2 seconds...
+2025-02-10 22:04:27,031 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 22:04:27,032 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 22:04:27,032 - twilio.http_client - INFO - Headers:
+2025-02-10 22:04:27,032 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 22:04:27,032 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 22:04:27,033 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 22:04:27,033 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 22:04:27,033 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 22:04:27,033 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 22:04:27,385 - twilio.http_client - INFO - Response Status Code: 429
+2025-02-10 22:04:27,386 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '176', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 16:34:27 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '63038', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ73a7da2f005f60d035515f76485e9c26', 'Twilio-Request-Duration': '0.054', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'irIoDKW5D9TfoFlVp-AQ2qT3tUvuaDGQ89qTZjCrHFgYXldQcAL2wA=='}
+2025-02-10 22:04:27,387 - utilities.whatsapp_handler - WARNING - Attempt 2 failed for 917715018407, retrying in 2 seconds...
+2025-02-10 22:04:29,392 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-10 22:04:29,393 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-10 22:04:29,393 - twilio.http_client - INFO - Headers:
+2025-02-10 22:04:29,393 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-10 22:04:29,393 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-10 22:04:29,394 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-10 22:04:29,394 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-10 22:04:29,394 - twilio.http_client - INFO - Accept : application/json
+2025-02-10 22:04:29,394 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-10 22:04:29,740 - twilio.http_client - INFO - Response Status Code: 429
+2025-02-10 22:04:29,741 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json', 'Content-Length': '176', 'Connection': 'keep-alive', 'Date': 'Mon, 10 Feb 2025 16:34:29 GMT', 'X-Powered-By': 'AT-5000', 'X-Twilio-Error-Code': '63038', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQbd03ef6d07e9f12d3f65a5e56fd3a890', 'Twilio-Request-Duration': '0.051', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Error from cloudfront', 'Via': '1.1 a1466636aab04d930a9bcbb17f32694a.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'wt8p8hDkRa2KWoW4i0MsMtU1WnkW7pa32TqSdCuqCFdTUQ8UYQSxYg=='}
+2025-02-10 22:04:29,742 - utilities.whatsapp_handler - ERROR - Failed to send WhatsApp to 917715018407 after 3 attempts: 
+[31m[49mHTTP Error[0m [37m[49mYour request was:[0m
+
+[36m[49mPOST /Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json[0m
+
+[37m[49mTwilio returned the following information:[0m
+
+[34m[49mUnable to create record: Account AC5fa42c17449add4a9dca932ad0c6dd37 exceeded the null daily messages limit[0m
+
+[37m[49mMore information may be available here:[0m
+
+[34m[49mhttps://www.twilio.com/docs/errors/63038[0m
+
+
+2025-02-10 22:04:29,742 - __main__ - WARNING - WhatsApp notifications not sent (disabled or failed)
+2025-02-10 22:04:29,865 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-10 22:04:29,867 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-10 22:04:29,867 - apscheduler.scheduler - INFO - Scheduler started

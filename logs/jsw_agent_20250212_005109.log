@@ -1,0 +1,5 @@
+2025-02-12 00:51:09,128 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:51:09,131 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:51:09,294 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:51:09,336 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:51:12,565 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/utilities/email_handler.py', reloading

@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 from scrapers.perplexity_client import PerplexityClient
 import os
 from dotenv import load_dotenv
+from utilities.email_handler import EmailHandler
 
 app = Flask(__name__)
 configure_logging()
@@ -225,6 +226,32 @@ def get_project_info(project_id):
                     'email': 'rajesh.kumar@rahee.com'
                 }
             ]
+        },
+        'hg_infra_new_delhi_railway_station_revamp': {
+            'title': 'HG Infra wins New Delhi railway station revamp contract (with DEC Infra)',
+            'company': 'HG Infra',
+            'value': 2196,  # Rs. 2196 Crore
+            'description': 'HG Infra has secured the EPC contract for New Delhi railway station redevelopment project. JSW Steel has previously supplied TMT bars and other products to HG infra for expressway projects.',
+            'start_date': datetime.now() + timedelta(days=365),  # Q4 2025
+            'end_date': datetime.now() + timedelta(days=365 + (45 * 30)),  # 45 months duration
+            'source': 'cnbctv18.com',
+            'source_url': 'https://www.cnbctv18.com/market/stocks/hg-infra-engineering-share-price-wins-rs-2196-crore-epc-contract-for-new-delhi-railway-station-redevelopment-19556883.htm',
+            'teams': ['TMT_BARS'],
+            'steel_requirements': {
+                'primary': {'type': 'TMT Bars', 'quantity': 15000},
+                'secondary': {'type': 'HR Plates', 'quantity': 8000},
+                'total': 23000
+            },
+            'contacts': [{
+                'name': 'Ajay Kumar Sharma',
+                'role': 'Procurement for Infrastructure & Construction',
+                'email': 'ajay.kumar@hginfra.com',
+                'phone': '+919509699014'
+            }],
+            'priority_score': 85,  # High priority score
+            'final_priority_score': 85,  # Added for email template
+            'tags': ['High Priority'],
+            'relationship_notes': 'JSW Steel has previously supplied TMT bars and other products to HG infra for expressway projects.'
         }
     }
     
@@ -238,6 +265,136 @@ def get_project_info(project_id):
     })
     
     return jsonify(project_info)
+
+@app.route('/send_test_email')
+def send_test_email():
+    """Send test emails with sample project leads to respective teams"""
+    try:
+        email_handler = EmailHandler()
+        
+        # Test projects for different teams
+        test_projects = [
+            {
+                'title': 'Gensol Wins Contract for 245 MW Solar Project at Gujarat\'s Khavda RE Park',
+                'company': 'Gensol EPC',
+                'value': 967,
+                'description': 'Gensol has secured a 245 MW solar project contract at Gujarat\'s Khavda RE Park.',
+                'start_date': datetime.now() + timedelta(days=30),
+                'end_date': datetime.now() + timedelta(days=365),
+                'source': 'constructionworld.in',
+                'source_url': 'https://www.constructionworld.in/energy-infrastructure/power-and-renewable-energy/gensol-wins-rs-9.67-billion-epc-contract-for-245-mw-solar-project/68842',
+                'teams': ['SOLAR'],
+                'steel_requirements': {
+                    'primary': {'type': 'Solar Solutions', 'quantity': 15000},
+                    'total': 15000
+                },
+                'contacts': [{
+                    'name': 'Dushyant Kumar',
+                    'role': 'Chief Procurement Officer - Gensol EPC (India)',
+                    'email': 'dushyantkumar@gensol.in',
+                    'phone': '+919818793531'
+                }],
+                'priority_score': 85,
+                'final_priority_score': 85,
+                'tags': ['High Priority']
+            },
+            {
+                'title': 'HG Infra wins New Delhi railway station revamp contract (with DEC Infra)',
+                'company': 'HG Infra',
+                'value': 2196,
+                'description': 'HG Infra has secured the EPC contract for New Delhi railway station redevelopment project.',
+                'start_date': datetime.now() + timedelta(days=365),  # Q4 2025
+                'end_date': datetime.now() + timedelta(days=365 + (45 * 30)),  # 45 months duration
+                'source': 'cnbctv18.com',
+                'source_url': 'https://www.cnbctv18.com/market/stocks/hg-infra-engineering-share-price-wins-rs-2196-crore-epc-contract-for-new-delhi-railway-station-redevelopment-19556883.htm',
+                'teams': ['TMT_BARS'],
+                'steel_requirements': {
+                    'primary': {'type': 'TMT Bars', 'quantity': 15000},
+                    'secondary': {'type': 'HR Plates', 'quantity': 8000},
+                    'total': 23000
+                },
+                'contacts': [{
+                    'name': 'Ajay Kumar Sharma',
+                    'role': 'Procurement for Infrastructure & Construction',
+                    'email': 'ajay.kumar@hginfra.com',
+                    'phone': '+919509699014'
+                }],
+                'priority_score': 85,
+                'final_priority_score': 85,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has previously supplied TMT bars and other products to HG infra for expressway projects.'
+            },
+            {
+                'title': 'URC Constructions Wins Bid for Veerannapalya Metro Station',
+                'company': 'URC Constructions',
+                'value': 850,
+                'description': 'URC Constructions has won the bid for construction of Veerannapalya Metro Station.',
+                'start_date': datetime.now() + timedelta(days=365),  # Q4 2025
+                'end_date': datetime.now() + timedelta(days=365 + (36 * 30)),  # 36 months assumed
+                'source': 'constructionworld.in',
+                'source_url': 'https://www.constructionworld.in/transport-infrastructure/metro-rail-and-railways-infrastructure/urc-constructions-wins-bid-for-veerannapalya-metro-station/68599',
+                'teams': ['TMT_BARS'],
+                'steel_requirements': {
+                    'primary': {'type': 'TMT Bars', 'quantity': 12000},
+                    'secondary': {'type': 'HR Plates', 'quantity': 6000},
+                    'total': 18000
+                },
+                'contacts': [{
+                    'name': 'Dhinesh Kumar',
+                    'role': 'AGM - Procurement',
+                    'email': 'dhinesh.kumar@urcindia.com',
+                    'phone': '+91 9032898833'
+                }],
+                'priority_score': 65,
+                'final_priority_score': 65,
+                'tags': ['Normal Priority'],
+                'relationship_notes': 'JSW has previously supplied JSW Neosteel TMT bars for URC Construction\'s project Ramanujam IT Park'
+            },
+            {
+                'title': 'DRA Infracon wins Rs 4,900 crore BOT Toll highway project in Assam',
+                'company': 'DRA Infracon',
+                'value': 4900,
+                'description': 'DRA Infracon has secured a 121 km long BOT Toll highway project in Assam.',
+                'start_date': datetime.now() + timedelta(days=365),  # Q4 2025
+                'end_date': datetime.now() + timedelta(days=365 + (36 * 30)),  # 36 months assumed
+                'source': 'economictimes.indiatimes.com',
+                'source_url': 'https://infra.economictimes.indiatimes.com/news/roads-highways/dra-infracon-wins-rs-4900-crore-bot-toll-highway-project-in-assam/117976496',
+                'teams': ['TMT_BARS'],
+                'steel_requirements': {
+                    'primary': {'type': 'TMT Bars', 'quantity': 10000},
+                    'total': 10000
+                },
+                'contacts': [{
+                    'name': 'Sushil Awasthi',
+                    'role': 'GM-Procurement at DRA Infracon',
+                    'email': 'sushilawasthi@gril.com',
+                    'phone': '+91 77260 09528'
+                }],
+                'priority_score': 85,
+                'final_priority_score': 85,
+                'tags': ['High Priority']
+            }
+        ]
+
+        success = email_handler.send_project_opportunities(test_projects)
+        
+        if success:
+            return jsonify({
+                'status': 'success',
+                'message': 'Test emails sent successfully'
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'message': 'Failed to send test emails'
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error sending test emails: {str(e)}")
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))

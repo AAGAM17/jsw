@@ -1,0 +1,95 @@
+2025-02-11 14:22:54,766 - utilities.logger - INFO - Logging initialized
+2025-02-11 14:22:54,775 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-11 14:22:55,472 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-11 14:22:57,166 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-11 14:22:57,395 - utilities.whatsapp_handler - INFO - WhatsApp notifications enabled
+2025-02-11 14:22:57,395 - __main__ - INFO - Scraping themetrorailguy.com...
+2025-02-11 14:23:01,996 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-11 14:23:03,817 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-11 14:23:05,762 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-11 14:23:05,762 - __main__ - INFO - Found 0 projects from Metro Rail Guy
+2025-02-11 14:23:05,762 - __main__ - INFO - Discovering projects using Perplexity AI...
+2025-02-11 14:23:05,762 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-11 14:23:23,687 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-11 14:23:23,687 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-11 14:23:23,687 - __main__ - INFO - Found 2 projects from Perplexity
+2025-02-11 14:23:23,687 - __main__ - INFO - Searching for projects using Exa.ai...
+2025-02-11 14:23:23,688 - scrapers.exa_client - INFO - Starting Exa.ai search...
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa search for query 'contract win construction infrastructure india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa search for query 'project announcement foundation laying tender result construction start india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa search for query 'infrastructure project awarded india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa search for query 'construction contract awarded india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa sector search for query 'road infrastructure contract win india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa sector search for query 'rail infrastructure project awarded india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - ERROR - Error in Exa sector search for query 'metro rail contract awarded india': Invalid option: 'time_range'
+2025-02-11 14:23:23,688 - scrapers.exa_client - INFO - Found 0 unique results from Exa.ai
+2025-02-11 14:23:23,688 - __main__ - INFO - Found 0 projects from Exa.ai
+2025-02-11 14:23:23,688 - __main__ - INFO - Processing 2 projects for quality filtering...
+2025-02-11 14:23:23,688 - __main__ - INFO - Adding quality project: Kavach Railway Safety System Installation (IRCON International Limited) - Rs. 194.5 Cr
+2025-02-11 14:23:23,688 - __main__ - INFO - Adding quality project: Infrastructure Development in Manipur (IRCON International Limited) - Rs. 531.9 Cr
+2025-02-11 14:23:23,689 - __main__ - INFO - 
+Quality projects found (2):
+2025-02-11 14:23:23,689 - __main__ - INFO - 1. IRCON International Limited - Kavach Railway Safety System Installation
+2025-02-11 14:23:23,689 - __main__ - INFO -    Value: Rs. 194.46 Cr
+2025-02-11 14:23:23,689 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-11 14:23:23,689 - __main__ - INFO - 2. IRCON International Limited - Infrastructure Development in Manipur
+2025-02-11 14:23:23,689 - __main__ - INFO -    Value: Rs. 531.9 Cr
+2025-02-11 14:23:23,689 - __main__ - INFO -    Source: https://www.angelone.in/news/ircon-secures-major-contracts-for-railway-safety-and-infrastructure-development
+
+2025-02-11 14:23:23,689 - __main__ - INFO - Sending notifications for 2 quality projects...
+2025-02-11 14:23:23,689 - utilities.email_handler - INFO - Starting to send 2 projects via email
+2025-02-11 14:23:23,689 - utilities.email_handler - INFO - Testing SMTP connection...
+2025-02-11 14:23:24,841 - utilities.email_handler - INFO - Attempting login with jswsteelleads@gmail.com
+2025-02-11 14:23:25,194 - utilities.email_handler - INFO - SMTP connection test successful
+2025-02-11 14:23:25,414 - utilities.email_handler - INFO - Processing project: Infrastructure Development in Manipur for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 14:23:25,414 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-11 14:23:25,414 - utilities.email_handler - ERROR - Error processing project Infrastructure Development in Manipur: unhashable type: 'dict'
+2025-02-11 14:23:25,415 - utilities.email_handler - INFO - Processing project: Kavach Railway Safety System Installation for team {'primary': 'HSLA', 'secondary': 'CR_COILS'}
+2025-02-11 14:23:25,415 - utilities.email_handler - ERROR - Error calculating priority score: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-02-11 14:23:25,415 - utilities.email_handler - ERROR - Error processing project Kavach Railway Safety System Installation: unhashable type: 'dict'
+2025-02-11 14:23:25,415 - utilities.email_handler - INFO - Projects grouped by team: 
+2025-02-11 14:23:25,415 - utilities.email_handler - INFO - Total portfolio value: Rs. 0 Cr
+2025-02-11 14:23:25,415 - utilities.email_handler - INFO - Total steel requirement: 0 MT
+2025-02-11 14:23:25,415 - utilities.email_handler - INFO - Email sending complete. Successfully sent to 0 teams
+2025-02-11 14:23:25,415 - __main__ - ERROR - Failed to send email notifications
+2025-02-11 14:23:25,872 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 14:23:25,872 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 14:23:25,873 - twilio.http_client - INFO - Headers:
+2025-02-11 14:23:25,873 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 14:23:25,873 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 14:23:25,873 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 14:23:25,874 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 14:23:25,874 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 14:23:25,874 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 14:23:26,255 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 14:23:26,255 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1037', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 08:53:26 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQc5c78ffee32e6c95b6c4cf690a681ed0', 'Twilio-Request-Duration': '0.127', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 d17a4a14658e8161d81e7116df1edc3c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'G49kvohXF0IDIkg7Kq2fE5i2E6cNail3GTOX94XpepjaJ5bjohgEyA=='}
+2025-02-11 14:23:26,256 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMc5c78ffee32e6c95b6c4cf690a681ed0)
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - Headers:
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 14:23:26,256 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 14:23:26,589 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 14:23:26,589 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1421', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 08:53:26 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQ2bca73cdd5c7f718afd401e1e78588a9', 'Twilio-Request-Duration': '0.133', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 d17a4a14658e8161d81e7116df1edc3c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'vQZ8Rvqgy-KmD7ArwOybOkLAFjmoXei2RR0jmKmpe1D3qBslVvxo1w=='}
+2025-02-11 14:23:26,589 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SM2bca73cdd5c7f718afd401e1e78588a9)
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - -- BEGIN Twilio API Request --
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - POST Request: https://api.twilio.com/2010-04-01/Accounts/AC5fa42c17449add4a9dca932ad0c6dd37/Messages.json
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - Headers:
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - User-Agent : twilio-python/8.3.0 (Darwin x86_64) Python/3.11.3
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - X-Twilio-Client : python-8.3.0
+2025-02-11 14:23:27,591 - twilio.http_client - INFO - Accept-Charset : utf-8
+2025-02-11 14:23:27,592 - twilio.http_client - INFO - Content-Type : application/x-www-form-urlencoded
+2025-02-11 14:23:27,592 - twilio.http_client - INFO - Accept : application/json
+2025-02-11 14:23:27,592 - twilio.http_client - INFO - -- END Twilio API Request --
+2025-02-11 14:23:27,912 - twilio.http_client - INFO - Response Status Code: 201
+2025-02-11 14:23:27,912 - twilio.http_client - INFO - Response Headers: {'Content-Type': 'application/json;charset=utf-8', 'Content-Length': '1418', 'Connection': 'keep-alive', 'Date': 'Tue, 11 Feb 2025 08:53:27 GMT', 'X-Powered-By': 'AT-5000', 'Twilio-Concurrent-Requests': '1', 'Twilio-Request-Id': 'RQc401f71da32b781d7baf0c5710cd773a', 'Twilio-Request-Duration': '0.118', 'X-Home-Region': 'us1', 'X-Api-Domain': 'api.twilio.com', 'Strict-Transport-Security': 'max-age=31536000', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Accept, Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, Idempotency-Key, X-Pre-Auth-Context, X-Target-Region', 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS', 'Access-Control-Expose-Headers': 'ETag, Twilio-Request-Id', 'Access-Control-Allow-Credentials': 'true', 'X-Shenanigans': 'none', 'X-Cache': 'Miss from cloudfront', 'Via': '1.1 d17a4a14658e8161d81e7116df1edc3c.cloudfront.net (CloudFront)', 'X-Amz-Cf-Pop': 'BOM52-C1', 'X-Amz-Cf-Id': 'tRGP2_HzMklmnQ5DhxduYtk0nh2zjP5UhLFA6iEgcanqpHYWIZf49g=='}
+2025-02-11 14:23:27,913 - utilities.whatsapp_handler - INFO - Sent WhatsApp message to 917715018407 (SID: SMc401f71da32b781d7baf0c5710cd773a)
+2025-02-11 14:23:28,913 - __main__ - INFO - Successfully sent WhatsApp notifications
+2025-02-11 14:23:28,987 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-11 14:23:28,987 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-11 14:23:28,988 - apscheduler.scheduler - INFO - Scheduler started

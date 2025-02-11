@@ -1,0 +1,19 @@
+2025-02-12 01:05:33,905 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:05:33,908 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:05:34,166 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 01:05:34,210 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 01:05:36,925 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:05:36] "GET / HTTP/1.1" 200 -
+2025-02-12 01:05:38,220 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:05:38] "GET /status HTTP/1.1" 200 -
+2025-02-12 01:05:41,423 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 01:05:43,069 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 01:05:47,886 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:05:51,493 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:05:56,277 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 01:05:58,805 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:02,486 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:05,116 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:08,730 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:11,191 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:15,182 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 01:06:18,394 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-12 01:06:18,395 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:06:18] "GET /send_test_email HTTP/1.1" 200 -

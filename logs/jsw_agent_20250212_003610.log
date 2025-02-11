@@ -1,0 +1,14 @@
+2025-02-12 00:36:10,884 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:36:10,888 - utilities.logger - INFO - Logging initialized
+2025-02-12 00:36:11,049 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 00:36:11,082 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 00:36:57,076 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:36:57] "GET / HTTP/1.1" 200 -
+2025-02-12 00:36:57,585 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:36:57] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:36:57,709 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:36:57] "GET / HTTP/1.1" 200 -
+2025-02-12 00:36:58,025 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:36:58] "GET /status HTTP/1.1" 200 -
+2025-02-12 00:36:59,331 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 00:37:00,977 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 00:37:06,080 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:37:12,504 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-12 00:37:15,785 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 00:37:15,786 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 00:37:15] "GET /send_test_email HTTP/1.1" 200 -

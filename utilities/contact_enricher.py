@@ -4,12 +4,15 @@ import json
 from config.settings import Config
 import re
 from datetime import datetime
+import time
+from scrapers.linkedin_scraper import LinkedInScraper
 
 class ContactEnricher:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
         self.api_key = Config.CONTACT_OUT_API_KEY
         self.crm_data = self._load_crm_data()
+        self.linkedin = LinkedInScraper()
         
     def _load_crm_data(self):
         """Load CRM data from the predefined dictionary"""
@@ -53,7 +56,7 @@ class ContactEnricher:
         return crm_data
     
     def enrich_project_contacts(self, project_info):
-        """Find procurement contacts for a company using CRM data and ContactOut API"""
+        """Find procurement contacts for a company using CRM data, LinkedIn and ContactOut API"""
         try:
             company_name = project_info.get('company', '')
             if not company_name or company_name == 'Unknown Company':
@@ -79,14 +82,20 @@ class ContactEnricher:
                     'priority': self._determine_priority(project_info)
                 }
             
-            # Try ContactOut API
-            contacts = self._search_contactout(company_name)
+            # Search LinkedIn first
+            linkedin_contacts = self._search_linkedin(company_name)
             
-            if contacts:
+            # Try ContactOut API for additional data
+            contactout_contacts = self._search_contactout(company_name)
+            
+            # Merge contacts from both sources
+            all_contacts = self._merge_contacts(linkedin_contacts, contactout_contacts)
+            
+            if all_contacts:
                 return {
                     'status': 'success',
-                    'source': 'ContactOut',
-                    'contacts': contacts,
+                    'source': 'LinkedIn + ContactOut',
+                    'contacts': all_contacts,
                     'relationship': {
                         'current_project': 'No existing relationship',
                         'volume': 'N/A',
@@ -169,72 +178,188 @@ class ContactEnricher:
         
         return None
     
+    def _search_linkedin(self, company_name):
+        """Search for procurement contacts on LinkedIn"""
+        try:
+            procurement_roles = [
+                'procurement',
+                'purchasing',
+                'supply chain',
+                'materials',
+                'sourcing',
+                'buyer',
+                'vendor management'
+            ]
+            
+            # Search for employees with procurement roles
+            profiles = self.linkedin.search_company_employees(company_name, procurement_roles)
+            
+            # Get detailed information for each profile
+            detailed_contacts = []
+            for profile in profiles:
+                if self._is_relevant_role(profile['title']):
+                    details = self.linkedin.get_profile_details(profile['profile_url'])
+                    if details:
+                        detailed_contacts.append({
+                            'name': details['name'],
+                            'role': details['title'],
+                            'location': details.get('location', ''),
+                            'profile_url': profile['profile_url'],
+                            'experience': details.get('experience', []),
+                            'source': 'LinkedIn'
+                        })
+            
+            return detailed_contacts
+            
+        except Exception as e:
+            self.logger.error(f"LinkedIn search failed for {company_name}: {str(e)}")
+            return []
+    
+    def _is_relevant_role(self, title):
+        """Check if the role is relevant for procurement"""
+        title_lower = title.lower()
+        relevant_terms = [
+            'procurement', 'purchase', 'purchasing', 'buyer', 'buying',
+            'supply chain', 'vendor', 'material', 'sourcing', 'category',
+            'contract', 'tender', 'bid'
+        ]
+        
+        relevant_positions = [
+            'director', 'head', 'vp', 'manager', 'lead', 'chief'
+        ]
+        
+        return (
+            any(term in title_lower for term in relevant_terms) and
+            any(pos in title_lower for pos in relevant_positions)
+        )
+    
+    def _merge_contacts(self, linkedin_contacts, contactout_contacts):
+        """Merge contacts from LinkedIn and ContactOut, removing duplicates"""
+        merged = []
+        seen_names = set()
+        
+        # Add LinkedIn contacts first
+        for contact in linkedin_contacts:
+            name = contact['name'].lower()
+            if name not in seen_names:
+                seen_names.add(name)
+                merged.append(contact)
+        
+        # Add ContactOut contacts if they're not duplicates
+        for contact in contactout_contacts:
+            name = contact['name'].lower()
+            if name not in seen_names:
+                seen_names.add(name)
+                merged.append(contact)
+        
+        return merged
+    
     def _search_contactout(self, company_name):
         """Search for procurement contacts using ContactOut API"""
         try:
+            # Clean company name
+            clean_company = re.sub(r'[\[\](){}<>]', '', company_name).strip()
+            clean_company = re.sub(r'\s+', ' ', clean_company)
+            
             headers = {
-                'Authorization': f'Bearer {self.api_key}',
+                'X-API-KEY': Config.CONTACT_OUT_API_KEY,
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
             
-            # Use the correct endpoint and method
-            response = requests.get(
+            # First search for company
+            company_response = requests.post(
                 'https://api.contactout.com/v2/companies/search',
                 headers=headers,
-                params={
-                    'company_name': company_name,
-                    'limit': 5
-                }
+                json={
+                    'company_name': clean_company,
+                    'limit': 1
+                },
+                timeout=15
             )
+            company_response.raise_for_status()
+            company_data = company_response.json()
             
-            response.raise_for_status()
-            company_data = response.json()
-            
-            if not company_data.get('data'):
+            if not company_data.get('companies'):
+                self.logger.warning(f"No company found in ContactOut for {clean_company}")
                 return []
             
-            # Get company ID from search results
-            company_id = company_data['data'][0].get('id')
+            company_id = company_data['companies'][0].get('id')
             if not company_id:
                 return []
             
-            # Get employees with procurement roles
-            response = requests.get(
-                f'https://api.contactout.com/v2/companies/{company_id}/employees',
+            # Search for employees with procurement roles
+            employees_response = requests.post(
+                'https://api.contactout.com/v2/contacts/bulk-search',
                 headers=headers,
-                params={
-                    'role': ['procurement', 'purchasing', 'supply chain', 'materials'],
-                    'seniority': ['director', 'vp', 'head', 'manager'],
-                    'limit': 5
-                }
+                json={
+                    'company_id': company_id,
+                    'titles': [
+                        'procurement',
+                        'purchasing',
+                        'supply chain',
+                        'materials',
+                        'sourcing',
+                        'buyer',
+                        'vendor'
+                    ],
+                    'seniority_levels': [
+                        'director',
+                        'vp',
+                        'head',
+                        'manager',
+                        'lead'
+                    ],
+                    'limit': 10
+                },
+                timeout=15
             )
-            
-            response.raise_for_status()
-            employees_data = response.json()
+            employees_response.raise_for_status()
+            employees_data = employees_response.json()
             
             contacts = []
-            for employee in employees_data.get('data', []):
-                contact = {
-                    'name': f"{employee.get('first_name', '')} {employee.get('last_name', '')}".strip(),
-                    'role': employee.get('title', 'Procurement Manager'),
-                    'email': employee.get('email', [{}])[0].get('email') if employee.get('email') else None,
-                    'phone': employee.get('phone_numbers', [{}])[0].get('number') if employee.get('phone_numbers') else None,
-                    'relationship_notes': ''
-                }
-                if contact['name'] and (contact['email'] or contact['phone']):
-                    contacts.append(contact)
-            
-            # If no procurement contacts found, try CRM data
-            if not contacts:
-                crm_info = self._get_crm_info(company_name)
-                if crm_info and crm_info.get('contacts'):
-                    return crm_info['contacts']
+            for contact in employees_data.get('contacts', []):
+                # Get detailed contact info
+                if contact.get('id'):
+                    detail_response = requests.get(
+                        f'https://api.contactout.com/v2/contacts/{contact["id"]}',
+                        headers=headers,
+                        timeout=15
+                    )
+                    detail_response.raise_for_status()
+                    detail_data = detail_response.json()
+                    
+                    # Extract contact details
+                    emails = detail_data.get('emails', [])
+                    phones = detail_data.get('phone_numbers', [])
+                    
+                    contacts.append({
+                        'name': detail_data.get('full_name', ''),
+                        'role': detail_data.get('current_title', ''),
+                        'email': emails[0] if emails else None,
+                        'phone': phones[0] if phones else None,
+                        'location': detail_data.get('location', ''),
+                        'company': detail_data.get('current_company', ''),
+                        'source': 'ContactOut'
+                    })
             
             return contacts
             
         except Exception as e:
-            self.logger.error(f"Error searching ContactOut: {str(e)}")
-            # Fallback to CRM data if API fails
-            crm_info = self._get_crm_info(company_name)
-            return crm_info.get('contacts', []) if crm_info else [] 
+            self.logger.error(f"ContactOut search failed for {company_name}: {str(e)}")
+            return []
+    
+    def _calculate_similarity(self, str1, str2):
+        """Calculate string similarity using Levenshtein distance"""
+        if not str1 or not str2:
+            return 0
+        
+        # Convert to sets of words for better matching
+        set1 = set(str1.lower().split())
+        set2 = set(str2.lower().split())
+        
+        # Calculate Jaccard similarity
+        intersection = len(set1.intersection(set2))
+        union = len(set1.union(set2))
+        
+        return intersection / union if union > 0 else 0 
