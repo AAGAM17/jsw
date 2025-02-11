@@ -363,20 +363,24 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
     def _format_project_for_email(self, project):
         """Format a single project for HTML email"""
         try:
-            # Use analyzed title if available, otherwise clean up original title
-            title = project.get('analyzed_title')
-            if not title:
-                title = project.get('title', 'No title')
-                # Clean up title if it's the original one
-                title = re.sub(r'\s+is\s+(?:an\s+)?under\s+construction.*$', '', title, flags=re.IGNORECASE)
-                title = re.sub(r'\s+by\s+', ' ', title)  # Remove "by" if present
+            title = project.get('title', 'No title')
             
-            # Determine priority class and text
-            priority_score = project.get('final_priority_score', 50)
-            priority_class = "high" if priority_score > 70 else "normal"
-            priority_text = "High Priority" if priority_score > 70 else "Normal Priority"
+            # Format tags
+            tags = project.get('tags', [])
+            tags_html = ''.join([
+                f'<span class="tag" style="background: {"#e8f5e9" if "Normal" in tag else "#fde8e8"}; color: {"#2e7d32" if "Normal" in tag else "#dc3545"};">{tag}</span>'
+                for tag in tags
+            ])
             
-            # Format dates
+            # Get relationship notes
+            relationship_notes = project.get('relationship_notes', '')
+            relationship_html = f"""
+                <div class="relationship-note">
+                    <strong>Relationship Status:</strong> {relationship_notes if relationship_notes else "No existing relationship"}
+                </div>
+            """ if relationship_notes else ""
+            
+            # Format work timeline
             start_date = project.get('start_date')
             if isinstance(start_date, str):
                 try:
@@ -385,7 +389,7 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                     start_date = datetime.now()
             elif not isinstance(start_date, datetime):
                 start_date = datetime.now()
-                
+            
             end_date = project.get('end_date')
             if isinstance(end_date, str):
                 try:
@@ -395,15 +399,10 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
             elif not isinstance(end_date, datetime):
                 end_date = start_date + timedelta(days=365)
             
-            # Calculate project duration in years
             duration_years = (end_date - start_date).days / 365.0
             duration_str = f"{duration_years:.1f} years"
-            
-            # Format quarter and year
             quarter = (start_date.month - 1) // 3 + 1
             start_str = f"Q{quarter} {start_date.year}"
-            
-            # Format work timeline
             work_timeline = f"{start_str} - {duration_str}"
             
             # Get steel requirements
@@ -418,17 +417,10 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
             secondary_req = ""
             if 'secondary' in steel_reqs and steel_reqs['secondary'].get('type'):
                 secondary_req = f"""
-                    <div style="margin-bottom: 12px;">
+                    <div class="requirements">
                         <strong style="color: #1a1a1a;">Secondary:</strong> {steel_reqs['secondary']['type']}: ~{steel_reqs['secondary']['quantity']:,}MT
                     </div>
                 """
-            
-            # Format tags
-            tags = project.get('tags', [])
-            tags_html = ''.join([
-                f'<span style="background: {"#e8f5e9" if "Normal" in tag else "#fde8e8"}; color: {"#2e7d32" if "Normal" in tag else "#dc3545"}; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 8px;">{tag}</span>'
-                for tag in tags
-            ])
             
             # Format contacts
             contacts = project.get('contacts', [])
@@ -437,10 +429,10 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                 contacts_html = '<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">'
                 for contact in contacts:
                     contacts_html += f"""
-                        <div style="margin-bottom: 10px;">
+                        <div class="contact-info" style="margin-bottom: 10px;">
                             <div style="font-weight: 600; color: #424242;">{contact.get('name', '')}</div>
-                            <div style="color: #666; font-size: 14px;">{contact.get('role', '')}</div>
-                            <div style="color: #666; font-size: 14px;">
+                            <div style="color: #666;">{contact.get('role', '')}</div>
+                            <div style="color: #666;">
                                 <a href="mailto:{contact.get('email', '')}" style="color: #1a73e8; text-decoration: none;">{contact.get('email', '')}</a>
                                 <span style="margin: 0 8px;">•</span>
                                 <a href="tel:{contact.get('phone', '')}" style="color: #1a73e8; text-decoration: none;">{contact.get('phone', '')}</a>
@@ -451,29 +443,30 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
             
             # Create HTML for single project
             html = f"""
-            <div class="project" style="margin: 20px 0; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; border-left: 4px solid {"#2e7d32" if "Normal Priority" in tags else "#dc3545"};">
+            <div class="project" style="border-left: 4px solid {"#2e7d32" if "Normal Priority" in tags else "#dc3545"};">
                 <div style="margin-bottom: 15px;">
                     {tags_html}
                 </div>
-                    
-                <h3 style="margin: 0 0 8px 0; color: #1a1a1a; font-size: 24px;">{project.get('company', '')}</h3>
-                <h4 style="margin: 0 0 20px 0; color: #424242; font-size: 20px;">{title}</h4>
+                
+                <h3>{project.get('company', '')}</h3>
+                <h4>{title}</h4>
                 
                 <div style="margin-bottom: 20px;">
-                    <div style="margin-bottom: 12px;">
+                    <div class="requirements">
                         <strong style="color: #1a1a1a;">Primary:</strong> {primary_req}
                     </div>
                     {secondary_req}
-                    <div style="margin-bottom: 12px;">
+                    <div class="requirements">
                         <strong style="color: #1a1a1a;">Work Begins:</strong> {work_timeline}
                     </div>
                 </div>
                 
+                {relationship_html}
                 {contacts_html}
                     
                 <div style="margin-top: 20px;">
-                    <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">View Announcement</a>
-                    <a href="#" style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">Get More Info</a>
+                    <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px; font-size: 15px;">View Announcement</a>
+                    <a href="/chat?projectId={project.get('company', '').lower().replace(' ', '_')}_{project.get('title', '').lower().replace(' ', '_')}" style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8; font-size: 15px;">Get More Info</a>
                 </div>
             </div>
             """
@@ -488,7 +481,7 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
             </div>
             """
 
-    def _get_team_emails(self, teams):
+    def _get_team_emails(self, teams): 
         """Get email addresses for teams"""
         try:
             # If teams is a list of strings, use them directly
@@ -553,14 +546,21 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                         <style>
                             body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
                             .container {{ max-width: 800px; margin: 0 auto; padding: 20px; }}
-                            h1 {{ color: #202124; margin-bottom: 30px; }}
+                            h1 {{ color: #202124; margin-bottom: 30px; font-size: 28px; }}
+                            h3 {{ color: #424242; font-size: 22px; margin: 0 0 8px 0; }}
+                            h4 {{ color: #424242; font-size: 20px; margin: 0 0 20px 0; }}
+                            .project {{ margin: 20px 0; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; }}
+                            .tag {{ padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 8px; }}
+                            .requirements {{ font-size: 16px; margin-bottom: 12px; }}
+                            .contact-info {{ font-size: 15px; }}
+                            .relationship-note {{ background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 16px; color: #1a1a1a; }}
                         </style>
                     </head>
                     <body>
                         <div class="container">
                             <h1>Leads for the {team_project_list[0]['teams'][0].replace('_', ' ')} team</h1>
                             {''.join(self._format_project_for_email(project) for project in team_project_list)}
-                            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 13px;">
+                            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
                                 <p>This is an automated notification from the JSW Steel Project Discovery System.</p>
                                 <p>For any questions or support, please contact the sales team.</p>
                             </div>

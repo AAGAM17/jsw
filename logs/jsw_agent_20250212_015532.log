@@ -1,0 +1,14 @@
+2025-02-12 01:55:32,993 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:55:32,996 - utilities.logger - INFO - Logging initialized
+2025-02-12 01:55:33,141 - werkzeug - WARNING -  * Debugger is active!
+2025-02-12 01:55:33,185 - werkzeug - INFO -  * Debugger PIN: 523-126-883
+2025-02-12 01:55:37,091 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:55:37] "GET / HTTP/1.1" 200 -
+2025-02-12 01:55:38,812 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:55:38] "GET /status HTTP/1.1" 200 -
+2025-02-12 01:55:39,352 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:55:39] "[33mGET /apple-touch-icon-precomposed.png HTTP/1.1[0m" 404 -
+2025-02-12 01:55:39,378 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:55:39] "[33mGET /apple-touch-icon.png HTTP/1.1[0m" 404 -
+2025-02-12 01:55:44,256 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 01:55:46,684 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-12 01:55:50,231 - utilities.email_handler - INFO - Successfully sent email to harshchaudhari1990@gmail.com
+2025-02-12 01:55:53,357 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-12 01:55:53,357 - werkzeug - INFO - 127.0.0.1 - - [12/Feb/2025 01:55:53] "GET /send_test_email HTTP/1.1" 200 -
+2025-02-12 01:56:34,652 - werkzeug - INFO -  * Detected change in '/Users/aagamshah/React/jsw/utilities/email_handler.py', reloading
