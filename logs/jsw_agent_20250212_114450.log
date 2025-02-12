@@ -1,0 +1,4 @@
+2025-02-12 11:44:50,308 - utilities.logger - INFO - Logging initialized
+2025-02-12 11:44:50,318 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-12 11:44:51,471 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-12 11:44:53,101 - utilities.email_handler - INFO - SMTP connection test successful on initialization

@@ -48,12 +48,12 @@ class Config:
         )
     
     TEAM_EMAILS = {
-        'TMT_BARS': 'chaudhariharsh86@gmail.com',
-        'HR_CR_PLATES': 'harsh@meresu.in',
-        'COATED_PRODUCTS': 'chaudhariharsh86@icloud.com',
-        'HSLA': 'chaudhariharsh220@gmail.com',
-        'SOLAR': 'harshchaudhari1990@gmail.com',
-        'WIRE_RODS': 'chaudhariharshrealtac@gmail.com'
+        'TMT_BARS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'HR_CR_PLATES': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
+        'COATED_PRODUCTS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
+        'HSLA': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
+        'SOLAR': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in,chaudhariharsh86@gmail.com',
+        'WIRE_RODS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com'
     }
     
     PROJECT_DISCOVERY = {
