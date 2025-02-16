@@ -1,0 +1,47 @@
+2025-02-13 22:21:05,478 - utilities.logger - INFO - Logging initialized
+2025-02-13 22:21:05,484 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 22:21:05,510 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-13 22:21:10,621 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 22:21:12,370 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 22:21:14,206 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 22:21:14,207 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 22:21:32,517 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-13 22:21:32,518 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-13 22:22:15,394 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-13 22:22:15,408 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-13 22:22:16,322 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:22:18,013 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:22:19,234 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:19,616 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:20,156 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:20,565 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:21,385 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:21,817 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:22,306 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:22,717 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:23,228 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:23,638 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:24,150 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:24,527 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:24,965 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:25,380 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:25,890 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:26,300 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:26,775 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:22:27,224 - utilities.email_handler - ERROR - Apollo API error: 403
+2025-02-13 22:22:27,231 - utilities.project_discovery_graph - INFO - Prioritizing 9 projects...
+2025-02-13 22:22:27,233 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-13 22:22:27,250 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:22:28,799 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:22:32,148 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-13 22:22:35,952 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Workflow completed in 90.45s
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Projects enriched: 9
+2025-02-13 22:22:35,953 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-13 22:22:35,953 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-13 22:22:36,046 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 22:22:36,047 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 22:22:36,047 - apscheduler.scheduler - INFO - Scheduler started

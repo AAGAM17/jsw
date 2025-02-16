@@ -1,0 +1,48 @@
+2025-02-15 07:52:11,265 - utilities.logger - INFO - Logging initialized
+2025-02-15 07:52:11,274 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-15 07:52:11,331 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-15 07:52:15,536 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-15 07:52:17,324 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-15 07:52:19,094 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-15 07:52:19,094 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-15 07:52:34,851 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:52:34,851 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-15 07:52:34,851 - scrapers.perplexity_client - WARNING - No projects found
+2025-02-15 07:53:15,916 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-15 07:53:15,925 - utilities.project_discovery_graph - INFO - Enriching 3 projects...
+2025-02-15 07:53:16,631 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:53:18,364 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:53:19,289 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:53:19,902 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:53:20,516 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:53:20,519 - utilities.project_discovery_graph - INFO - Prioritizing 3 projects...
+2025-02-15 07:53:20,520 - utilities.project_discovery_graph - INFO - Sending notifications for 3 projects...
+2025-02-15 07:53:20,535 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:53:22,358 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:53:22,627 - utilities.email_handler - INFO - Starting contact search for company: uttar pradesh metro rail corporation ltd
+2025-02-15 07:53:22,627 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:53:23,848 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:53:39,871 - utilities.email_handler - INFO - Found 0 LinkedIn profiles via Perplexity
+2025-02-15 07:53:39,871 - utilities.email_handler - INFO - Total contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-15 07:53:39,875 - utilities.email_handler - INFO - Starting contact search for company: scc infra
+2025-02-15 07:53:39,875 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:53:41,098 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:53:55,436 - utilities.email_handler - INFO - Found 0 LinkedIn profiles via Perplexity
+2025-02-15 07:53:55,436 - utilities.email_handler - INFO - Total contacts found for scc infra: 0
+2025-02-15 07:53:59,595 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-15 07:53:59,595 - utilities.email_handler - INFO - Starting contact search for company: projects tracking platform gmr infrastructure
+2025-02-15 07:53:59,596 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:54:00,769 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:54:17,333 - utilities.email_handler - INFO - Found 0 LinkedIn profiles via Perplexity
+2025-02-15 07:54:17,334 - utilities.email_handler - INFO - Total contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-15 07:54:21,173 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-15 07:54:21,174 - utilities.project_discovery_graph - INFO - Workflow completed in 129.85s
+2025-02-15 07:54:21,175 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-15 07:54:21,175 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-15 07:54:21,175 - utilities.project_discovery_graph - INFO - Projects filtered: 3
+2025-02-15 07:54:21,175 - utilities.project_discovery_graph - INFO - Projects enriched: 3
+2025-02-15 07:54:21,175 - utilities.project_discovery_graph - INFO - Projects prioritized: 3
+2025-02-15 07:54:21,175 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-15 07:54:21,301 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-15 07:54:21,302 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-15 07:54:21,302 - apscheduler.scheduler - INFO - Scheduler started

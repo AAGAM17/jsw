@@ -1,0 +1,33 @@
+2025-02-17 01:07:43,983 - utilities.logger - INFO - Logging initialized
+2025-02-17 01:07:43,989 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 01:07:44,013 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 01:07:49,464 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 01:07:52,190 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 01:07:54,681 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 01:09:05,452 - utilities.project_discovery_graph - INFO - Filtering 10 projects...
+2025-02-17 01:09:05,469 - utilities.project_discovery_graph - INFO - Enriching 4 projects...
+2025-02-17 01:09:05,935 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:09:07,422 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:09:08,326 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:09:08,926 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:09:09,536 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:09:10,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:09:10,159 - utilities.project_discovery_graph - INFO - Prioritizing 4 projects...
+2025-02-17 01:09:10,161 - utilities.project_discovery_graph - INFO - Sending notifications for 4 projects...
+2025-02-17 01:09:10,178 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:09:12,338 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:09:12,564 - utilities.email_handler - ERROR - Error formatting project details: 'list' object has no attribute 'get'
+2025-02-17 01:09:12,564 - utilities.email_handler - ERROR - Error formatting project details: 'list' object has no attribute 'get'
+2025-02-17 01:09:12,565 - utilities.email_handler - ERROR - Error formatting project details: 'list' object has no attribute 'get'
+2025-02-17 01:09:12,565 - utilities.email_handler - ERROR - Error formatting project details: 'list' object has no attribute 'get'
+2025-02-17 01:09:16,005 - utilities.email_handler - INFO - Sent project opportunities to 2 recipients
+2025-02-17 01:09:16,007 - utilities.project_discovery_graph - INFO - Workflow completed in 92.00s
+2025-02-17 01:09:16,007 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 01:09:16,007 - utilities.project_discovery_graph - INFO - Projects found: 10
+2025-02-17 01:09:16,008 - utilities.project_discovery_graph - INFO - Projects filtered: 4
+2025-02-17 01:09:16,008 - utilities.project_discovery_graph - INFO - Projects enriched: 4
+2025-02-17 01:09:16,008 - utilities.project_discovery_graph - INFO - Projects prioritized: 4
+2025-02-17 01:09:16,008 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 01:09:16,112 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 01:09:16,112 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 01:09:16,113 - apscheduler.scheduler - INFO - Scheduler started

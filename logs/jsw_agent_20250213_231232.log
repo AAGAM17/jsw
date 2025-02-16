@@ -1,0 +1,33 @@
+2025-02-13 23:12:32,453 - utilities.logger - INFO - Logging initialized
+2025-02-13 23:12:32,458 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 23:12:32,484 - utilities.project_discovery_graph - INFO - Starting project discovery with multi-agent system...
+2025-02-13 23:12:58,736 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 23:13:00,252 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 23:13:02,063 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 23:13:02,064 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 23:13:15,323 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 23:13:15,325 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-13 23:13:25,215 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 23:13:25,216 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-13 23:13:31,496 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 23:13:31,497 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-13 23:13:31,497 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-13 23:13:31,512 - utilities.project_discovery_graph - INFO - Filtering 0 projects...
+2025-02-13 23:13:31,513 - utilities.project_discovery_graph - WARNING - No projects passed filtering stage
+2025-02-13 23:13:31,514 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-13 23:13:31,532 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 23:13:33,133 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 23:13:33,354 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-13 23:13:33,355 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-13 23:13:33,355 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-13 23:13:33,356 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-13 23:13:33,360 - utilities.project_discovery_graph - INFO - Workflow completed in 60.88s
+2025-02-13 23:13:33,360 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-13 23:13:33,360 - utilities.project_discovery_graph - INFO - Projects found: 0
+2025-02-13 23:13:33,361 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-13 23:13:33,361 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-13 23:13:33,361 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-13 23:13:33,361 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-13 23:13:33,448 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 23:13:33,449 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 23:13:33,449 - apscheduler.scheduler - INFO - Scheduler started

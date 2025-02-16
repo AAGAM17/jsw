@@ -1,0 +1,7 @@
+2025-02-13 21:58:25,846 - utilities.logger - INFO - Logging initialized
+2025-02-13 21:58:25,856 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 21:58:25,884 - utilities.project_discovery_graph - ERROR - Workflow error: 'CompiledStateGraph' object has no attribute 'run'
+2025-02-13 21:58:25,884 - __main__ - ERROR - Pipeline failed: 'CompiledStateGraph' object has no attribute 'run'
+2025-02-13 21:58:26,085 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 21:58:26,085 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 21:58:26,085 - apscheduler.scheduler - INFO - Scheduler started

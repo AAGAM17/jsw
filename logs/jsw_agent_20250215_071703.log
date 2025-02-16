@@ -1,0 +1,58 @@
+2025-02-15 07:17:03,959 - utilities.logger - INFO - Logging initialized
+2025-02-15 07:17:03,973 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-15 07:17:04,069 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-15 07:17:09,880 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-15 07:17:11,662 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-15 07:17:13,435 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-15 07:17:13,436 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-15 07:17:30,675 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:17:30,676 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-15 07:17:39,168 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:17:39,169 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-15 07:17:47,310 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:17:47,310 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-15 07:17:47,310 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-15 07:18:39,594 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-15 07:18:39,606 - utilities.project_discovery_graph - INFO - Enriching 4 projects...
+2025-02-15 07:18:40,477 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:18:42,448 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:18:43,577 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:18:44,089 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:18:44,601 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:18:45,034 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:18:45,038 - utilities.project_discovery_graph - INFO - Prioritizing 4 projects...
+2025-02-15 07:18:45,039 - utilities.project_discovery_graph - INFO - Sending notifications for 4 projects...
+2025-02-15 07:18:45,059 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:18:46,647 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:18:46,890 - utilities.email_handler - INFO - Starting contact search for company: uttar pradesh metro rail corporation ltd
+2025-02-15 07:18:46,891 - utilities.email_handler - INFO - Making ContactOut API search request with params: {'query': 'company:"uttar pradesh metro rail corporation ltd" AND (title:"procurement" OR title:"purchasing" OR title:"supply chain" OR title:"materials" OR title:"sourcing" OR title:"buyer" OR title:"vendor" OR title:"category manager" OR title:"strategic sourcing" OR title:"procurement head" OR title:"purchase manager" OR title:"material manager")', 'type': 'profile', 'limit': 15}
+2025-02-15 07:18:48,476 - utilities.email_handler - INFO - Insufficient contacts from ContactOut API, trying LinkedIn scraping...
+2025-02-15 07:19:35,290 - scrapers.linkedin_scraper - ERROR - Failed to login to LinkedIn
+2025-02-15 07:19:35,684 - utilities.email_handler - INFO - Total contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-15 07:19:35,690 - utilities.email_handler - INFO - Starting contact search for company: scc infra
+2025-02-15 07:19:35,691 - utilities.email_handler - INFO - Making ContactOut API search request with params: {'query': 'company:"scc infra" AND (title:"procurement" OR title:"purchasing" OR title:"supply chain" OR title:"materials" OR title:"sourcing" OR title:"buyer" OR title:"vendor" OR title:"category manager" OR title:"strategic sourcing" OR title:"procurement head" OR title:"purchase manager" OR title:"material manager")', 'type': 'profile', 'limit': 15}
+2025-02-15 07:19:36,926 - utilities.email_handler - INFO - Insufficient contacts from ContactOut API, trying LinkedIn scraping...
+2025-02-15 07:20:13,913 - scrapers.linkedin_scraper - ERROR - Failed to login to LinkedIn
+2025-02-15 07:20:14,316 - utilities.email_handler - INFO - Total contacts found for scc infra: 0
+2025-02-15 07:20:18,858 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-15 07:20:18,859 - utilities.email_handler - INFO - Starting contact search for company: projects tracking platform gmr infrastructure
+2025-02-15 07:20:18,859 - utilities.email_handler - INFO - Making ContactOut API search request with params: {'query': 'company:"projects tracking platform gmr infrastructure" AND (title:"procurement" OR title:"purchasing" OR title:"supply chain" OR title:"materials" OR title:"sourcing" OR title:"buyer" OR title:"vendor" OR title:"category manager" OR title:"strategic sourcing" OR title:"procurement head" OR title:"purchase manager" OR title:"material manager")', 'type': 'profile', 'limit': 15}
+2025-02-15 07:20:20,240 - utilities.email_handler - INFO - Insufficient contacts from ContactOut API, trying LinkedIn scraping...
+2025-02-15 07:21:00,378 - scrapers.linkedin_scraper - ERROR - Failed to login to LinkedIn
+2025-02-15 07:21:00,755 - utilities.email_handler - INFO - Total contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-15 07:21:00,765 - utilities.email_handler - INFO - Starting contact search for company: infrastructure
+2025-02-15 07:21:00,766 - utilities.email_handler - INFO - Making ContactOut API search request with params: {'query': 'company:"infrastructure" AND (title:"procurement" OR title:"purchasing" OR title:"supply chain" OR title:"materials" OR title:"sourcing" OR title:"buyer" OR title:"vendor" OR title:"category manager" OR title:"strategic sourcing" OR title:"procurement head" OR title:"purchase manager" OR title:"material manager")', 'type': 'profile', 'limit': 15}
+2025-02-15 07:21:02,009 - utilities.email_handler - INFO - Insufficient contacts from ContactOut API, trying LinkedIn scraping...
+2025-02-15 07:21:35,308 - scrapers.linkedin_scraper - ERROR - Failed to login to LinkedIn
+2025-02-15 07:21:35,698 - utilities.email_handler - INFO - Total contacts found for infrastructure: 0
+2025-02-15 07:21:39,596 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-15 07:21:39,606 - utilities.project_discovery_graph - INFO - Workflow completed in 275.55s
+2025-02-15 07:21:39,606 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-15 07:21:39,606 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-15 07:21:39,607 - utilities.project_discovery_graph - INFO - Projects filtered: 4
+2025-02-15 07:21:39,607 - utilities.project_discovery_graph - INFO - Projects enriched: 4
+2025-02-15 07:21:39,607 - utilities.project_discovery_graph - INFO - Projects prioritized: 4
+2025-02-15 07:21:39,607 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-15 07:21:39,838 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-15 07:21:39,840 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-15 07:21:39,840 - apscheduler.scheduler - INFO - Scheduler started

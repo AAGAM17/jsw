@@ -1,0 +1,65 @@
+2025-02-16 22:06:28,816 - utilities.logger - INFO - Logging initialized
+2025-02-16 22:06:28,824 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 22:06:28,844 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 22:06:34,699 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 22:06:37,017 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 22:06:39,184 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 22:06:39,184 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 22:06:54,472 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 22:06:54,472 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 22:07:41,985 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-16 22:07:42,010 - utilities.project_discovery_graph - INFO - Enriching 8 projects...
+2025-02-16 22:07:42,478 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 22:07:44,121 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 22:07:44,342 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:44,872 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:44,880 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:45,411 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:45,412 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:45,864 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:45,866 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:46,376 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:46,378 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:46,910 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:46,911 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:47,418 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:47,419 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:48,060 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:48,062 - utilities.email_handler - ERROR - Error analyzing project: cannot access local variable 'specs' where it is not associated with a value
+2025-02-16 22:07:48,841 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:07:48,848 - utilities.project_discovery_graph - INFO - Prioritizing 8 projects...
+2025-02-16 22:07:48,850 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-16 22:07:48,871 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 22:07:50,572 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 22:07:50,792 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:07:50,792 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:07,062 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:07,067 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:07,067 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:18,642 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:18,648 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:18,649 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:30,800 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:30,803 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:30,804 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:41,060 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:41,064 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:41,064 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:50,583 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:50,585 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:50,586 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:08:58,855 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:08:58,860 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:08:58,861 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:09:04,919 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:09:08,411 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-16 22:09:08,413 - utilities.project_discovery_graph - INFO - Workflow completed in 159.57s
+2025-02-16 22:09:08,413 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-16 22:09:08,414 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-16 22:09:08,414 - utilities.project_discovery_graph - INFO - Projects filtered: 8
+2025-02-16 22:09:08,414 - utilities.project_discovery_graph - INFO - Projects enriched: 8
+2025-02-16 22:09:08,414 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-16 22:09:08,414 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-16 22:09:08,559 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 22:09:08,559 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 22:09:08,560 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,58 @@
+2025-02-16 23:35:21,709 - utilities.logger - INFO - Logging initialized
+2025-02-16 23:35:21,718 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 23:35:21,745 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 23:35:28,349 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 23:35:31,391 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 23:35:33,784 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 23:35:33,785 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 23:35:53,509 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 23:35:53,510 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 23:36:33,787 - utilities.project_discovery_graph - INFO - Filtering 15 projects...
+2025-02-16 23:36:33,796 - utilities.project_discovery_graph - INFO - Enriching 8 projects...
+2025-02-16 23:36:34,252 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 23:36:35,774 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 23:36:36,581 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:37,116 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:37,636 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:38,205 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:38,798 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:39,337 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:39,886 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:40,430 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:36:40,436 - utilities.project_discovery_graph - INFO - Prioritizing 8 projects...
+2025-02-16 23:36:40,438 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-16 23:36:40,461 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 23:36:42,069 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 23:36:42,290 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-16 23:36:42,290 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-16 23:37:00,572 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-16 23:37:00,574 - utilities.email_handler - INFO - Starting ContactOut search for company: gensol
+2025-02-16 23:37:00,574 - utilities.email_handler - INFO - Using main company name: gensol
+2025-02-16 23:37:13,107 - utilities.email_handler - INFO - Total unique contacts found for gensol: 0
+2025-02-16 23:37:13,111 - utilities.email_handler - INFO - Starting ContactOut search for company: scc infra
+2025-02-16 23:37:13,111 - utilities.email_handler - INFO - Using main company name: scc
+2025-02-16 23:37:25,391 - utilities.email_handler - INFO - Total unique contacts found for scc infra: 0
+2025-02-16 23:37:25,396 - utilities.email_handler - INFO - Starting ContactOut search for company: s construction
+2025-02-16 23:37:25,396 - utilities.email_handler - INFO - Using main company name: s
+2025-02-16 23:37:37,271 - utilities.email_handler - INFO - Total unique contacts found for s construction: 0
+2025-02-16 23:37:42,360 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-16 23:37:42,360 - utilities.email_handler - INFO - Starting ContactOut search for company: projects tracking platform gmr infrastructure
+2025-02-16 23:37:42,361 - utilities.email_handler - INFO - Using main company name: gmr
+2025-02-16 23:37:50,476 - utilities.email_handler - INFO - Total unique contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-16 23:37:50,480 - utilities.email_handler - INFO - Starting ContactOut search for company: under construction
+2025-02-16 23:37:50,480 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 23:38:00,837 - utilities.email_handler - INFO - Total unique contacts found for under construction: 0
+2025-02-16 23:38:00,841 - utilities.email_handler - INFO - Starting ContactOut search for company: inderdeep construction-eagle infra india limited jv
+2025-02-16 23:38:00,842 - utilities.email_handler - INFO - Using main company name: inderdeep construction-eagle
+2025-02-16 23:38:09,419 - utilities.email_handler - INFO - Total unique contacts found for inderdeep construction-eagle infra india limited jv: 0
+2025-02-16 23:38:14,071 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Workflow completed in 172.33s
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Projects found: 15
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Projects filtered: 8
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Projects enriched: 8
+2025-02-16 23:38:14,074 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-16 23:38:14,074 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-16 23:38:14,203 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 23:38:14,204 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 23:38:14,204 - apscheduler.scheduler - INFO - Scheduler started

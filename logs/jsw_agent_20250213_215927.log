@@ -1,0 +1,29 @@
+2025-02-13 21:59:27,054 - utilities.logger - INFO - Logging initialized
+2025-02-13 21:59:27,061 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 21:59:27,088 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-13 21:59:32,496 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 21:59:34,753 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 21:59:37,088 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 21:59:37,088 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 21:59:52,999 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-13 21:59:53,000 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-13 22:00:38,270 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-13 22:00:38,290 - utilities.project_discovery_graph - INFO - Enriching 7 projects...
+2025-02-13 22:00:38,797 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:00:40,305 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:00:40,529 - utilities.project_discovery_graph - INFO - Prioritizing 7 projects...
+2025-02-13 22:00:40,532 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-13 22:00:40,550 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:00:41,981 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:00:45,397 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-13 22:00:48,815 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-13 22:00:48,816 - utilities.project_discovery_graph - INFO - Workflow completed in 81.73s
+2025-02-13 22:00:48,817 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-13 22:00:48,817 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-13 22:00:48,817 - utilities.project_discovery_graph - INFO - Projects filtered: 7
+2025-02-13 22:00:48,817 - utilities.project_discovery_graph - INFO - Projects enriched: 7
+2025-02-13 22:00:48,818 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-13 22:00:48,818 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-13 22:00:48,918 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 22:00:48,918 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 22:00:48,918 - apscheduler.scheduler - INFO - Scheduler started

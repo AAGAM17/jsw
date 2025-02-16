@@ -8,6 +8,8 @@ from scrapers.perplexity_client import PerplexityClient
 import os
 from dotenv import load_dotenv
 from utilities.email_handler import EmailHandler
+import urllib.parse
+from perplexity import Perplexity
 
 app = Flask(__name__)
 configure_logging()
@@ -75,15 +77,44 @@ def projects_list():
     
     return render_template('projects.html', projects=filtered_projects)
 
-@app.route('/project/<project_id>')
-def project_details(project_id):
-    # Find project by ID (company_title)
-    project = next((p for p in projects if f"{p['company']}_{p['title'].lower().replace(' ', '_')}" == project_id), None)
+@app.route('/project-details')
+def project_details():
+    # Get project details from URL parameters
+    title = request.args.get('title', '')
+    company = request.args.get('company', '')
+    value = float(request.args.get('value', 0))
+    description = request.args.get('description', '')
+    source_url = request.args.get('source_url', '')
     
-    if not project:
-        return "Project not found", 404
-        
-    return render_template('project_details.html', project=project)
+    # Create context for Perplexity analysis
+    project_context = f"""
+    Please analyze this infrastructure project and provide insights:
+    
+    Project: {title}
+    Company: {company}
+    Value: ₹{value:,.2f} Crore
+    Description: {description}
+    Source: {source_url}
+    
+    Please provide:
+    1. A brief overview of the project scope and objectives
+    2. Key technical specifications and requirements
+    3. Potential challenges and risks
+    4. Market impact and opportunities
+    5. Timeline analysis and critical milestones
+    """
+    
+    # Get analysis from Perplexity
+    analysis = perplexity_client.get_project_info(project_context)
+    
+    # Render template with project details and analysis
+    return render_template('project_details.html',
+                         title=title,
+                         company=company,
+                         value=value,
+                         description=description,
+                         source_url=source_url,
+                         analysis=analysis)
 
 @app.route('/api/chat', methods=['POST'])
 def chat():

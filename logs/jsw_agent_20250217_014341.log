@@ -1,0 +1,32 @@
+2025-02-17 01:43:41,183 - utilities.logger - INFO - Logging initialized
+2025-02-17 01:43:41,190 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 01:43:41,232 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 01:43:46,078 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 01:43:47,959 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 01:43:49,918 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 01:44:30,602 - utilities.project_discovery_graph - INFO - Filtering 10 projects...
+2025-02-17 01:44:30,619 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-17 01:44:31,109 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:44:32,939 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:44:33,865 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:34,478 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:35,091 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:35,705 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:36,422 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:36,999 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:44:37,004 - utilities.project_discovery_graph - INFO - Prioritizing 6 projects...
+2025-02-17 01:44:37,007 - utilities.project_discovery_graph - INFO - Sending notifications for 6 projects...
+2025-02-17 01:44:37,024 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:44:38,489 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:44:42,377 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 01:44:45,962 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-17 01:44:45,965 - utilities.project_discovery_graph - INFO - Workflow completed in 64.74s
+2025-02-17 01:44:45,965 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 01:44:45,965 - utilities.project_discovery_graph - INFO - Projects found: 10
+2025-02-17 01:44:45,965 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-17 01:44:45,965 - utilities.project_discovery_graph - INFO - Projects enriched: 6
+2025-02-17 01:44:45,966 - utilities.project_discovery_graph - INFO - Projects prioritized: 6
+2025-02-17 01:44:45,966 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 01:44:46,094 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 01:44:46,094 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 01:44:46,095 - apscheduler.scheduler - INFO - Scheduler started

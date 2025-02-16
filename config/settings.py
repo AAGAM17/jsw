@@ -10,7 +10,7 @@ class Config:
     USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
     
     PERPLEXITY_API_KEY = os.getenv('PERPLEXITY_API_KEY')
-    CONTACT_OUT_API_KEY = os.getenv('CONTACT_OUT_API_KEY', '')
+    CONTACTOUT_TOKEN = os.getenv('CONTACTOUT_TOKEN')
     EXA_API_KEY = os.getenv('EXA_API_KEY')
     FIRECRAWL_API_KEY = os.getenv('FIRECRAWL_API_KEY')
     
@@ -28,14 +28,20 @@ class Config:
     LINKEDIN_EMAIL = os.getenv('LINKEDIN_EMAIL', '')
     LINKEDIN_PASSWORD = os.getenv('LINKEDIN_PASSWORD', '')
     
-    if not all([PERPLEXITY_API_KEY, EMAIL_SENDER, EMAIL_PASSWORD, EXA_API_KEY, FIRECRAWL_API_KEY]):
+    # WhatsApp API Configuration
+    WHATSAPP_API_TOKEN = os.getenv('WHATSAPP_API_TOKEN')
+    WHATSAPP_PHONE_NUMBER_ID = os.getenv('WHATSAPP_PHONE_NUMBER_ID')
+    WHATSAPP_RECIPIENT = '919075825548'  # The approved number
+    
+    if not all([PERPLEXITY_API_KEY, EMAIL_SENDER, EMAIL_PASSWORD, EXA_API_KEY, FIRECRAWL_API_KEY, CONTACTOUT_TOKEN]):
         raise ValueError(
             "Missing required environment variables. Please check your .env file:\n"
             "- PERPLEXITY_API_KEY\n"
             "- EMAIL_SENDER\n"
             "- EMAIL_PASSWORD\n"
             "- EXA_API_KEY\n"
-            "- FIRECRAWL_API_KEY"
+            "- FIRECRAWL_API_KEY\n"
+            "- CONTACTOUT_TOKEN"
         )
     
     if any([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM]) and not all([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM, WHATSAPP_TO]):
@@ -47,13 +53,25 @@ class Config:
             "- WHATSAPP_TO"
         )
     
+    if not all([WHATSAPP_API_TOKEN, WHATSAPP_PHONE_NUMBER_ID]):
+        raise ValueError(
+            "Missing WhatsApp API configuration. Please check your .env file:\n"
+            "- WHATSAPP_API_TOKEN\n"
+            "- WHATSAPP_PHONE_NUMBER_ID"
+        )
+    
     TEAM_EMAILS = {
-        'TMT_BARS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
-        'HR_CR_PLATES': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
-        'COATED_PRODUCTS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
-        'HSLA': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com',
-        'SOLAR': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in,chaudhariharsh86@gmail.com',
-        'WIRE_RODS': 'rajashree.mahanty@jsw.in, siddhartha.mandal@jsw.in, chaudhariharsh86@gmail.com'
+        # Flat Products
+        'HOT_ROLLED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'COLD_ROLLED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'GALVANIZED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'ELECTRICAL_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'GALVALUME': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        
+        # Long Products
+        'TMT_BARS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'WIRE_RODS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'SPECIAL_ALLOY': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com'
     }
     
     PROJECT_DISCOVERY = {
@@ -212,51 +230,41 @@ class Config:
         }
     }
     
-    # Steel Requirement Estimation (tons per crore) - Updated with conservative rates
+    # Steel Requirement Estimation (tons per crore) - Updated with more accurate rates
     STEEL_RATES = {
         'TMT_BARS': {
-            'highways': 25,
-            'bridges': 35,
-            'railways': 20,
-            'smart_cities': 12,
-            'residential': 8,
-            'commercial': 10,
-            'default': 15
+            'highways': 35,  # 35 MT per crore for highway projects
+            'bridges': 45,   # 45 MT per crore for bridge projects
+            'railways': 30,  # 30 MT per crore for railway projects
+            'smart_cities': 25, # 25 MT per crore for smart city projects
+            'residential': 20,  # 20 MT per crore for residential projects
+            'commercial': 25,   # 25 MT per crore for commercial projects
+            'default': 30       # 30 MT per crore as default
         },
         'HR_PLATES': {
-            'railways': 18,
-            'metro': 22,
-            'ports': 20,
-            'industrial': 15,
-            'wind': 8,
-            'machinery': 12,
-            'default': 12
+            'railways': 25,     # 25 MT per crore for railway projects
+            'metro': 30,        # 30 MT per crore for metro projects
+            'ports': 28,        # 28 MT per crore for port projects
+            'industrial': 22,   # 22 MT per crore for industrial projects
+            'wind': 15,         # 15 MT per crore for wind projects
+            'machinery': 18,    # 18 MT per crore for machinery
+            'default': 20       # 20 MT per crore as default
         },
         'COATED_PRODUCTS': {
-            'industrial': 4,
-            'commercial': 6,
-            'residential': 5,
-            'default': 4
+            'industrial': 12,    # 12 MT per crore for industrial projects
+            'commercial': 15,    # 15 MT per crore for commercial projects
+            'residential': 10,   # 10 MT per crore for residential projects
+            'default': 12        # 12 MT per crore as default
         },
         'HSLA': {
-            'ev': 5,
-            'automotive': 4,
-            'equipment': 8,
-            'default': 6
+            'ev': 8,            # 8 MT per crore for EV projects
+            'automotive': 10,    # 10 MT per crore for automotive projects
+            'equipment': 12,     # 12 MT per crore for equipment projects
+            'default': 10        # 10 MT per crore as default
         },
         'SOLAR_SOLUTIONS': {
-            'solar': 3,
-            'default': 3
-        },
-        'STRUCTURAL_STEEL': {
-            'ports': 15,
-            'wind': 12,
-            'default': 10
-        },
-        'SPECIAL_ALLOY': {
-            'machinery': 8,
-            'equipment': 10,
-            'default': 6
+            'solar': 8,         # 8 MT per crore for solar projects
+            'default': 8        # 8 MT per crore as default
         }
     }
     

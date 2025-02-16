@@ -1,0 +1,42 @@
+2025-02-13 22:56:44,833 - utilities.logger - INFO - Logging initialized
+2025-02-13 22:56:44,840 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 22:56:44,892 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-13 22:56:49,962 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 22:56:52,476 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 22:56:54,231 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 22:56:54,231 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 22:57:13,021 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:57:13,022 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-13 22:57:23,777 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:57:23,777 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-13 22:57:43,256 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:57:43,258 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-13 22:57:43,258 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-13 22:58:24,998 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-13 22:58:25,037 - utilities.project_discovery_graph - INFO - Enriching 4 projects...
+2025-02-13 22:58:25,702 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:58:27,163 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:58:27,885 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:58:28,295 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:58:28,724 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:58:29,184 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:58:29,191 - utilities.project_discovery_graph - INFO - Prioritizing 4 projects...
+2025-02-13 22:58:29,194 - utilities.project_discovery_graph - INFO - Sending notifications for 4 projects...
+2025-02-13 22:58:29,227 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:58:30,678 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:58:31,302 - utilities.email_handler - ERROR - Apollo API search failed for uttar pradesh metro rail corporation ltd: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-13 22:58:31,705 - utilities.email_handler - ERROR - Apollo API search failed for scc infra: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-13 22:58:34,795 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-13 22:58:35,171 - utilities.email_handler - ERROR - Apollo API search failed for projects tracking platform gmr infrastructure: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-13 22:58:35,550 - utilities.email_handler - ERROR - Apollo API search failed for infrastructure: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-13 22:58:39,155 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-13 22:58:39,158 - utilities.project_discovery_graph - INFO - Workflow completed in 114.27s
+2025-02-13 22:58:39,158 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-13 22:58:39,158 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-13 22:58:39,158 - utilities.project_discovery_graph - INFO - Projects filtered: 4
+2025-02-13 22:58:39,158 - utilities.project_discovery_graph - INFO - Projects enriched: 4
+2025-02-13 22:58:39,159 - utilities.project_discovery_graph - INFO - Projects prioritized: 4
+2025-02-13 22:58:39,159 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-13 22:58:39,265 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 22:58:39,265 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 22:58:39,265 - apscheduler.scheduler - INFO - Scheduler started

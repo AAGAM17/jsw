@@ -1,0 +1,65 @@
+2025-02-17 01:37:56,902 - utilities.logger - INFO - Logging initialized
+2025-02-17 01:37:56,911 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 01:37:56,950 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 01:38:01,614 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 01:38:03,525 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 01:38:05,289 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 01:38:49,478 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-17 01:38:49,487 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-17 01:38:50,036 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:38:51,623 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:38:52,548 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:53,161 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:53,714 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:54,298 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:54,880 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:55,446 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 01:38:55,449 - utilities.project_discovery_graph - INFO - Prioritizing 6 projects...
+2025-02-17 01:38:55,450 - utilities.project_discovery_graph - INFO - Sending notifications for 6 projects...
+2025-02-17 01:38:55,460 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 01:38:56,904 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 01:38:57,128 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-17 01:38:57,128 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-17 01:39:14,239 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-17 01:39:14,243 - utilities.email_handler - INFO - Starting ContactOut search for company: projects tracking platform gmr infrastructure
+2025-02-17 01:39:14,243 - utilities.email_handler - INFO - Using main company name: gmr
+2025-02-17 01:39:26,966 - utilities.email_handler - INFO - Total unique contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-17 01:39:26,968 - utilities.email_handler - INFO - Starting ContactOut search for company: under construction
+2025-02-17 01:39:26,968 - utilities.email_handler - INFO - Using main company name: 
+2025-02-17 01:39:40,785 - utilities.email_handler - INFO - Total unique contacts found for under construction: 0
+2025-02-17 01:39:40,789 - utilities.email_handler - INFO - Starting ContactOut search for company: scc infra
+2025-02-17 01:39:40,789 - utilities.email_handler - INFO - Using main company name: scc
+2025-02-17 01:39:52,251 - utilities.email_handler - INFO - Total unique contacts found for scc infra: 0
+2025-02-17 01:39:52,255 - utilities.email_handler - INFO - Starting ContactOut search for company: the metro rail guy bangalore metro rail corporation ltd
+2025-02-17 01:39:52,256 - utilities.email_handler - INFO - Using main company name: the metro rail
+2025-02-17 01:39:59,727 - utilities.email_handler - INFO - Total unique contacts found for the metro rail guy bangalore metro rail corporation ltd: 0
+2025-02-17 01:40:03,026 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 01:40:03,027 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-17 01:40:03,027 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-17 01:40:12,010 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-17 01:40:12,012 - utilities.email_handler - INFO - Starting ContactOut search for company: projects tracking platform gmr infrastructure
+2025-02-17 01:40:12,012 - utilities.email_handler - INFO - Using main company name: gmr
+2025-02-17 01:40:21,803 - utilities.email_handler - INFO - Total unique contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-17 01:40:21,806 - utilities.email_handler - INFO - Starting ContactOut search for company: under construction
+2025-02-17 01:40:21,807 - utilities.email_handler - INFO - Using main company name: 
+2025-02-17 01:40:30,548 - utilities.email_handler - INFO - Total unique contacts found for under construction: 0
+2025-02-17 01:40:30,551 - utilities.email_handler - INFO - Starting ContactOut search for company: scc infra
+2025-02-17 01:40:30,551 - utilities.email_handler - INFO - Using main company name: scc
+2025-02-17 01:40:38,844 - utilities.email_handler - INFO - Total unique contacts found for scc infra: 0
+2025-02-17 01:40:38,849 - utilities.email_handler - INFO - Starting ContactOut search for company: infrastructure
+2025-02-17 01:40:38,849 - utilities.email_handler - INFO - Using main company name: 
+2025-02-17 01:40:46,009 - utilities.email_handler - INFO - Total unique contacts found for infrastructure: 0
+2025-02-17 01:40:46,013 - utilities.email_handler - INFO - Starting ContactOut search for company: the metro rail guy bangalore metro rail corporation ltd
+2025-02-17 01:40:46,013 - utilities.email_handler - INFO - Using main company name: the metro rail
+2025-02-17 01:40:52,051 - utilities.email_handler - INFO - Total unique contacts found for the metro rail guy bangalore metro rail corporation ltd: 0
+2025-02-17 01:40:56,371 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-17 01:40:56,375 - utilities.project_discovery_graph - INFO - Workflow completed in 179.43s
+2025-02-17 01:40:56,376 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 01:40:56,376 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-17 01:40:56,376 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-17 01:40:56,376 - utilities.project_discovery_graph - INFO - Projects enriched: 6
+2025-02-17 01:40:56,377 - utilities.project_discovery_graph - INFO - Projects prioritized: 6
+2025-02-17 01:40:56,377 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 01:40:56,527 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 01:40:56,527 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 01:40:56,527 - apscheduler.scheduler - INFO - Scheduler started

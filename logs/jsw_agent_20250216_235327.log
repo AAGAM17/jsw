@@ -1,0 +1,80 @@
+2025-02-16 23:53:27,885 - utilities.logger - INFO - Logging initialized
+2025-02-16 23:53:27,893 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 23:53:27,936 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 23:53:33,380 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 23:53:35,126 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 23:53:36,859 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 23:53:36,860 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 23:53:50,759 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 23:53:50,761 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 23:54:32,166 - utilities.project_discovery_graph - INFO - Filtering 16 projects...
+2025-02-16 23:54:32,180 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-16 23:54:32,667 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 23:54:34,203 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 23:54:35,077 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:35,738 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:36,356 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:37,889 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:38,606 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:39,326 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:39,930 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:40,554 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:41,269 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 23:54:41,275 - utilities.project_discovery_graph - INFO - Prioritizing 9 projects...
+2025-02-16 23:54:41,277 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-16 23:54:41,296 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 23:54:42,911 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 23:54:43,133 - utilities.email_handler - INFO - Starting ContactOut search for company: ircon international limited
+2025-02-16 23:54:43,134 - utilities.email_handler - INFO - Using main company name: ircon international
+2025-02-16 23:55:01,125 - utilities.email_handler - INFO - Total unique contacts found for ircon international limited: 0
+2025-02-16 23:55:01,128 - utilities.email_handler - INFO - Starting ContactOut search for company: gensol engineering limited
+2025-02-16 23:55:01,128 - utilities.email_handler - INFO - Using main company name: gensol
+2025-02-16 23:55:14,972 - utilities.email_handler - INFO - Total unique contacts found for gensol engineering limited: 0
+2025-02-16 23:55:14,974 - utilities.email_handler - INFO - Starting ContactOut search for company: gensol engineering limited
+2025-02-16 23:55:14,974 - utilities.email_handler - INFO - Using main company name: gensol
+2025-02-16 23:55:28,379 - utilities.email_handler - INFO - Total unique contacts found for gensol engineering limited: 0
+2025-02-16 23:55:28,391 - utilities.email_handler - INFO - Starting ContactOut search for company: under construction
+2025-02-16 23:55:28,391 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 23:55:41,070 - utilities.email_handler - INFO - Total unique contacts found for under construction: 0
+2025-02-16 23:55:41,073 - utilities.email_handler - INFO - Starting ContactOut search for company: speed rail train contract for ... beml ltd
+2025-02-16 23:55:41,073 - utilities.email_handler - INFO - Using main company name: speed rail train
+2025-02-16 23:55:52,205 - utilities.email_handler - INFO - Total unique contacts found for speed rail train contract for ... beml ltd: 0
+2025-02-16 23:55:52,209 - utilities.email_handler - INFO - Starting ContactOut search for company: scc infra
+2025-02-16 23:55:52,209 - utilities.email_handler - INFO - Using main company name: scc
+2025-02-16 23:56:04,930 - utilities.email_handler - INFO - Total unique contacts found for scc infra: 0
+2025-02-16 23:56:04,935 - utilities.email_handler - INFO - Starting ContactOut search for company: inderdeep construction-eagle infra india limited jv
+2025-02-16 23:56:04,935 - utilities.email_handler - INFO - Using main company name: inderdeep construction-eagle
+2025-02-16 23:56:14,257 - utilities.email_handler - INFO - Total unique contacts found for inderdeep construction-eagle infra india limited jv: 0
+2025-02-16 23:56:14,263 - utilities.email_handler - INFO - Starting ContactOut search for company: inderdeep construction-eagle infra india limited jv
+2025-02-16 23:56:14,263 - utilities.email_handler - INFO - Using main company name: inderdeep construction-eagle
+2025-02-16 23:56:22,444 - utilities.email_handler - INFO - Total unique contacts found for inderdeep construction-eagle infra india limited jv: 0
+2025-02-16 23:56:22,448 - utilities.email_handler - INFO - Starting ContactOut search for company: universal mep projects and engineering services limited
+2025-02-16 23:56:22,448 - utilities.email_handler - INFO - Using main company name: universal mep
+2025-02-16 23:56:29,666 - utilities.email_handler - INFO - Total unique contacts found for universal mep projects and engineering services limited: 0
+2025-02-16 23:56:33,015 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-16 23:56:33,015 - utilities.email_handler - INFO - Starting ContactOut search for company: ircon international limited
+2025-02-16 23:56:33,016 - utilities.email_handler - INFO - Using main company name: ircon international
+2025-02-16 23:56:41,800 - utilities.email_handler - INFO - Total unique contacts found for ircon international limited: 0
+2025-02-16 23:56:41,804 - utilities.email_handler - INFO - Starting ContactOut search for company: under construction
+2025-02-16 23:56:41,804 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 23:56:50,702 - utilities.email_handler - INFO - Total unique contacts found for under construction: 0
+2025-02-16 23:56:50,706 - utilities.email_handler - INFO - Starting ContactOut search for company: speed rail train contract for ... beml ltd
+2025-02-16 23:56:50,707 - utilities.email_handler - INFO - Using main company name: speed rail train
+2025-02-16 23:56:58,484 - utilities.email_handler - INFO - Total unique contacts found for speed rail train contract for ... beml ltd: 0
+2025-02-16 23:56:58,488 - utilities.email_handler - INFO - Starting ContactOut search for company: scc infra
+2025-02-16 23:56:58,488 - utilities.email_handler - INFO - Using main company name: scc
+2025-02-16 23:57:06,676 - utilities.email_handler - INFO - Total unique contacts found for scc infra: 0
+2025-02-16 23:57:06,679 - utilities.email_handler - INFO - Starting ContactOut search for company: universal mep projects and engineering services limited
+2025-02-16 23:57:06,679 - utilities.email_handler - INFO - Using main company name: universal mep
+2025-02-16 23:57:15,581 - utilities.email_handler - INFO - Total unique contacts found for universal mep projects and engineering services limited: 0
+2025-02-16 23:57:19,198 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-16 23:57:19,202 - utilities.project_discovery_graph - INFO - Workflow completed in 231.27s
+2025-02-16 23:57:19,202 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-16 23:57:19,202 - utilities.project_discovery_graph - INFO - Projects found: 16
+2025-02-16 23:57:19,203 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-16 23:57:19,203 - utilities.project_discovery_graph - INFO - Projects enriched: 9
+2025-02-16 23:57:19,203 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-16 23:57:19,203 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-16 23:57:19,313 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 23:57:19,313 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 23:57:19,313 - apscheduler.scheduler - INFO - Scheduler started

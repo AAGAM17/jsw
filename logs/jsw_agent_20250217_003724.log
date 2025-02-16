@@ -1,0 +1,41 @@
+2025-02-17 00:37:24,944 - utilities.logger - INFO - Logging initialized
+2025-02-17 00:37:24,948 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 00:37:24,976 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 00:38:05,590 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-17 00:38:05,625 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-17 00:38:05,965 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:38:08,143 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:38:09,068 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:09,785 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:10,398 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:11,117 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:11,679 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:12,283 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:38:12,289 - utilities.project_discovery_graph - INFO - Prioritizing 6 projects...
+2025-02-17 00:38:12,291 - utilities.project_discovery_graph - INFO - Sending notifications for 6 projects...
+2025-02-17 00:38:12,310 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:38:13,880 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:38:14,103 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:14,104 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:14,104 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:14,104 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:14,104 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:14,104 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,141 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 00:38:18,141 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,141 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,142 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,142 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,142 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:18,142 - utilities.email_handler - ERROR - Error formatting project for email: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-17 00:38:21,439 - utilities.email_handler - INFO - Successfully sent email to aagamcshah172005@gmail.com
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Workflow completed in 56.47s
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Projects enriched: 6
+2025-02-17 00:38:21,442 - utilities.project_discovery_graph - INFO - Projects prioritized: 6
+2025-02-17 00:38:21,443 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 00:38:21,600 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 00:38:21,600 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 00:38:21,600 - apscheduler.scheduler - INFO - Scheduler started

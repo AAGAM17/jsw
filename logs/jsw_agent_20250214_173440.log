@@ -1,0 +1,43 @@
+2025-02-14 17:34:40,324 - utilities.logger - INFO - Logging initialized
+2025-02-14 17:34:40,334 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-14 17:34:40,377 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-14 17:34:45,400 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-14 17:34:47,194 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-14 17:34:49,250 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-14 17:34:49,250 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-14 17:35:05,228 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-14 17:35:05,229 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-14 17:35:50,107 - utilities.project_discovery_graph - INFO - Filtering 15 projects...
+2025-02-14 17:35:50,121 - utilities.project_discovery_graph - INFO - Enriching 7 projects...
+2025-02-14 17:35:50,710 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-14 17:35:52,379 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-14 17:35:53,406 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:54,019 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:54,636 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:55,349 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:55,760 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:57,299 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:35:59,999 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:36:00,006 - utilities.project_discovery_graph - INFO - Prioritizing 7 projects...
+2025-02-14 17:36:00,008 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-14 17:36:00,024 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-14 17:36:01,563 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-14 17:36:02,504 - utilities.email_handler - ERROR - Apollo API search failed for uttar pradesh metro rail corporation ltd: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:02,908 - utilities.email_handler - ERROR - Apollo API search failed for gensol engineering limited: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:03,454 - utilities.email_handler - ERROR - Apollo API search failed for scc infra: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:07,862 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-14 17:36:08,243 - utilities.email_handler - ERROR - Apollo API search failed for projects tracking platform gmr infrastructure: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:08,665 - utilities.email_handler - ERROR - Apollo API search failed for under construction: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:09,074 - utilities.email_handler - ERROR - Apollo API search failed for inderdeep construction-eagle infra india limited jv: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:09,660 - utilities.email_handler - ERROR - Apollo API search failed for universal mep projects and engineering services limited: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-14 17:36:13,178 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-14 17:36:13,180 - utilities.project_discovery_graph - INFO - Workflow completed in 92.81s
+2025-02-14 17:36:13,181 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-14 17:36:13,181 - utilities.project_discovery_graph - INFO - Projects found: 15
+2025-02-14 17:36:13,181 - utilities.project_discovery_graph - INFO - Projects filtered: 7
+2025-02-14 17:36:13,181 - utilities.project_discovery_graph - INFO - Projects enriched: 7
+2025-02-14 17:36:13,181 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-14 17:36:13,181 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-14 17:36:13,367 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-14 17:36:13,368 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-14 17:36:13,368 - apscheduler.scheduler - INFO - Scheduler started

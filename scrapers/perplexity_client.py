@@ -93,78 +93,15 @@ class PerplexityClient:
         """
         
         try:
-            self.logger.info("Trying primary query...")
+            self.logger.info("Searching for infrastructure projects...")
             results = self._query_perplexity(primary_query)
             projects.extend(self._parse_project_results(results))
-            
-            # If no projects found, try backup query focusing on company announcements
-            if not projects:
-                backup_query = """
-                Search for recent project announcements from these companies in India:
-                1. L&T Construction - Check https://www.larsentoubro.com/corporate/media/news-room/
-                2. Dilip Buildcon - Check BSE/NSE announcements
-                3. RVNL - Check https://rvnl.org/en/news
-                4. NHAI - Check https://nhai.gov.in/
-                5. Afcons - Check company website news section
-                
-                Format each project as:
-                Company: [Company Name]
-                Title: [Project Title]
-                Value: [Value in Crores]
-                Location: [Project Location]
-                Timeline: [Start Date - End Date]
-                Steel Requirement: [Quantity in MT]
-                Description: [Full article text]
-                Source: [Complete https:// URL]
-                
-                Focus on:
-                - Contract awards and wins only
-                - Projects requiring steel supply
-                - Full article text and source links
-                - Projects announced in last 24 hours
-                """
-                
-                self.logger.info("Trying backup query...")
-                results = self._query_perplexity(backup_query)
-                projects.extend(self._parse_project_results(results))
-            
-            # If still no projects, try emergency query
-            if not projects:
-                emergency_query = """
-                Find ANY infrastructure or construction project announcements from India in the last 24 hours.
-                
-                Check:
-                - All news websites
-                - Company announcements
-                - Stock exchange filings
-                - Government tender portals
-                
-                Format each project as:
-                Company: [Company Name]
-                Title: [Project Title]
-                Value: [Value in Crores]
-                Location: [Project Location]
-                Timeline: [Start Date - End Date]
-                Steel Requirement: [Quantity in MT]
-                Description: [Full article text]
-                Source: [Complete https:// URL]
-                
-                Include:
-                - Any projects with steel requirements
-                - Any procurement announcements
-                - Full article text for analysis
-                - Proper source URLs
-                """
-                
-                self.logger.info("Trying emergency query...")
-                results = self._query_perplexity(emergency_query)
-                projects.extend(self._parse_project_results(results))
             
             # Log results
             self.logger.info(f"Found {len(projects)} projects")
             
             if not projects:
-                self.logger.warning("No projects found after all attempts")
+                self.logger.warning("No projects found")
             
             return projects
             

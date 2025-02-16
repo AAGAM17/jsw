@@ -1,0 +1,10 @@
+2025-02-14 18:06:36,416 - utilities.logger - INFO - Logging initialized
+2025-02-14 18:06:36,654 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-14 18:06:36,706 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-14 18:06:43,320 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-14 18:06:45,004 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-14 18:06:47,211 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-14 18:06:47,211 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-14 18:07:17,457 - scrapers.perplexity_client - WARNING - Attempt 1/3 failed: HTTPSConnectionPool(host='api.perplexity.ai', port=443): Read timed out. (read timeout=30)
+2025-02-14 18:07:38,403 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-14 18:07:38,403 - scrapers.perplexity_client - INFO - Found 3 projects

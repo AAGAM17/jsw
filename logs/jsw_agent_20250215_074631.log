@@ -1,0 +1,64 @@
+2025-02-15 07:46:31,285 - utilities.logger - INFO - Logging initialized
+2025-02-15 07:46:31,294 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-15 07:46:31,336 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-15 07:46:35,528 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-15 07:46:37,118 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-15 07:46:38,871 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-15 07:46:38,871 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-15 07:46:53,823 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:46:53,824 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-15 07:47:03,715 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:47:03,715 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-15 07:47:10,759 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-15 07:47:10,759 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-15 07:47:10,759 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-15 07:47:55,617 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-15 07:47:55,632 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-15 07:47:56,466 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:47:58,167 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:47:58,991 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:48:00,422 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:48:00,934 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:48:01,445 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:48:02,060 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-15 07:48:02,063 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-15 07:48:02,064 - utilities.project_discovery_graph - INFO - Sending notifications for 5 projects...
+2025-02-15 07:48:02,084 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-15 07:48:03,893 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-15 07:48:04,143 - utilities.email_handler - INFO - Starting contact search for company: projects tracking platform gmr infrastructure
+2025-02-15 07:48:04,143 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:48:05,331 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:48:05,331 - utilities.email_handler - ERROR - Error using Perplexity for contact search: 'Groq' object has no attribute 'chat_completion'
+2025-02-15 07:48:05,331 - utilities.email_handler - INFO - Total contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-15 07:48:05,333 - utilities.email_handler - INFO - Starting contact search for company: under construction
+2025-02-15 07:48:05,333 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:48:06,479 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:48:06,479 - utilities.email_handler - ERROR - Error using Perplexity for contact search: 'Groq' object has no attribute 'chat_completion'
+2025-02-15 07:48:06,479 - utilities.email_handler - INFO - Total contacts found for under construction: 0
+2025-02-15 07:48:06,482 - utilities.email_handler - INFO - Starting contact search for company: speed rail train contract for ... beml ltd
+2025-02-15 07:48:06,482 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:48:07,647 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:48:07,647 - utilities.email_handler - ERROR - Error using Perplexity for contact search: 'Groq' object has no attribute 'chat_completion'
+2025-02-15 07:48:07,648 - utilities.email_handler - INFO - Total contacts found for speed rail train contract for ... beml ltd: 0
+2025-02-15 07:48:11,412 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-15 07:48:11,413 - utilities.email_handler - INFO - Starting contact search for company: scc infra
+2025-02-15 07:48:11,413 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:48:12,605 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:48:12,605 - utilities.email_handler - ERROR - Error using Perplexity for contact search: 'Groq' object has no attribute 'chat_completion'
+2025-02-15 07:48:12,605 - utilities.email_handler - INFO - Total contacts found for scc infra: 0
+2025-02-15 07:48:12,608 - utilities.email_handler - INFO - Starting contact search for company: the metro rail guy bangalore metro rail corporation ltd
+2025-02-15 07:48:12,609 - utilities.email_handler - INFO - Searching for procurement roles via ContactOut...
+2025-02-15 07:48:13,836 - utilities.email_handler - INFO - Using Perplexity to find additional contacts...
+2025-02-15 07:48:13,837 - utilities.email_handler - ERROR - Error using Perplexity for contact search: 'Groq' object has no attribute 'chat_completion'
+2025-02-15 07:48:13,837 - utilities.email_handler - INFO - Total contacts found for the metro rail guy bangalore metro rail corporation ltd: 0
+2025-02-15 07:48:17,546 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Workflow completed in 106.21s
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-15 07:48:17,547 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-15 07:48:17,548 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-15 07:48:17,696 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-15 07:48:17,697 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-15 07:48:17,697 - apscheduler.scheduler - INFO - Scheduler started

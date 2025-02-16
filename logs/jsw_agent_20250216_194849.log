@@ -1,0 +1,36 @@
+2025-02-16 19:48:49,894 - utilities.logger - INFO - Logging initialized
+2025-02-16 19:48:49,903 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 19:48:49,926 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 19:48:54,765 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 19:48:56,722 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 19:48:59,269 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 19:48:59,270 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 19:49:14,840 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 19:49:14,841 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 19:49:54,885 - utilities.project_discovery_graph - INFO - Filtering 15 projects...
+2025-02-16 19:49:54,927 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-16 19:49:55,398 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 19:49:57,018 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 19:49:59,246 - utilities.project_discovery_graph - ERROR - Error enriching project Haryana Orbital Rail Corridor Package C-5 Construction after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:02,257 - utilities.project_discovery_graph - ERROR - Error enriching project 24x7 Water Supply Schemes in 17 Towns of Uttar Pradesh after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:05,274 - utilities.project_discovery_graph - ERROR - Error enriching project 245 MW Solar PV Project after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:08,286 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:11,298 - utilities.project_discovery_graph - ERROR - Error enriching project SMEC & AECOM-CEG Awarded Bangalore Metro Line-5 DDC Contracts - The Metro Rail Guy after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:14,315 - utilities.project_discovery_graph - ERROR - Error enriching project Airoli-Katai Naka Freeway – Information & Status after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:17,326 - utilities.project_discovery_graph - ERROR - Error enriching project India's #1 Projects Tracking Platform after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:20,337 - utilities.project_discovery_graph - ERROR - Error enriching project Bombardier Wins Kanpur & Agra Metro’s 201 Coach Rolling Stock & Signalling Contract - The Metro Rail Guy after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:23,347 - utilities.project_discovery_graph - ERROR - Error enriching project Contract Awarded after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:50:24,348 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-16 19:50:24,349 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-16 19:50:24,349 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-16 19:50:24,350 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-16 19:50:24,350 - utilities.project_discovery_graph - INFO - Workflow completed in 94.43s
+2025-02-16 19:50:24,350 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-16 19:50:24,350 - utilities.project_discovery_graph - INFO - Projects found: 15
+2025-02-16 19:50:24,351 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-16 19:50:24,351 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-16 19:50:24,351 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-16 19:50:24,351 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-16 19:50:24,419 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 19:50:24,419 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 19:50:24,419 - apscheduler.scheduler - INFO - Scheduler started

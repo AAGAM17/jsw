@@ -1,0 +1,17 @@
+2025-02-13 03:34:51,802 - utilities.logger - INFO - Logging initialized
+2025-02-13 03:34:51,813 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 03:34:52,028 - __main__ - ERROR - Pipeline failed: type object 'Config' has no attribute 'CONTACT_OUT_API_KEY'
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/main.py", line 630, in run_pipeline
+    email_handler = EmailHandler()
+                    ^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/utilities/email_handler.py", line 27, in __init__
+    self.contact_enricher = ContactEnricher()
+                            ^^^^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/utilities/contact_enricher.py", line 13, in __init__
+    self.api_key = Config.CONTACT_OUT_API_KEY
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'Config' has no attribute 'CONTACT_OUT_API_KEY'
+2025-02-13 03:34:52,133 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 03:34:52,133 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 03:34:52,133 - apscheduler.scheduler - INFO - Scheduler started

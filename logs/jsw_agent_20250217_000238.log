@@ -1,0 +1,52 @@
+2025-02-17 00:02:38,779 - utilities.logger - INFO - Logging initialized
+2025-02-17 00:02:38,795 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 00:02:38,828 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 00:02:43,965 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 00:02:46,012 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 00:02:47,824 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 00:02:47,825 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-17 00:03:05,587 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-17 00:03:05,588 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-17 00:03:46,953 - utilities.project_discovery_graph - INFO - Filtering 15 projects...
+2025-02-17 00:03:46,970 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-17 00:03:47,512 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:03:49,753 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:03:50,613 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:51,269 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:51,949 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:52,568 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:53,132 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:53,799 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:54,412 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:55,029 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:55,640 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:03:55,644 - utilities.project_discovery_graph - INFO - Prioritizing 9 projects...
+2025-02-17 00:03:55,645 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-17 00:03:55,659 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:03:57,380 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:03:57,603 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,604 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,604 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,604 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,604 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,604 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,605 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:03:57,605 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,512 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 00:04:01,512 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,513 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,513 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,513 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,513 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:01,513 - utilities.email_handler - ERROR - Error formatting project: name 'contacts' is not defined
+2025-02-17 00:04:04,847 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-17 00:04:04,849 - utilities.project_discovery_graph - INFO - Workflow completed in 86.02s
+2025-02-17 00:04:04,849 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 00:04:04,850 - utilities.project_discovery_graph - INFO - Projects found: 15
+2025-02-17 00:04:04,850 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-17 00:04:04,850 - utilities.project_discovery_graph - INFO - Projects enriched: 9
+2025-02-17 00:04:04,851 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-17 00:04:04,851 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 00:04:04,973 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 00:04:04,974 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 00:04:04,974 - apscheduler.scheduler - INFO - Scheduler started

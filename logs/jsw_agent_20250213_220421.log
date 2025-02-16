@@ -1,0 +1,39 @@
+2025-02-13 22:04:21,860 - utilities.logger - INFO - Logging initialized
+2025-02-13 22:04:21,866 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 22:04:21,891 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-13 22:04:26,797 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 22:04:28,743 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 22:04:30,705 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 22:04:30,705 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 22:04:48,182 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:04:48,183 - scrapers.perplexity_client - INFO - Trying backup query...
+2025-02-13 22:04:54,857 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:04:54,857 - scrapers.perplexity_client - INFO - Trying emergency query...
+2025-02-13 22:05:04,562 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-13 22:05:04,563 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-13 22:05:04,563 - scrapers.perplexity_client - WARNING - No projects found after all attempts
+2025-02-13 22:05:44,625 - utilities.project_discovery_graph - INFO - Filtering 11 projects...
+2025-02-13 22:05:44,643 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-13 22:05:45,083 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:05:46,670 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:05:47,412 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:05:47,904 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:05:48,414 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:05:48,925 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:05:49,417 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:05:49,422 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-13 22:05:49,423 - utilities.project_discovery_graph - INFO - Sending notifications for 5 projects...
+2025-02-13 22:05:49,442 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:05:50,882 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:05:54,365 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-13 22:05:57,830 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-13 22:05:57,834 - utilities.project_discovery_graph - INFO - Workflow completed in 95.95s
+2025-02-13 22:05:57,834 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-13 22:05:57,834 - utilities.project_discovery_graph - INFO - Projects found: 11
+2025-02-13 22:05:57,835 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-13 22:05:57,835 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-13 22:05:57,835 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-13 22:05:57,836 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-13 22:05:58,038 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 22:05:58,039 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 22:05:58,039 - apscheduler.scheduler - INFO - Scheduler started

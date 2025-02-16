@@ -1,0 +1,30 @@
+2025-02-13 23:07:29,809 - utilities.logger - INFO - Logging initialized
+2025-02-13 23:07:29,814 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 23:07:29,836 - utilities.project_discovery_graph - INFO - Starting project discovery with multi-agent system...
+2025-02-13 23:08:04,335 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 23:08:10,693 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 23:08:10,993 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 520 Server Error:  for url: https://themetrorailguy.com/category/news
+2025-02-13 23:08:10,993 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 23:08:27,795 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-13 23:08:27,795 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-13 23:08:27,807 - utilities.project_discovery_graph - INFO - Filtering 4 projects...
+2025-02-13 23:08:27,825 - utilities.project_discovery_graph - INFO - Enriching 1 projects...
+2025-02-13 23:08:27,842 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 23:08:29,333 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 23:08:29,554 - utilities.project_discovery_graph - INFO - Prioritizing 1 projects...
+2025-02-13 23:08:29,554 - utilities.project_discovery_graph - WARNING - Only 1 projects available after prioritization
+2025-02-13 23:08:29,554 - utilities.project_discovery_graph - INFO - Sending notifications for 1 projects...
+2025-02-13 23:08:29,563 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 23:08:30,989 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 23:08:31,623 - utilities.email_handler - ERROR - Apollo API search failed for the pratibha industries: 403 Client Error: Forbidden for url: https://api.apollo.io/api/v1/organizations/search
+2025-02-13 23:08:35,710 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-13 23:08:35,712 - utilities.project_discovery_graph - INFO - Workflow completed in 65.88s
+2025-02-13 23:08:35,713 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-13 23:08:35,713 - utilities.project_discovery_graph - INFO - Projects found: 4
+2025-02-13 23:08:35,713 - utilities.project_discovery_graph - INFO - Projects filtered: 1
+2025-02-13 23:08:35,713 - utilities.project_discovery_graph - INFO - Projects enriched: 1
+2025-02-13 23:08:35,713 - utilities.project_discovery_graph - INFO - Projects prioritized: 1
+2025-02-13 23:08:35,713 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-13 23:08:35,811 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 23:08:35,811 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 23:08:35,811 - apscheduler.scheduler - INFO - Scheduler started

@@ -1,0 +1,194 @@
+2025-02-14 17:49:05,628 - utilities.logger - INFO - Logging initialized
+2025-02-14 17:49:05,677 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-14 17:49:05,765 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-14 17:49:11,160 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-14 17:49:13,016 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-14 17:49:14,907 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-14 17:49:14,907 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-14 17:49:32,859 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-14 17:49:32,860 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-14 17:50:18,958 - utilities.project_discovery_graph - INFO - Filtering 16 projects...
+2025-02-14 17:50:18,970 - utilities.project_discovery_graph - INFO - Enriching 7 projects...
+2025-02-14 17:50:20,150 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-14 17:50:22,978 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-14 17:50:24,296 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:24,983 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:25,555 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:26,323 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:26,921 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:27,536 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:28,150 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-14 17:50:28,154 - utilities.project_discovery_graph - INFO - Prioritizing 7 projects...
+2025-02-14 17:50:28,156 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-14 17:50:28,176 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-14 17:50:30,299 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-14 17:52:56,833 - scrapers.linkedin_scraper - ERROR - LinkedIn login failed: HTTPConnectionPool(host='localhost', port=53832): Read timed out. (read timeout=120)
+2025-02-14 17:53:12,132 - utilities.email_handler - WARNING - No LinkedIn profiles found for uttar pradesh metro rail corporation ltd
+2025-02-14 17:54:09,738 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x000000010be34d98 chromedriver + 5954968
+1   chromedriver                        0x000000010be2c9ca chromedriver + 5921226
+2   chromedriver                        0x000000010b8ec5e0 chromedriver + 415200
+3   chromedriver                        0x000000010b93de1d chromedriver + 749085
+4   chromedriver                        0x000000010b93dfc1 chromedriver + 749505
+5   chromedriver                        0x000000010b98e104 chromedriver + 1077508
+6   chromedriver                        0x000000010b96403d chromedriver + 905277
+7   chromedriver                        0x000000010b98b39e chromedriver + 1065886
+8   chromedriver                        0x000000010b963de3 chromedriver + 904675
+9   chromedriver                        0x000000010b92fc6a chromedriver + 691306
+10  chromedriver                        0x000000010b930dc1 chromedriver + 695745
+11  chromedriver                        0x000000010bdf7e50 chromedriver + 5705296
+12  chromedriver                        0x000000010bdfbda0 chromedriver + 5721504
+13  chromedriver                        0x000000010bdd9797 chromedriver + 5580695
+14  chromedriver                        0x000000010bdfc82b chromedriver + 5724203
+15  chromedriver                        0x000000010bdc7fc4 chromedriver + 5509060
+16  chromedriver                        0x000000010be1b088 chromedriver + 5849224
+17  chromedriver                        0x000000010be1b24f chromedriver + 5849679
+18  chromedriver                        0x000000010be2c5a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:54:09,937 - utilities.email_handler - WARNING - No LinkedIn profiles found for gensol engineering limited
+2025-02-14 17:54:49,517 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x00000001060a1d98 chromedriver + 5954968
+1   chromedriver                        0x00000001060999ca chromedriver + 5921226
+2   chromedriver                        0x0000000105b595e0 chromedriver + 415200
+3   chromedriver                        0x0000000105baae1d chromedriver + 749085
+4   chromedriver                        0x0000000105baafc1 chromedriver + 749505
+5   chromedriver                        0x0000000105bfb104 chromedriver + 1077508
+6   chromedriver                        0x0000000105bd103d chromedriver + 905277
+7   chromedriver                        0x0000000105bf839e chromedriver + 1065886
+8   chromedriver                        0x0000000105bd0de3 chromedriver + 904675
+9   chromedriver                        0x0000000105b9cc6a chromedriver + 691306
+10  chromedriver                        0x0000000105b9ddc1 chromedriver + 695745
+11  chromedriver                        0x0000000106064e50 chromedriver + 5705296
+12  chromedriver                        0x0000000106068da0 chromedriver + 5721504
+13  chromedriver                        0x0000000106046797 chromedriver + 5580695
+14  chromedriver                        0x000000010606982b chromedriver + 5724203
+15  chromedriver                        0x0000000106034fc4 chromedriver + 5509060
+16  chromedriver                        0x0000000106088088 chromedriver + 5849224
+17  chromedriver                        0x000000010608824f chromedriver + 5849679
+18  chromedriver                        0x00000001060995a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:54:49,708 - utilities.email_handler - WARNING - No LinkedIn profiles found for scc infra
+2025-02-14 17:55:02,283 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-14 17:55:42,817 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000103fc2d98 chromedriver + 5954968
+1   chromedriver                        0x0000000103fba9ca chromedriver + 5921226
+2   chromedriver                        0x0000000103a7a5e0 chromedriver + 415200
+3   chromedriver                        0x0000000103acbe1d chromedriver + 749085
+4   chromedriver                        0x0000000103acbfc1 chromedriver + 749505
+5   chromedriver                        0x0000000103b1c104 chromedriver + 1077508
+6   chromedriver                        0x0000000103af203d chromedriver + 905277
+7   chromedriver                        0x0000000103b1939e chromedriver + 1065886
+8   chromedriver                        0x0000000103af1de3 chromedriver + 904675
+9   chromedriver                        0x0000000103abdc6a chromedriver + 691306
+10  chromedriver                        0x0000000103abedc1 chromedriver + 695745
+11  chromedriver                        0x0000000103f85e50 chromedriver + 5705296
+12  chromedriver                        0x0000000103f89da0 chromedriver + 5721504
+13  chromedriver                        0x0000000103f67797 chromedriver + 5580695
+14  chromedriver                        0x0000000103f8a82b chromedriver + 5724203
+15  chromedriver                        0x0000000103f55fc4 chromedriver + 5509060
+16  chromedriver                        0x0000000103fa9088 chromedriver + 5849224
+17  chromedriver                        0x0000000103fa924f chromedriver + 5849679
+18  chromedriver                        0x0000000103fba5a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:55:43,160 - utilities.email_handler - WARNING - No LinkedIn profiles found for projects tracking platform gmr infrastructure
+2025-02-14 17:56:27,271 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102e5bd98 chromedriver + 5954968
+1   chromedriver                        0x0000000102e539ca chromedriver + 5921226
+2   chromedriver                        0x00000001029135e0 chromedriver + 415200
+3   chromedriver                        0x0000000102964e1d chromedriver + 749085
+4   chromedriver                        0x0000000102964fc1 chromedriver + 749505
+5   chromedriver                        0x00000001029b5104 chromedriver + 1077508
+6   chromedriver                        0x000000010298b03d chromedriver + 905277
+7   chromedriver                        0x00000001029b239e chromedriver + 1065886
+8   chromedriver                        0x000000010298ade3 chromedriver + 904675
+9   chromedriver                        0x0000000102956c6a chromedriver + 691306
+10  chromedriver                        0x0000000102957dc1 chromedriver + 695745
+11  chromedriver                        0x0000000102e1ee50 chromedriver + 5705296
+12  chromedriver                        0x0000000102e22da0 chromedriver + 5721504
+13  chromedriver                        0x0000000102e00797 chromedriver + 5580695
+14  chromedriver                        0x0000000102e2382b chromedriver + 5724203
+15  chromedriver                        0x0000000102deefc4 chromedriver + 5509060
+16  chromedriver                        0x0000000102e42088 chromedriver + 5849224
+17  chromedriver                        0x0000000102e4224f chromedriver + 5849679
+18  chromedriver                        0x0000000102e535a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:56:27,490 - utilities.email_handler - WARNING - No LinkedIn profiles found for under construction
+2025-02-14 17:57:03,701 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x000000011038ed98 chromedriver + 5954968
+1   chromedriver                        0x00000001103869ca chromedriver + 5921226
+2   chromedriver                        0x000000010fe465e0 chromedriver + 415200
+3   chromedriver                        0x000000010fe97e1d chromedriver + 749085
+4   chromedriver                        0x000000010fe97fc1 chromedriver + 749505
+5   chromedriver                        0x000000010fee8104 chromedriver + 1077508
+6   chromedriver                        0x000000010febe03d chromedriver + 905277
+7   chromedriver                        0x000000010fee539e chromedriver + 1065886
+8   chromedriver                        0x000000010febdde3 chromedriver + 904675
+9   chromedriver                        0x000000010fe89c6a chromedriver + 691306
+10  chromedriver                        0x000000010fe8adc1 chromedriver + 695745
+11  chromedriver                        0x0000000110351e50 chromedriver + 5705296
+12  chromedriver                        0x0000000110355da0 chromedriver + 5721504
+13  chromedriver                        0x0000000110333797 chromedriver + 5580695
+14  chromedriver                        0x000000011035682b chromedriver + 5724203
+15  chromedriver                        0x0000000110321fc4 chromedriver + 5509060
+16  chromedriver                        0x0000000110375088 chromedriver + 5849224
+17  chromedriver                        0x000000011037524f chromedriver + 5849679
+18  chromedriver                        0x00000001103865a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:57:03,896 - utilities.email_handler - WARNING - No LinkedIn profiles found for inderdeep construction-eagle infra india limited jv
+2025-02-14 17:57:40,672 - scrapers.linkedin_scraper - ERROR - Error extracting profiles: Message: no such element: Unable to locate element: {"method":"css selector","selector":".artdeco-pagination__button--next"}
+  (Session info: chrome=133.0.6943.98); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000108e94d98 chromedriver + 5954968
+1   chromedriver                        0x0000000108e8c9ca chromedriver + 5921226
+2   chromedriver                        0x000000010894c5e0 chromedriver + 415200
+3   chromedriver                        0x000000010899de1d chromedriver + 749085
+4   chromedriver                        0x000000010899dfc1 chromedriver + 749505
+5   chromedriver                        0x00000001089ee104 chromedriver + 1077508
+6   chromedriver                        0x00000001089c403d chromedriver + 905277
+7   chromedriver                        0x00000001089eb39e chromedriver + 1065886
+8   chromedriver                        0x00000001089c3de3 chromedriver + 904675
+9   chromedriver                        0x000000010898fc6a chromedriver + 691306
+10  chromedriver                        0x0000000108990dc1 chromedriver + 695745
+11  chromedriver                        0x0000000108e57e50 chromedriver + 5705296
+12  chromedriver                        0x0000000108e5bda0 chromedriver + 5721504
+13  chromedriver                        0x0000000108e39797 chromedriver + 5580695
+14  chromedriver                        0x0000000108e5c82b chromedriver + 5724203
+15  chromedriver                        0x0000000108e27fc4 chromedriver + 5509060
+16  chromedriver                        0x0000000108e7b088 chromedriver + 5849224
+17  chromedriver                        0x0000000108e7b24f chromedriver + 5849679
+18  chromedriver                        0x0000000108e8c5a8 chromedriver + 5920168
+19  libsystem_pthread.dylib             0x00007ff804406253 _pthread_start + 99
+20  libsystem_pthread.dylib             0x00007ff804401bef thread_start + 15
+
+2025-02-14 17:57:40,938 - utilities.email_handler - WARNING - No LinkedIn profiles found for universal mep projects and engineering services limited
+2025-02-14 17:57:44,805 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Workflow completed in 519.08s
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Projects found: 16
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Projects filtered: 7
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Projects enriched: 7
+2025-02-14 17:57:44,818 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-14 17:57:44,819 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-14 17:57:44,951 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-14 17:57:44,952 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-14 17:57:44,952 - apscheduler.scheduler - INFO - Scheduler started

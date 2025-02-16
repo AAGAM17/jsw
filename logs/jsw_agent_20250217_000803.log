@@ -1,0 +1,42 @@
+2025-02-17 00:08:03,059 - utilities.logger - INFO - Logging initialized
+2025-02-17 00:08:03,070 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 00:08:03,141 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 00:08:08,935 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 00:08:11,031 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 00:08:13,047 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 00:08:13,048 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-17 00:08:32,527 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-17 00:08:32,529 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-17 00:09:13,188 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-17 00:09:13,200 - utilities.project_discovery_graph - INFO - Enriching 7 projects...
+2025-02-17 00:09:13,796 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:09:15,372 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:09:16,210 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:16,790 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:17,390 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:17,986 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:18,666 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:19,240 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:19,939 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:09:19,945 - utilities.project_discovery_graph - INFO - Prioritizing 7 projects...
+2025-02-17 00:09:19,948 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-17 00:09:19,969 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:09:21,470 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:09:21,692 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-17 00:09:21,692 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-17 00:09:40,011 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-17 00:09:43,661 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 00:09:43,662 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-17 00:09:43,662 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-17 00:09:57,335 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-17 00:10:00,819 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-17 00:10:00,820 - utilities.project_discovery_graph - INFO - Workflow completed in 117.69s
+2025-02-17 00:10:00,821 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 00:10:00,821 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-17 00:10:00,821 - utilities.project_discovery_graph - INFO - Projects filtered: 7
+2025-02-17 00:10:00,821 - utilities.project_discovery_graph - INFO - Projects enriched: 7
+2025-02-17 00:10:00,821 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-17 00:10:00,821 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 00:10:00,932 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 00:10:00,933 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 00:10:00,933 - apscheduler.scheduler - INFO - Scheduler started

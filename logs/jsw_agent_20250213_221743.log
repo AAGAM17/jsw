@@ -1,0 +1,63 @@
+2025-02-13 22:17:43,034 - utilities.logger - INFO - Logging initialized
+2025-02-13 22:17:43,039 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 22:17:43,066 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-13 22:17:52,581 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 22:17:57,114 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 22:18:02,403 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 22:18:02,404 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 22:18:22,986 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-13 22:18:22,986 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-13 22:19:02,650 - utilities.project_discovery_graph - INFO - Filtering 16 projects...
+2025-02-13 22:19:02,674 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-13 22:19:03,046 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 22:19:04,872 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 22:19:05,646 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:07,060 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:08,455 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:08,458 - utilities.project_discovery_graph - ERROR - Error enriching project NBCC Secures Rs. 272.33 Cr Infrastructure Contracts for Punjab University, Gu... after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:10,198 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:11,588 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:12,967 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:12,968 - utilities.project_discovery_graph - ERROR - Error enriching project EIL Secures Rs. 106 Cr PMC Contract for Paradip Petrochemical Complex after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:14,399 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:15,815 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:17,265 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:17,268 - utilities.project_discovery_graph - ERROR - Error enriching project Gensol Engineering Wins Rs. 967 Cr Contract for 245 MW Solar PV Project after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:18,688 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:20,132 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:21,796 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:21,802 - utilities.project_discovery_graph - ERROR - Error enriching project Universal MEP Wins Rs. 189.27 Cr Contract for 24x7 Water Supply Schemes in UP after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:23,314 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:24,754 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:26,277 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:26,278 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra Wins Rs. 307.24 Cr Contract for Sabarmati Bullet Train Depot after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:27,674 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:29,148 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:30,686 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:30,689 - utilities.project_discovery_graph - ERROR - Error enriching project Dilip Buildcon Secures Rs. 125.01 Cr Goa Airport Parallel Taxi Track Contract after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:32,113 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:33,547 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:34,964 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:34,966 - utilities.project_discovery_graph - ERROR - Error enriching project Under Construction Unveils Rs. 944 Cr Airoli-Katai Naka Elevated Road after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:36,415 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:37,913 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:39,384 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:39,390 - utilities.project_discovery_graph - ERROR - Error enriching project Bombardier Wins Rs. 2051 Cr Kanpur & Agra Metro Rolling Stock Contract after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:40,815 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:42,354 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:44,307 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-13 22:19:44,309 - utilities.project_discovery_graph - ERROR - Error enriching project Dilip Buildcon Wins Rs. 1373 Cr HAM Projects in Andhra Pradesh after 3 retries: 'EmailHandler' object has no attribute '_get_crm_info'
+2025-02-13 22:19:45,310 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-13 22:19:45,315 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-13 22:19:45,315 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-13 22:19:45,317 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Workflow completed in 122.26s
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Projects found: 16
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-13 22:19:45,319 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-13 22:19:45,320 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-13 22:19:45,455 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 22:19:45,455 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 22:19:45,455 - apscheduler.scheduler - INFO - Scheduler started

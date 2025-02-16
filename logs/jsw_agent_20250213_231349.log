@@ -1,0 +1,28 @@
+2025-02-13 23:13:49,531 - utilities.logger - INFO - Logging initialized
+2025-02-13 23:13:49,536 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 23:13:49,561 - utilities.project_discovery_graph - INFO - Starting project discovery with multi-agent system...
+2025-02-13 23:14:12,447 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-13 23:14:14,814 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-13 23:14:17,172 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-13 23:14:17,174 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-13 23:14:31,947 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-13 23:14:31,948 - scrapers.perplexity_client - INFO - Found 2 projects
+2025-02-13 23:14:31,962 - utilities.project_discovery_graph - INFO - Filtering 0 projects...
+2025-02-13 23:14:31,963 - utilities.project_discovery_graph - WARNING - No projects passed filtering stage
+2025-02-13 23:14:31,964 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-13 23:14:31,983 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-13 23:14:33,549 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-13 23:14:33,774 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-13 23:14:33,776 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-13 23:14:33,777 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-13 23:14:33,778 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Workflow completed in 44.22s
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Projects found: 0
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-13 23:14:33,780 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-13 23:14:33,781 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-13 23:14:33,898 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-13 23:14:33,899 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-13 23:14:33,899 - apscheduler.scheduler - INFO - Scheduler started

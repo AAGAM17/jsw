@@ -1,0 +1,67 @@
+2025-02-16 22:19:00,219 - utilities.logger - INFO - Logging initialized
+2025-02-16 22:19:00,225 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 22:19:00,246 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 22:19:08,227 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 22:19:11,577 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 22:19:13,721 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 22:19:13,721 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 22:19:27,664 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 22:19:27,664 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 22:20:06,979 - utilities.project_discovery_graph - INFO - Filtering 15 projects...
+2025-02-16 22:20:07,001 - utilities.project_discovery_graph - INFO - Enriching 10 projects...
+2025-02-16 22:20:07,446 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 22:20:09,798 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 22:20:10,838 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:12,708 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:14,657 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:14,660 - utilities.project_discovery_graph - ERROR - Error enriching project Augmentation of Ambernath water supply scheme after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:16,620 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:18,686 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:20,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:20,591 - utilities.project_discovery_graph - ERROR - Error enriching project 245 MW Solar PV Project after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:22,312 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:24,179 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:26,749 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:26,751 - utilities.project_discovery_graph - ERROR - Error enriching project 24x7 water supply schemes in 17 towns of Uttar Pradesh after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:28,582 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:31,653 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:33,608 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:33,611 - utilities.project_discovery_graph - ERROR - Error enriching project Sam India Wins Agra Metro Line-1’s Construction Work - The Metro Rail Guy after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:35,436 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:37,595 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:39,810 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:39,812 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:42,102 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:43,832 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:45,702 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:45,705 - utilities.project_discovery_graph - ERROR - Error enriching project SMEC & AECOM-CEG Awarded Bangalore Metro Line-5 DDC Contracts - The Metro Rail Guy after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:48,042 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:50,011 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:51,800 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:51,803 - utilities.project_discovery_graph - ERROR - Error enriching project Airoli-Katai Naka Freeway – Information & Status after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:20:53,986 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:55,734 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:58,382 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:20:58,384 - utilities.project_discovery_graph - ERROR - Error enriching project India's #1 Projects Tracking Platform after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:21:00,524 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:02,316 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:04,025 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:04,027 - utilities.project_discovery_graph - ERROR - Error enriching project Bombardier Wins Kanpur & Agra Metro’s 201 Coach Rolling Stock & Signalling Contract - The Metro Rail Guy after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:21:05,750 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:07,490 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:09,334 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:21:09,336 - utilities.project_discovery_graph - ERROR - Error enriching project Contract Awarded after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 22:21:10,344 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-16 22:21:10,348 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-16 22:21:10,348 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-16 22:21:10,350 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-16 22:21:10,352 - utilities.project_discovery_graph - INFO - Workflow completed in 130.11s
+2025-02-16 22:21:10,352 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-16 22:21:10,352 - utilities.project_discovery_graph - INFO - Projects found: 15
+2025-02-16 22:21:10,353 - utilities.project_discovery_graph - INFO - Projects filtered: 10
+2025-02-16 22:21:10,353 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-16 22:21:10,354 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-16 22:21:10,354 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-16 22:21:10,446 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 22:21:10,447 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 22:21:10,447 - apscheduler.scheduler - INFO - Scheduler started

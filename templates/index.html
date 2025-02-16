@@ -5,39 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JSW Steel Project Discovery</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .project-card {
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            margin: 20px 0;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .priority-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        
+        .priority-badge.high {
+            background: #fde8e8;
+            color: #dc3545;
+        }
+        
+        .priority-badge.normal {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .requirements-box {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .relationship-note {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+            font-size: 16px;
+            color: #1a1a1a;
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
-    <div class="max-w-4xl mx-auto p-6">
-        <h1 class="text-3xl font-bold text-gray-900 mb-8">JSW Steel Project Discovery</h1>
-        
-        <div class="flex gap-4 mb-8">
-            <button id="runPipeline" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                Run Pipeline
-            </button>
-            <button id="runTest" class="bg-[#67B7F7] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
-                Run Test
-            </button>
+    <div class="max-w-6xl mx-auto p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">JSW Steel Project Discovery</h1>
+            
+            <div class="flex gap-4">
+                <button id="runPipeline" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Run Pipeline
+                </button>
+                <button id="runTest" class="bg-[#67B7F7] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                    Run Test
+                </button>
+            </div>
         </div>
 
-        <div class="bg-white rounded-lg shadow-sm p-6">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">Status Information</h2>
-            
-            <div class="space-y-3">
-                <div>
-                    <span class="font-medium text-gray-700">Last Run:</span>
-                    <span id="lastRunTime" class="ml-2 text-gray-600">{{ last_run_time if last_run_time else 'Never' }}</span>
-                </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Status Card -->
+            <div class="bg-white rounded-lg shadow-sm p-6">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Status Information</h2>
                 
-                <div>
-                    <span class="font-medium text-gray-700">Status:</span>
-                    <span id="status" class="ml-2 text-gray-600">{{ last_run_status if last_run_status else 'Not Run' }}</span>
-                </div>
-                
-                <div>
-                    <span class="font-medium text-gray-700">Results:</span>
-                    <div id="results" class="mt-2 text-gray-600">
-                        {{ last_run_results if last_run_results else 'No results available' }}
+                <div class="space-y-3">
+                    <div>
+                        <span class="font-medium text-gray-700">Last Run:</span>
+                        <span id="lastRunTime" class="ml-2 text-gray-600">{{ last_run_time if last_run_time else 'Never' }}</span>
                     </div>
+                    
+                    <div>
+                        <span class="font-medium text-gray-700">Status:</span>
+                        <span id="status" class="ml-2 text-gray-600">{{ last_run_status if last_run_status else 'Not Run' }}</span>
+                    </div>
+                    
+                    <div>
+                        <span class="font-medium text-gray-700">Results:</span>
+                        <div id="results" class="mt-2 text-gray-600">
+                            {{ last_run_results if last_run_results else 'No results available' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example Project Cards -->
+            <div class="project-card" style="border-left: 4px solid #dc3545;">
+                <div class="mb-4">
+                    <span class="priority-badge high">High Priority</span>
+                </div>
+                
+                <h3 class="text-2xl font-semibold text-gray-800 mb-2">HG Infra</h3>
+                <h4 class="text-xl text-gray-700 mb-4">HG Infra wins New Delhi railway station revamp contract (with DEC Infra)</h4>
+                
+                <div class="requirements-box">
+                    <strong class="text-gray-900">Primary:</strong> TMT Bars: ~15,000MT
+                </div>
+                <div class="requirements-box">
+                    <strong class="text-gray-900">Secondary:</strong> HR Plates: ~8,000MT
+                </div>
+                <div class="requirements-box">
+                    <strong class="text-gray-900">Work Begins:</strong> Q1 2026 - 3.7 years
+                </div>
+                
+                <div class="relationship-note">
+                    {% if relationship_data %}
+                    <div class="mb-2">
+                        <strong class="text-gray-900">Current Project:</strong> Maharashtra EPC Road Projects
+                    </div>
+                    <div class="mb-2">
+                        <strong class="text-gray-900">Volume:</strong> 40,000 MT (Ongoing)
+                    </div>
+                    <div class="mb-2">
+                        <strong class="text-gray-900">Materials:</strong> Structural Steel, Rebar
+                    </div>
+                    <div>
+                        <strong class="text-gray-900">Notes:</strong> Focus on green steel options to align with sustainability goals
+                    </div>
+                    {% else %}
+                    <div>
+                        <strong class="text-gray-900">No existing relationship found</strong>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mt-4 space-y-2">
+                    <div class="contact-info">
+                        <p class="text-gray-900 font-medium">Amit Patel</p>
+                        <p class="text-gray-600">VP of Procurement</p>
+                        <p class="text-gray-600">
+                            <a href="mailto:amit.patel@hginfra.com" class="text-blue-600 hover:text-blue-800">amit.patel@hginfra.com</a>
+                            • +91-9321098765
+                        </p>
+                    </div>
+                    <div class="contact-info">
+                        <p class="text-gray-900 font-medium">Neha Sharma</p>
+                        <p class="text-gray-600">VP of Procurement</p>
+                        <p class="text-gray-600">
+                            <a href="mailto:neha.sharma@hginfra.com" class="text-blue-600 hover:text-blue-800">neha.sharma@hginfra.com</a>
+                            • +91-9210987654
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 flex flex-wrap gap-4">
+                    <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                        View Announcement
+                    </a>
+                    <a href="#" class="bg-gray-100 text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors border border-blue-600">
+                        Get More Info
+                    </a>
                 </div>
             </div>
         </div>

@@ -10,40 +10,26 @@ from scrapers.linkedin_scraper import LinkedInScraper
 class ContactEnricher:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        self.api_key = Config.CONTACT_OUT_API_KEY
         self.crm_data = self._load_crm_data()
         self.linkedin = LinkedInScraper()
         
     def _load_crm_data(self):
         """Load CRM data from the predefined dictionary"""
         crm_data = {
-            'rahee': {
-                'contacts': [
-                    {
-                        'name': 'Ashish Raheja',
-                        'role': 'VP, Eng. Procurement',
-                        'email': 'ashish.raheja@rahee.com',
-                        'phone': '+91 9898439394',
-                        'relationship_notes': 'Previously worked with Sanjay Mirchandani from TMT Bars team on Mumbai Metro Project'
-                    },
-                    {
-                        'name': 'Boman Irani',
-                        'role': 'Senior VP, Procurement',
-                        'email': 'boman.irani@rahee.com',
-                        'phone': '+91 9074598939'
-                    }
-                ],
-                'projects': {
-                    'current': 'Mumbai Metro Project',
-                    'volume': '60 MT (Completed)',
-                    'materials': 'TMT Bars, Hot Rolled Plates',
-                    'notes': 'Strong relationship with procurement team, successful delivery on Mumbai Metro'
-                }
-            },
             'larsen & toubro': {
                 'contacts': [
-                    {'name': 'Arjun Sharma', 'email': 'arjun.sharma@lt.com', 'phone': '+91-9876543210', 'role': 'VP of Procurement'},
-                    {'name': 'Priya Patel', 'email': 'priya.patel@lt.com', 'phone': '+91-9988776655', 'role': 'VP of Procurement'}
+                    {
+                        'name': 'Arjun Sharma',
+                        'role': 'VP of Procurement',
+                        'email': 'arjun.sharma@lt.com',
+                        'phone': '+91-9876543210'
+                    },
+                    {
+                        'name': 'Priya Patel',
+                        'role': 'VP of Procurement',
+                        'email': 'priya.patel@lt.com',
+                        'phone': '+91-9988776655'
+                    }
                 ],
                 'projects': {
                     'current': 'Mumbai–Ahmedabad High-Speed Rail (MAHSR)',
@@ -51,12 +37,290 @@ class ContactEnricher:
                     'materials': 'High-Strength TMT Bars, HR Plates, LRPC',
                     'notes': 'JSW holds >50% market share in steel supply for this project. Strong relationship; exploring opportunities for Delhi–Varanasi HSR project'
                 }
+            },
+            'dilip buildcon': {
+                'contacts': [
+                    {
+                        'name': 'Rohan Verma',
+                        'role': 'VP of Procurement',
+                        'email': 'rohan.verma@dilipbuildcon.com',
+                        'phone': '+91-9765432109'
+                    },
+                    {
+                        'name': 'Sneha Kapoor',
+                        'role': 'VP of Procurement',
+                        'email': 'sneha.kapoor@dilipbuildcon.com',
+                        'phone': '+91-9654321098'
+                    }
+                ],
+                'projects': {
+                    'current': 'Thoppur Ghat Section (Tamil Nadu)',
+                    'volume': '25,000 MT (Ongoing)',
+                    'materials': 'TMT Bars, Structural Steel',
+                    'notes': 'Focus on timely delivery and customized steel grades'
+                }
+            },
+            'pnc infratech': {
+                'contacts': [
+                    {
+                        'name': 'Vikram Singh',
+                        'role': 'VP of Procurement',
+                        'email': 'vikram.singh@pncinfratech.com',
+                        'phone': '+91-9543210987'
+                    },
+                    {
+                        'name': 'Deepika Reddy',
+                        'role': 'VP of Procurement',
+                        'email': 'deepika.reddy@pncinfratech.com',
+                        'phone': '+91-9432109876'
+                    }
+                ],
+                'projects': {
+                    'current': 'Western Bhopal Bypass',
+                    'volume': '30,000 MT (Ongoing)',
+                    'materials': 'TMT Bars, Cement-Coated Steel',
+                    'notes': 'Seeking long-term supply agreement'
+                }
+            },
+            'hg infra': {
+                'contacts': [
+                    {
+                        'name': 'Amit Patel',
+                        'role': 'VP of Procurement',
+                        'email': 'amit.patel@hginfra.com',
+                        'phone': '+91-9321098765'
+                    },
+                    {
+                        'name': 'Neha Sharma',
+                        'role': 'VP of Procurement',
+                        'email': 'neha.sharma@hginfra.com',
+                        'phone': '+91-9210987654'
+                    }
+                ],
+                'projects': {
+                    'current': 'Maharashtra EPC Road Projects',
+                    'volume': '40,000 MT (Ongoing)',
+                    'materials': 'Structural Steel, Rebar',
+                    'notes': 'Focus on green steel options to align with sustainability goals'
+                }
+            },
+            'irb infrastructure': {
+                'contacts': [
+                    {
+                        'name': 'Suresh Kumar',
+                        'role': 'VP of Procurement',
+                        'email': 'suresh.kumar@irb.com',
+                        'phone': '+91-9109876543'
+                    },
+                    {
+                        'name': 'Anjali Iyer',
+                        'role': 'VP of Procurement',
+                        'email': 'anjali.iyer@irb.com',
+                        'phone': '+91-9098765432'
+                    }
+                ],
+                'projects': {
+                    'current': 'NH-44 Lalitpur-Sagar-Lakhnadon Section',
+                    'volume': '20,000 MT (Ongoing)',
+                    'materials': 'High-Tensile Steel, TMT Bars',
+                    'notes': 'Exploring toll-operate-transfer (TOT) projects partnership'
+                }
+            },
+            'cube highways': {
+                'contacts': [
+                    {
+                        'name': 'Manish Gupta',
+                        'role': 'VP of Procurement',
+                        'email': 'manish.gupta@cubehighways.com',
+                        'phone': '+91-8987654321'
+                    },
+                    {
+                        'name': 'Kavita Verma',
+                        'role': 'VP of Procurement',
+                        'email': 'kavita.verma@cubehighways.com',
+                        'phone': '+91-8877665544'
+                    }
+                ],
+                'projects': {
+                    'current': 'NH-2 Allahabad Bypass',
+                    'volume': '15,000 MT (Completed)',
+                    'materials': 'Reinforcement Steel, Pre-stressed Cables',
+                    'notes': 'Successful project; seeking future collaborations for highway expansions'
+                }
+            },
+            'gr infraprojects': {
+                'contacts': [
+                    {
+                        'name': 'Rajesh Khanna',
+                        'role': 'VP of Procurement',
+                        'email': 'rajesh.khanna@grinfra.com',
+                        'phone': '+91-8765432109'
+                    },
+                    {
+                        'name': 'Shweta Singh',
+                        'role': 'VP of Procurement',
+                        'email': 'shweta.singh@grinfra.com',
+                        'phone': '+91-8654321098'
+                    }
+                ],
+                'projects': {
+                    'current': 'Pune Ring Road',
+                    'volume': '35,000 MT (Ongoing)',
+                    'materials': 'Structural Steel, TMT Bars',
+                    'notes': 'Critical project; focusing on just-in-time delivery'
+                }
+            },
+            'afcons infrastructure': {
+                'contacts': [
+                    {
+                        'name': 'Sandeep Malhotra',
+                        'role': 'VP of Procurement',
+                        'email': 'sandeep.malhotra@afcons.com',
+                        'phone': '+91-8543210987'
+                    },
+                    {
+                        'name': 'Nidhi Joshi',
+                        'role': 'VP of Procurement',
+                        'email': 'nidhi.joshi@afcons.com',
+                        'phone': '+91-8432109876'
+                    }
+                ],
+                'projects': {
+                    'current': 'Mumbai–Ahmedabad HSR Tunneling',
+                    'volume': '18,000 MT (Ongoing)',
+                    'materials': 'Tunneling Grade Steel, Support Structures',
+                    'notes': 'Specialized steel requirements; close technical collaboration'
+                }
+            },
+            'j kumar infraprojects': {
+                'contacts': [
+                    {
+                        'name': 'Vikrant Kumar',
+                        'role': 'VP of Procurement',
+                        'email': 'vikrant.kumar@jkumar.com',
+                        'phone': '+91-8321098765'
+                    },
+                    {
+                        'name': 'Alisha Khan',
+                        'role': 'VP of Procurement',
+                        'email': 'alisha.khan@jkumar.com',
+                        'phone': '+91-8210987654'
+                    }
+                ],
+                'projects': {
+                    'current': 'Navi Mumbai Coastal Road',
+                    'volume': '12,000 MT (Ongoing)',
+                    'materials': 'Corrosion-Resistant Steel, Marine-Grade Rebar',
+                    'notes': 'Focus on durability in coastal environments'
+                }
+            },
+            'megha engineering': {
+                'contacts': [
+                    {
+                        'name': 'Gaurav Bhatia',
+                        'role': 'VP of Procurement',
+                        'email': 'gaurav.bhatia@meil.in',
+                        'phone': '+91-8109876543'
+                    },
+                    {
+                        'name': 'Tanvi Reddy',
+                        'role': 'VP of Procurement',
+                        'email': 'tanvi.reddy@meil.in',
+                        'phone': '+91-8098765432'
+                    }
+                ],
+                'projects': {
+                    'current': 'Pune Ring Road, Mahi Multi Villages Scheme',
+                    'volume': '45,000 MT (Ongoing)',
+                    'materials': 'High-Grade Steel, Piping Steel',
+                    'notes': 'Key partner; exploring irrigation and infrastructure projects'
+                }
             }
         }
         return crm_data
     
+    def _search_apollo_contacts(self, company_name):
+        """Search for procurement contacts using Apollo API"""
+        try:
+            headers = {
+                'accept': 'application/json',
+                'Cache-Control': 'no-cache',
+                'Content-Type': 'application/json',
+                'x-api-key': self.api_key
+            }
+
+            # First search for the company
+            company_data = {
+                'q_organization_name': company_name,
+                'page': 1,
+                'per_page': 1
+            }
+
+            company_response = requests.post(
+                'https://api.apollo.io/api/v1/organizations/search',
+                headers=headers,
+                json=company_data
+            )
+            company_response.raise_for_status()
+            company_info = company_response.json()
+
+            if not company_info.get('organizations'):
+                self.logger.warning(f"No company found in Apollo for {company_name}")
+                return []
+
+            organization_id = company_info['organizations'][0]['id']
+
+            # Search for procurement contacts
+            contact_data = {
+                'organization_ids': [organization_id],
+                'titles': [
+                    'Procurement',
+                    'Purchasing',
+                    'Supply Chain',
+                    'Materials',
+                    'Sourcing',
+                    'Buyer',
+                    'Vendor'
+                ],
+                'seniorities': [
+                    'director',
+                    'vp',
+                    'head',
+                    'manager',
+                    'lead'
+                ],
+                'page': 1,
+                'per_page': 10
+            }
+
+            contact_response = requests.post(
+                'https://api.apollo.io/api/v1/people/search',
+                headers=headers,
+                json=contact_data
+            )
+            contact_response.raise_for_status()
+            contact_data = contact_response.json()
+
+            contacts = []
+            for person in contact_data.get('people', []):
+                contact = {
+                    'name': f"{person.get('first_name', '')} {person.get('last_name', '')}".strip(),
+                    'role': person.get('title', ''),
+                    'email': person.get('email', ''),
+                    'phone': person.get('phone_number', ''),
+                    'location': f"{person.get('city', '')}, {person.get('state', '')}".strip(', '),
+                    'source': 'Apollo'
+                }
+                contacts.append(contact)
+
+            return contacts
+
+        except Exception as e:
+            self.logger.error(f"Apollo API search failed for {company_name}: {str(e)}")
+            return []
+    
     def enrich_project_contacts(self, project_info):
-        """Find procurement contacts for a company using CRM data, LinkedIn and ContactOut API"""
+        """Find procurement contacts for a company using CRM data and project info"""
         try:
             company_name = project_info.get('company', '')
             if not company_name or company_name == 'Unknown Company':
@@ -82,20 +346,13 @@ class ContactEnricher:
                     'priority': self._determine_priority(project_info)
                 }
             
-            # Search LinkedIn first
-            linkedin_contacts = self._search_linkedin(company_name)
-            
-            # Try ContactOut API for additional data
-            contactout_contacts = self._search_contactout(company_name)
-            
-            # Merge contacts from both sources
-            all_contacts = self._merge_contacts(linkedin_contacts, contactout_contacts)
-            
-            if all_contacts:
+            # If no CRM data, use any contacts provided in the project info
+            if project_info.get('contacts'):
+                self.logger.info(f"Using project contacts for {company_name}")
                 return {
                     'status': 'success',
-                    'source': 'LinkedIn + ContactOut',
-                    'contacts': all_contacts,
+                    'source': 'Project Data',
+                    'contacts': project_info['contacts'],
                     'relationship': {
                         'current_project': 'No existing relationship',
                         'volume': 'N/A',
@@ -105,6 +362,24 @@ class ContactEnricher:
                     'priority': self._determine_priority(project_info)
                 }
             
+            # Search LinkedIn as a fallback
+            linkedin_contacts = self._search_linkedin(company_name)
+            if linkedin_contacts:
+                self.logger.info(f"Found LinkedIn contacts for {company_name}")
+                return {
+                    'status': 'success',
+                    'source': 'LinkedIn',
+                    'contacts': linkedin_contacts,
+                    'relationship': {
+                        'current_project': 'No existing relationship',
+                        'volume': 'N/A',
+                        'materials': 'N/A',
+                        'notes': 'New potential customer'
+                    },
+                    'priority': self._determine_priority(project_info)
+                }
+            
+            self.logger.warning(f"No contacts found for {company_name}")
             return {
                 'status': 'not_found',
                 'message': f"No contacts found for {company_name}"
@@ -182,12 +457,12 @@ class ContactEnricher:
         """Search for procurement contacts on LinkedIn"""
         try:
             procurement_roles = [
-                'procurement',
-                'purchasing',
-                'supply chain',
-                'materials',
-                'sourcing',
-                'buyer',
+                        'procurement',
+                        'purchasing',
+                        'supply chain',
+                        'materials',
+                        'sourcing',
+                        'buyer',
                 'vendor management'
             ]
             
@@ -233,8 +508,8 @@ class ContactEnricher:
             any(pos in title_lower for pos in relevant_positions)
         )
     
-    def _merge_contacts(self, linkedin_contacts, contactout_contacts):
-        """Merge contacts from LinkedIn and ContactOut, removing duplicates"""
+    def _merge_contacts(self, linkedin_contacts, apollo_contacts):
+        """Merge contacts from LinkedIn and Apollo, removing duplicates"""
         merged = []
         seen_names = set()
         
@@ -245,109 +520,14 @@ class ContactEnricher:
                 seen_names.add(name)
                 merged.append(contact)
         
-        # Add ContactOut contacts if they're not duplicates
-        for contact in contactout_contacts:
+        # Add Apollo contacts if they're not duplicates
+        for contact in apollo_contacts:
             name = contact['name'].lower()
             if name not in seen_names:
                 seen_names.add(name)
                 merged.append(contact)
         
         return merged
-    
-    def _search_contactout(self, company_name):
-        """Search for procurement contacts using ContactOut API"""
-        try:
-            # Clean company name
-            clean_company = re.sub(r'[\[\](){}<>]', '', company_name).strip()
-            clean_company = re.sub(r'\s+', ' ', clean_company)
-            
-            headers = {
-                'X-API-KEY': Config.CONTACT_OUT_API_KEY,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-            
-            # First search for company
-            company_response = requests.post(
-                'https://api.contactout.com/v2/companies/search',
-                headers=headers,
-                json={
-                    'company_name': clean_company,
-                    'limit': 1
-                },
-                timeout=15
-            )
-            company_response.raise_for_status()
-            company_data = company_response.json()
-            
-            if not company_data.get('companies'):
-                self.logger.warning(f"No company found in ContactOut for {clean_company}")
-                return []
-            
-            company_id = company_data['companies'][0].get('id')
-            if not company_id:
-                return []
-            
-            # Search for employees with procurement roles
-            employees_response = requests.post(
-                'https://api.contactout.com/v2/contacts/bulk-search',
-                headers=headers,
-                json={
-                    'company_id': company_id,
-                    'titles': [
-                        'procurement',
-                        'purchasing',
-                        'supply chain',
-                        'materials',
-                        'sourcing',
-                        'buyer',
-                        'vendor'
-                    ],
-                    'seniority_levels': [
-                        'director',
-                        'vp',
-                        'head',
-                        'manager',
-                        'lead'
-                    ],
-                    'limit': 10
-                },
-                timeout=15
-            )
-            employees_response.raise_for_status()
-            employees_data = employees_response.json()
-            
-            contacts = []
-            for contact in employees_data.get('contacts', []):
-                # Get detailed contact info
-                if contact.get('id'):
-                    detail_response = requests.get(
-                        f'https://api.contactout.com/v2/contacts/{contact["id"]}',
-                        headers=headers,
-                        timeout=15
-                    )
-                    detail_response.raise_for_status()
-                    detail_data = detail_response.json()
-                    
-                    # Extract contact details
-                    emails = detail_data.get('emails', [])
-                    phones = detail_data.get('phone_numbers', [])
-                    
-                    contacts.append({
-                        'name': detail_data.get('full_name', ''),
-                        'role': detail_data.get('current_title', ''),
-                        'email': emails[0] if emails else None,
-                        'phone': phones[0] if phones else None,
-                        'location': detail_data.get('location', ''),
-                        'company': detail_data.get('current_company', ''),
-                        'source': 'ContactOut'
-                    })
-            
-            return contacts
-            
-        except Exception as e:
-            self.logger.error(f"ContactOut search failed for {company_name}: {str(e)}")
-            return []
     
     def _calculate_similarity(self, str1, str2):
         """Calculate string similarity using Levenshtein distance"""

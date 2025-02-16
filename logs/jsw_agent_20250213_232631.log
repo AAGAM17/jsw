@@ -1,0 +1,64 @@
+2025-02-13 23:26:31,983 - utilities.logger - INFO - Logging initialized
+2025-02-13 23:26:31,988 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-13 23:26:32,013 - utilities.project_discovery_graph - INFO - Starting project discovery with multi-agent system...
+2025-02-13 23:26:32,249 - utilities.project_discovery_graph - INFO - Initialized all agents successfully
+2025-02-13 23:26:32,251 - utilities.project_discovery_graph - INFO - Loaded 275 URLs from permanent memory
+2025-02-13 23:26:32,251 - utilities.project_discovery_graph - INFO - Monitoring 20 company URLs
+2025-02-13 23:26:32,251 - utilities.project_discovery_graph - INFO - Processing search query: infrastructure contract won india latest
+2025-02-13 23:26:32,251 - utilities.project_discovery_graph - INFO - Executing Exa search for query: infrastructure contract won india latest
+2025-02-13 23:26:34,730 - utilities.project_discovery_graph - INFO - Found 100 results for query: infrastructure contract won india latest
+2025-02-13 23:26:34,730 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.business-standard.com/topic/infrastructure-project
+2025-02-13 23:26:36,305 - utilities.project_discovery_graph - INFO - Extracted project: infrastructure project: Latest News Headlines, Videos and Photo Galleries on infrastructure project | Business Standard
+2025-02-13 23:26:36,305 - utilities.project_discovery_graph - INFO - Company: 
+2025-02-13 23:26:36,305 - utilities.project_discovery_graph - INFO - Value: 0
+2025-02-13 23:26:36,306 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.business-standard.com/topic/infrastructure
+2025-02-13 23:26:37,348 - utilities.project_discovery_graph - INFO - Extracted project: infrastructure: Latest News Headlines, Videos and Photo Galleries on infrastructure | Business Standard
+2025-02-13 23:26:37,348 - utilities.project_discovery_graph - INFO - Company: 
+2025-02-13 23:26:37,348 - utilities.project_discovery_graph - INFO - Value: 0
+2025-02-13 23:26:37,348 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.moneycontrol.com/news/business/markets/infra-tendering-at-record-levels-awarding-and-execution-for-highways-continue-to-remain-slow-report-12308081.html
+2025-02-13 23:26:38,853 - utilities.project_discovery_graph - INFO - Extracted project: Infra tendering at record levels; awarding and execution for highways continue to remain slow: Report
+2025-02-13 23:26:38,853 - utilities.project_discovery_graph - INFO - Company: . Tendering activity in the infrastructure
+2025-02-13 23:26:38,853 - utilities.project_discovery_graph - INFO - Value: 3.03
+2025-02-13 23:26:38,853 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/infrastructure/roadways/modi-government-awards-roads-contracts-at-breakneck-pace-set-to-create-15-billion-record/1114730/
+2025-02-13 23:26:39,787 - utilities.project_discovery_graph - INFO - Extracted project: Modi government awards roads contracts at ‘breakneck pace’; set to create $15 billion record
+2025-02-13 23:26:39,787 - utilities.project_discovery_graph - INFO - Company: kilometers of road construction
+2025-02-13 23:26:39,787 - utilities.project_discovery_graph - INFO - Value: 10600.0
+2025-02-13 23:26:39,788 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.projectstoday.com/Project-Infographics
+2025-02-13 23:26:41,164 - utilities.project_discovery_graph - ERROR - Error processing URL https://www.projectstoday.com/Project-Infographics: Request failed with status code 429: {"error":"You've exceeded your Exa rate limit of 5 requests per second. If you want this increased, please email hello@exa.ai :)"}
+2025-02-13 23:26:41,168 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/infrastructure/
+2025-02-13 23:26:42,065 - utilities.project_discovery_graph - INFO - Extracted project: Infrastructure News : Indian infrastructure News, infrastructure development news, Latest infrastructure sector news
+2025-02-13 23:26:42,065 - utilities.project_discovery_graph - INFO - Company: end infrastructure
+2025-02-13 23:26:42,065 - utilities.project_discovery_graph - INFO - Value: 13607.0
+2025-02-13 23:26:42,065 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.moneycontrol.com/news/india/india-signs-usd-329-million-loan-pact-with-aiib-for-guj-road-project-2350787.html
+2025-02-13 23:26:42,978 - utilities.project_discovery_graph - INFO - Extracted project: India signs USD 329 million loan pact with AIIB for Guj road project
+2025-02-13 23:26:42,978 - utilities.project_discovery_graph - INFO - Company: India signed a loan agreement with Asian Infrastructure
+2025-02-13 23:26:42,978 - utilities.project_discovery_graph - INFO - Value: 0
+2025-02-13 23:26:42,978 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/infrastructure/indian-infrastructure-endures-to-move-on-a-growing-trail/2276804/
+2025-02-13 23:26:43,984 - utilities.project_discovery_graph - INFO - Extracted project: Indian Infrastructure endures to move on a growing trail
+2025-02-13 23:26:43,985 - utilities.project_discovery_graph - INFO - Company: As per Indian Infrastructure
+2025-02-13 23:26:43,985 - utilities.project_discovery_graph - INFO - Value: 233083.0
+2025-02-13 23:26:43,985 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.business-standard.com/topic/infrastructure-spending
+2025-02-13 23:26:44,882 - utilities.project_discovery_graph - INFO - Extracted project: infrastructure spending: Latest News Headlines, Videos and Photo Galleries on infrastructure spending | Business Standard
+2025-02-13 23:26:44,882 - utilities.project_discovery_graph - INFO - Company: 
+2025-02-13 23:26:44,882 - utilities.project_discovery_graph - INFO - Value: 0
+2025-02-13 23:26:44,882 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/india-news/narendra-modis-top-10-signature-infrastructure-projects-to-power-new-india/613121/
+2025-02-13 23:26:45,311 - utilities.project_discovery_graph - INFO - Extracted project: Narendra Modi’s top 10 signature infrastructure projects to power ‘New India’
+2025-02-13 23:26:45,312 - utilities.project_discovery_graph - INFO - Company: Modi government has launched a number of ambitious infrastructure projects
+2025-02-13 23:26:45,312 - utilities.project_discovery_graph - INFO - Value: 1200000.0
+2025-02-13 23:26:45,312 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/infrastructure/roadways/world-bank-modi-government-sign-usd-500-million-pact-to-develop-green-safe-highway-corridors-details/2155738/
+2025-02-13 23:26:45,744 - utilities.project_discovery_graph - INFO - Extracted project: World Bank, Modi government sign USD 500-million pact to develop green, safe highway corridors; details
+2025-02-13 23:26:45,744 - utilities.project_discovery_graph - INFO - Company: as well as other bioengineering
+2025-02-13 23:26:45,744 - utilities.project_discovery_graph - INFO - Value: 0
+2025-02-13 23:26:45,744 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.business-standard.com/article/reuters/ge-lands-2-6-billion-indian-railway-deal-115110901408_1.html
+2025-02-13 23:26:46,130 - utilities.project_discovery_graph - INFO - Extracted project: GE lands $2.6 billion Indian railway deal
+2025-02-13 23:26:46,130 - utilities.project_discovery_graph - INFO - Company: General Electric Co The U.S. company
+2025-02-13 23:26:46,130 - utilities.project_discovery_graph - INFO - Value: 13700.0
+2025-02-13 23:26:46,130 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.business-standard.com/article/news-ians/india-south-korea-sign-10-bn-funding-agreement-for-infra-projects-117061401249_1.html
+2025-02-13 23:26:47,053 - utilities.project_discovery_graph - INFO - Extracted project: India, South Korea sign $10 bn funding agreement for infra projects
+2025-02-13 23:26:47,053 - utilities.project_discovery_graph - INFO - Company: billion assistance for infrastructure development projects
+2025-02-13 23:26:47,053 - utilities.project_discovery_graph - INFO - Value: 1000.0
+2025-02-13 23:26:47,053 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.moneycontrol.com/news/india/cabinet-decision-on-railways-will-boost-infra-reduce-congestion-pm-modi-12233221.html
+2025-02-13 23:26:47,980 - utilities.project_discovery_graph - INFO - Extracted project: Cabinet decision on railways will boost infra, reduce congestion: PM Modi
+2025-02-13 23:26:47,980 - utilities.project_discovery_graph - INFO - Company: The Cabinet chaired by Modi approved six projects
+2025-02-13 23:26:47,980 - utilities.project_discovery_graph - INFO - Value: 12343.0
+2025-02-13 23:26:47,980 - utilities.project_discovery_graph - INFO - Extracting content from URL: https://www.financialexpress.com/infrastructure/dont-hear-matters-concerning-infrastructure-projects-sc-to-lower-courts/2467280/

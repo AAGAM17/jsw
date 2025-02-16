@@ -1,0 +1,33 @@
+2025-02-16 23:23:31,894 - utilities.logger - INFO - Logging initialized
+2025-02-16 23:23:31,903 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 23:23:31,928 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 23:23:40,551 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 23:23:45,958 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 23:23:52,646 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 23:23:52,647 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 23:24:08,017 - scrapers.perplexity_client - INFO - Successfully parsed 0 projects
+2025-02-16 23:24:08,018 - scrapers.perplexity_client - INFO - Found 0 projects
+2025-02-16 23:24:08,018 - scrapers.perplexity_client - WARNING - No projects found
+2025-02-16 23:24:48,390 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-16 23:24:48,407 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-16 23:24:48,893 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 23:24:50,465 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 23:24:52,687 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 23:24:55,691 - utilities.project_discovery_graph - ERROR - Error enriching project Airoli-Katai Naka Freeway – Information & Status after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 23:24:58,697 - utilities.project_discovery_graph - ERROR - Error enriching project India's #1 Projects Tracking Platform after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 23:25:01,706 - utilities.project_discovery_graph - ERROR - Error enriching project IRCON bags ₹1944 crore Rail Safety Contract for Kavach ... after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 23:25:04,710 - utilities.project_discovery_graph - ERROR - Error enriching project BEML Awarded India's High-Speed Rail Train Contract for ... after 3 retries: 'list' object has no attribute 'get'
+2025-02-16 23:25:05,715 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-16 23:25:05,718 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-16 23:25:05,718 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-16 23:25:05,720 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Workflow completed in 93.80s
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-16 23:25:05,721 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-16 23:25:05,721 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-16 23:25:05,826 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 23:25:05,827 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 23:25:05,827 - apscheduler.scheduler - INFO - Scheduler started

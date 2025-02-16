@@ -1,0 +1,67 @@
+2025-02-16 22:39:17,497 - utilities.logger - INFO - Logging initialized
+2025-02-16 22:39:17,506 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 22:39:17,534 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 22:39:22,444 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 22:39:24,287 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 22:39:26,332 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 22:39:26,332 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 22:39:41,291 - scrapers.perplexity_client - INFO - Successfully parsed 4 projects
+2025-02-16 22:39:41,291 - scrapers.perplexity_client - INFO - Found 4 projects
+2025-02-16 22:40:24,148 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-16 22:40:24,171 - utilities.project_discovery_graph - INFO - Enriching 9 projects...
+2025-02-16 22:40:24,631 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 22:40:26,446 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 22:40:26,693 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:27,582 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:27,592 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:28,260 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:28,263 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:28,712 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:28,715 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:29,202 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:29,204 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:29,722 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:29,724 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:30,543 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:30,546 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:31,149 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:31,151 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:32,422 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:32,425 - utilities.email_handler - ERROR - Error analyzing project: list indices must be integers or slices, not str
+2025-02-16 22:40:33,097 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 22:40:33,102 - utilities.project_discovery_graph - INFO - Prioritizing 9 projects...
+2025-02-16 22:40:33,104 - utilities.project_discovery_graph - INFO - Sending notifications for 7 projects...
+2025-02-16 22:40:33,122 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 22:40:34,834 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 22:40:35,071 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:40:35,071 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:40:51,046 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:40:51,050 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:40:51,050 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:41:04,845 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:41:04,850 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:41:04,850 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:41:25,113 - utilities.email_handler - ERROR - Contact search failed for : HTTPSConnectionPool(host='api.contactout.com', port=443): Max retries exceeded with url: /v2/search?query=company%3A%22%22+AND+title%3A%22head%22&type=profile&limit=10 (Caused by SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1002)')))
+2025-02-16 22:41:25,113 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:41:25,113 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:41:35,153 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:41:35,155 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:41:35,155 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:41:47,037 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:41:47,042 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:41:47,042 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:42:01,265 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:42:01,269 - utilities.email_handler - INFO - Starting ContactOut search for company: 
+2025-02-16 22:42:01,270 - utilities.email_handler - INFO - Using main company name: 
+2025-02-16 22:42:10,687 - utilities.email_handler - INFO - Total unique contacts found for : 0
+2025-02-16 22:42:14,486 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-16 22:42:14,488 - utilities.project_discovery_graph - INFO - Workflow completed in 176.96s
+2025-02-16 22:42:14,488 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-16 22:42:14,488 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-16 22:42:14,489 - utilities.project_discovery_graph - INFO - Projects filtered: 9
+2025-02-16 22:42:14,489 - utilities.project_discovery_graph - INFO - Projects enriched: 9
+2025-02-16 22:42:14,489 - utilities.project_discovery_graph - INFO - Projects prioritized: 7
+2025-02-16 22:42:14,489 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-16 22:42:14,669 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 22:42:14,669 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 22:42:14,669 - apscheduler.scheduler - INFO - Scheduler started

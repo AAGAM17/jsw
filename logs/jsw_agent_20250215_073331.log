@@ -1,0 +1,9 @@
+2025-02-15 07:33:31,949 - utilities.logger - INFO - Logging initialized
+2025-02-15 07:33:31,957 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-15 07:33:32,011 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-15 07:33:36,520 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-15 07:33:38,278 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-15 07:33:40,077 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-15 07:33:40,078 - scrapers.perplexity_client - INFO - Trying primary query...
+2025-02-15 07:33:57,727 - scrapers.perplexity_client - INFO - Successfully parsed 2 projects
+2025-02-15 07:33:57,727 - scrapers.perplexity_client - INFO - Found 2 projects

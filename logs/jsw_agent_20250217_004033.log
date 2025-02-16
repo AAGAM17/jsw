@@ -1,0 +1,32 @@
+2025-02-17 00:40:33,364 - utilities.logger - INFO - Logging initialized
+2025-02-17 00:40:33,368 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 00:40:33,385 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 00:48:00,218 - utilities.project_discovery_graph - INFO - Filtering 11 projects...
+2025-02-17 00:48:00,225 - utilities.project_discovery_graph - INFO - Enriching 3 projects...
+2025-02-17 00:48:00,810 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:48:03,077 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:48:04,011 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:48:04,631 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:48:05,217 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 00:48:05,221 - utilities.project_discovery_graph - INFO - Prioritizing 3 projects...
+2025-02-17 00:48:05,223 - utilities.project_discovery_graph - INFO - Sending notifications for 3 projects...
+2025-02-17 00:48:05,244 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 00:48:06,799 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 00:48:07,022 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:07,023 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:07,023 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:10,369 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-17 00:48:10,369 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:10,369 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:10,370 - utilities.email_handler - ERROR - Error formatting project for email: 'list' object has no attribute 'get'
+2025-02-17 00:48:14,460 - utilities.email_handler - INFO - Successfully sent email to aagamcshah172005@gmail.com
+2025-02-17 00:48:14,462 - utilities.project_discovery_graph - INFO - Workflow completed in 461.08s
+2025-02-17 00:48:14,462 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 00:48:14,463 - utilities.project_discovery_graph - INFO - Projects found: 11
+2025-02-17 00:48:14,463 - utilities.project_discovery_graph - INFO - Projects filtered: 3
+2025-02-17 00:48:14,463 - utilities.project_discovery_graph - INFO - Projects enriched: 3
+2025-02-17 00:48:14,463 - utilities.project_discovery_graph - INFO - Projects prioritized: 3
+2025-02-17 00:48:14,463 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 00:48:14,640 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 00:48:14,640 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 00:48:14,640 - apscheduler.scheduler - INFO - Scheduler started

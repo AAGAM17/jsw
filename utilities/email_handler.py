@@ -8,6 +8,8 @@ import re
 import time
 from .contact_enricher import ContactEnricher
 from groq import Groq
+import requests
+import urllib.parse
 
 class EmailHandler:
     def __init__(self):
@@ -20,6 +22,7 @@ class EmailHandler:
         self.sender_password = Config.EMAIL_PASSWORD
         self.team_emails = Config.TEAM_EMAILS
         self.groq_client = Groq()
+        self.contactout_token = Config.CONTACTOUT_TOKEN
         
         # Initialize contact enricher
         self.contact_enricher = ContactEnricher()
@@ -44,62 +47,100 @@ class EmailHandler:
         
     def determine_product_team(self, project):
         """Determine the most relevant product team based on project details"""
-        title_lower = project['title'].lower()
-        description = project.get('description', '').lower()
-        text = f"{title_lower} {description}"
+        try:
+            # Handle string input
+            if isinstance(project, str):
+                text = project.lower()
+            # Handle dictionary input
+            elif isinstance(project, dict):
+                title = project.get('title', '').lower()
+                description = project.get('description', '').lower()
+                text = f"{title} {description}"
+            else:
+                self.logger.error(f"Invalid project type: {type(project)}")
+                return 'TMT_BARS'  # Default team
         
-        # Check for specific keywords in order of priority
-        for industry, subsectors in Config.PRODUCT_MAPPING.items():
-            for subsector, product in subsectors.items():
-                if subsector in text:
-                    return product
-        
-        # Default mappings based on broader categories
-        if any(word in text for word in ['bridge', 'highway', 'flyover', 'building', 'residential']):
+            # Check for specific keywords in order of priority
+            if any(word in text for word in ['metro', 'railway', 'rail', 'train']):
+                return 'HR_CR_PLATES'
+            elif any(word in text for word in ['solar', 'renewable', 'pv']):
+                return 'SOLAR'
+            elif any(word in text for word in ['building', 'residential', 'commercial']):
+                return 'TMT_BARS'
+            elif any(word in text for word in ['industrial', 'factory', 'plant']):
+                return 'HR_CR_PLATES'
+            elif any(word in text for word in ['road', 'highway', 'bridge']):
+                return 'TMT_BARS'
+            
             return 'TMT_BARS'
-        elif any(word in text for word in ['metro', 'railway', 'port', 'machinery']):
-            return 'HR_CR_PLATES'
-        elif any(word in text for word in ['roof', 'shed', 'warehouse']):
-            return 'COATED_PRODUCTS'
-        elif any(word in text for word in ['ev', 'electric vehicle', 'power', 'energy']):
-            return 'HSLA'
-        elif any(word in text for word in ['solar', 'renewable']):
-            return 'SOLAR'
-        
-        # Default to TMT_BARS for construction/infrastructure projects
-        return 'TMT_BARS'
+        except Exception as e:
+            self.logger.error(f"Error in determine_product_team: {str(e)}")
+            return 'TMT_BARS'  # Default team in case of error
     
     def calculate_steel_requirement(self, project, product_type):
         """Calculate steel requirement based on project type and value"""
-        value_in_cr = project.get('value', 0)
-        text = f"{project['title'].lower()} {project.get('description', '').lower()}"
-        
-        # Get the rates for the product type
-        rates = Config.STEEL_RATES.get(product_type, {})
-        
-        # Find the most specific rate
-        rate = rates['default']
-        for category, category_rate in rates.items():
-            if category != 'default' and category in text:
-                rate = category_rate
-                break
-        
-        # Conservative estimation
-        steel_tons = value_in_cr * rate * 0.8  # Using 0.8 as conservative factor
-        return steel_tons
+        try:
+            # Handle string input
+            if isinstance(project, str):
+                text = project.lower()
+                value_in_cr = 0  # Default value for string inputs
+            # Handle dictionary input
+            elif isinstance(project, dict):
+                value_in_cr = project.get('value', 0)
+                title = project.get('title', '').lower()
+                description = project.get('description', '').lower()
+                text = f"{title} {description}"
+            else:
+                self.logger.error(f"Invalid project type: {type(project)}")
+                return 0
+
+            rates = Config.STEEL_RATES.get(product_type, {})
+            rate = rates.get('default', 10)  # Default rate if nothing else matches
+            
+            for category, category_rate in rates.items():
+                if category != 'default' and category in text:
+                    rate = category_rate
+                    break
+            
+            steel_tons = value_in_cr * rate * 0.8  # Using 0.8 as conservative factor
+            return steel_tons
+        except Exception as e:
+            self.logger.error(f"Error in calculate_steel_requirement: {str(e)}")
+            return 0  # Return 0 in case of error
     
     def calculate_priority_score(self, project):
         """Calculate priority score based on contract value, timeline, and recency"""
         try:
+            # Handle string input
+            if isinstance(project, str):
+                return 0  # String inputs get lowest priority
+            
+            # Handle dictionary input
+            if not isinstance(project, dict):
+                self.logger.error(f"Invalid project type: {type(project)}")
+                return 0
+            
             value_in_cr = project.get('value', 0)
             steel_tons = project.get('steel_requirement', 0)
             
             # Calculate months until project start
             start_date = project.get('start_date', datetime.now() + timedelta(days=730))  # Default 24 months
+            if isinstance(start_date, str):
+                try:
+                    start_date = datetime.strptime(start_date, '%Y-%m-%d')
+                except ValueError:
+                    start_date = datetime.now() + timedelta(days=730)
+            
             months_to_start = max(1, (start_date - datetime.now()).days / 30)
             
             # Calculate recency factor
             news_date = project.get('news_date', datetime.now())
+            if isinstance(news_date, str):
+                try:
+                    news_date = datetime.strptime(news_date, '%Y-%m-%d')
+                except ValueError:
+                    news_date = datetime.now()
+            
             months_old = (datetime.now() - news_date).days / 30
             
             if months_old < 1:  # Less than a month old
@@ -135,188 +176,291 @@ class EmailHandler:
             return 0
     
     def _analyze_project_content(self, project):
-        """Analyze project content using Groq to extract better estimates and details"""
+        """Analyze project content to extract better estimates and details using expert analysis"""
         try:
-            # Combine all project text for analysis
-            full_text = f"""
-            Title: {project.get('title', '')}
-            Company: {project.get('company', '')}
-            Description: {project.get('description', '')}
-            Value: {project.get('value', 0)} Crore
-            Location: {project.get('location', '')}
-            """
-            
-            # First message to analyze project and generate headline
-            headline_messages = [
-                {"role": "system", "content": """You are a headline writer for JSW Steel's sales team. Write ONLY a single-line headline about infrastructure projects. Focus on physical characteristics like size, length, area, or volume - not monetary value.
-
-Rules:
-- Write ONLY the headline, nothing else
-- Use 9-10 words maximum
-- Focus on physical size/scope
-- Do not explain your thinking
-- Do not use quotes or formatting
-
-Examples of good headlines:
-L&T to build 65 km Patna road project
-Afcons wins Delhi metro extension for 12 stations
-Tata wins order for 5000 affordable housing units
-MEIL to construct 200-km irrigation canal in Andhra"""},
-                {"role": "user", "content": f"Write a single headline for this project: {full_text}"}
-            ]
-            
-            # Second message to analyze steel requirements with new estimation logic
-            steel_messages = [
-                {"role": "system", "content": """Act as a steel demand estimator for JSW Steel. Analyze project details to:
-
-1. Identify industry and sub-sector
-2. Map to TWO most relevant JSW products (Primary and Secondary)
-3. Estimate quantities using conservative benchmarks
-
-Product Mapping Rules:
-Infrastructure:
-- Highways/Bridges → TMT Bars (Primary), HR Plates (Secondary)
-- Railways → HR Plates (Primary), TMT Bars (Secondary)
-- Ports → HR Plates (Primary), Structural Steel (Secondary)
-- Smart Cities → TMT Bars (Primary), Coated Products (Secondary)
-
-Construction:
-- Residential/Commercial → TMT Bars (Primary), Coated Products (Secondary)
-- Industrial → Coated Products (Primary), HR Plates (Secondary)
-
-Automotive:
-- Vehicles → HR/CR Coils (Primary), HSLA Steel (Secondary)
-- EVs → HSLA Steel (Primary), CR Coils (Secondary)
-
-Renewable:
-- Solar → Solar Solutions (Primary), HR Plates (Secondary)
-- Wind/Hydro → HR Plates (Primary), Structural Steel (Secondary)
-
-Industrial:
-- Machinery → HR Plates (Primary), Special Alloy Steel (Secondary)
-- Equipment → Special Alloy Steel (Primary), HR Plates (Secondary)
-
-Rules:
-- Use conservative estimates
-- Apply 0.8 adjustment factor
-- Format output exactly as:
-Primary Product: [Product]: ~[X,XXX]MT
-Secondary Product: [Product]: ~[X,XXX]MT"""},
-                {"role": "user", "content": f"Analyze this project and provide steel requirements: {full_text}"}
-            ]
-            
-            # Add retry logic with exponential backoff
-            max_retries = 3
-            retry_delay = 2
-            
-            headline = None
-            primary_product = None
-            secondary_product = None
-            
-            # Get headline
-            for attempt in range(max_retries):
-                try:
-                    completion = self.groq_client.chat.completions.create(
-                        model="llama-3.3-70b-versatile",
-                        messages=headline_messages,
-                        temperature=0.6,
-                        max_completion_tokens=4096,
-                        top_p=0.95,
-                        stream=False,
-                        stop=None
-                    )
-                    
-                    # Clean up the headline response
-                    headline = completion.choices[0].message.content.strip()
-                    headline = headline.replace('"', '').replace("'", '')
-                    headline = headline.split('\n')[0]
-                    headline = re.sub(r'^(?:Headline:|Title:)\s*', '', headline)
-                    break
-                except Exception as e:
-                    if attempt < max_retries - 1:
-                        wait_time = retry_delay * (2 ** attempt)
-                        time.sleep(wait_time)
-                    else:
-                        self.logger.error(f"Failed to generate headline: {str(e)}")
-            
-            time.sleep(2)  # Add delay between API calls
-            
-            # Get steel requirements
-            for attempt in range(max_retries):
-                try:
-                    completion = self.groq_client.chat.completions.create(
-                        model="llama-3.3-70b-versatile",
-                        messages=steel_messages,
-                        temperature=0.6,
-                        max_completion_tokens=4096,
-                        top_p=0.95,
-                        stream=False,
-                        stop=None
-                    )
-                    
-                    steel_analysis = completion.choices[0].message.content
-                    
-                    # Extract primary and secondary products
-                    primary_match = re.search(r'Primary Product:\s*([^:]+):\s*~([\d,]+)MT', steel_analysis)
-                    secondary_match = re.search(r'Secondary Product:\s*([^:]+):\s*~([\d,]+)MT', steel_analysis)
-                    
-                    if primary_match:
-                        primary_product = {
-                            'type': primary_match.group(1).strip(),
-                            'quantity': int(primary_match.group(2).replace(',', ''))
-                        }
-                    
-                    if secondary_match:
-                        secondary_product = {
-                            'type': secondary_match.group(1).strip(),
-                            'quantity': int(secondary_match.group(2).replace(',', ''))
-                        }
-                    break
-                except Exception as e:
-                    if attempt < max_retries - 1:
-                        wait_time = retry_delay * (2 ** attempt)
-                        time.sleep(wait_time)
-                    else:
-                        self.logger.error(f"Failed to analyze steel requirements: {str(e)}")
-            
-            # Update project with analyzed information
-            if headline:
-                project['analyzed_title'] = headline
-            
-            # Set steel requirements
-            if primary_product and secondary_product:
-                project['steel_requirements'] = {
-                    'primary': primary_product,
-                    'secondary': secondary_product,
-                    'total': primary_product['quantity'] + secondary_product['quantity']
+            # Input validation and conversion
+            if isinstance(project, str):
+                # If project is a string, create a basic project dict with the string as both title and description
+                project_dict = {
+                    'title': project,
+                    'description': project,
+                    'value': 0,
+                    'company': '',
+                    'source_url': '',
+                    'news_date': datetime.now().strftime('%Y-%m-%d'),
+                    'start_date': datetime.now(),
+                    'end_date': datetime.now() + timedelta(days=365),
+                    'steel_requirements': {
+                        'primary': {'type': 'TMT Bars', 'quantity': 0, 'category': 'Long Products'},
+                        'secondary': [
+                            {'type': 'Hot Rolled', 'quantity': 0, 'category': 'Flat Products'},
+                            {'type': 'Cold Rolled', 'quantity': 0, 'category': 'Flat Products'},
+                            {'type': 'Galvanized', 'quantity': 0, 'category': 'Flat Products'}
+                        ],
+                        'tertiary': {'type': 'Wire Rods', 'quantity': 0, 'category': 'Long Products'}
+                    },
+                    'project_type': 'infrastructure',
+                    'specifications': {
+                        'length': None,
+                        'area': None,
+                        'capacity': None,
+                        'floors': None
+                    },
+                    'teams': ['TMT_BARS']
                 }
+            elif isinstance(project, dict):
+                # If it's already a dict, make a copy and ensure all required fields exist
+                project_dict = project.copy()
+                project_dict.setdefault('title', '')
+                project_dict.setdefault('description', '')
+                project_dict.setdefault('value', 0)
+                project_dict.setdefault('company', '')
+                project_dict.setdefault('source_url', '')
+                project_dict.setdefault('news_date', datetime.now().strftime('%Y-%m-%d'))
+                project_dict.setdefault('start_date', datetime.now())
+                project_dict.setdefault('end_date', datetime.now() + timedelta(days=365))
+                project_dict.setdefault('steel_requirements', {
+                    'primary': {'type': 'TMT Bars', 'quantity': 0, 'category': 'Long Products'},
+                    'secondary': [
+                        {'type': 'Hot Rolled', 'quantity': 0, 'category': 'Flat Products'},
+                        {'type': 'Cold Rolled', 'quantity': 0, 'category': 'Flat Products'},
+                        {'type': 'Galvanized', 'quantity': 0, 'category': 'Flat Products'}
+                    ],
+                    'tertiary': {'type': 'Wire Rods', 'quantity': 0, 'category': 'Long Products'}
+                })
+                project_dict.setdefault('project_type', 'infrastructure')
+                project_dict.setdefault('specifications', {
+                    'length': None,
+                    'area': None,
+                    'capacity': None,
+                    'floors': None
+                })
+                project_dict.setdefault('teams', ['TMT_BARS'])
             else:
-                # Fallback calculation if AI analysis fails
-                value_in_cr = project.get('value', 0)
-                project['steel_requirements'] = {
-                    'primary': {'type': 'TMT Bars', 'quantity': int(value_in_cr * 12)},
-                    'secondary': {'type': 'HR Plates', 'quantity': int(value_in_cr * 8)},
-                    'total': int(value_in_cr * 20)
+                raise ValueError(f"Project must be a string or dictionary, got {type(project)}")
+
+            # Prepare project information for analysis
+            title = str(project_dict.get('title', '')).lower()
+            description = str(project_dict.get('description', '')).lower()
+            text = f"{title} {description}"
+            
+            # Determine project type and teams
+            if any(term in text for term in ['metro', 'railway', 'rail', 'train']):
+                project_dict['project_type'] = 'metro_rail'
+                project_dict['teams'] = ['HOT_ROLLED', 'TMT_BARS', 'ELECTRICAL_STEEL']
+            elif any(term in text for term in ['highway', 'road', 'bridge', 'flyover', 'viaduct']):
+                project_dict['project_type'] = 'highway_bridge'
+                project_dict['teams'] = ['TMT_BARS', 'WIRE_RODS']
+            elif any(term in text for term in ['residential', 'housing', 'apartment', 'building', 'tower']):
+                project_dict['project_type'] = 'realty'
+                project_dict['teams'] = ['TMT_BARS', 'GALVALUME']
+            elif any(term in text for term in ['industrial', 'factory', 'plant', 'warehouse', 'manufacturing']):
+                project_dict['project_type'] = 'industrial'
+                project_dict['teams'] = ['HOT_ROLLED', 'COLD_ROLLED', 'GALVANIZED']
+            elif any(term in text for term in ['solar', 'power plant', 'renewable', 'energy']):
+                project_dict['project_type'] = 'energy'
+                project_dict['teams'] = ['GALVALUME', 'ELECTRICAL_STEEL']
+            else:
+                project_dict['project_type'] = 'infrastructure'
+                project_dict['teams'] = ['TMT_BARS']  # Default team
+            
+            # Extract numerical specifications
+            specs = project_dict['specifications']
+            
+            # Length extraction (km, meters)
+            length_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:km|kilometer|meter)', description)
+            if length_match:
+                specs['length'] = float(length_match.group(1))
+            
+            # Area extraction (sq ft, sq m)
+            area_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:sq ft|sqft|square feet|sq m|sqm)', description)
+            if area_match:
+                specs['area'] = float(area_match.group(1))
+            
+            # Capacity extraction (MW, KW)
+            capacity_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:mw|kw|megawatt|kilowatt)', description)
+            if capacity_match:
+                specs['capacity'] = float(capacity_match.group(1))
+            
+            # Floor count extraction
+            floor_match = re.search(r'(\d+)(?:\s*-?\s*(?:floor|storey|story))', description)
+            if floor_match:
+                specs['floors'] = int(floor_match.group(1))
+            
+            # Calculate steel requirements based on project type and value
+            value_in_cr = float(project_dict.get('value', 0))
+            steel_reqs = project_dict['steel_requirements']
+            
+            if project_dict['project_type'] == 'metro_rail':
+                steel_reqs['primary'] = {
+                    'type': 'TMT Bars',
+                    'quantity': round(specs['length'] * 175 if specs['length'] else value_in_cr * 35, -2),
+                    'category': 'Long Products'
+                }
+                steel_reqs['secondary'] = [
+                    {
+                        'type': 'Hot Rolled',
+                        'quantity': round((specs['length'] * 50 if specs['length'] else value_in_cr * 10), -2),
+                        'category': 'Flat Products'
+                    },
+                    {
+                        'type': 'Electrical Steel',
+                        'quantity': round((specs['length'] * 30 if specs['length'] else value_in_cr * 8), -2),
+                        'category': 'Flat Products'
+                    },
+                    {
+                        'type': 'Galvalume Steel',
+                        'quantity': round((specs['length'] * 25 if specs['length'] else value_in_cr * 6), -2),
+                        'category': 'Flat Products'
+                    }
+                ]
+                steel_reqs['tertiary'] = {
+                    'type': 'Special Alloy Steel',
+                    'quantity': round((specs['length'] * 25 if specs['length'] else value_in_cr * 5), -2),
+                    'category': 'Long Products'
+                }
+            elif project_dict['project_type'] == 'highway_bridge':
+                steel_reqs['primary'] = {
+                    'type': 'TMT Bars',
+                    'quantity': round(specs['length'] * 125 if specs['length'] else value_in_cr * 30, -2)
+                }
+                steel_reqs['secondary'] = [
+                    {
+                        'type': 'Galvalume',
+                        'quantity': round((specs['length'] * 40 if specs['length'] else value_in_cr * 8), -2)
+                    },
+                    {
+                        'type': 'Electrical Steel',
+                        'quantity': round((specs['length'] * 20 if specs['length'] else value_in_cr * 5), -2)
+                    }
+                ]
+                steel_reqs['tertiary'] = {
+                    'type': 'Wire Rods',
+                    'quantity': round((specs['length'] * 15 if specs['length'] else value_in_cr * 4), -2)
+                }
+            elif project_dict['project_type'] == 'realty':
+                steel_reqs['primary'] = {
+                    'type': 'TMT Bars',
+                    'quantity': round(specs['floors'] * 45 if specs['floors'] else value_in_cr * 25, -2)
+                }
+                steel_reqs['secondary'] = [
+                    {
+                        'type': 'Galvalume',
+                        'quantity': round(specs['area'] * 0.15 if specs['area'] else value_in_cr * 6, -2)
+                    },
+                    {
+                        'type': 'Electrical Steel',
+                        'quantity': round(specs['area'] * 0.1 if specs['area'] else value_in_cr * 4, -2)
+                    }
+                ]
+                steel_reqs['tertiary'] = {
+                    'type': 'Wire Rods',
+                    'quantity': round(specs['area'] * 0.05 if specs['area'] else value_in_cr * 3, -2)
+                }
+            elif project_dict['project_type'] == 'industrial':
+                steel_reqs['primary'] = {
+                    'type': 'TMT Bars',
+                    'quantity': round(specs['area'] * 0.2 if specs['area'] else value_in_cr * 20, -2)
+                }
+                steel_reqs['secondary'] = [
+                    {
+                        'type': 'Galvalume',
+                        'quantity': round(specs['area'] * 0.1 if specs['area'] else value_in_cr * 8, -2)
+                    },
+                    {
+                        'type': 'Electrical Steel',
+                        'quantity': round(specs['area'] * 0.08 if specs['area'] else value_in_cr * 6, -2)
+                    }
+                ]
+                steel_reqs['tertiary'] = {
+                    'type': 'Wire Rods',
+                    'quantity': round(specs['area'] * 0.05 if specs['area'] else value_in_cr * 4, -2)
+                }
+            elif project_dict['project_type'] == 'energy':
+                steel_reqs['primary'] = {
+                    'type': 'TMT Bars',
+                    'quantity': round(specs['capacity'] * 35 if specs['capacity'] else value_in_cr * 15, -2)
+                }
+                steel_reqs['secondary'] = [
+                    {
+                        'type': 'Galvalume',
+                        'quantity': round(specs['capacity'] * 20 if specs['capacity'] else value_in_cr * 8, -2)
+                    },
+                    {
+                        'type': 'Electrical Steel',
+                        'quantity': round(specs['capacity'] * 15 if specs['capacity'] else value_in_cr * 6, -2)
+                    }
+                ]
+                steel_reqs['tertiary'] = {
+                    'type': 'Wire Rods',
+                    'quantity': round(specs['capacity'] * 10 if specs['capacity'] else value_in_cr * 4, -2)
                 }
             
-            return project
+            # Ensure minimum quantities
+            min_quantity = 100
+            if steel_reqs['primary']['quantity'] < min_quantity:
+                steel_reqs['primary']['quantity'] = min_quantity
+            for sec_req in steel_reqs['secondary']:
+                if sec_req['quantity'] < min_quantity:
+                    sec_req['quantity'] = min_quantity
+            if steel_reqs['tertiary']['quantity'] < min_quantity:
+                steel_reqs['tertiary']['quantity'] = min_quantity
+            
+            # Format the requirements string
+            steel_reqs_str = f"Estimated requirement:\n"
+            steel_reqs_str += f"{steel_reqs['primary']['type']} (~{steel_reqs['primary']['quantity']:,}MT) - Primary\n"
+            for sec_req in steel_reqs['secondary']:
+                steel_reqs_str += f"{sec_req['type']} - Secondary\n"
+            steel_reqs_str += f"{steel_reqs['tertiary']['type']} - Tertiary"
+            
+            project_dict['steel_requirements_display'] = steel_reqs_str
+            
+            return project_dict
             
         except Exception as e:
-            self.logger.error(f"Error analyzing project with Groq: {str(e)}")
-            # Ensure we have fallback values
-            value_in_cr = project.get('value', 0)
-            project['steel_requirements'] = {
-                'primary': {'type': 'TMT Bars', 'quantity': int(value_in_cr * 12)},
-                'secondary': {'type': 'HR Plates', 'quantity': int(value_in_cr * 8)},
-                'total': int(value_in_cr * 20)
+            self.logger.error(f"Error analyzing project: {str(e)}")
+            # Return a basic project structure even if analysis fails
+            return {
+                'title': str(project) if isinstance(project, str) else '',
+                'description': str(project) if isinstance(project, str) else '',
+                'value': 0,
+                'company': '',
+                'source_url': '',
+                'news_date': datetime.now().strftime('%Y-%m-%d'),
+                'start_date': datetime.now(),
+                'end_date': datetime.now() + timedelta(days=365),
+                'steel_requirements': {
+                    'primary': {'type': 'TMT Bars', 'quantity': 100},
+                    'secondary': {'type': 'HR Plates', 'quantity': 100}
+                },
+                'project_type': 'infrastructure',
+                'specifications': {'length': None, 'area': None, 'capacity': None, 'floors': None},
+                'teams': ['TMT_BARS']
             }
-            return project
     
     def _prioritize_projects(self, projects):
         """Prioritize projects based on multiple factors"""
         try:
-            # First do a basic sort based on initial criteria
+            # Convert any string projects to dictionaries first
+            processed_projects = []
             for project in projects:
+                if isinstance(project, str):
+                    processed_projects.append({
+                        'title': project,
+                        'description': project,
+                        'value': 0,
+                        'company': '',
+                        'source_url': '',
+                        'news_date': datetime.now().strftime('%Y-%m-%d'),
+                        'start_date': datetime.now(),
+                        'end_date': datetime.now() + timedelta(days=365),
+                        'source': 'perplexity'
+                    })
+                else:
+                    processed_projects.append(project)
+
+            # Calculate initial priority scores
+            for project in processed_projects:
                 # Calculate base priority score without Groq
                 value = project.get('value', 0)
                 source_boost = 1.2 if project.get('source') == 'exa_web' else 1.0
@@ -327,7 +471,7 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                 project['initial_priority'] = base_score
             
             # Sort by initial priority and take top 7 projects
-            pre_sorted = sorted(projects, key=lambda x: x.get('initial_priority', 0), reverse=True)[:7]
+            pre_sorted = sorted(processed_projects, key=lambda x: x.get('initial_priority', 0), reverse=True)[:7]
             
             # Now use Groq for detailed analysis of limited set
             analyzed_projects = []
@@ -358,141 +502,503 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
         except Exception as e:
             self.logger.error(f"Error prioritizing projects: {str(e)}")
             # Fallback to simple prioritization if something goes wrong
-            return sorted(projects, key=lambda x: x.get('value', 0), reverse=True)[:5]
+            return sorted(projects, key=lambda x: x.get('value', 0) if isinstance(x, dict) else 0, reverse=True)[:5]
     
-    def _format_project_for_email(self, project):
-        """Format a single project for HTML email"""
+    def _search_linkedin_contacts(self, company_name):
+        """Search for contacts using ContactOut APIs with improved search strategy"""
         try:
-            title = project.get('title', 'No title')
+            self.logger.info(f"Starting ContactOut search for company: {company_name}")
+            contacts = []
             
-            # Format tags
-            tags = project.get('tags', [])
-            tags_html = ''.join([
-                f'<span class="tag" style="background: {"#e8f5e9" if "Normal" in tag else "#fde8e8"}; color: {"#2e7d32" if "Normal" in tag else "#dc3545"};">{tag}</span>'
-                for tag in tags
-            ])
+            # Setup ContactOut API headers
+            search_headers = {
+                'Content-Type': 'application/json',
+                'Authorization': f'Bearer {self.contactout_token}'
+            }
             
-            # Get relationship notes
-            relationship_notes = project.get('relationship_notes', '')
-            relationship_html = f"""
-                <div class="relationship-note">
-                    <strong>Relationship Status:</strong> {relationship_notes if relationship_notes else "No existing relationship"}
-                </div>
-            """ if relationship_notes else ""
+            # Clean company name
+            company_name = company_name.lower().strip()
             
-            # Format work timeline
-            start_date = project.get('start_date')
-            if isinstance(start_date, str):
-                try:
-                    start_date = datetime.strptime(start_date, '%Y-%m-%d')
-                except ValueError:
-                    start_date = datetime.now()
-            elif not isinstance(start_date, datetime):
-                start_date = datetime.now()
+            # Remove problematic parts from company name
+            company_parts = company_name.split()
+            filtered_parts = [part for part in company_parts if part not in {
+                'limited', 'ltd', 'pvt', 'private', 'jv', 'india', 'infra', 
+                'infrastructure', 'construction', 'and', '&', 'projects', 
+                'project', 'engineering', 'services', 'under', 'tracking', 
+                'platform'
+            }]
             
-            end_date = project.get('end_date')
-            if isinstance(end_date, str):
-                try:
-                    end_date = datetime.strptime(end_date, '%Y-%m-%d')
-                except ValueError:
-                    end_date = start_date + timedelta(days=365)
-            elif not isinstance(end_date, datetime):
-                end_date = start_date + timedelta(days=365)
+            # Get the main company name (first 2-3 words)
+            main_company = ' '.join(filtered_parts[:3])
+            self.logger.info(f"Using main company name: {main_company}")
             
-            duration_years = (end_date - start_date).days / 365.0
-            duration_str = f"{duration_years:.1f} years"
-            quarter = (start_date.month - 1) // 3 + 1
-            start_str = f"Q{quarter} {start_date.year}"
-            work_timeline = f"{start_str} - {duration_str}"
+            # 1. Try exact company search first
+            search_params = {
+                'query': f'company:"{main_company}"',
+                'type': 'profile',
+                'limit': 25
+            }
             
-            # Get steel requirements
-            steel_reqs = project.get('steel_requirements', {
-                'primary': {'type': 'TMT Bars', 'quantity': 0},
-                'secondary': {'type': 'HR Plates', 'quantity': 0}
-            })
+            response = requests.get(
+                'https://api.contactout.com/v2/search',
+                headers=search_headers,
+                params=search_params
+            )
             
-            primary_req = f"{steel_reqs['primary']['type']}: ~{steel_reqs['primary']['quantity']:,}MT"
+            if response.status_code == 200:
+                profiles = response.json().get('profiles', [])
+                if profiles:
+                    self.logger.info(f"Found {len(profiles)} profiles via exact company search")
+                    self._process_contact_profiles(profiles, contacts, search_headers)
             
-            # Only show secondary requirements if they exist
-            secondary_req = ""
-            if 'secondary' in steel_reqs and steel_reqs['secondary'].get('type'):
-                secondary_req = f"""
-                    <div class="requirements">
-                        <strong style="color: #1a1a1a;">Secondary:</strong> {steel_reqs['secondary']['type']}: ~{steel_reqs['secondary']['quantity']:,}MT
+            # 2. If no results, try keyword search
+            if len(contacts) < 3:
+                search_params = {
+                    'query': f'"{main_company}"',
+                    'type': 'profile',
+                    'limit': 25
+                }
+                
+                response = requests.get(
+                    'https://api.contactout.com/v2/search',
+                    headers=search_headers,
+                    params=search_params
+                )
+                
+                if response.status_code == 200:
+                    profiles = response.json().get('profiles', [])
+                    if profiles:
+                        self.logger.info(f"Found {len(profiles)} profiles via keyword search")
+                        self._process_contact_profiles(profiles, contacts, search_headers)
+            
+            # 3. Try role-based search if still needed
+            if len(contacts) < 3:
+                role_queries = [
+                    'procurement manager',
+                    'project manager',
+                    'site engineer',
+                    'director',
+                    'managing director',
+                    'general manager',
+                    'head',
+                    'ceo',
+                    'vp'
+                ]
+                
+                for role in role_queries:
+                    if len(contacts) >= 5:
+                        break
+                        
+                    search_params = {
+                        'query': f'company:"{main_company}" AND title:"{role}"',
+                        'type': 'profile',
+                        'limit': 10
+                    }
+                    
+                    response = requests.get(
+                        'https://api.contactout.com/v2/search',
+                        headers=search_headers,
+                        params=search_params
+                    )
+                    
+                    if response.status_code == 200:
+                        profiles = response.json().get('profiles', [])
+                        if profiles:
+                            self.logger.info(f"Found {len(profiles)} profiles via role search for {role}")
+                            self._process_contact_profiles(profiles, contacts, search_headers)
+            
+            # 4. Try location-based search as last resort
+            if len(contacts) < 2:
+                locations = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai']
+                for location in locations:
+                    if len(contacts) >= 3:
+                        break
+                        
+                    search_params = {
+                        'query': f'"{main_company}" AND location:"{location}"',
+                        'type': 'profile',
+                        'limit': 10
+                    }
+                    
+                    response = requests.get(
+                        'https://api.contactout.com/v2/search',
+                        headers=search_headers,
+                        params=search_params
+                    )
+                    
+                    if response.status_code == 200:
+                        profiles = response.json().get('profiles', [])
+                        if profiles:
+                            self.logger.info(f"Found {len(profiles)} profiles via location search for {location}")
+                            self._process_contact_profiles(profiles, contacts, search_headers)
+            
+            # Process found contacts
+            unique_contacts = []
+            seen_urls = set()
+            
+            for contact in contacts:
+                url = contact.get('profile_url', '')
+                if url and url not in seen_urls:
+                    seen_urls.add(url)
+                    # Verify contact has required fields
+                    if contact.get('name') and (contact.get('role') or contact.get('title')):
+                        unique_contacts.append(contact)
+            
+            self.logger.info(f"Total unique contacts found for {company_name}: {len(unique_contacts)}")
+            return unique_contacts
+            
+        except Exception as e:
+            self.logger.error(f"Contact search failed for {company_name}: {str(e)}")
+            return []
+
+    def _get_company_name_variations(self, company_name):
+        """Generate variations of company name for better search results"""
+        variations = set()
+        
+        # Original name
+        variations.add(company_name)
+        
+        # Clean the company name
+        clean_name = company_name.lower()
+        clean_name = re.sub(r'[^\w\s-]', ' ', clean_name)
+        clean_name = re.sub(r'\s+', ' ', clean_name).strip()
+        variations.add(clean_name)
+        
+        # Remove common suffixes
+        suffixes = [' limited', ' ltd', ' pvt', ' private', ' jv', ' india', ' infra', ' infrastructure', ' construction']
+        base_name = clean_name
+        for suffix in suffixes:
+            if base_name.endswith(suffix):
+                base_name = base_name[:-len(suffix)].strip()
+                variations.add(base_name)
+        
+        # Handle hyphenated names
+        if '-' in base_name:
+            parts = base_name.split('-')
+            variations.add(parts[0].strip())
+            variations.add(parts[-1].strip())
+        
+        # Handle spaces
+        if ' ' in base_name:
+            parts = base_name.split()
+            if len(parts) > 2:
+                variations.add(parts[0])
+                variations.add(' '.join(parts[:2]))
+        
+        return list(variations)
+
+    def _process_contact_profiles(self, profiles, contacts, headers):
+        """Process profiles from ContactOut enrichment"""
+        if not profiles or not isinstance(profiles, list):
+            self.logger.error("Invalid profiles data: expected non-empty list")
+            return
+        
+        for profile in profiles:
+            if not isinstance(profile, dict):
+                self.logger.warning(f"Skipping invalid profile format: {type(profile)}")
+                continue
+            
+            try:
+                # Get static CRM data
+                contact = {
+                    'name': profile.get('full_name', ''),
+                    'role': profile.get('current_position', {}).get('title', ''),
+                    'company': profile.get('current_position', {}).get('company', ''),
+                    'location': profile.get('location', ''),
+                    'profile_url': profile.get('linkedin_url', ''),
+                    'source': 'CRM'
+                }
+                
+                if contact.get('name') and contact.get('role'):
+                    if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
+                        contacts.append(contact)
+                        self.logger.info(f"Added contact: {contact['name']} ({contact['role']})")
+            
+            except Exception as e:
+                self.logger.error(f"Error processing profile: {str(e)}")
+                continue
+    
+    def _process_profiles(self, profiles, contacts, headers, company_name):
+        """Process profiles from ContactOut API"""
+        for profile in profiles:
+            try:
+                if profile.get('linkedin_url'):
+                    detail_response = requests.get(
+                        'https://api.contactout.com/v2/profile',
+                        headers=headers,
+                        params={'profile_url': profile['linkedin_url']}
+                    )
+
+                    if detail_response.status_code == 200:
+                        detail_data = detail_response.json()
+                        contact = {
+                            'name': detail_data.get('full_name', profile.get('full_name', '')),
+                            'role': detail_data.get('current_position', {}).get('title', profile.get('current_position', {}).get('title', '')),
+                            'company': detail_data.get('current_position', {}).get('company', profile.get('current_position', {}).get('company', '')),
+                            'location': detail_data.get('location', profile.get('location', '')),
+                            'profile_url': profile.get('linkedin_url', ''),
+                            'source': 'ContactOut'
+                        }
+                    else:
+                        contact = {
+                            'name': profile.get('full_name', ''),
+                            'role': profile.get('current_position', {}).get('title', ''),
+                            'company': profile.get('current_position', {}).get('company', ''),
+                            'location': profile.get('location', ''),
+                            'profile_url': profile.get('linkedin_url', ''),
+                            'source': 'ContactOut'
+                        }
+                    
+                    if contact.get('name') and contact.get('role'):
+                        if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
+                            contacts.append(contact)
+                            self.logger.info(f"Added contact: {contact['name']} ({contact['role']})")
+            
+            except Exception as e:
+                self.logger.error(f"Error processing profile: {str(e)}")
+                continue
+    
+    def _process_linkedin_profiles(self, profiles, contacts, headers, company_name):
+        """Process profiles from LinkedIn scraping using ContactOut enrichment"""
+        if not profiles or not isinstance(profiles, list):
+            self.logger.error("Invalid profiles data: expected non-empty list")
+            return
+
+        for profile in profiles:
+            if not isinstance(profile, dict):
+                self.logger.warning(f"Skipping invalid profile format: {type(profile)}")
+                continue
+            
+            try:
+                profile_url = profile.get('profile_url')
+                if not profile_url:
+                    continue
+
+                current_position = profile.get('current_position', {})
+                if not isinstance(current_position, dict):
+                    current_position = {}
+                
+                contact = {
+                    'name': profile.get('full_name', ''),
+                    'role': current_position.get('title', profile.get('title', '')),
+                    'company': current_position.get('company', company_name),
+                    'email': '',  # Only use CRM data
+                    'phone': '',  # Only use CRM data
+                    'location': profile.get('location', ''),
+                    'profile_url': profile_url,
+                    'source': 'CRM'
+                }
+                
+                if contact.get('name') and contact.get('role'):
+                    if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
+                        contacts.append(contact)
+                        self.logger.info(f"Added contact: {contact['name']} ({contact['role']}) via {contact.get('source', 'Unknown')}")
+
+            except Exception as e:
+                self.logger.error(f"Error processing LinkedIn profile: {str(e)}")
+                continue
+
+    def _format_project_for_email(self, project):
+        """Format a single project for HTML email."""
+        try:
+            # Ensure project has steel requirements
+            if not project.get('steel_requirements'):
+                project = self._analyze_project_content(project)
+            
+            # Get priority class and color
+            priority_tag = next((tag for tag in project.get('tags', []) if 'Priority' in tag), 'Normal Priority')
+            is_high_priority = 'High' in priority_tag
+            priority_color = '#dc3545' if is_high_priority else '#2e7d32'
+            priority_bg = '#fde8e8' if is_high_priority else '#e8f5e9'
+            priority_tag = 'High Priority' if is_high_priority else 'Normal Priority'
+            
+            # Get CRM data
+            company_name = project.get('company', '').lower()
+            crm_data = self.contact_enricher.crm_data.get(company_name, {})
+            
+            # Get contacts from CRM only
+            contacts = crm_data.get('contacts', [])
+            relationship_data = crm_data.get('projects', {})
+            
+            # Generate relationship HTML based on CRM data
+            if relationship_data:
+                relationship_html = f'''
+                    <div class="mb-2">
+                        <strong style="color: #1a1a1a;">Current Project:</strong> {relationship_data.get('current', 'No current project')}
                     </div>
-                """
+                    <div class="mb-2">
+                        <strong style="color: #1a1a1a;">Volume:</strong> {relationship_data.get('volume', 'N/A')}
+                    </div>
+                    <div class="mb-2">
+                        <strong style="color: #1a1a1a;">Materials:</strong> {relationship_data.get('materials', 'N/A')}
+                    </div>
+                    <div>
+                        <strong style="color: #1a1a1a;">Notes:</strong> {relationship_data.get('notes', 'No additional notes')}
+                    </div>
+                '''
+            else:
+                relationship_html = f'''
+                    <div>
+                        <strong style="color: #1a1a1a;">No existing relationship found</strong>
+                        <div style="margin-top: 10px;">
+                            <button onclick="this.innerHTML='Done'; this.style.background='#28a745'; this.style.color='white'; this.disabled=true;" 
+                               style="display: inline-block; background: #e9ecef; color: #495057; padding: 8px 15px; 
+                                      text-decoration: none; border-radius: 4px; font-size: 14px; border: none; cursor: pointer;">
+                                Update Relationship
+                            </button>
+                        </div>
+                    </div>
+                '''
             
-            # Format contacts
-            contacts = project.get('contacts', [])
+            # Generate contacts HTML
             contacts_html = ''
             if contacts:
-                contacts_html = '<div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee;">'
-                for contact in contacts:
-                    contacts_html += f"""
-                        <div class="contact-info" style="margin-bottom: 10px;">
-                            <div style="font-weight: 600; color: #424242;">{contact.get('name', '')}</div>
-                            <div style="color: #666;">{contact.get('role', '')}</div>
-                            <div style="color: #666;">
-                                <a href="mailto:{contact.get('email', '')}" style="color: #1a73e8; text-decoration: none;">{contact.get('email', '')}</a>
-                                <span style="margin: 0 8px;">•</span>
-                                <a href="tel:{contact.get('phone', '')}" style="color: #1a73e8; text-decoration: none;">{contact.get('phone', '')}</a>
+                contacts_html = '<div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">'
+                contacts_html += '<h4 style="color: #1a1a1a; margin: 0 0 15px 0;">Key Contacts</h4>'
+                
+            for contact in contacts:
+                name = contact.get('name', 'N/A')
+                role = contact.get('role', 'N/A')
+                email = contact.get('email', '')
+                phone = contact.get('phone', '')
+                location = contact.get('location', '')
+                company = project.get('company', contact.get('company', ''))
+                
+                # Only show contact if we have at least a name or role
+                if name != 'N/A' or role != 'N/A':
+                    contacts_html += f'''
+                        <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: start;">
+                                <div>
+                                    <p style="margin: 0; color: #202124; font-size: 16px; font-weight: 500;">
+                                        {name}
+                                    </p>
+                                    <p style="margin: 4px 0; color: #5f6368; font-size: 14px;">
+                                        {role} at {company}
+                                    </p>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; font-size: 14px; color: #5f6368;">
+                                {f'<p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:{email}" style="color: #1a73e8; text-decoration: none;">{email}</a></p>' if email else ''}
+                                {f'<p style="margin: 4px 0;"><strong>Phone:</strong> {phone}</p>' if phone else ''}
+                                {f'<p style="margin: 4px 0;"><strong>Location:</strong> {location}</p>' if location else ''}
                             </div>
                         </div>
-                    """
-                contacts_html += '</div>'
+                    '''
+            else:
+                contacts_html = '''
+                    <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+                        <p style="margin: 0; color: #5f6368;">No contacts found in CRM.</p>
+                    </div>
+                '''
             
             # Create HTML for single project
-            html = f"""
-            <div class="project" style="border-left: 4px solid {"#2e7d32" if "Normal Priority" in tags else "#dc3545"};">
+            html = f'''
+            <div style="border-left: 4px solid {priority_color}; border-radius: 8px; border: 1px solid #e0e0e0; margin: 20px 0; padding: 20px;">
                 <div style="margin-bottom: 15px;">
-                    {tags_html}
+                    <span style="display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 14px; background: {priority_bg}; color: {priority_color};">
+                        {priority_tag}
+                    </span>
                 </div>
                 
-                <h3>{project.get('company', '')}</h3>
-                <h4>{title}</h4>
+                <h4 style="color: #424242; font-size: 20px; margin: 0 0 20px 0;">{project.get('title', '')}</h4>
+                
+                {self._format_project_details(project)}
+                
+                <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 16px; color: #1a1a1a;">
+                    {relationship_html}
+                </div>
                 
                 <div style="margin-bottom: 20px;">
-                    <div class="requirements">
-                        <strong style="color: #1a1a1a;">Primary:</strong> {primary_req}
-                    </div>
-                    {secondary_req}
-                    <div class="requirements">
-                        <strong style="color: #1a1a1a;">Work Begins:</strong> {work_timeline}
-                    </div>
+                    {contacts_html}
                 </div>
                 
-                {relationship_html}
-                {contacts_html}
-                    
                 <div style="margin-top: 20px;">
-                    <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px; font-size: 15px;">View Announcement</a>
-                    <a href="/chat?projectId={project.get('company', '').lower().replace(' ', '_')}_{project.get('title', '').lower().replace(' ', '_')}" style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8; font-size: 15px;">Get More Info</a>
+                    <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
+                        View Announcement
+                    </a>
+                    <a href="https://jsww.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
+                       style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
+                        Get More Info
+                    </a>
                 </div>
             </div>
-            """
+            '''
             
             return html
             
         except Exception as e:
             self.logger.error(f"Error formatting project: {str(e)}")
-            return f"""
+            return f'''
             <div style="margin: 20px 0; padding: 20px; border: 1px solid #dc3545; border-radius: 8px;">
                 Error formatting project details
             </div>
-            """
+            '''
+
+    def _format_project_details(self, project):
+        """Format the project details for email."""
+        # Get steel requirements with proper structure
+        steel_reqs = project.get('steel_requirements', {})
+        
+        # Format primary requirement (Long Products)
+        primary_req = steel_reqs.get('primary', {})
+        primary_html = f'''
+            <div style="font-size: 16px; margin-bottom: 12px;">
+                <strong style="color: #1a1a1a;">Primary ({primary_req.get('category', 'Long Products')}):</strong> 
+                {primary_req.get('type', 'TMT Bars')} (~{primary_req.get('quantity', 0):,}MT)
+            </div>
+        '''
+        
+        # Format secondary requirements (Flat Products)
+        secondary_reqs = steel_reqs.get('secondary', [])
+        secondary_html = '<div style="margin-left: 20px;">'
+        for req in secondary_reqs:
+            if req.get('quantity', 0) > 0:
+                secondary_html += f'''
+                    <div style="font-size: 16px; margin-bottom: 8px;">
+                        <strong style="color: #1a1a1a;">Secondary ({req.get('category', 'Flat Products')}):</strong> 
+                        {req.get('type', '')} (~{req.get('quantity', 0):,}MT)
+                    </div>
+                '''
+        secondary_html += '</div>'
+        
+        # Format tertiary requirement (Long Products)
+        tertiary_req = steel_reqs.get('tertiary', {})
+        tertiary_html = f'''
+            <div style="font-size: 16px; margin-bottom: 12px;">
+                <strong style="color: #1a1a1a;">Tertiary ({tertiary_req.get('category', 'Long Products')}):</strong> 
+                {tertiary_req.get('type', 'Special Alloy Steel')} (~{tertiary_req.get('quantity', 0):,}MT)
+            </div>
+        '''
+        
+        # Format timeline
+        timeline_html = f'''
+            <div style="font-size: 16px; margin-bottom: 12px;">
+                <strong style="color: #1a1a1a;">Work Begins:</strong> 
+                {project.get('start_date', datetime.now()).strftime('%B %Y')} - 
+                {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
+            </div>
+        '''
+        
+        return f'''
+            <div style="margin-bottom: 20px;">
+                <div style="font-weight: bold; color: #1a1a1a; margin-bottom: 10px;">Estimated Requirements:</div>
+                {primary_html}
+                {secondary_html}
+                {tertiary_html}
+                {timeline_html}
+            </div>
+            '''
 
     def _get_team_emails(self, teams): 
         """Get email addresses for teams"""
         try:
-            # If teams is a list of strings, use them directly
             if isinstance(teams, list) and all(isinstance(t, str) for t in teams):
                 return [self.team_emails.get(team) for team in teams if team in self.team_emails]
             
-            # If teams is a string, treat it as a single team
             if isinstance(teams, str):
                 return [self.team_emails.get(teams)] if teams in self.team_emails else []
             
-            # If teams is a dict with primary/secondary
             if isinstance(teams, dict):
                 team_list = []
                 if teams.get('primary') in self.team_emails:
@@ -510,11 +1016,13 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
     def send_project_opportunities(self, projects):
         """Send project opportunities to respective teams"""
         try:
-            # Group projects by team
             team_projects = {}
             
             for project in projects:
                 try:
+                    if not project.get('steel_requirements'):
+                        project = self._analyze_project_content(project)
+                    
                     teams = project.get('teams', ['TMT_BARS'])
                     team_emails = self._get_team_emails(teams)
                     
@@ -531,16 +1039,14 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                     self.logger.error(f"Error processing project {project.get('title')}: {str(e)}")
                     continue
             
-            # Send emails to each team
             for email, team_project_list in team_projects.items():
                 try:
-                    # Skip prioritization/analysis for test emails - use projects as is
                     msg = MIMEMultipart('alternative')
                     msg['From'] = self.sender_email
                     msg['To'] = email
                     msg['Subject'] = "JSW Steel Project Leads"
                     
-                    html_content = f"""
+                    html_content = f'''
                     <html>
                     <head>
                         <style>
@@ -567,7 +1073,7 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                         </div>
                     </body>
                     </html>
-                    """
+                    '''
                     
                     msg.attach(MIMEText(html_content, 'html'))
                     
@@ -644,7 +1150,6 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
         try:
             subject = f"JSW Steel Leads"
             
-            # Create HTML content
             html_content = f"""
             <html>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -654,7 +1159,6 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
                     <p>We found {{len(projects)}} new project opportunities that might interest you:</p>
             """
             
-            # Add each project
             for idx, project in enumerate(projects, 1):
                 html_content += f"""
                     <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
@@ -710,4 +1214,141 @@ Secondary Product: [Product]: ~[X,XXX]MT"""},
             
         except Exception as e:
             self.logger.error(f"Error sending email: {{str(e)}}")
+            return False
+
+    def send_whatsapp_message(self, project):
+        """Send project details via WhatsApp"""
+        try:
+            # Format the WhatsApp message
+            message = f"""*New Project Lead*
+
+*Company:* {project.get('company', 'N/A')}
+*Project:* {project.get('title', 'N/A')}
+*Value:* ₹{project.get('value', 0):,.0f} Cr
+
+*Steel Requirements:*
+Primary: {project.get('steel_requirements', {}).get('primary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('primary', {}).get('type', '')})
+Secondary: {project.get('steel_requirements', {}).get('secondary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('secondary', {}).get('type', '')})
+
+*Timeline:* {project.get('start_date', datetime.now()).strftime('%B %Y')} - {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
+
+View Details: {project.get('source_url', 'N/A')}"""
+
+            # WhatsApp API endpoint
+            url = f"https://graph.facebook.com/v17.0/{Config.WHATSAPP_PHONE_NUMBER_ID}/messages"
+            
+            # Headers with authentication
+            headers = {
+                "Authorization": f"Bearer {Config.WHATSAPP_API_TOKEN}",
+                "Content-Type": "application/json"
+            }
+            
+            # Payload for WhatsApp message
+            payload = {
+                "messaging_product": "whatsapp",
+                "to": Config.WHATSAPP_RECIPIENT,
+                "type": "text",
+                "text": {
+                    "preview_url": True,
+                    "body": message
+                }
+            }
+            
+            # Send the message with retry logic
+            for attempt in range(3):  # Try up to 3 times
+                try:
+                    response = requests.post(url, headers=headers, json=payload)
+                    response.raise_for_status()
+                    
+                    # Check response content
+                    response_data = response.json()
+                    if response_data.get('messages', []):
+                        message_id = response_data['messages'][0].get('id')
+                        self.logger.info(f"Successfully sent WhatsApp message. Message ID: {message_id}")
+                        return True
+                    else:
+                        self.logger.warning("No message ID in response")
+                        
+                except requests.exceptions.RequestException as e:
+                    self.logger.error(f"WhatsApp API request failed on attempt {attempt + 1}: {str(e)}")
+                    if attempt < 2:  # Don't sleep on last attempt
+                        time.sleep(2 ** attempt)  # Exponential backoff
+                    continue
+                except Exception as e:
+                    self.logger.error(f"Unexpected error sending WhatsApp message: {str(e)}")
+                    break
+            
+            return False
+            
+        except Exception as e:
+            self.logger.error(f"Error sending WhatsApp message: {str(e)}")
+            return False
+
+    def send_project_via_whatsapp(self, project):
+        """Send a single project opportunity via WhatsApp with detailed information"""
+        try:
+            # Format the message with project details
+            message = f"""*JSW Steel - New Project Lead*
+
+*Project Details:*
+Company: {project.get('company', 'N/A')}
+Title: {project.get('title', 'N/A')}
+Location: {project.get('location', 'N/A')}
+
+*Value & Requirements:*
+Contract Value: ₹{project.get('value', 0):,.0f} Cr
+Steel Requirements:
+• Primary: {project.get('steel_requirements', {}).get('primary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('primary', {}).get('type', '')})
+• Secondary: {project.get('steel_requirements', {}).get('secondary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('secondary', {}).get('type', '')})
+
+*Timeline:*
+Start: {project.get('start_date', datetime.now()).strftime('%B %Y')}
+End: {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
+Duration: {project.get('duration', 'N/A')}
+
+*Key Contacts:*"""
+            
+            # Add contact information if available
+            contacts = project.get('contacts', [])
+            if contacts:
+                for contact in contacts[:3]:  # Limit to top 3 contacts
+                    message += f"""
+• {contact.get('name', 'N/A')} ({contact.get('role', 'N/A')})
+  {contact.get('email', '')}
+  {contact.get('phone', '')}"""
+            else:
+                message += "\nNo contacts available yet"
+            
+            message += f"""
+
+*Priority:* {project.get('priority', 'Normal Priority')}
+*Source:* {project.get('source_url', 'N/A')}
+
+For more details, visit: https://jsww.onrender.com"""
+            
+            url = f"https://graph.facebook.com/v17.0/{Config.WHATSAPP_PHONE_NUMBER_ID}/messages"
+            
+            headers = {
+                "Authorization": f"Bearer {Config.WHATSAPP_API_TOKEN}",
+                "Content-Type": "application/json"
+            }
+            
+            payload = {
+                "messaging_product": "whatsapp",
+                "to": Config.WHATSAPP_RECIPIENT,
+                "type": "text",
+                "text": {
+                    "preview_url": True,
+                    "body": message
+                }
+            }
+            
+            response = requests.post(url, headers=headers, json=payload)
+            response.raise_for_status()
+            
+            self.logger.info(f"Successfully sent detailed project info via WhatsApp for: {project.get('title')}")
+            return True
+            
+        except Exception as e:
+            self.logger.error(f"Error sending project via WhatsApp: {str(e)}")
             return False 

@@ -1,0 +1,42 @@
+2025-02-16 19:23:44,053 - utilities.logger - INFO - Logging initialized
+2025-02-16 19:23:44,058 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 19:23:44,077 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 19:23:49,069 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 19:23:51,370 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 19:23:53,535 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 19:23:53,536 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 19:23:53,932 - scrapers.perplexity_client - WARNING - Attempt 1/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-16 19:23:55,263 - scrapers.perplexity_client - WARNING - Attempt 2/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-16 19:23:57,645 - scrapers.perplexity_client - WARNING - Attempt 3/3 failed: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-16 19:23:57,646 - scrapers.perplexity_client - ERROR - Error researching projects: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+Traceback (most recent call last):
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 97, in research_infrastructure_projects
+    results = self._query_perplexity(primary_query)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/aagamshah/React/jsw/scrapers/perplexity_client.py", line 158, in _query_perplexity
+    raise Exception(f"All retries failed. Last error: {last_error}")
+Exception: All retries failed. Last error: 401 Client Error: Unauthorized for url: https://api.perplexity.ai/chat/completions
+2025-02-16 19:24:37,204 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-16 19:24:37,230 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-16 19:24:37,600 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 19:24:39,188 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 19:24:41,417 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:44,430 - utilities.project_discovery_graph - ERROR - Error enriching project Bombardier Wins Kanpur & Agra Metro’s 201 Coach Rolling Stock & Signalling Contract - The Metro Rail Guy after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:47,440 - utilities.project_discovery_graph - ERROR - Error enriching project Airoli-Katai Naka Freeway – Information & Status after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:50,447 - utilities.project_discovery_graph - ERROR - Error enriching project India's #1 Projects Tracking Platform after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:53,463 - utilities.project_discovery_graph - ERROR - Error enriching project IRCON bags ₹1944 crore Rail Safety Contract for Kavach ... after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:56,479 - utilities.project_discovery_graph - ERROR - Error enriching project BEML Awarded India's High-Speed Rail Train Contract for ... after 3 retries: 'str' object has no attribute 'get'
+2025-02-16 19:24:57,487 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-16 19:24:57,490 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-16 19:24:57,491 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-16 19:24:57,492 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-16 19:24:57,493 - utilities.project_discovery_graph - INFO - Workflow completed in 73.42s
+2025-02-16 19:24:57,495 - utilities.project_discovery_graph - INFO - Workflow completed with status: no_projects_to_notify
+2025-02-16 19:24:57,496 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-16 19:24:57,496 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-16 19:24:57,496 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-16 19:24:57,496 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-16 19:24:57,497 - __main__ - INFO - Pipeline completed successfully. Status: no_projects_to_notify
+2025-02-16 19:24:57,586 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 19:24:57,587 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 19:24:57,587 - apscheduler.scheduler - INFO - Scheduler started

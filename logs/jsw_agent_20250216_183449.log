@@ -1,0 +1,48 @@
+2025-02-16 18:34:49,040 - utilities.logger - INFO - Logging initialized
+2025-02-16 18:34:49,046 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-16 18:34:49,071 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-16 18:34:53,877 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-16 18:34:55,859 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-16 18:34:57,698 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-16 18:34:57,698 - scrapers.perplexity_client - INFO - Searching for infrastructure projects...
+2025-02-16 18:35:18,108 - scrapers.perplexity_client - INFO - Successfully parsed 3 projects
+2025-02-16 18:35:18,109 - scrapers.perplexity_client - INFO - Found 3 projects
+2025-02-16 18:35:55,775 - utilities.project_discovery_graph - INFO - Filtering 14 projects...
+2025-02-16 18:35:55,801 - utilities.project_discovery_graph - INFO - Enriching 7 projects...
+2025-02-16 18:35:56,258 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 18:35:57,802 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 18:35:58,526 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 18:36:00,542 - utilities.project_discovery_graph - ERROR - Error enriching project 24x7 water supply schemes in 17 towns of Uttar Pradesh after 3 retries: Failed to calculate steel requirements
+2025-02-16 18:36:02,111 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 18:36:04,123 - utilities.project_discovery_graph - ERROR - Error enriching project SCC Infra-led JV bags ₹307 cr civil contract for Mumbai-Ahmedabad Bullet Train Project | Metro Rail Today after 3 retries: Invalid steel requirements calculated
+2025-02-16 18:36:05,691 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 18:36:06,304 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 18:36:06,898 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-16 18:36:06,901 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-16 18:36:06,901 - utilities.project_discovery_graph - INFO - Sending notifications for 5 projects...
+2025-02-16 18:36:06,911 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-16 18:36:08,555 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-16 18:36:08,778 - utilities.email_handler - INFO - Starting ContactOut search for company: uttar pradesh metro rail corporation ltd
+2025-02-16 18:36:08,779 - utilities.email_handler - INFO - Using main company name: uttar pradesh metro
+2025-02-16 18:36:25,772 - utilities.email_handler - INFO - Total unique contacts found for uttar pradesh metro rail corporation ltd: 0
+2025-02-16 18:36:25,776 - utilities.email_handler - INFO - Starting ContactOut search for company: the metro rail guy bangalore metro rail corporation ltd
+2025-02-16 18:36:25,776 - utilities.email_handler - INFO - Using main company name: the metro rail
+2025-02-16 18:36:40,717 - utilities.email_handler - INFO - Total unique contacts found for the metro rail guy bangalore metro rail corporation ltd: 0
+2025-02-16 18:36:43,882 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com
+2025-02-16 18:36:43,883 - utilities.email_handler - INFO - Starting ContactOut search for company: projects tracking platform gmr infrastructure
+2025-02-16 18:36:43,883 - utilities.email_handler - INFO - Using main company name: gmr
+2025-02-16 18:36:52,741 - utilities.email_handler - INFO - Total unique contacts found for projects tracking platform gmr infrastructure: 0
+2025-02-16 18:36:52,745 - utilities.email_handler - INFO - Starting ContactOut search for company: inderdeep construction-eagle infra india limited jv
+2025-02-16 18:36:52,745 - utilities.email_handler - INFO - Using main company name: inderdeep construction-eagle
+2025-02-16 18:37:00,476 - utilities.email_handler - INFO - Total unique contacts found for inderdeep construction-eagle infra india limited jv: 0
+2025-02-16 18:37:04,017 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-16 18:37:04,020 - utilities.project_discovery_graph - INFO - Workflow completed in 134.95s
+2025-02-16 18:37:04,021 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-16 18:37:04,021 - utilities.project_discovery_graph - INFO - Projects found: 14
+2025-02-16 18:37:04,021 - utilities.project_discovery_graph - INFO - Projects filtered: 7
+2025-02-16 18:37:04,022 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-16 18:37:04,022 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-16 18:37:04,022 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-16 18:37:04,128 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-16 18:37:04,128 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-16 18:37:04,128 - apscheduler.scheduler - INFO - Scheduler started
