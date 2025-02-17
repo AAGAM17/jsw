@@ -922,8 +922,7 @@ class EmailHandler:
                     <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                         View Announcement
                     </a>
-                    <a href="https://frontend-w7zd.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
-                       style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
+                    <a href="https://frontend-w7zd.onrender.com" style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
                         Get More Info
                     </a>
                 </div>
