@@ -59,7 +59,7 @@ class EmailHandler:
             else:
                 self.logger.error(f"Invalid project type: {type(project)}")
                 return 'TMT_BARS'  # Default team
-        
+            
             # Check for specific keywords in order of priority
             if any(word in text for word in ['metro', 'railway', 'rail', 'train']):
                 return 'HR_CR_PLATES'
@@ -73,6 +73,7 @@ class EmailHandler:
                 return 'TMT_BARS'
             
             return 'TMT_BARS'
+            
         except Exception as e:
             self.logger.error(f"Error in determine_product_team: {str(e)}")
             return 'TMT_BARS'  # Default team in case of error
@@ -93,17 +94,21 @@ class EmailHandler:
             else:
                 self.logger.error(f"Invalid project type: {type(project)}")
                 return 0
-
+        
+            # Get the rates for the product type
             rates = Config.STEEL_RATES.get(product_type, {})
             rate = rates.get('default', 10)  # Default rate if nothing else matches
             
+            # Find the most specific rate
             for category, category_rate in rates.items():
                 if category != 'default' and category in text:
                     rate = category_rate
                     break
             
+            # Conservative estimation
             steel_tons = value_in_cr * rate * 0.8  # Using 0.8 as conservative factor
             return steel_tons
+            
         except Exception as e:
             self.logger.error(f"Error in calculate_steel_requirement: {str(e)}")
             return 0  # Return 0 in case of error
@@ -917,7 +922,7 @@ class EmailHandler:
                     <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                         View Announcement
                     </a>
-                    <a href="https://jsww.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
+                    <a href="https://frontend-w7zd.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
                        style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
                         Get More Info
                     </a>
@@ -1324,7 +1329,7 @@ Duration: {project.get('duration', 'N/A')}
 *Priority:* {project.get('priority', 'Normal Priority')}
 *Source:* {project.get('source_url', 'N/A')}
 
-For more details, visit: https://jsww.onrender.com"""
+For more details, visit: https://frontend-w7zd.onrender.com"""
             
             url = f"https://graph.facebook.com/v17.0/{Config.WHATSAPP_PHONE_NUMBER_ID}/messages"
             
