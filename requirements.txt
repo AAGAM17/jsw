@@ -10,7 +10,7 @@ urllib3==2.2.1
 python-dateutil==2.9.0
 twilio==8.13.0
 gunicorn==21.2.0
-logging-utils==0.0.14
+logging-utils==1.0.2
 schedule==1.2.1
 track==0.5.1
 nltk==3.8.1
