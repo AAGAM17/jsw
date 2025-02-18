@@ -2,9 +2,8 @@
 
 import logging
 from datetime import datetime, timedelta
-from track import Client
-from config.settings import Config
 import requests
+from config.settings import Config
 
 class InteraktHandler:
     def __init__(self):
