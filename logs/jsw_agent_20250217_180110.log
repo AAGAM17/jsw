@@ -1,0 +1,32 @@
+2025-02-17 18:01:10,902 - utilities.logger - INFO - Logging initialized
+2025-02-17 18:01:10,913 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-17 18:01:10,944 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-17 18:01:15,604 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-17 18:01:17,484 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-17 18:01:19,304 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-17 18:02:02,477 - utilities.project_discovery_graph - INFO - Filtering 11 projects...
+2025-02-17 18:02:02,506 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-17 18:02:03,064 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled
+2025-02-17 18:02:03,064 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 18:02:04,623 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 18:02:05,740 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 18:02:06,426 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 18:02:07,448 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 18:02:08,032 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 18:02:08,777 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-17 18:02:08,783 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-17 18:02:08,784 - utilities.project_discovery_graph - INFO - Sending notifications for 5 projects...
+2025-02-17 18:02:08,803 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled
+2025-02-17 18:02:08,803 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-17 18:02:10,620 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-17 18:02:14,836 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-17 18:02:14,838 - utilities.project_discovery_graph - INFO - Workflow completed in 63.90s
+2025-02-17 18:02:14,838 - utilities.project_discovery_graph - INFO - Workflow completed with status: notifications_sent
+2025-02-17 18:02:14,839 - utilities.project_discovery_graph - INFO - Projects found: 11
+2025-02-17 18:02:14,839 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-17 18:02:14,839 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-17 18:02:14,839 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-17 18:02:14,839 - __main__ - INFO - Pipeline completed successfully. Status: notifications_sent
+2025-02-17 18:02:14,954 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-17 18:02:14,955 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-17 18:02:14,955 - apscheduler.scheduler - INFO - Scheduler started

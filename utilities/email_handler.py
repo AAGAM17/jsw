@@ -10,6 +10,7 @@ from .contact_enricher import ContactEnricher
 from groq import Groq
 import requests
 import urllib.parse
+from whatsapp.interakt_handler import InteraktHandler
 
 class EmailHandler:
     def __init__(self):
@@ -26,6 +27,9 @@ class EmailHandler:
         
         # Initialize contact enricher
         self.contact_enricher = ContactEnricher()
+        
+        # Initialize WhatsApp handler
+        self.whatsapp_handler = InteraktHandler()
         
         # Validate email configuration
         if not all([self.smtp_server, self.smtp_port, self.sender_email, self.sender_password]):
@@ -51,32 +55,70 @@ class EmailHandler:
             # Handle string input
             if isinstance(project, str):
                 text = project.lower()
+                return self._determine_team_from_keywords(text)
+            
             # Handle dictionary input
             elif isinstance(project, dict):
+                # First check primary product requirement
+                steel_requirements = project.get('steel_requirements', {})
+                if isinstance(steel_requirements, dict):
+                    primary = steel_requirements.get('primary', {})
+                    if isinstance(primary, dict):
+                        product_type = primary.get('type', '').upper()
+                        # Long Products
+                        if 'TMT' in product_type or 'BARS' in product_type:
+                            return 'TMT_BARS'
+                        elif 'WIRE' in product_type or 'RODS' in product_type:
+                            return 'WIRE_RODS'
+                        elif 'SPECIAL' in product_type or 'ALLOY' in product_type:
+                            return 'SPECIAL_ALLOY_STEEL'
+                        # Flat Products
+                        elif 'HOT ROLLED' in product_type or 'HR' in product_type:
+                            return 'HOT_ROLLED'
+                        elif 'COLD ROLLED' in product_type or 'CR' in product_type:
+                            return 'COLD_ROLLED'
+                        elif 'GALVANIZED' in product_type:
+                            return 'GALVANIZED'
+                        elif 'ELECTRICAL' in product_type:
+                            return 'ELECTRICAL_STEEL'
+                        elif 'GALVALUME' in product_type:
+                            return 'GALVALUME_STEEL'
+                
+                # If no primary product found, fall back to keyword matching
                 title = project.get('title', '').lower()
                 description = project.get('description', '').lower()
                 text = f"{title} {description}"
-            else:
-                self.logger.error(f"Invalid project type: {type(project)}")
-                return 'TMT_BARS'  # Default team
+                return self._determine_team_from_keywords(text)
             
-            # Check for specific keywords in order of priority
-            if any(word in text for word in ['metro', 'railway', 'rail', 'train']):
-                return 'HR_CR_PLATES'
-            elif any(word in text for word in ['solar', 'renewable', 'pv']):
-                return 'SOLAR'
-            elif any(word in text for word in ['building', 'residential', 'commercial']):
-                return 'TMT_BARS'
-            elif any(word in text for word in ['industrial', 'factory', 'plant']):
-                return 'HR_CR_PLATES'
-            elif any(word in text for word in ['road', 'highway', 'bridge']):
-                return 'TMT_BARS'
-            
-            return 'TMT_BARS'
+            return 'TMT_BARS'  # Default team
             
         except Exception as e:
             self.logger.error(f"Error in determine_product_team: {str(e)}")
             return 'TMT_BARS'  # Default team in case of error
+            
+    def _determine_team_from_keywords(self, text):
+        """Determine team based on keywords in text"""
+        # Long Products
+        if any(word in text for word in ['tmt', 'reinforcement bar', 'rebar', 'construction', 'building', 'infrastructure']):
+            return 'TMT_BARS'
+        elif any(word in text for word in ['wire rod', 'wire mesh', 'fencing', 'welding wire']):
+            return 'WIRE_RODS'
+        elif any(word in text for word in ['special alloy', 'high grade steel', 'specialty steel', 'alloy steel']):
+            return 'SPECIAL_ALLOY_STEEL'
+        # Flat Products
+        elif any(word in text for word in ['hot rolled', 'hr plate', 'hr coil', 'hot roll']):
+            return 'HOT_ROLLED'
+        elif any(word in text for word in ['cold rolled', 'cr plate', 'cr coil', 'cold roll']):
+            return 'COLD_ROLLED'
+        elif any(word in text for word in ['galvanized', 'gi', 'zinc coated', 'gi sheet']):
+            return 'GALVANIZED'
+        elif any(word in text for word in ['electrical steel', 'transformer', 'motor', 'electrical grade']):
+            return 'ELECTRICAL_STEEL'
+        elif any(word in text for word in ['galvalume', 'aluzinc', 'zincalume', 'gl sheet']):
+            return 'GALVALUME_STEEL'
+        
+        # Default to TMT_BARS for construction/infrastructure projects
+        return 'TMT_BARS'
     
     def calculate_steel_requirement(self, project, product_type):
         """Calculate steel requirement based on project type and value"""
@@ -922,7 +964,7 @@ class EmailHandler:
                     <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                         View Announcement
                     </a>
-                    <a href="https://frontend-w7zd.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
+                    <a href="https://aijsw.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
                        style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
                         Get More Info
                     </a>
@@ -945,34 +987,32 @@ class EmailHandler:
         # Get steel requirements with proper structure
         steel_reqs = project.get('steel_requirements', {})
         
-        # Format primary requirement (Long Products)
+        # Format primary requirement
         primary_req = steel_reqs.get('primary', {})
         primary_html = f'''
             <div style="font-size: 16px; margin-bottom: 12px;">
-                <strong style="color: #1a1a1a;">Primary ({primary_req.get('category', 'Long Products')}):</strong> 
-                {primary_req.get('type', 'TMT Bars')} (~{primary_req.get('quantity', 0):,}MT)
+                {primary_req.get('type', 'TMT Bars')} (JSW NeoSteel 550D, ~{primary_req.get('quantity', 0):,}MT) - Primary
             </div>
         '''
         
-        # Format secondary requirements (Flat Products)
+        # Format secondary requirements
         secondary_reqs = steel_reqs.get('secondary', [])
-        secondary_html = '<div style="margin-left: 20px;">'
+        secondary_html = ''
         for req in secondary_reqs:
             if req.get('quantity', 0) > 0:
+                product_name = req.get('type', '')
+                jsw_product = f'JSW {product_name}'
                 secondary_html += f'''
                     <div style="font-size: 16px; margin-bottom: 8px;">
-                        <strong style="color: #1a1a1a;">Secondary ({req.get('category', 'Flat Products')}):</strong> 
-                        {req.get('type', '')} (~{req.get('quantity', 0):,}MT)
+                        {product_name} ({jsw_product}) - Secondary
                     </div>
                 '''
-        secondary_html += '</div>'
         
-        # Format tertiary requirement (Long Products)
+        # Format tertiary requirement
         tertiary_req = steel_reqs.get('tertiary', {})
         tertiary_html = f'''
             <div style="font-size: 16px; margin-bottom: 12px;">
-                <strong style="color: #1a1a1a;">Tertiary ({tertiary_req.get('category', 'Long Products')}):</strong> 
-                {tertiary_req.get('type', 'Special Alloy Steel')} (~{tertiary_req.get('quantity', 0):,}MT)
+                {tertiary_req.get('type', 'Wire Rods')} (JSW {tertiary_req.get('type', 'Wire Rods')}) - Tertiary
             </div>
         '''
         
@@ -993,7 +1033,7 @@ class EmailHandler:
                 {tertiary_html}
                 {timeline_html}
             </div>
-            '''
+        '''
 
     def _get_team_emails(self, teams): 
         """Get email addresses for teams"""
@@ -1028,8 +1068,9 @@ class EmailHandler:
                     if not project.get('steel_requirements'):
                         project = self._analyze_project_content(project)
                     
-                    teams = project.get('teams', ['TMT_BARS'])
-                    team_emails = self._get_team_emails(teams)
+                    # Determine team based on primary product
+                    primary_team = self.determine_product_team(project)
+                    team_emails = self._get_team_emails(primary_team)
                     
                     if not team_emails:
                         self.logger.warning(f"No team emails found for project: {project.get('title')}")
@@ -1038,6 +1079,8 @@ class EmailHandler:
                     for email in team_emails:
                         if email not in team_projects:
                             team_projects[email] = []
+                        # Update project's teams to match the primary team
+                        project['teams'] = [primary_team]
                         team_projects[email].append(project)
                     
                 except Exception as e:
@@ -1049,7 +1092,13 @@ class EmailHandler:
                     msg = MIMEMultipart('alternative')
                     msg['From'] = self.sender_email
                     msg['To'] = email
-                    msg['Subject'] = "JSW Steel Project Leads"
+                    
+                    # Get team category and format team name
+                    team_name = team_project_list[0]['teams'][0]
+                    team_category = 'Long Products' if team_name in ['TMT_BARS', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL'] else 'Flat Products'
+                    formatted_team_name = team_name.replace('_', ' ')
+                    
+                    msg['Subject'] = f"JSW Steel {team_category} - {formatted_team_name} Leads"
                     
                     html_content = f'''
                     <html>
@@ -1069,7 +1118,7 @@ class EmailHandler:
                     </head>
                     <body>
                         <div class="container">
-                            <h1>Leads for the {team_project_list[0]['teams'][0].replace('_', ' ')} team</h1>
+                            <h1>Leads for {formatted_team_name} ({team_category})</h1>
                             {''.join(self._format_project_for_email(project) for project in team_project_list)}
                             <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
                                 <p>This is an automated notification from the JSW Steel Project Discovery System.</p>
@@ -1223,137 +1272,8 @@ class EmailHandler:
 
     def send_whatsapp_message(self, project):
         """Send project details via WhatsApp"""
-        try:
-            # Format the WhatsApp message
-            message = f"""*New Project Lead*
-
-*Company:* {project.get('company', 'N/A')}
-*Project:* {project.get('title', 'N/A')}
-*Value:* ₹{project.get('value', 0):,.0f} Cr
-
-*Steel Requirements:*
-Primary: {project.get('steel_requirements', {}).get('primary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('primary', {}).get('type', '')})
-Secondary: {project.get('steel_requirements', {}).get('secondary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('secondary', {}).get('type', '')})
-
-*Timeline:* {project.get('start_date', datetime.now()).strftime('%B %Y')} - {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
-
-View Details: {project.get('source_url', 'N/A')}"""
-
-            # WhatsApp API endpoint
-            url = f"https://graph.facebook.com/v17.0/{Config.WHATSAPP_PHONE_NUMBER_ID}/messages"
-            
-            # Headers with authentication
-            headers = {
-                "Authorization": f"Bearer {Config.WHATSAPP_API_TOKEN}",
-                "Content-Type": "application/json"
-            }
-            
-            # Payload for WhatsApp message
-            payload = {
-                "messaging_product": "whatsapp",
-                "to": Config.WHATSAPP_RECIPIENT,
-                "type": "text",
-                "text": {
-                    "preview_url": True,
-                    "body": message
-                }
-            }
-            
-            # Send the message with retry logic
-            for attempt in range(3):  # Try up to 3 times
-                try:
-                    response = requests.post(url, headers=headers, json=payload)
-                    response.raise_for_status()
-                    
-                    # Check response content
-                    response_data = response.json()
-                    if response_data.get('messages', []):
-                        message_id = response_data['messages'][0].get('id')
-                        self.logger.info(f"Successfully sent WhatsApp message. Message ID: {message_id}")
-                        return True
-                    else:
-                        self.logger.warning("No message ID in response")
-                        
-                except requests.exceptions.RequestException as e:
-                    self.logger.error(f"WhatsApp API request failed on attempt {attempt + 1}: {str(e)}")
-                    if attempt < 2:  # Don't sleep on last attempt
-                        time.sleep(2 ** attempt)  # Exponential backoff
-                    continue
-                except Exception as e:
-                    self.logger.error(f"Unexpected error sending WhatsApp message: {str(e)}")
-                    break
-            
-            return False
-            
-        except Exception as e:
-            self.logger.error(f"Error sending WhatsApp message: {str(e)}")
-            return False
+        return self.whatsapp_handler.send_project_opportunities([project])
 
     def send_project_via_whatsapp(self, project):
         """Send a single project opportunity via WhatsApp with detailed information"""
-        try:
-            # Format the message with project details
-            message = f"""*JSW Steel - New Project Lead*
-
-*Project Details:*
-Company: {project.get('company', 'N/A')}
-Title: {project.get('title', 'N/A')}
-Location: {project.get('location', 'N/A')}
-
-*Value & Requirements:*
-Contract Value: ₹{project.get('value', 0):,.0f} Cr
-Steel Requirements:
-• Primary: {project.get('steel_requirements', {}).get('primary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('primary', {}).get('type', '')})
-• Secondary: {project.get('steel_requirements', {}).get('secondary', {}).get('quantity', 0):,} MT ({project.get('steel_requirements', {}).get('secondary', {}).get('type', '')})
-
-*Timeline:*
-Start: {project.get('start_date', datetime.now()).strftime('%B %Y')}
-End: {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
-Duration: {project.get('duration', 'N/A')}
-
-*Key Contacts:*"""
-            
-            # Add contact information if available
-            contacts = project.get('contacts', [])
-            if contacts:
-                for contact in contacts[:3]:  # Limit to top 3 contacts
-                    message += f"""
-• {contact.get('name', 'N/A')} ({contact.get('role', 'N/A')})
-  {contact.get('email', '')}
-  {contact.get('phone', '')}"""
-            else:
-                message += "\nNo contacts available yet"
-            
-            message += f"""
-
-*Priority:* {project.get('priority', 'Normal Priority')}
-*Source:* {project.get('source_url', 'N/A')}
-
-For more details, visit: https://frontend-w7zd.onrender.com"""
-            
-            url = f"https://graph.facebook.com/v17.0/{Config.WHATSAPP_PHONE_NUMBER_ID}/messages"
-            
-            headers = {
-                "Authorization": f"Bearer {Config.WHATSAPP_API_TOKEN}",
-                "Content-Type": "application/json"
-            }
-            
-            payload = {
-                "messaging_product": "whatsapp",
-                "to": Config.WHATSAPP_RECIPIENT,
-                "type": "text",
-                "text": {
-                    "preview_url": True,
-                    "body": message
-                }
-            }
-            
-            response = requests.post(url, headers=headers, json=payload)
-            response.raise_for_status()
-            
-            self.logger.info(f"Successfully sent detailed project info via WhatsApp for: {project.get('title')}")
-            return True
-            
-        except Exception as e:
-            self.logger.error(f"Error sending project via WhatsApp: {str(e)}")
-            return False 
+        return self.whatsapp_handler.send_project_opportunities([project]) 

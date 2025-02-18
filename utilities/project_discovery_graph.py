@@ -13,6 +13,7 @@ import re
 import time
 from exa_py import Exa
 from groq import Groq
+from .contact_finder import ContactFinder
 
 logger = logging.getLogger(__name__)
 
@@ -394,11 +395,12 @@ def generate_catchy_headline(project: dict) -> str:
         return project.get('title', '')  # Fallback to original title
 
 def enrich_projects(state: WorkflowState) -> WorkflowState:
-    """Enrich projects with steel requirements, team assignments, and catchy headlines."""
+    """Enrich projects with steel requirements, team assignments, and contact information."""
     try:
         logger.info(f"Enriching {len(state['filtered_projects'])} projects...")
         
         email_handler = EmailHandler()
+        contact_finder = ContactFinder()  # Initialize contact finder
         enriched_projects = []
         max_retries = 3
         
@@ -460,6 +462,11 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
                     if priority_score < 0 or priority_score > 100:
                         priority_score = 50
                     enriched['priority_score'] = priority_score
+                    
+                    # Find procurement contacts
+                    if enriched.get('company'):
+                        logger.info(f"Finding procurement contacts for {enriched['company']}")
+                        enriched = contact_finder.enrich_project_contacts(enriched)
                     
                     # Add to enriched projects
                     enriched_projects.append(enriched)

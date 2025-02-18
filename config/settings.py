@@ -33,6 +33,10 @@ class Config:
     WHATSAPP_PHONE_NUMBER_ID = os.getenv('WHATSAPP_PHONE_NUMBER_ID')
     WHATSAPP_RECIPIENT = '919075825548'  # The approved number
     
+    # Interakt API Configuration
+    INTERAKT_API_KEY = os.getenv('INTERAKT_API_KEY')
+    INTERAKT_PHONE_NUMBER = os.getenv('INTERAKT_PHONE_NUMBER')
+    
     if not all([PERPLEXITY_API_KEY, EMAIL_SENDER, EMAIL_PASSWORD, EXA_API_KEY, FIRECRAWL_API_KEY, CONTACTOUT_TOKEN]):
         raise ValueError(
             "Missing required environment variables. Please check your .env file:\n"
@@ -60,18 +64,25 @@ class Config:
             "- WHATSAPP_PHONE_NUMBER_ID"
         )
     
+    if not all([INTERAKT_API_KEY, INTERAKT_PHONE_NUMBER]):
+        raise ValueError(
+            "Missing Interakt API configuration. Please check your .env file:\n"
+            "- INTERAKT_API_KEY\n"
+            "- INTERAKT_PHONE_NUMBER"
+        )
+    
     TEAM_EMAILS = {
         # Flat Products
         'HOT_ROLLED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'COLD_ROLLED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'GALVANIZED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'ELECTRICAL_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
-        'GALVALUME': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
+        'GALVALUME_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         
         # Long Products
         'TMT_BARS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'WIRE_RODS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
-        'SPECIAL_ALLOY': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com'
+        'SPECIAL_ALLOY_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com'
     }
     
     PROJECT_DISCOVERY = {
