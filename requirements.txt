@@ -23,7 +23,6 @@ undetected-chromedriver>=3.5.4
 exa-py>=1.0.0
 groq>=0.4.2
 python-dateutil==2.9.0
-twilio==8.13.0
 gunicorn==21.2.0
 logging-utils==1.0.2
 schedule==1.2.1
