@@ -1,0 +1,49 @@
+2025-02-25 02:23:25,546 - utilities.logger - INFO - Logging initialized
+2025-02-25 02:23:25,546 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-25 02:23:25,582 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-25 02:23:30,236 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-25 02:23:32,217 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-25 02:23:34,080 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-25 02:24:13,287 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-25 02:24:13,303 - utilities.project_discovery_graph - INFO - Retained 6 non-JSW projects
+2025-02-25 02:24:13,305 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-25 02:24:13,573 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:24:13,573 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 02:24:15,222 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 02:24:16,453 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:16,458 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 02:24:19,041 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:19,043 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-25 02:24:19,674 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:19,677 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-25 02:24:20,350 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:20,351 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-25 02:24:20,938 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:20,940 - utilities.project_discovery_graph - INFO - Finding procurement contacts for NHAI has issued contract LOA to PNC Infra
+2025-02-25 02:24:20,941 - utilities.contact_finder - INFO - Found 2 contacts for NHAI has issued contract LOA to PNC Infra
+2025-02-25 02:24:21,572 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:24:21,574 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Dilip Buildcon Ltd
+2025-02-25 02:24:21,574 - utilities.contact_finder - INFO - Found 2 contacts for Dilip Buildcon Ltd
+2025-02-25 02:24:21,574 - utilities.project_discovery_graph - INFO - Successfully enriched 6 projects
+2025-02-25 02:24:21,578 - utilities.project_discovery_graph - INFO - Prioritizing 6 projects...
+2025-02-25 02:24:21,581 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-25 02:24:21,601 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:24:21,601 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 02:24:23,114 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 02:24:23,339 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:24:26,851 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-25 02:24:26,852 - whatsapp.interakt_handler - INFO - Sending 6 project opportunities via WhatsApp
+2025-02-25 02:24:26,853 - whatsapp.interakt_handler - ERROR - Error sending project 6.925 km long Ganga River Bridge to be constructed in Bihar: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,853 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 181 km Hyderabad-Vijayawada highway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,854 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 62.7 km Kanpur-Lucknow Expressway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,854 - whatsapp.interakt_handler - ERROR - Error sending project Dilip Buildcon to develop 240 km Andhra Pradesh highway network: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,854 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 12.3 km Airoli-Katai Naka freeway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,855 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 2 km Sabarmati High Speed Rail Depot.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:24:26,855 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-25 02:24:26,857 - utilities.project_discovery_graph - INFO - Workflow completed in 61.28s
+2025-02-25 02:24:26,858 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-25 02:24:26,858 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-25 02:24:26,858 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-25 02:24:26,858 - utilities.project_discovery_graph - INFO - Projects enriched: 6
+2025-02-25 02:24:26,858 - utilities.project_discovery_graph - INFO - Projects prioritized: 6
+2025-02-25 02:24:26,859 - main - INFO - Pipeline completed successfully. Status: completed

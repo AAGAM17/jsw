@@ -8,6 +8,7 @@ from scrapers.perplexity_client import PerplexityClient
 import os
 from dotenv import load_dotenv
 from utilities.email_handler import EmailHandler
+from whatsapp.interakt_handler import InteraktHandler
 
 app = Flask(__name__)
 configure_logging()
@@ -29,6 +30,9 @@ chat_contexts = {}
 
 # In-memory storage for projects (replace with database in production)
 projects = []
+
+# Initialize handlers
+whatsapp_handler = InteraktHandler()
 
 @app.route('/')
 def index():
@@ -395,6 +399,34 @@ def send_test_email():
             'status': 'error',
             'message': str(e)
         }), 500
+
+@app.route('/webhook/whatsapp', methods=['POST'])
+def whatsapp_webhook():
+    """Handle incoming WhatsApp messages from Interakt"""
+    try:
+        data = request.json
+        logger.info(f"Received webhook: {data}")
+        
+        # Extract message details
+        if data.get('type') == 'message' and data.get('payload'):
+            payload = data['payload']
+            phone_number = payload.get('from', {}).get('phone')
+            message_text = payload.get('text', {}).get('body')
+            
+            if phone_number and message_text:
+                # Handle the message
+                whatsapp_handler.handle_incoming_message(phone_number, message_text)
+                return jsonify({'status': 'success'}), 200
+            else:
+                logger.error("Missing phone number or message text in webhook")
+                return jsonify({'error': 'Invalid payload'}), 400
+        else:
+            logger.error("Invalid webhook type or missing payload")
+            return jsonify({'error': 'Invalid webhook type'}), 400
+            
+    except Exception as e:
+        logger.error(f"Error processing webhook: {str(e)}")
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))

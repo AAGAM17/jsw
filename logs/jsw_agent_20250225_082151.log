@@ -1,0 +1,59 @@
+2025-02-25 08:21:51,633 - utilities.logger - INFO - Logging initialized
+2025-02-25 08:21:51,634 - main - INFO - Starting AI-powered project discovery pipeline...
+2025-02-25 08:21:51,671 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-25 08:22:04,329 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-25 08:22:13,360 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-25 08:22:16,090 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-25 08:22:58,183 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-25 08:22:58,200 - utilities.project_discovery_graph - INFO - Retained 5 non-JSW projects
+2025-02-25 08:22:58,201 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-25 08:22:58,400 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 08:22:58,400 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 08:23:00,511 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 08:23:01,560 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 08:23:01,571 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-25 08:23:01,572 - utilities.contact_finder - INFO - Looking up contacts for company: Construction
+2025-02-25 08:23:01,572 - utilities.contact_finder - INFO - Normalized company name: construction
+2025-02-25 08:23:01,572 - utilities.contact_finder - WARNING - No contacts found in CRM for Construction
+2025-02-25 08:23:02,154 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 08:23:02,156 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-25 08:23:02,157 - utilities.contact_finder - INFO - Looking up contacts for company: Under Construction
+2025-02-25 08:23:02,157 - utilities.contact_finder - INFO - Normalized company name: under construction
+2025-02-25 08:23:02,157 - utilities.contact_finder - WARNING - No contacts found in CRM for Under Construction
+2025-02-25 08:23:02,579 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 08:23:02,581 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-25 08:23:02,581 - utilities.contact_finder - INFO - Looking up contacts for company: Projects Tracking Platform GMR Infrastructure
+2025-02-25 08:23:02,581 - utilities.contact_finder - INFO - Normalized company name: projects tracking platform gmr infrastructure
+2025-02-25 08:23:02,582 - utilities.contact_finder - WARNING - No contacts found in CRM for Projects Tracking Platform GMR Infrastructure
+2025-02-25 08:23:03,033 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 08:23:03,035 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-25 08:23:03,035 - utilities.contact_finder - INFO - Looking up contacts for company: SCC Infra
+2025-02-25 08:23:03,035 - utilities.contact_finder - INFO - Normalized company name: scc infra
+2025-02-25 08:23:03,035 - utilities.contact_finder - WARNING - No contacts found in CRM for SCC Infra
+2025-02-25 08:23:03,500 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 08:23:03,502 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 08:23:03,502 - utilities.contact_finder - INFO - Looking up contacts for company: month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 08:23:03,503 - utilities.contact_finder - INFO - Normalized company name: month deadline. bidders ansal highway infratech pvt. ltd. dineshchandra r.agrawal infracon pvt. ltd
+2025-02-25 08:23:03,503 - utilities.contact_finder - WARNING - No contacts found in CRM for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 08:23:03,503 - utilities.project_discovery_graph - INFO - Successfully enriched 5 projects
+2025-02-25 08:23:03,505 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-25 08:23:03,508 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-25 08:23:03,528 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 08:23:03,529 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 08:23:05,007 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 08:23:05,227 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 08:23:08,757 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-25 08:23:08,758 - whatsapp.interakt_handler - INFO - Sending 5 project opportunities via WhatsApp
+2025-02-25 08:23:08,758 - whatsapp.interakt_handler - ERROR - Error sending project 6.925 km long bridge to be built over Ganga River.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 08:23:08,758 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 181 km Hyderabad-Vijayawada highway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 08:23:08,759 - whatsapp.interakt_handler - ERROR - Error sending project Dilip Buildcon to develop 120 km highway in Andhra Pradesh: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 08:23:08,759 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 12.3 km Airoli-Katai Naka Freeway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 08:23:08,759 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 2 km Sabarmati High Speed Rail Depot.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 08:23:08,759 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-25 08:23:08,761 - utilities.project_discovery_graph - INFO - Workflow completed in 77.09s
+2025-02-25 08:23:08,761 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-25 08:23:08,761 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-25 08:23:08,761 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-25 08:23:08,762 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-25 08:23:08,762 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-25 08:23:08,762 - main - INFO - Pipeline completed successfully. Status: completed

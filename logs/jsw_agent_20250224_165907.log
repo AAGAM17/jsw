@@ -1,0 +1,36 @@
+2025-02-24 16:59:07,041 - utilities.logger - INFO - Logging initialized
+2025-02-24 16:59:07,048 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-24 16:59:07,075 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-24 16:59:13,307 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-24 16:59:15,240 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-24 16:59:17,247 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-24 16:59:31,412 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'infrastructure contract won india' after 3 retries: Request failed with status code 402: {"requestId":"e426916dd58e35bbe54355a933b8a406","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 16:59:44,852 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'infrastructure project awarded india' after 3 retries: Request failed with status code 402: {"requestId":"57d4685906bd3e4a1f8ac09d1eb4640f","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 16:59:57,379 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'construction contract win india' after 3 retries: Request failed with status code 402: {"requestId":"0c0925ddf108cbd8417229784ae02df5","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:00:10,635 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'metro contract awarded india' after 3 retries: Request failed with status code 402: {"requestId":"86bfeda24dd555fe75834f7d0ba44067","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:00:23,151 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'highway project awarded india' after 3 retries: Request failed with status code 402: {"requestId":"05655257e774a0243ea0dfb958a4d102","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:00:36,207 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'railway contract won india' after 3 retries: Request failed with status code 402: {"requestId":"a279c673644079645f813d3345058cfd","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:00:49,029 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'infrastructure development contract india' after 3 retries: Request failed with status code 402: {"requestId":"d3d4524de002fc70dff991d8305eac1f","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:01:02,880 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'construction tender result india' after 3 retries: Request failed with status code 402: {"requestId":"35a794aa5c371e5cb05ff1b3a0771e98","error":"You have exceeded your credits limit. Please top up to keep using Exa at dashboard.exa.ai","tag":"NO_MORE_CREDITS"}
+2025-02-24 17:01:03,897 - utilities.project_discovery_graph - INFO - Filtering 0 projects...
+2025-02-24 17:01:03,897 - utilities.project_discovery_graph - WARNING - No projects passed filtering stage
+2025-02-24 17:01:03,899 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-24 17:01:04,393 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-24 17:01:04,393 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-24 17:01:05,885 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-24 17:01:06,109 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-24 17:01:06,110 - utilities.project_discovery_graph - INFO - Successfully enriched 0 projects
+2025-02-24 17:01:06,110 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-24 17:01:06,110 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-24 17:01:06,111 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-24 17:01:06,111 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Workflow completed in 119.04s
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Projects found: 0
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-24 17:01:06,112 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-24 17:01:06,112 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-24 17:01:06,178 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-24 17:01:06,178 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-24 17:01:06,178 - apscheduler.scheduler - INFO - Scheduler started

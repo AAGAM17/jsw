@@ -859,28 +859,18 @@ class EmailHandler:
             priority_bg = '#fde8e8' if is_high_priority else '#e8f5e9'
             priority_tag = 'High Priority' if is_high_priority else 'Normal Priority'
             
-            # Get CRM data
-            company_name = project.get('company', '').lower()
-            crm_data = self.contact_enricher.crm_data.get(company_name, {})
+            # Get contacts directly from the project
+            contacts = project.get('contacts', [])
+            relationship_notes = project.get('relationship_notes', [])
             
-            # Get contacts from CRM only
-            contacts = crm_data.get('contacts', [])
-            relationship_data = crm_data.get('projects', {})
-            
-            # Generate relationship HTML based on CRM data
-            if relationship_data:
+            # Generate relationship HTML
+            if relationship_notes:
                 relationship_html = f'''
                     <div class="mb-2">
-                        <strong style="color: #1a1a1a;">Current Project:</strong> {relationship_data.get('current', 'No current project')}
-                    </div>
-                    <div class="mb-2">
-                        <strong style="color: #1a1a1a;">Volume:</strong> {relationship_data.get('volume', 'N/A')}
-                    </div>
-                    <div class="mb-2">
-                        <strong style="color: #1a1a1a;">Materials:</strong> {relationship_data.get('materials', 'N/A')}
-                    </div>
-                    <div>
-                        <strong style="color: #1a1a1a;">Notes:</strong> {relationship_data.get('notes', 'No additional notes')}
+                        <strong style="color: #1a1a1a;">Relationship Notes:</strong>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            {"".join(f'<li>{note}</li>' for note in relationship_notes)}
+                        </ul>
                     </div>
                 '''
             else:
@@ -903,35 +893,33 @@ class EmailHandler:
                 contacts_html = '<div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">'
                 contacts_html += '<h4 style="color: #1a1a1a; margin: 0 0 15px 0;">Key Contacts</h4>'
                 
-            for contact in contacts:
-                name = contact.get('name', 'N/A')
-                role = contact.get('role', 'N/A')
-                email = contact.get('email', '')
-                phone = contact.get('phone', '')
-                location = contact.get('location', '')
-                company = project.get('company', contact.get('company', ''))
-                
-                # Only show contact if we have at least a name or role
-                if name != 'N/A' or role != 'N/A':
-                    contacts_html += f'''
-                        <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
-                            <div style="display: flex; justify-content: space-between; align-items: start;">
-                                <div>
-                                    <p style="margin: 0; color: #202124; font-size: 16px; font-weight: 500;">
-                                        {name}
-                                    </p>
-                                    <p style="margin: 4px 0; color: #5f6368; font-size: 14px;">
-                                        {role} at {company}
-                                    </p>
+                for contact in contacts:
+                    name = contact.get('name', 'N/A')
+                    role = contact.get('role', 'N/A')
+                    email = contact.get('email', '')
+                    phone = contact.get('phone', '')
+                    company = project.get('company', '')
+                    
+                    # Only show contact if we have at least a name or role
+                    if name != 'N/A' or role != 'N/A':
+                        contacts_html += f'''
+                            <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: start;">
+                                    <div>
+                                        <p style="margin: 0; color: #202124; font-size: 16px; font-weight: 500;">
+                                            {name}
+                                        </p>
+                                        <p style="margin: 4px 0; color: #5f6368; font-size: 14px;">
+                                            {role} at {company}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 10px; font-size: 14px; color: #5f6368;">
+                                    {f'<p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:{email}" style="color: #1a73e8; text-decoration: none;">{email}</a></p>' if email else ''}
+                                    {f'<p style="margin: 4px 0;"><strong>Phone:</strong> {phone}</p>' if phone else ''}
                                 </div>
                             </div>
-                            <div style="margin-top: 10px; font-size: 14px; color: #5f6368;">
-                                {f'<p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:{email}" style="color: #1a73e8; text-decoration: none;">{email}</a></p>' if email else ''}
-                                {f'<p style="margin: 4px 0;"><strong>Phone:</strong> {phone}</p>' if phone else ''}
-                                {f'<p style="margin: 4px 0;"><strong>Location:</strong> {location}</p>' if location else ''}
-                            </div>
-                        </div>
-                    '''
+                        '''
             else:
                 contacts_html = '''
                     <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
@@ -964,7 +952,7 @@ class EmailHandler:
                     <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                         View Announcement
                     </a>
-                    <a href="https://aijsw.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&source_url={urllib.parse.quote(project.get('source_url', ''))}" 
+                    <a href="https://aijsw.onrender.com/project-details?title={project.get('title', '').replace(' ', '+')}" 
                        style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
                         Get More Info
                     </a>
@@ -991,7 +979,7 @@ class EmailHandler:
         primary_req = steel_reqs.get('primary', {})
         primary_html = f'''
             <div style="font-size: 16px; margin-bottom: 12px;">
-                {primary_req.get('type', 'TMT Bars')} (JSW NeoSteel 550D, ~{primary_req.get('quantity', 0):,}MT) - Primary
+                {primary_req.get('type', 'TMT Bars')} (~{primary_req.get('quantity', 0):,}MT) - Primary
             </div>
         '''
         
@@ -1001,10 +989,9 @@ class EmailHandler:
         for req in secondary_reqs:
             if req.get('quantity', 0) > 0:
                 product_name = req.get('type', '')
-                jsw_product = f'JSW {product_name}'
                 secondary_html += f'''
                     <div style="font-size: 16px; margin-bottom: 8px;">
-                        {product_name} ({jsw_product}) - Secondary
+                        {product_name} - Secondary
                     </div>
                 '''
         
@@ -1012,7 +999,7 @@ class EmailHandler:
         tertiary_req = steel_reqs.get('tertiary', {})
         tertiary_html = f'''
             <div style="font-size: 16px; margin-bottom: 12px;">
-                {tertiary_req.get('type', 'Wire Rods')} (JSW {tertiary_req.get('type', 'Wire Rods')}) - Tertiary
+                {tertiary_req.get('type', 'Wire Rods')} - Tertiary
             </div>
         '''
         
@@ -1025,15 +1012,7 @@ class EmailHandler:
             </div>
         '''
         
-        return f'''
-            <div style="margin-bottom: 20px;">
-                <div style="font-weight: bold; color: #1a1a1a; margin-bottom: 10px;">Estimated Requirements:</div>
-                {primary_html}
-                {secondary_html}
-                {tertiary_html}
-                {timeline_html}
-            </div>
-        '''
+        return primary_html + secondary_html + tertiary_html + timeline_html
 
     def _get_team_emails(self, teams): 
         """Get email addresses for teams"""
@@ -1063,10 +1042,33 @@ class EmailHandler:
         try:
             team_projects = {}
             
+            # JSW filtering terms
+            jsw_terms = [
+                'jsw', 'jindal', 'js steel', 'jsw steel', 'jindal steel',
+                'jsw neosteel', 'jsw trusteel', 'neosteel', 'trusteel',
+                'jsw fastbuild', 'jsw galvalume', 'jsw coated'
+            ]
+            
             for project in projects:
                 try:
+                    # Skip JSW-related projects
+                    title = str(project.get('title', '')).lower()
+                    desc = str(project.get('description', '')).lower()
+                    company = str(project.get('company', '')).lower()
+                    all_text = f"{title} {desc} {company}"
+                    
+                    if any(term in all_text for term in jsw_terms):
+                        self.logger.info(f"Skipping JSW-related project: {project.get('title')}")
+                        continue
+                    
                     if not project.get('steel_requirements'):
                         project = self._analyze_project_content(project)
+                    
+                    # Double check the enriched content for JSW terms
+                    enriched_text = str(project.get('title', '')).lower() + str(project.get('description', '')).lower()
+                    if any(term in enriched_text for term in jsw_terms):
+                        self.logger.info(f"Skipping JSW-related project after enrichment: {project.get('title')}")
+                        continue
                     
                     # Determine team based on primary product
                     primary_team = self.determine_product_team(project)

@@ -50,40 +50,32 @@ class ProjectDiscoverySystem:
         interface_instructions = """
         Automatically detect and analyze recent Indian infrastructure projects requiring steel supply.
         Daily search parameters:
-        1. Find all contract awards in last 1 day (0.2cr+ value)
-        2. Identify new project announcements with steel procurement needs
-        3. Detect tender awards where steel supplier isn't finalized
-        4. Track construction milestones requiring material orders
+        1. Find all contract awards in last 1 day 
+        2. Identify new project announcements with steel requirements
+    
+ 
         
         Priority sectors:
-        - Road/Rail Infrastructure (especially Metro Projects)
+        - Road/Rail Infrastructure 
+        - Metro projects
         - Commercial Real Estate
         - Industrial Parks
         - Port Developments
+        - any other infrastructure projects where steel would be required
         
         Auto-filter criteria:
-        - Projects >0.2 crore INR
-        - Procurement within 6 months
-        - At least 50 MT steel requirement
         - Indian developers/contractors
         
-        Additional JSW-specific criteria:
-        - Track previous relationships with contractors
-        - Monitor competitor activities
-        - Identify projects with TMT Bars and HR Plates requirements
-        - Flag high-priority opportunities based on:
-            * Project value
-            * Existing relationships
-            * Strategic importance
-            * Timeline urgency
+      
         """
         
         search_instructions = """
         Use these search patterns:
-        "contract award" "steel supply" (last week)
-        "project announcement" "foundation laying" (last month)
-        "tender result" "structural steel" (last 14 days)
-        "groundbreaking ceremony" "construction start"
+        “Infrastructure contract wins” "steel supply" 
+        “Railway contract wins” “highway contract wins” 
+        "tender result" “metro contract wins“ 
+        “Metro rail tender wins“ “highway construction contract wins” “Port development contract wins”
+        “EPC contract wins”
         
         Site-specific searches:
         site:epc.gov.in "awarded to" AND "steel"
@@ -92,13 +84,12 @@ class ProjectDiscoverySystem:
         site:constructionworld.in "project update"
         site:themetrorailguy.com "contract awarded"
         
-        JSW-specific patterns:
+        Company-specific patterns:
         "[company name] wins [project type]"
         "steel requirement" AND "TMT" OR "HR plates"
         "procurement timeline" AND "steel"
         
-        Exclude: 
-        "supplier finalized", "material ordered", "completed project"
+     
         """
         
         mapper_instructions = """
@@ -125,17 +116,14 @@ class ProjectDiscoverySystem:
         1. Contract award details and dates
         2. Steel requirements breakdown by type
         3. Project timelines and milestones
-        4. Procurement team contacts
+      
         
         Special attention to:
-        - TMT Bars specifications and quantities
-        - HR Plates requirements
         - Delivery schedules
-        - Quality requirements
+    
         
         Format data for priority analysis:
         - High priority indicators
-        - Relationship history
         - Strategic importance factors
         """
         
@@ -154,18 +142,13 @@ class ProjectDiscoverySystem:
         - Metro projects: 150-200kg/meter
         - Industrial structures: 80-100kg/sqft
         
-        JSW-specific analysis:
-        - Match requirements with JSW product portfolio
-        - Calculate delivery logistics from nearest plant
-        - Assess competition presence
-        - Evaluate relationship leverage opportunities
+       
         
         Priority scoring based on:
         - Project value and steel requirement
         - Timeline urgency
-        - Strategic importance
-        - Existing relationships
-        - Geographic proximity to JSW plants
+
+       
         
         Format results with:
         - Verified source links
@@ -174,7 +157,7 @@ class ProjectDiscoverySystem:
         - Priority indicators
         - Action recommendations
         """
-        
+
         return {
             'interface': Agent("Steel Opportunity Interface", interface_instructions, [handoff_to_search_google]),
             'search': Agent("Steel Project Search Agent", search_instructions, [self._search_google, handoff_to_map_url]),

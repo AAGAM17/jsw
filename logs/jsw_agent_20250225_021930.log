@@ -1,0 +1,50 @@
+2025-02-25 02:19:30,675 - utilities.logger - INFO - Logging initialized
+2025-02-25 02:19:30,686 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-25 02:19:30,765 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-25 02:19:47,146 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-25 02:19:49,975 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-25 02:19:51,808 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-25 02:20:25,990 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-25 02:20:26,001 - utilities.project_discovery_graph - INFO - Retained 6 non-JSW projects
+2025-02-25 02:20:26,002 - utilities.project_discovery_graph - INFO - Enriching 6 projects...
+2025-02-25 02:20:26,526 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:20:26,526 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 02:20:28,204 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 02:20:30,238 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:30,249 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-25 02:20:31,602 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:31,604 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 02:20:33,054 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:33,055 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-25 02:20:33,637 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:33,638 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-25 02:20:34,226 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:34,227 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-25 02:20:34,939 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 02:20:34,940 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects
+2025-02-25 02:20:34,940 - utilities.project_discovery_graph - INFO - Successfully enriched 6 projects
+2025-02-25 02:20:34,942 - utilities.project_discovery_graph - INFO - Prioritizing 6 projects...
+2025-02-25 02:20:34,942 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-25 02:20:34,952 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:20:34,953 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 02:20:36,400 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 02:20:36,621 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 02:20:40,230 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-25 02:20:40,231 - whatsapp.interakt_handler - INFO - Sending 6 project opportunities via WhatsApp
+2025-02-25 02:20:40,231 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 6.925 km long Ganga River Bridge.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,231 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 181 km Hyderabad-Vijayawada highway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,231 - whatsapp.interakt_handler - ERROR - Error sending project Dilip Buildcon to develop 130 km highway in Andhra Pradesh: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,231 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 12.3 km Airoli-Katai Naka Freeway.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,232 - whatsapp.interakt_handler - ERROR - Error sending project JSW Steel to supply steel for 2 km Sabarmati High Speed Rail Depot.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,232 - whatsapp.interakt_handler - ERROR - Error sending project NBCC to develop infrastructure at Punjab University campus.: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 02:20:40,232 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Workflow completed in 69.48s
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Projects filtered: 6
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Projects enriched: 6
+2025-02-25 02:20:40,233 - utilities.project_discovery_graph - INFO - Projects prioritized: 6
+2025-02-25 02:20:40,233 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-25 02:20:40,330 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-25 02:20:40,331 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-25 02:20:40,331 - apscheduler.scheduler - INFO - Scheduler started

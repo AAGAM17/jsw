@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 import logging
 from config.settings import Config
 from .email_handler import EmailHandler
+from whatsapp.interakt_handler import InteraktHandler
 from scrapers.metro_scraper import MetroScraper
 import re
 import time
@@ -245,7 +246,81 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
     try:
         logger.info(f"Filtering {len(state['projects'])} projects...")
         
+        # JSW filtering terms
+        jsw_terms = [
+            # Company names and variations
+            'jsw', 'jindal', 'js steel', 'jindal steel', 'jindal steel & power',
+            'jindal steel and power', 'jsw steel limited', 'jsw group',
+            'jsw infrastructure', 'jsw energy', 'jsw holdings', 'jsw cement',
+            'jsw paints', 'jsw ventures', 'jsw future energy', 'jsw one',
+            'jsw renew', 'jsw hydro', 'jsw utilities', 'jsw steel usa',
+            'jsw steel italy', 'jsw steel coated', 'jsw ispat', 'jsw projects',
+            'jsw techno projects', 'jsw material handling', 'jsw severfield',
+            'jsw steel (usa)', 'jsw steel (italy)', 'jsw mergers', 'jsw overseas',
+            'jsw steel coated products', 'jsw steel plant', 'jsw steel factory',
+            'jsw steel mill', 'jsw steel works', 'jsw steel expansion',
+            'jsw steel production', 'jsw steel capacity', 'jsw steel output',
+            'jsw steel exports', 'jsw steel imports', 'jsw steel sales',
+            'jsw steel revenue', 'jsw steel profit', 'jsw steel earnings',
+            'jsw steel results', 'jsw steel performance', 'jsw steel shares',
+            'jsw steel stock', 'jsw steel market', 'jsw steel trade',
+            'jsw steel supply', 'jsw steel demand', 'jsw steel prices',
+            'jsw steel rates', 'jsw steel cost', 'jsw steel value',
+            'jsw steel quality', 'jsw steel grade', 'jsw steel specification',
+            'jsw steel standards', 'jsw steel certification', 'jsw steel testing',
+            'jsw steel research', 'jsw steel development', 'jsw steel innovation',
+            'jsw steel technology', 'jsw steel equipment', 'jsw steel machinery',
+            'jsw steel tools', 'jsw steel components', 'jsw steel parts',
+            'jsw steel materials', 'jsw steel raw materials', 'jsw steel scrap',
+            'jsw steel ore', 'jsw steel coal', 'jsw steel coke',
+            'jsw steel limestone', 'jsw steel flux', 'jsw steel additives',
+            'jsw steel chemicals', 'jsw steel gases', 'jsw steel water',
+            'jsw steel energy', 'jsw steel power', 'jsw steel electricity',
+            'jsw steel fuel', 'jsw steel oil', 'jsw steel gas',
+            'jsw steel environment', 'jsw steel safety', 'jsw steel health',
+            'jsw steel security', 'jsw steel protection', 'jsw steel measures',
+            'jsw steel standards', 'jsw steel compliance', 'jsw steel regulations',
+            'jsw steel rules', 'jsw steel guidelines', 'jsw steel policies',
+            'jsw steel procedures', 'jsw steel processes', 'jsw steel operations',
+            'jsw steel activities', 'jsw steel tasks', 'jsw steel jobs',
+            'jsw steel employment', 'jsw steel recruitment', 'jsw steel hiring',
+            'jsw steel training', 'jsw steel education', 'jsw steel skills',
+            'jsw steel knowledge', 'jsw steel expertise', 'jsw steel experience',
+            'jsw steel qualification', 'jsw steel certification', 'jsw steel degree',
+            'jsw steel diploma', 'jsw steel course', 'jsw steel program',
+            
+            # JSW Products and brands
+            'jsw neosteel', 'jsw steel', 'jsw trusteel', 'neosteel', 'trusteel',
+            'jsw fastbuild', 'jsw galvalume', 'jsw colour coated', 'jsw coated', 
+            'jsw gi', 'jsw hr', 'jsw cr', 'jsw tmt', 'jsw electrical steel', 
+            'jsw special steel', 'jsw plates', 'jsw structural',
+            
+            # Product variations
+            'neosteel 550d', 'neosteel 600', 'neosteel eds', 'neosteel crs',
+            'neosteel fastbuild', 'neostrands pc', 'trusteel plates',
+            'jsw galvanized', 'jsw colour-coated', 'jsw coated',
+            
+            # Additional JSW-related terms
+            'jspl', 'jindal saw', 'jindal stainless', 'jindal steel works',
+            'jindal group', 'jindal family', 'sajjan jindal', 'parth jindal',
+            'jsw foundation', 'jsw sports', 'jsw bengaluru fc', 'jsw bangalore'
+        ]
+
+        # Steel terms that might indicate JSW involvement
+        steel_terms = [
+            'steel', 'tmt', 'bars', 'coils', 'plates', 'sheets',
+            'galvanized', 'colour-coated', 'color-coated', 'galvalume',
+            'structural steel', 'special steel', 'electrical steel',
+            'steel plant', 'steel mill', 'steel works', 'steel factory',
+            'steel production', 'steel capacity', 'steel output',
+            'steel exports', 'steel imports', 'steel sales',
+            'steel supply', 'steel demand', 'steel prices',
+            'steel quality', 'steel grade', 'steel specification'
+        ]
+
         filtered_projects = []
+        jsw_projects = []
+        
         for project in state['projects']:
             try:
                 # Skip invalid URLs
@@ -261,15 +336,68 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                 if len(title) < 5 or any(term in title.lower() for term in ['404', 'error', 'not found']):
                     continue
                 
-                # Extract and validate company name
+                # Extract and validate company name early
                 text = f"{title} {project.get('description', '')}"
                 company_name = project.get('company') or extract_company_name(text)
                 if not company_name or len(company_name) < 3:
                     continue
                 
+                # Combine all text for JSW checks
+                title_lower = title.lower()
+                desc_lower = project.get('description', '').lower()
+                all_text = f"{company_name} {title} {project.get('description', '')} {project.get('source', '')}".lower()
+                
+                # Check for JSW mentions in title or description
+                if 'jsw' in title_lower or 'jsw' in desc_lower or 'jindal' in title_lower or 'jindal' in desc_lower:
+                    jsw_projects.append(project)
+                    logger.info(f"Filtered JSW project (title/desc): {title}")
+                    continue
+                
+                # Check for JSW supply/provider mentions
+                if any(term in title_lower or term in desc_lower for term in [
+                    'jsw steel to supply', 'jsw steel supplies', 'jsw steel to provide',
+                    'jsw steel provides', 'jsw steel to deliver', 'jsw steel delivers',
+                    'jindal steel to supply', 'jindal steel supplies', 'jindal steel to provide',
+                    'jindal steel provides', 'jindal steel to deliver', 'jindal steel delivers'
+                ]):
+                    jsw_projects.append(project)
+                    logger.info(f"Filtered JSW supply project: {title}")
+                    continue
+                
+                # Check for JSW terms in all text
+                if any(term in all_text for term in jsw_terms):
+                    jsw_projects.append(project)
+                    logger.info(f"Filtered JSW project (terms): {title}")
+                    continue
+                
+                # Check URL for JSW domains
+                if any(domain in project['source_url'].lower() for domain in [
+                    'jsw.in', 'jswsteel.com', 'jsw.com', 'jindalsteel.com', 
+                    'jindalsteelpower.com', 'jspl.com', 'jindalsawltd.com'
+                ]):
+                    jsw_projects.append(project)
+                    logger.info(f"Filtered JSW project (URL): {title}")
+                    continue
+                
+                # If mentions steel products, check for JSW connection
+                if any(term in all_text for term in steel_terms):
+                    if any(term in all_text for term in ['jsw', 'jindal', 'neosteel', 'trusteel']):
+                        jsw_projects.append(project)
+                        logger.info(f"Filtered JSW-related steel project: {title}")
+                        continue
+                
                 # Extract and validate project value
                 value = project.get('value') or extract_project_value(text)
                 if not value or value <= 0:
+                    continue
+                
+                # Check if JSW is mentioned as supplier or partner
+                if 'jsw' in all_text and any(term in all_text for term in [
+                    'supply', 'supplier', 'supplied by', 'partner', 'partnership',
+                    'collaboration', 'agreement', 'mou', 'contract with'
+                ]):
+                    jsw_projects.append(project)
+                    logger.info(f"Filtered JSW supplier/partner project: {title}")
                     continue
                 
                 # Validate and convert dates
@@ -309,8 +437,16 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                 logger.error(f"Error filtering project: {str(e)}")
                 continue
         
+        # Log filtering results
+        if jsw_projects:
+            logger.info(f"Filtered out {len(jsw_projects)} JSW-related projects:")
+            for project in jsw_projects:
+                logger.info(f"- {project.get('company')}: {project.get('title')}")
+        
         if not filtered_projects:
             logger.warning("No projects passed filtering stage")
+        else:
+            logger.info(f"Retained {len(filtered_projects)} non-JSW projects")
         
         state['filtered_projects'] = filtered_projects
         state['status'] = 'projects_filtered'
@@ -404,6 +540,16 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
         enriched_projects = []
         max_retries = 3
         
+        # JSW product terms to filter out
+        jsw_product_terms = [
+            'jsw neosteel', 'jsw steel', 'jsw trusteel', 'neosteel', 'trusteel',
+            'jsw fastbuild', 'jsw galvalume', 'jsw colour coated', 'jsw coated',
+            'jsw gi', 'jsw hr', 'jsw cr', 'jsw tmt', 'jsw electrical steel',
+            'jsw special steel', 'jsw plates', 'neosteel 550d', 'neosteel 600',
+            'neosteel eds', 'neosteel crs', 'neosteel fastbuild', 'neostrands pc',
+            'trusteel plates'
+        ]
+        
         for project in state['filtered_projects']:
             for retry in range(max_retries):
                 try:
@@ -421,6 +567,12 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
                     
                     # Calculate steel requirements with validation
                     enriched = email_handler._analyze_project_content(project)
+                    
+                    # Double check for JSW terms in enriched content
+                    all_text = f"{enriched.get('title', '')} {enriched.get('description', '')} {str(enriched.get('steel_requirements', ''))}".lower()
+                    if any(term in all_text for term in jsw_product_terms):
+                        logger.info(f"Filtered JSW-related project during enrichment: {enriched.get('company')} - {enriched.get('title')}")
+                        break
                     
                     # Validate steel requirements structure
                     steel_reqs = enriched.get('steel_requirements', {})
@@ -481,6 +633,7 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
         if not enriched_projects:
             logger.warning("No projects were successfully enriched")
             
+        logger.info(f"Successfully enriched {len(enriched_projects)} projects")
         state['enriched_projects'] = enriched_projects
         state['status'] = 'projects_enriched'
         return state
@@ -559,43 +712,40 @@ def prioritize_projects(state: WorkflowState) -> WorkflowState:
         return state
 
 def send_notifications(state: WorkflowState) -> WorkflowState:
-    """Send email notifications for projects."""
+    """Send notifications about discovered projects."""
     try:
-        projects = state['prioritized_projects']
-        if not projects:
+        logger.info("Sending notifications...")
+        
+        if not state.get('prioritized_projects'):
             logger.warning("No projects to send notifications for")
-            state['status'] = 'no_projects_to_notify'
+            state['status'] = 'completed'
             return state
             
-        logger.info(f"Sending notifications for {len(projects)} projects...")
-        
+        # Initialize notification handlers
         email_handler = EmailHandler()
-        max_retries = 3
+        whatsapp_handler = InteraktHandler()
         
-        for retry in range(max_retries):
-            try:
-                success = email_handler.send_project_opportunities(projects)
-                if success:
-                    state['status'] = 'notifications_sent'
-                    return state
-                    
-                logger.warning(f"Failed to send notifications, attempt {retry + 1} of {max_retries}")
-                time.sleep(2 ** retry)  # Exponential backoff
-                
-            except Exception as e:
-                if retry == max_retries - 1:
-                    raise  # Re-raise on last retry
-                logger.error(f"Error sending notifications (attempt {retry + 1}): {str(e)}")
-                time.sleep(2 ** retry)  # Exponential backoff
-                continue
-        
-        # If we get here, all retries failed
-        state['error'] = "Failed to send notifications after all retries"
-        state['status'] = 'notification_error'
+        # Send email notifications
+        email_success = email_handler.send_project_opportunities(state['prioritized_projects'])
+        if not email_success:
+            logger.error("Failed to send email notifications")
+            
+        # Send WhatsApp notifications
+        whatsapp_success = whatsapp_handler.send_project_opportunities(state['prioritized_projects'])
+        if not whatsapp_success:
+            logger.error("Failed to send WhatsApp notifications")
+            
+        if email_success or whatsapp_success:
+            state['status'] = 'completed'
+        else:
+            state['status'] = 'notification_failed'
+            state['error'] = "Failed to send notifications"
+            
         return state
         
     except Exception as e:
-        state['error'] = f"Error sending notifications: {str(e)}"
+        logger.error(f"Error sending notifications: {str(e)}")
+        state['error'] = f"Error in notifications: {str(e)}"
         state['status'] = 'error'
         return state
 
