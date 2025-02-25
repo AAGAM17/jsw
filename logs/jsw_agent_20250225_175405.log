@@ -1,0 +1,67 @@
+2025-02-25 17:54:05,396 - utilities.logger - INFO - Logging initialized
+2025-02-25 17:54:05,402 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-25 17:54:05,442 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-25 17:54:12,044 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-25 17:54:14,397 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-25 17:54:16,958 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-25 17:55:01,718 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-25 17:55:01,735 - utilities.project_discovery_graph - INFO - Retained 5 non-JSW projects
+2025-02-25 17:55:01,736 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-25 17:55:02,315 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 17:55:02,315 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 17:55:03,900 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 17:55:04,894 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 17:55:04,908 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 17:55:04,908 - utilities.contact_finder - INFO - Looking up contacts for company: month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-25 17:55:04,909 - utilities.contact_finder - INFO - Normalized company name: month deadline. bidders ansal highway infratech pvt. dineshchandra r.agrawal infracon pvt.
+2025-02-25 17:55:04,909 - utilities.contact_finder - WARNING - No contacts found in CRM for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd (normalized: month deadline. bidders ansal highway infratech pvt. dineshchandra r.agrawal infracon pvt.)
+2025-02-25 17:55:05,294 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 17:55:05,297 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-25 17:55:05,298 - utilities.contact_finder - INFO - Looking up contacts for company: Under Construction
+2025-02-25 17:55:05,298 - utilities.contact_finder - INFO - Normalized company name: under
+2025-02-25 17:55:05,298 - utilities.contact_finder - WARNING - No contacts found in CRM for Under Construction (normalized: under)
+2025-02-25 17:55:05,690 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 17:55:05,693 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-25 17:55:05,694 - utilities.contact_finder - INFO - Looking up contacts for company: Projects Tracking Platform GMR Infrastructure
+2025-02-25 17:55:05,694 - utilities.contact_finder - INFO - Normalized company name: tracking platform gmr
+2025-02-25 17:55:05,694 - utilities.contact_finder - WARNING - No contacts found in CRM for Projects Tracking Platform GMR Infrastructure (normalized: tracking platform gmr)
+2025-02-25 17:55:06,318 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 17:55:06,320 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-25 17:55:06,321 - utilities.contact_finder - INFO - Looking up contacts for company: SCC Infra
+2025-02-25 17:55:06,321 - utilities.contact_finder - INFO - Normalized company name: scc
+2025-02-25 17:55:06,321 - utilities.contact_finder - WARNING - No contacts found in CRM for SCC Infra (normalized: scc)
+2025-02-25 17:55:06,884 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-25 17:55:06,886 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Dilip Buildcon Ltd
+2025-02-25 17:55:06,887 - utilities.contact_finder - INFO - Looking up contacts for company: Dilip Buildcon Ltd
+2025-02-25 17:55:06,887 - utilities.contact_finder - INFO - Normalized company name: dilip buildcon
+2025-02-25 17:55:06,887 - utilities.contact_finder - INFO - Found 2 contacts for Dilip Buildcon Ltd
+2025-02-25 17:55:06,888 - utilities.contact_finder - INFO - Added relationship note from Rohan Verma: Partnered with JSW Steel's team led by Sameer Joshi for structural steel in the Indore Metro project
+2025-02-25 17:55:06,888 - utilities.project_discovery_graph - INFO - Successfully enriched 5 projects
+2025-02-25 17:55:06,893 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-25 17:55:06,895 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-25 17:55:06,915 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 17:55:06,916 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-25 17:55:08,585 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-25 17:55:08,826 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 17:55:08,826 - utilities.email_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 6.925 km long Ganga River bridge.
+2025-02-25 17:55:08,826 - utilities.email_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 181 km Hyderabad-Vijayawada highway.
+2025-02-25 17:55:08,826 - utilities.email_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 12.3 km Airoli-Katai Naka Freeway.
+2025-02-25 17:55:08,826 - utilities.email_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 2 km high-speed rail depot in Gujarat.
+2025-02-25 17:55:12,784 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-25 17:55:12,785 - whatsapp.interakt_handler - INFO - Sending 5 project opportunities via WhatsApp
+2025-02-25 17:55:12,785 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 6.925 km long Ganga River bridge.
+2025-02-25 17:55:12,785 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 181 km Hyderabad-Vijayawada highway.
+2025-02-25 17:55:12,785 - whatsapp.interakt_handler - ERROR - Error sending project Dilip Buildcon  to build 74 km highway in Andhra Pradesh: 'InteraktHandler' object has no attribute '_send_whatsapp'
+2025-02-25 17:55:12,786 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 12.3 km Airoli-Katai Naka Freeway.
+2025-02-25 17:55:12,786 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: JSW Steel to supply steel for 2 km high-speed rail depot in Gujarat.
+2025-02-25 17:55:12,786 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-25 17:55:12,787 - utilities.project_discovery_graph - INFO - Workflow completed in 67.35s
+2025-02-25 17:55:12,787 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-25 17:55:12,788 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-25 17:55:12,788 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-25 17:55:12,788 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-25 17:55:12,788 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-25 17:55:12,788 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-25 17:55:12,877 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-25 17:55:12,878 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-25 17:55:12,878 - apscheduler.scheduler - INFO - Scheduler started

@@ -17,6 +17,9 @@ class InteraktHandler:
         self.base_url = "https://api.interakt.ai/v1/public/message/"
         self.enabled = bool(self.api_key and self.phone_numbers)
         
+        # Initialize session with retries
+        self.session = requests.Session()
+        
         # Initialize Perplexity client
         from scrapers.perplexity_client import PerplexityClient
         self.perplexity = PerplexityClient()
@@ -52,12 +55,9 @@ class InteraktHandler:
             self.logger.error(f"Invalid phone number length: {len(clean_number)} digits")
             return None
             
-        # Ensure it has country code
-        if len(clean_number) == 10:
-            clean_number = '91' + clean_number
-        elif not clean_number.startswith('91'):
-            self.logger.error("Phone number must be an Indian number starting with 91")
-            return None
+        # Remove country code if present
+        if clean_number.startswith('91'):
+            clean_number = clean_number[2:]
             
         return clean_number
     
@@ -156,11 +156,9 @@ class InteraktHandler:
         try:
             message = f"*Project #{idx} Details*\n\n"
             
-            # Basic info
             message += f"*Company:* {project.get('company', 'N/A')}\n"
             message += f"*Project:* {project.get('title', 'N/A')}\n\n"
             
-            # Value and timeline
             if project.get('value'):
                 message += f"*Value:* ₹{float(project['value']):.1f} Crore\n"
             
@@ -170,7 +168,6 @@ class InteraktHandler:
                 message += f"*End Date:* {project['end_date'].strftime('%B %Y')}\n"
             message += "\n"
             
-            # Steel requirements if available
             if project.get('steel_requirements'):
                 message += "*Steel Requirements:*\n"
                 steel_reqs = project['steel_requirements']
@@ -193,7 +190,6 @@ class InteraktHandler:
                         message += f"  Phone: {contact['phone']}\n"
                 message += "\n"
             
-            # Source and additional info
             if project.get('source_url'):
                 message += f"*Source:* {project['source_url']}\n"
             if project.get('description'):
@@ -228,56 +224,70 @@ class InteraktHandler:
             'source_url': 'https://example.com/project'
         }
         
-        # Format the message
         message = self._format_project_message(test_project, 1)
+        overall_success = True
         
-        # Send it using a template message
-        payload = {
-            "phoneNumber": self.phone_numbers[0],
-            "countryCode": "91",
-            "type": "Template",
-            "template": {
-                "name": "project_update",
-                "languageCode": "en",
-                "bodyValues": [
-                    test_project['title'],
-                    test_project['company'],
-                    f"₹{test_project['value']:.1f} Crore",
-                    test_project['description'][:100] + "..."
-                ]
-            }
-        }
-        
-        headers = {
-            'Authorization': f'Basic {self.api_key}',
-            'Content-Type': 'application/json'
-        }
-        
-        try:
-            self.logger.info("Sending test project message...")
-            self.logger.debug(f"Using template with payload:\n{payload}")
-            
-            response = requests.post(
-                self.base_url,
-                headers=headers,
-                json=payload,
-                timeout=30
-            )
-            
-            self.logger.info(f"Response Status: {response.status_code}")
-            self.logger.info(f"Response Body: {response.text}")
-            
-            response_data = response.json()
-            if response_data.get('result') is True and response_data.get('id'):
-                self.logger.info(f"Project message queued successfully with ID: {response_data['id']}")
-                return True
-            else:
-                self.logger.error(f"Failed to send project message: {response.text}")
-                return False
+        for phone in self.phone_numbers:
+            # Format phone number correctly
+            phone_number = self._format_phone_number(phone)
+            if not phone_number:
+                self.logger.error(f"Invalid phone number format for {phone}")
+                overall_success = False
+                continue
                 
-        except Exception as e:
-            self.logger.error(f"Error sending test project message: {str(e)}")
-            return False
+            payload = {
+                "countryCode": "91",
+                "phoneNumber": phone_number,
+                "type": "Text",
+                "data": {
+                    "message": message
+                }
+            }
+            
+            headers = {
+                'Authorization': f'Basic {self.api_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            try:
+                self.logger.info(f"Sending test project message to {phone_number}...")
+                self.logger.debug(f"Using payload with phone: {phone_number}")
+                
+                # Simple request with retries
+                for attempt in range(3):
+                    try:
+                        response = requests.post(
+                            self.base_url,
+                            headers=headers,
+                            json=payload,
+                            timeout=30
+                        )
+                        
+                        self.logger.info(f"Response Status for {phone_number}: {response.status_code}")
+                        self.logger.info(f"Response Body for {phone_number}: {response.text}")
+                        
+                        response_data = response.json()
+                        if response_data.get('result') is True:
+                            self.logger.info(f"Project message sent successfully to {phone_number}")
+                            break
+                        else:
+                            self.logger.error(f"Failed to send project message to {phone_number}: {response.text}")
+                            overall_success = False
+                            break
+                            
+                    except requests.exceptions.RequestException as e:
+                        if attempt == 2:  # Last attempt
+                            self.logger.error(f"Failed all retries for {phone_number}")
+                            overall_success = False
+                            raise
+                        time.sleep(1 * (attempt + 1))  # Exponential backoff
+                        continue
+                        
+            except Exception as e:
+                self.logger.error(f"Error sending test project message to {phone_number}: {str(e)}")
+                overall_success = False
+                
+        return overall_success
 
     def send_project_opportunities(self, projects):
         """Send a batch of project opportunities via WhatsApp.
@@ -294,10 +304,13 @@ class InteraktHandler:
         jsw_terms = [
             'jsw', 'jindal', 'js steel', 'jsw steel', 'jindal steel',
             'jsw neosteel', 'jsw trusteel', 'neosteel', 'trusteel',
-            'jsw fastbuild', 'jsw galvalume', 'jsw coated'
+            'jsw fastbuild', 'jsw galvalume', 'jsw coated',
+            'jsw to supply', 'jsw supplies', 'jsw to provide',
+            'jsw provides', 'jsw to deliver', 'jsw delivers'
         ]
         
-        success = True
+        # Filter out JSW projects first
+        filtered_projects = []
         for project in projects:
             try:
                 # Skip JSW-related projects
@@ -309,22 +322,101 @@ class InteraktHandler:
                 if any(term in all_text for term in jsw_terms):
                     self.logger.info(f"Skipping JSW-related project: {project.get('title')}")
                     continue
-                
-                result = self._send_whatsapp(
-                    template_name="project_update",
-                    template_language="en",
-                    template_body_values=[
-                        project.get("title", "Untitled Project"),
-                        project.get("company", "Unknown Company"), 
-                        str(project.get("value", "Unknown Value")),
-                        project.get("description", "No description available")
-                    ]
-                )
-                if not result:
-                    self.logger.error(f"Failed to send project: {project.get('title')}")
-                    success = False
+                    
+                filtered_projects.append(project)
             except Exception as e:
-                self.logger.error(f"Error sending project {project.get('title')}: {str(e)}")
-                success = False
+                self.logger.error(f"Error filtering project {project.get('title')}: {str(e)}")
+                continue
+        
+        if not filtered_projects:
+            self.logger.warning("No non-JSW projects to send")
+            return True
+            
+        self.logger.info(f"Sending {len(filtered_projects)} non-JSW projects")
+        overall_success = True
+        
+        # Create overview message with filtered projects
+        overview_message = self._format_overview_message(filtered_projects)
+        for phone in self.phone_numbers:
+            phone_number = self._format_phone_number(phone)
+            if not phone_number:
+                self.logger.error(f"Invalid phone number format for {phone}")
+                overall_success = False
+                continue
                 
-        return success
+            # Send overview message
+            payload = {
+                "countryCode": "91",
+                "phoneNumber": phone_number,
+                "type": "Text",
+                "data": {
+                    "message": overview_message
+                }
+            }
+            
+            headers = {
+                'Authorization': f'Basic {self.api_key}',
+                'Content-Type': 'application/json'
+            }
+            
+            try:
+                response = requests.post(
+                    self.base_url,
+                    headers=headers,
+                    json=payload,
+                    timeout=30
+                )
+                if not response.json().get('result'):
+                    self.logger.error(f"Failed to send overview to {phone_number}")
+                    overall_success = False
+            except Exception as e:
+                self.logger.error(f"Error sending overview to {phone_number}: {str(e)}")
+                overall_success = False
+        
+        # Then send individual project messages for filtered projects
+        for idx, project in enumerate(filtered_projects, 1):
+            try:
+                # Format project message
+                message = self._format_project_message(project, idx)
+                
+                # Send to all phone numbers
+                for phone in self.phone_numbers:
+                    phone_number = self._format_phone_number(phone)
+                    if not phone_number:
+                        self.logger.error(f"Invalid phone number format for {phone}")
+                        overall_success = False
+                        continue
+                        
+                    payload = {
+                        "countryCode": "91",
+                        "phoneNumber": phone_number,
+                        "type": "Text",
+                        "data": {
+                            "message": message
+                        }
+                    }
+                    
+                    headers = {
+                        'Authorization': f'Basic {self.api_key}',
+                        'Content-Type': 'application/json'
+                    }
+                    
+                    try:
+                        response = requests.post(
+                            self.base_url,
+                            headers=headers,
+                            json=payload,
+                            timeout=30
+                        )
+                        if not response.json().get('result'):
+                            self.logger.error(f"Failed to send project {project.get('title')} to {phone_number}")
+                            overall_success = False
+                    except Exception as e:
+                        self.logger.error(f"Error sending project {project.get('title')} to {phone_number}: {str(e)}")
+                        overall_success = False
+                        
+            except Exception as e:
+                self.logger.error(f"Error processing project {project.get('title')}: {str(e)}")
+                overall_success = False
+                
+        return overall_success
