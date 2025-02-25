@@ -1,0 +1,19 @@
+2025-02-25 23:57:52,883 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:57:52,886 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:57:52,888 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 23:57:52,906 - werkzeug - WARNING -  * Debugger is active!
+2025-02-25 23:57:52,917 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-25 23:58:36,217 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:58:36] "GET / HTTP/1.1" 200 -
+2025-02-25 23:58:36,918 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:58:36] "GET /status HTTP/1.1" 200 -
+2025-02-25 23:59:42,588 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:59:42] "GET / HTTP/1.1" 200 -
+2025-02-25 23:59:43,109 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:59:43] "GET /status HTTP/1.1" 200 -
+2025-02-25 23:59:52,721 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:59:52] "POST /add-member HTTP/1.1" 200 -
+2025-02-26 00:02:40,625 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:02:40] "[31m[1mGET /add-member HTTP/1.1[0m" 405 -
+2025-02-26 00:03:41,398 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\optparse.py', reloading
+2025-02-26 00:03:41,419 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\tomllib\\__init__.py', reloading
+2025-02-26 00:03:41,420 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\tomllib\\_parser.py', reloading
+2025-02-26 00:03:41,427 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\tomllib\\_re.py', reloading
+2025-02-26 00:03:41,430 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\tomllib\\_types.py', reloading
+2025-02-26 00:03:41,510 - werkzeug - INFO -  * Detected change in 'd:\\jsw\\config\\settings.py', reloading
+2025-02-26 00:03:41,510 - werkzeug - INFO -  * Detected change in 'd:\\jsw\\config\\settings.py', reloading
+2025-02-26 00:03:41,511 - werkzeug - INFO -  * Detected change in 'd:\\jsw\\config\\settings.py', reloading

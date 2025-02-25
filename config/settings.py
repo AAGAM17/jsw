@@ -3,40 +3,42 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class Config:
     load_dotenv()
-    
+
     # Default User Agent string instead of using fake-useragent
     USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-    
+
     PERPLEXITY_API_KEY = os.getenv('PERPLEXITY_API_KEY')
     CONTACTOUT_TOKEN = os.getenv('CONTACTOUT_TOKEN')
     EXA_API_KEY = os.getenv('EXA_API_KEY')
     FIRECRAWL_API_KEY = os.getenv('FIRECRAWL_API_KEY')
-    
+
     EMAIL_SMTP_SERVER = os.getenv('EMAIL_SMTP_SERVER', 'smtp.gmail.com')
     EMAIL_SMTP_PORT = int(os.getenv('EMAIL_SMTP_PORT', '587'))
     EMAIL_SENDER = os.getenv('EMAIL_SENDER')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
-    
+
     TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
     TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
     WHATSAPP_FROM = os.getenv('WHATSAPP_FROM')
-    WHATSAPP_TO = [num.strip() for num in os.getenv('WHATSAPP_TO', '').split(',') if num.strip()]
-    
+    WHATSAPP_TO = [num.strip() for num in os.getenv(
+        'WHATSAPP_TO', '').split(',') if num.strip()]
+
     # LinkedIn settings
     LINKEDIN_EMAIL = os.getenv('LINKEDIN_EMAIL', '')
     LINKEDIN_PASSWORD = os.getenv('LINKEDIN_PASSWORD', '')
-    
+
     # WhatsApp API Configuration
     WHATSAPP_API_TOKEN = os.getenv('WHATSAPP_API_TOKEN')
     WHATSAPP_PHONE_NUMBER_ID = os.getenv('WHATSAPP_PHONE_NUMBER_ID')
     WHATSAPP_RECIPIENT = '919075825548'  # The approved number
-    
+
     # Interakt API Configuration
     INTERAKT_API_KEY = os.getenv('INTERAKT_API_KEY')
     INTERAKT_PHONE_NUMBER = os.getenv('INTERAKT_PHONE_NUMBER')
-    
+
     if not all([PERPLEXITY_API_KEY, EMAIL_SENDER, EMAIL_PASSWORD, EXA_API_KEY, FIRECRAWL_API_KEY, CONTACTOUT_TOKEN]):
         raise ValueError(
             "Missing required environment variables. Please check your .env file:\n"
@@ -47,7 +49,7 @@ class Config:
             "- FIRECRAWL_API_KEY\n"
             "- CONTACTOUT_TOKEN"
         )
-    
+
     if any([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM]) and not all([TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, WHATSAPP_FROM, WHATSAPP_TO]):
         raise ValueError(
             "Incomplete Twilio configuration. If using WhatsApp, all these are required:\n"
@@ -56,21 +58,21 @@ class Config:
             "- WHATSAPP_FROM\n"
             "- WHATSAPP_TO"
         )
-    
+
     if not all([WHATSAPP_API_TOKEN, WHATSAPP_PHONE_NUMBER_ID]):
         raise ValueError(
             "Missing WhatsApp API configuration. Please check your .env file:\n"
             "- WHATSAPP_API_TOKEN\n"
             "- WHATSAPP_PHONE_NUMBER_ID"
         )
-    
+
     if not all([INTERAKT_API_KEY, INTERAKT_PHONE_NUMBER]):
         raise ValueError(
             "Missing Interakt API configuration. Please check your .env file:\n"
             "- INTERAKT_API_KEY\n"
             "- INTERAKT_PHONE_NUMBER"
         )
-    
+
     TEAM_EMAILS = {
         # Flat Products
         'HOT_ROLLED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
@@ -78,18 +80,32 @@ class Config:
         'GALVANIZED': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'ELECTRICAL_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'GALVALUME_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
-        
+
         # Long Products
         'TMT_BARS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'WIRE_RODS': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com',
         'SPECIAL_ALLOY_STEEL': 'chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com'
     }
-    
+
+    # Each member contains data in the following format: { "name": "Malay Patel","email": "malayp.dev@gmail.com","phone": "9999999999","team": "HOT_ROLLED"}
+    TEAM_MEMBERS = {
+        'HOT_ROLLED': [],
+        'COLD_ROLLED': [],
+        'GALVANIZED': [],
+        'ELECTRICAL_STEEL': [],
+        'GALVALUME_STEEL': [],
+
+        # Long Products
+        'TMT_BARS': [],
+        'WIRE_RODS': [],
+        'SPECIAL_ALLOY_STEEL': []
+    }
+
     PROJECT_DISCOVERY = {
-        'min_project_value': 5,  
-        'min_steel_requirement': 50, 
-        'max_procurement_months': 6,  
-        'search_period_days': 7,  
+        'min_project_value': 5,
+        'min_steel_requirement': 50,
+        'max_procurement_months': 6,
+        'search_period_days': 7,
         'priority_sectors': [
             'metro rail',
             'railway',
@@ -208,7 +224,7 @@ class Config:
             'industrial': 90  # kg/sqft (average of 80-100)
         }
     }
-    
+
     # Product Mapping Rules - Enhanced with more specific categories
     PRODUCT_MAPPING = {
         'infrastructure': {
@@ -240,14 +256,14 @@ class Config:
             'manufacturing': {'primary': 'HR_PLATES', 'secondary': 'SPECIAL_ALLOY'}
         }
     }
-    
+
     # Steel Requirement Estimation (tons per crore) - Updated with more accurate rates
     STEEL_RATES = {
         'TMT_BARS': {
             'highways': 35,  # 35 MT per crore for highway projects
             'bridges': 45,   # 45 MT per crore for bridge projects
             'railways': 30,  # 30 MT per crore for railway projects
-            'smart_cities': 25, # 25 MT per crore for smart city projects
+            'smart_cities': 25,  # 25 MT per crore for smart city projects
             'residential': 20,  # 20 MT per crore for residential projects
             'commercial': 25,   # 25 MT per crore for commercial projects
             'default': 30       # 30 MT per crore as default
@@ -278,7 +294,7 @@ class Config:
             'default': 8        # 8 MT per crore as default
         }
     }
-    
+
     # Project prioritization weights
     PRIORITY_WEIGHTS = {
         'time_factor': 0.7,  # Weight for project start time
@@ -288,7 +304,7 @@ class Config:
             'upcoming': 180    # Days - Upcoming if starting within 180 days
         }
     }
-    
+
     # Steel requirement estimation factors
     STEEL_FACTORS = {
         'metro': 0.15,        # 15% of project value for metro projects
@@ -296,10 +312,10 @@ class Config:
         'bridge': 0.20,       # 20% for bridge projects
         'default': 0.10       # 10% default for other projects
     }
-    
+
     # Database path for existing projects
     EXISTING_PROJECTS_DB = 'data/existing_projects.json'
-    
+
     # Firecrawl Configuration
     FIRECRAWL_SETTINGS = {
         'extraction_rules': {
@@ -311,32 +327,32 @@ class Config:
                 '.tender-details',
                 '.news-content',
                 '.project-description',
-                
+
                 # BidDetail.com selectors
                 '.procurement-news-content',
                 '.tender-content',
                 '.bid-details',
-                
+
                 # NewsOnProjects.com selectors
                 '.project-news-item',
                 '.news-content',
                 '.project-info',
-                
+
                 # ConstructionOpportunities.in selectors
                 '.opportunity-details',
                 '.project-content',
                 '.tender-info',
-                
+
                 # ProjectsToday.com selectors
                 '.project-description',
                 '.project-info',
                 '.project-details-content',
-                
+
                 # MetroRailToday.com selectors
                 '.metro-project-details',
                 '.news-article',
                 '.tender-details',
-                
+
                 # ProjectXIndia.com selectors
                 '.project-details-content',
                 '.news-details',
@@ -348,13 +364,13 @@ class Config:
                 '.procurement-team',
                 '.project-contact',
                 '.contact-information',
-                
+
                 # Company-specific selectors
                 '.bidder-contact',
                 '.company-contact',
                 '.procurement-details',
                 '.tender-contact',
-                
+
                 # Role-specific selectors
                 '.project-manager',
                 '.procurement-head',
@@ -367,14 +383,14 @@ class Config:
                 '.schedule',
                 '.dates',
                 '.completion-date',
-                
+
                 # Tender-specific dates
                 '.tender-dates',
                 '.project-schedule',
                 '.timeline-details',
                 '.bid-dates',
                 '.submission-deadline',
-                
+
                 # Milestone dates
                 '.construction-start',
                 '.foundation-date',
@@ -386,13 +402,13 @@ class Config:
                 '.requirements',
                 '.steel-specs',
                 '.material-requirements',
-                
+
                 # Detailed specs
                 '.technical-specs',
                 '.project-requirements',
                 '.tender-specifications',
                 '.material-details',
-                
+
                 # Steel-specific specs
                 '.steel-requirement',
                 '.tmt-requirement',
@@ -496,7 +512,7 @@ class Config:
             }
         }
     }
-    
+
     # Exa API Configuration (replacing SERP_SETTINGS)
     EXA_SETTINGS = {
         'search_parameters': {

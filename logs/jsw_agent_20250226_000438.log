@@ -1,0 +1,27 @@
+2025-02-26 00:04:38,087 - utilities.logger - INFO - Logging initialized
+2025-02-26 00:04:38,089 - utilities.logger - INFO - Logging initialized
+2025-02-26 00:04:38,092 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 00:04:38,109 - werkzeug - WARNING -  * Debugger is active!
+2025-02-26 00:04:38,117 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-26 00:05:03,805 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:05:03] "GET / HTTP/1.1" 200 -
+2025-02-26 00:05:04,510 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:05:04] "GET /status HTTP/1.1" 200 -
+2025-02-26 00:06:25,895 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:06:25] "GET / HTTP/1.1" 200 -
+2025-02-26 00:06:26,564 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:06:26] "GET /status HTTP/1.1" 200 -
+2025-02-26 00:06:36,479 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:06:36] "POST /add-member HTTP/1.1" 200 -
+2025-02-26 00:06:48,839 - __main__ - ERROR - Error running pipeline: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 231, in remove_member
+    team = request.get_json()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Malay\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\werkzeug\wrappers\request.py", line 604, in get_json
+    return self.on_json_loading_failed(None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Malay\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\flask\wrappers.py", line 131, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Malay\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\werkzeug\wrappers\request.py", line 647, in on_json_loading_failed
+    raise UnsupportedMediaType(
+werkzeug.exceptions.UnsupportedMediaType: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+2025-02-26 00:06:48,844 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\wrappers\\request.py', reloading
+2025-02-26 00:06:48,847 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 00:06:48] "POST /remove-member HTTP/1.1" 200 -
+2025-02-26 00:06:48,847 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\flask\\wrappers.py', reloading

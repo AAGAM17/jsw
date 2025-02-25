@@ -1,0 +1,29 @@
+2025-02-25 23:56:00,906 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:56:00,909 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:56:00,912 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 23:56:00,926 - werkzeug - WARNING -  * Debugger is active!
+2025-02-25 23:56:00,936 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-25 23:56:01,007 - __main__ - ERROR - Error running pipeline: 'Hot Rolled'
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 211, in add_member
+    Config.TEAM_MEMBERS[team["team"]].append(team)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'Hot Rolled'
+2025-02-25 23:56:01,010 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:56:01] "POST /add-member HTTP/1.1" 200 -
+2025-02-25 23:57:08,043 - __main__ - ERROR - Error running pipeline: 'Hot Rolled'
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 211, in add_member
+    Config.TEAM_MEMBERS[team["team"]].append(team)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'Hot Rolled'
+2025-02-25 23:57:08,045 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:57:08] "POST /add-member HTTP/1.1" 200 -
+2025-02-25 23:57:29,750 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:57:29] "GET / HTTP/1.1" 200 -
+2025-02-25 23:57:30,434 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:57:30] "GET /status HTTP/1.1" 200 -
+2025-02-25 23:57:37,537 - __main__ - ERROR - Error running pipeline: 'Hot_Rolled'
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 211, in add_member
+    Config.TEAM_MEMBERS[team["team"]].append(team)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'Hot_Rolled'
+2025-02-25 23:57:37,539 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:57:37] "POST /add-member HTTP/1.1" 200 -
+2025-02-25 23:57:49,138 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\flask\\globals.py', reloading

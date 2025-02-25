@@ -1,0 +1,14 @@
+2025-02-25 23:55:41,223 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:55:41,225 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:55:41,228 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 23:55:41,243 - werkzeug - WARNING -  * Debugger is active!
+2025-02-25 23:55:41,253 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-25 23:55:45,291 - __main__ - ERROR - Error running pipeline: 'Hot Rolled'
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 210, in add_member
+    Config.TEAM_MEMBERS[team["team"]].append(team)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'Hot Rolled'
+2025-02-25 23:55:45,295 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:55:45] "POST /add-member HTTP/1.1" 200 -
+2025-02-25 23:55:57,547 - werkzeug - INFO -  * Detected change in 'd:\\jsw\\app.py', reloading
+2025-02-25 23:55:57,547 - werkzeug - INFO -  * Detected change in 'd:\\jsw\\app.py', reloading

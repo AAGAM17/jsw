@@ -12,31 +12,41 @@ import requests
 import urllib.parse
 from whatsapp.interakt_handler import InteraktHandler
 
+
 class EmailHandler:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
-        
+
         # Load email configuration
         self.smtp_server = Config.EMAIL_SMTP_SERVER
         self.smtp_port = Config.EMAIL_SMTP_PORT
         self.sender_email = Config.EMAIL_SENDER
         self.sender_password = Config.EMAIL_PASSWORD
         self.team_emails = Config.TEAM_EMAILS
+        # converting team member details to email list
+        for team in Config.TEAM_MEMBERS.keys:
+            team_string = ""
+            for member in Config.TEAM_MEMBERS[team]:
+                team_string += member["email"] + ", "
+            self.team_emails[team] = team_string
+
         self.groq_client = Groq()
         self.contactout_token = Config.CONTACTOUT_TOKEN
-        
+
         # Initialize contact enricher
         self.contact_enricher = ContactEnricher()
-        
+
         # Initialize WhatsApp handler
         self.whatsapp_handler = InteraktHandler()
-        
+
         # Validate email configuration
         if not all([self.smtp_server, self.smtp_port, self.sender_email, self.sender_password]):
-            raise ValueError("Missing email configuration. Please check your .env file.")
-            
-        self.logger.info(f"Initialized EmailHandler with sender: {self.sender_email}")
-        
+            raise ValueError(
+                "Missing email configuration. Please check your .env file.")
+
+        self.logger.info(
+            f"Initialized EmailHandler with sender: {self.sender_email}")
+
         # Test SMTP connection on initialization
         try:
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
@@ -44,11 +54,13 @@ class EmailHandler:
                 server.starttls()
                 server.ehlo()
                 server.login(self.sender_email, self.sender_password)
-                self.logger.info("SMTP connection test successful on initialization")
+                self.logger.info(
+                    "SMTP connection test successful on initialization")
         except Exception as e:
-            self.logger.error(f"Failed to initialize SMTP connection: {str(e)}")
+            self.logger.error(
+                f"Failed to initialize SMTP connection: {str(e)}")
             raise
-        
+
     def determine_product_team(self, project):
         """Determine the most relevant product team based on project details"""
         try:
@@ -56,7 +68,7 @@ class EmailHandler:
             if isinstance(project, str):
                 text = project.lower()
                 return self._determine_team_from_keywords(text)
-            
+
             # Handle dictionary input
             elif isinstance(project, dict):
                 # First check primary product requirement
@@ -83,19 +95,19 @@ class EmailHandler:
                             return 'ELECTRICAL_STEEL'
                         elif 'GALVALUME' in product_type:
                             return 'GALVALUME_STEEL'
-                
+
                 # If no primary product found, fall back to keyword matching
                 title = project.get('title', '').lower()
                 description = project.get('description', '').lower()
                 text = f"{title} {description}"
                 return self._determine_team_from_keywords(text)
-            
+
             return 'TMT_BARS'  # Default team
-            
+
         except Exception as e:
             self.logger.error(f"Error in determine_product_team: {str(e)}")
             return 'TMT_BARS'  # Default team in case of error
-            
+
     def _determine_team_from_keywords(self, text):
         """Determine team based on keywords in text"""
         # Long Products
@@ -116,10 +128,10 @@ class EmailHandler:
             return 'ELECTRICAL_STEEL'
         elif any(word in text for word in ['galvalume', 'aluzinc', 'zincalume', 'gl sheet']):
             return 'GALVALUME_STEEL'
-        
+
         # Default to TMT_BARS for construction/infrastructure projects
         return 'TMT_BARS'
-    
+
     def calculate_steel_requirement(self, project, product_type):
         """Calculate steel requirement based on project type and value"""
         try:
@@ -136,50 +148,53 @@ class EmailHandler:
             else:
                 self.logger.error(f"Invalid project type: {type(project)}")
                 return 0
-        
+
             # Get the rates for the product type
             rates = Config.STEEL_RATES.get(product_type, {})
-            rate = rates.get('default', 10)  # Default rate if nothing else matches
-            
+            # Default rate if nothing else matches
+            rate = rates.get('default', 10)
+
             # Find the most specific rate
             for category, category_rate in rates.items():
                 if category != 'default' and category in text:
                     rate = category_rate
                     break
-            
+
             # Conservative estimation
             steel_tons = value_in_cr * rate * 0.8  # Using 0.8 as conservative factor
             return steel_tons
-            
+
         except Exception as e:
-            self.logger.error(f"Error in calculate_steel_requirement: {str(e)}")
+            self.logger.error(
+                f"Error in calculate_steel_requirement: {str(e)}")
             return 0  # Return 0 in case of error
-    
+
     def calculate_priority_score(self, project):
         """Calculate priority score based on contract value, timeline, and recency"""
         try:
             # Handle string input
             if isinstance(project, str):
                 return 0  # String inputs get lowest priority
-            
+
             # Handle dictionary input
             if not isinstance(project, dict):
                 self.logger.error(f"Invalid project type: {type(project)}")
                 return 0
-            
+
             value_in_cr = project.get('value', 0)
             steel_tons = project.get('steel_requirement', 0)
-            
+
             # Calculate months until project start
-            start_date = project.get('start_date', datetime.now() + timedelta(days=730))  # Default 24 months
+            start_date = project.get('start_date', datetime.now(
+            ) + timedelta(days=730))  # Default 24 months
             if isinstance(start_date, str):
                 try:
                     start_date = datetime.strptime(start_date, '%Y-%m-%d')
                 except ValueError:
                     start_date = datetime.now() + timedelta(days=730)
-            
+
             months_to_start = max(1, (start_date - datetime.now()).days / 30)
-            
+
             # Calculate recency factor
             news_date = project.get('news_date', datetime.now())
             if isinstance(news_date, str):
@@ -187,9 +202,9 @@ class EmailHandler:
                     news_date = datetime.strptime(news_date, '%Y-%m-%d')
                 except ValueError:
                     news_date = datetime.now()
-            
+
             months_old = (datetime.now() - news_date).days / 30
-            
+
             if months_old < 1:  # Less than a month old
                 recency_factor = 1.0
             elif months_old < 3:  # Less than 3 months old
@@ -198,16 +213,17 @@ class EmailHandler:
                 recency_factor = 0.6
             else:
                 recency_factor = 0.4
-            
+
             # Value factor (normalized to 0-1 range)
             value_factor = min(value_in_cr / 1000, 1.0)  # Cap at 1000 crore
-            
+
             # Steel requirement factor (normalized to 0-1 range)
             steel_factor = min(steel_tons / 10000, 1.0)  # Cap at 10000 MT
-            
+
             # Timeline factor (higher score for projects starting sooner)
-            timeline_factor = 1.0 / (1 + months_to_start/12)  # Decay over 12 months
-            
+            # Decay over 12 months
+            timeline_factor = 1.0 / (1 + months_to_start/12)
+
             # Calculate priority score (0-1 range)
             priority_score = (
                 0.3 * value_factor +
@@ -215,13 +231,13 @@ class EmailHandler:
                 0.2 * timeline_factor +
                 0.2 * recency_factor
             )
-            
+
             return priority_score
-            
+
         except Exception as e:
             self.logger.error(f"Error calculating priority score: {str(e)}")
             return 0
-    
+
     def _analyze_project_content(self, project):
         """Analyze project content to extract better estimates and details using expert analysis"""
         try:
@@ -240,9 +256,12 @@ class EmailHandler:
                     'steel_requirements': {
                         'primary': {'type': 'TMT Bars', 'quantity': 0, 'category': 'Long Products'},
                         'secondary': [
-                            {'type': 'Hot Rolled', 'quantity': 0, 'category': 'Flat Products'},
-                            {'type': 'Cold Rolled', 'quantity': 0, 'category': 'Flat Products'},
-                            {'type': 'Galvanized', 'quantity': 0, 'category': 'Flat Products'}
+                            {'type': 'Hot Rolled', 'quantity': 0,
+                                'category': 'Flat Products'},
+                            {'type': 'Cold Rolled', 'quantity': 0,
+                                'category': 'Flat Products'},
+                            {'type': 'Galvanized', 'quantity': 0,
+                                'category': 'Flat Products'}
                         ],
                         'tertiary': {'type': 'Wire Rods', 'quantity': 0, 'category': 'Long Products'}
                     },
@@ -263,15 +282,20 @@ class EmailHandler:
                 project_dict.setdefault('value', 0)
                 project_dict.setdefault('company', '')
                 project_dict.setdefault('source_url', '')
-                project_dict.setdefault('news_date', datetime.now().strftime('%Y-%m-%d'))
+                project_dict.setdefault(
+                    'news_date', datetime.now().strftime('%Y-%m-%d'))
                 project_dict.setdefault('start_date', datetime.now())
-                project_dict.setdefault('end_date', datetime.now() + timedelta(days=365))
+                project_dict.setdefault(
+                    'end_date', datetime.now() + timedelta(days=365))
                 project_dict.setdefault('steel_requirements', {
                     'primary': {'type': 'TMT Bars', 'quantity': 0, 'category': 'Long Products'},
                     'secondary': [
-                        {'type': 'Hot Rolled', 'quantity': 0, 'category': 'Flat Products'},
-                        {'type': 'Cold Rolled', 'quantity': 0, 'category': 'Flat Products'},
-                        {'type': 'Galvanized', 'quantity': 0, 'category': 'Flat Products'}
+                        {'type': 'Hot Rolled', 'quantity': 0,
+                            'category': 'Flat Products'},
+                        {'type': 'Cold Rolled', 'quantity': 0,
+                            'category': 'Flat Products'},
+                        {'type': 'Galvanized', 'quantity': 0,
+                            'category': 'Flat Products'}
                     ],
                     'tertiary': {'type': 'Wire Rods', 'quantity': 0, 'category': 'Long Products'}
                 })
@@ -284,17 +308,19 @@ class EmailHandler:
                 })
                 project_dict.setdefault('teams', ['TMT_BARS'])
             else:
-                raise ValueError(f"Project must be a string or dictionary, got {type(project)}")
+                raise ValueError(
+                    f"Project must be a string or dictionary, got {type(project)}")
 
             # Prepare project information for analysis
             title = str(project_dict.get('title', '')).lower()
             description = str(project_dict.get('description', '')).lower()
             text = f"{title} {description}"
-            
+
             # Determine project type and teams
             if any(term in text for term in ['metro', 'railway', 'rail', 'train']):
                 project_dict['project_type'] = 'metro_rail'
-                project_dict['teams'] = ['HOT_ROLLED', 'TMT_BARS', 'ELECTRICAL_STEEL']
+                project_dict['teams'] = ['HOT_ROLLED',
+                                         'TMT_BARS', 'ELECTRICAL_STEEL']
             elif any(term in text for term in ['highway', 'road', 'bridge', 'flyover', 'viaduct']):
                 project_dict['project_type'] = 'highway_bridge'
                 project_dict['teams'] = ['TMT_BARS', 'WIRE_RODS']
@@ -303,41 +329,46 @@ class EmailHandler:
                 project_dict['teams'] = ['TMT_BARS', 'GALVALUME']
             elif any(term in text for term in ['industrial', 'factory', 'plant', 'warehouse', 'manufacturing']):
                 project_dict['project_type'] = 'industrial'
-                project_dict['teams'] = ['HOT_ROLLED', 'COLD_ROLLED', 'GALVANIZED']
+                project_dict['teams'] = [
+                    'HOT_ROLLED', 'COLD_ROLLED', 'GALVANIZED']
             elif any(term in text for term in ['solar', 'power plant', 'renewable', 'energy']):
                 project_dict['project_type'] = 'energy'
                 project_dict['teams'] = ['GALVALUME', 'ELECTRICAL_STEEL']
             else:
                 project_dict['project_type'] = 'infrastructure'
                 project_dict['teams'] = ['TMT_BARS']  # Default team
-            
+
             # Extract numerical specifications
             specs = project_dict['specifications']
-            
+
             # Length extraction (km, meters)
-            length_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:km|kilometer|meter)', description)
+            length_match = re.search(
+                r'(\d+(?:\.\d+)?)\s*(?:km|kilometer|meter)', description)
             if length_match:
                 specs['length'] = float(length_match.group(1))
-            
+
             # Area extraction (sq ft, sq m)
-            area_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:sq ft|sqft|square feet|sq m|sqm)', description)
+            area_match = re.search(
+                r'(\d+(?:\.\d+)?)\s*(?:sq ft|sqft|square feet|sq m|sqm)', description)
             if area_match:
                 specs['area'] = float(area_match.group(1))
-            
+
             # Capacity extraction (MW, KW)
-            capacity_match = re.search(r'(\d+(?:\.\d+)?)\s*(?:mw|kw|megawatt|kilowatt)', description)
+            capacity_match = re.search(
+                r'(\d+(?:\.\d+)?)\s*(?:mw|kw|megawatt|kilowatt)', description)
             if capacity_match:
                 specs['capacity'] = float(capacity_match.group(1))
-            
+
             # Floor count extraction
-            floor_match = re.search(r'(\d+)(?:\s*-?\s*(?:floor|storey|story))', description)
+            floor_match = re.search(
+                r'(\d+)(?:\s*-?\s*(?:floor|storey|story))', description)
             if floor_match:
                 specs['floors'] = int(floor_match.group(1))
-            
+
             # Calculate steel requirements based on project type and value
             value_in_cr = float(project_dict.get('value', 0))
             steel_reqs = project_dict['steel_requirements']
-            
+
             if project_dict['project_type'] == 'metro_rail':
                 steel_reqs['primary'] = {
                     'type': 'TMT Bars',
@@ -442,7 +473,7 @@ class EmailHandler:
                     'type': 'Wire Rods',
                     'quantity': round(specs['capacity'] * 10 if specs['capacity'] else value_in_cr * 4, -2)
                 }
-            
+
             # Ensure minimum quantities
             min_quantity = 100
             if steel_reqs['primary']['quantity'] < min_quantity:
@@ -452,18 +483,18 @@ class EmailHandler:
                     sec_req['quantity'] = min_quantity
             if steel_reqs['tertiary']['quantity'] < min_quantity:
                 steel_reqs['tertiary']['quantity'] = min_quantity
-            
+
             # Format the requirements string
             steel_reqs_str = f"Estimated requirement:\n"
             steel_reqs_str += f"{steel_reqs['primary']['type']} (~{steel_reqs['primary']['quantity']:,}MT) - Primary\n"
             for sec_req in steel_reqs['secondary']:
                 steel_reqs_str += f"{sec_req['type']} - Secondary\n"
             steel_reqs_str += f"{steel_reqs['tertiary']['type']} - Tertiary"
-            
+
             project_dict['steel_requirements_display'] = steel_reqs_str
-            
+
             return project_dict
-            
+
         except Exception as e:
             self.logger.error(f"Error analyzing project: {str(e)}")
             # Return a basic project structure even if analysis fails
@@ -484,7 +515,7 @@ class EmailHandler:
                 'specifications': {'length': None, 'area': None, 'capacity': None, 'floors': None},
                 'teams': ['TMT_BARS']
             }
-    
+
     def _prioritize_projects(self, projects):
         """Prioritize projects based on multiple factors"""
         try:
@@ -510,94 +541,104 @@ class EmailHandler:
             for project in processed_projects:
                 # Calculate base priority score without Groq
                 value = project.get('value', 0)
-                source_boost = 1.2 if project.get('source') == 'exa_web' else 1.0
-                size_boost = 1.3 if value < 100 else (1.1 if value < 500 else 1.0)
-                
+                source_boost = 1.2 if project.get(
+                    'source') == 'exa_web' else 1.0
+                size_boost = 1.3 if value < 100 else (
+                    1.1 if value < 500 else 1.0)
+
                 # Basic priority calculation
                 base_score = (value / 1000) * source_boost * size_boost
                 project['initial_priority'] = base_score
-            
+
             # Sort by initial priority and take top 7 projects
-            pre_sorted = sorted(processed_projects, key=lambda x: x.get('initial_priority', 0), reverse=True)[:7]
-            
+            pre_sorted = sorted(processed_projects, key=lambda x: x.get(
+                'initial_priority', 0), reverse=True)[:7]
+
             # Now use Groq for detailed analysis of limited set
             analyzed_projects = []
             for project in pre_sorted:
                 try:
                     # Add delay between Groq calls to avoid rate limits
                     time.sleep(2)
-                    
+
                     # Analyze with Groq
                     analyzed = self._analyze_project_content(project)
                     if analyzed:
                         # Calculate final priority score
-                        priority_score = self.calculate_priority_score(analyzed)
+                        priority_score = self.calculate_priority_score(
+                            analyzed)
                         analyzed['final_priority_score'] = priority_score
                         analyzed_projects.append(analyzed)
-                        
+
                 except Exception as e:
-                    self.logger.error(f"Error analyzing project with Groq: {str(e)}")
+                    self.logger.error(
+                        f"Error analyzing project with Groq: {str(e)}")
                     # Still include project but with original data
-                    project['final_priority_score'] = project.get('initial_priority', 0)
+                    project['final_priority_score'] = project.get(
+                        'initial_priority', 0)
                     analyzed_projects.append(project)
-            
+
             # Final sort and limit to top 5
-            final_projects = sorted(analyzed_projects, key=lambda x: x.get('final_priority_score', 0), reverse=True)[:5]
-            
+            final_projects = sorted(analyzed_projects, key=lambda x: x.get(
+                'final_priority_score', 0), reverse=True)[:5]
+
             return final_projects
-            
+
         except Exception as e:
             self.logger.error(f"Error prioritizing projects: {str(e)}")
             # Fallback to simple prioritization if something goes wrong
             return sorted(projects, key=lambda x: x.get('value', 0) if isinstance(x, dict) else 0, reverse=True)[:5]
-    
+
     def _search_linkedin_contacts(self, company_name):
         """Search for contacts using ContactOut APIs with improved search strategy"""
         try:
-            self.logger.info(f"Starting ContactOut search for company: {company_name}")
+            self.logger.info(
+                f"Starting ContactOut search for company: {company_name}")
             contacts = []
-            
+
             # Setup ContactOut API headers
             search_headers = {
                 'Content-Type': 'application/json',
                 'Authorization': f'Bearer {self.contactout_token}'
             }
-            
+
             # Clean company name
             company_name = company_name.lower().strip()
-            
+
             # Remove problematic parts from company name
             company_parts = company_name.split()
             filtered_parts = [part for part in company_parts if part not in {
-                'limited', 'ltd', 'pvt', 'private', 'jv', 'india', 'infra', 
-                'infrastructure', 'construction', 'and', '&', 'projects', 
-                'project', 'engineering', 'services', 'under', 'tracking', 
+                'limited', 'ltd', 'pvt', 'private', 'jv', 'india', 'infra',
+                'infrastructure', 'construction', 'and', '&', 'projects',
+                'project', 'engineering', 'services', 'under', 'tracking',
                 'platform'
             }]
-            
+
             # Get the main company name (first 2-3 words)
             main_company = ' '.join(filtered_parts[:3])
             self.logger.info(f"Using main company name: {main_company}")
-            
+
             # 1. Try exact company search first
             search_params = {
                 'query': f'company:"{main_company}"',
                 'type': 'profile',
                 'limit': 25
             }
-            
+
             response = requests.get(
                 'https://api.contactout.com/v2/search',
                 headers=search_headers,
                 params=search_params
             )
-            
+
             if response.status_code == 200:
                 profiles = response.json().get('profiles', [])
                 if profiles:
-                    self.logger.info(f"Found {len(profiles)} profiles via exact company search")
-                    self._process_contact_profiles(profiles, contacts, search_headers)
-            
+                    self.logger.info(
+                        f"Found {len(profiles)} profiles via exact company search")
+                    self._process_contact_profiles(
+                        profiles, contacts, search_headers)
+
             # 2. If no results, try keyword search
             if len(contacts) < 3:
                 search_params = {
@@ -605,19 +646,21 @@ class EmailHandler:
                     'type': 'profile',
                     'limit': 25
                 }
-                
+
                 response = requests.get(
                     'https://api.contactout.com/v2/search',
                     headers=search_headers,
                     params=search_params
                 )
-                
+
                 if response.status_code == 200:
                     profiles = response.json().get('profiles', [])
                     if profiles:
-                        self.logger.info(f"Found {len(profiles)} profiles via keyword search")
-                        self._process_contact_profiles(profiles, contacts, search_headers)
-            
+                        self.logger.info(
+                            f"Found {len(profiles)} profiles via keyword search")
+                        self._process_contact_profiles(
+                            profiles, contacts, search_headers)
+
             # 3. Try role-based search if still needed
             if len(contacts) < 3:
                 role_queries = [
@@ -631,58 +674,63 @@ class EmailHandler:
                     'ceo',
                     'vp'
                 ]
-                
+
                 for role in role_queries:
                     if len(contacts) >= 5:
                         break
-                        
+
                     search_params = {
                         'query': f'company:"{main_company}" AND title:"{role}"',
                         'type': 'profile',
                         'limit': 10
                     }
-                    
+
                     response = requests.get(
                         'https://api.contactout.com/v2/search',
                         headers=search_headers,
                         params=search_params
                     )
-                    
+
                     if response.status_code == 200:
                         profiles = response.json().get('profiles', [])
                         if profiles:
-                            self.logger.info(f"Found {len(profiles)} profiles via role search for {role}")
-                            self._process_contact_profiles(profiles, contacts, search_headers)
-            
+                            self.logger.info(
+                                f"Found {len(profiles)} profiles via role search for {role}")
+                            self._process_contact_profiles(
+                                profiles, contacts, search_headers)
+
             # 4. Try location-based search as last resort
             if len(contacts) < 2:
-                locations = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai']
+                locations = ['mumbai', 'delhi',
+                             'bangalore', 'hyderabad', 'chennai']
                 for location in locations:
                     if len(contacts) >= 3:
                         break
-                        
+
                     search_params = {
                         'query': f'"{main_company}" AND location:"{location}"',
                         'type': 'profile',
                         'limit': 10
                     }
-                    
+
                     response = requests.get(
                         'https://api.contactout.com/v2/search',
                         headers=search_headers,
                         params=search_params
                     )
-                    
+
                     if response.status_code == 200:
                         profiles = response.json().get('profiles', [])
                         if profiles:
-                            self.logger.info(f"Found {len(profiles)} profiles via location search for {location}")
-                            self._process_contact_profiles(profiles, contacts, search_headers)
-            
+                            self.logger.info(
+                                f"Found {len(profiles)} profiles via location search for {location}")
+                            self._process_contact_profiles(
+                                profiles, contacts, search_headers)
+
             # Process found contacts
             unique_contacts = []
             seen_urls = set()
-            
+
             for contact in contacts:
                 url = contact.get('profile_url', '')
                 if url and url not in seen_urls:
@@ -690,48 +738,51 @@ class EmailHandler:
                     # Verify contact has required fields
                     if contact.get('name') and (contact.get('role') or contact.get('title')):
                         unique_contacts.append(contact)
-            
-            self.logger.info(f"Total unique contacts found for {company_name}: {len(unique_contacts)}")
+
+            self.logger.info(
+                f"Total unique contacts found for {company_name}: {len(unique_contacts)}")
             return unique_contacts
-            
+
         except Exception as e:
-            self.logger.error(f"Contact search failed for {company_name}: {str(e)}")
+            self.logger.error(
+                f"Contact search failed for {company_name}: {str(e)}")
             return []
 
     def _get_company_name_variations(self, company_name):
         """Generate variations of company name for better search results"""
         variations = set()
-        
+
         # Original name
         variations.add(company_name)
-        
+
         # Clean the company name
         clean_name = company_name.lower()
         clean_name = re.sub(r'[^\w\s-]', ' ', clean_name)
         clean_name = re.sub(r'\s+', ' ', clean_name).strip()
         variations.add(clean_name)
-        
+
         # Remove common suffixes
-        suffixes = [' limited', ' ltd', ' pvt', ' private', ' jv', ' india', ' infra', ' infrastructure', ' construction']
+        suffixes = [' limited', ' ltd', ' pvt', ' private', ' jv',
+                    ' india', ' infra', ' infrastructure', ' construction']
         base_name = clean_name
         for suffix in suffixes:
             if base_name.endswith(suffix):
                 base_name = base_name[:-len(suffix)].strip()
                 variations.add(base_name)
-        
+
         # Handle hyphenated names
         if '-' in base_name:
             parts = base_name.split('-')
             variations.add(parts[0].strip())
             variations.add(parts[-1].strip())
-        
+
         # Handle spaces
         if ' ' in base_name:
             parts = base_name.split()
             if len(parts) > 2:
                 variations.add(parts[0])
                 variations.add(' '.join(parts[:2]))
-        
+
         return list(variations)
 
     def _process_contact_profiles(self, profiles, contacts, headers):
@@ -739,12 +790,13 @@ class EmailHandler:
         if not profiles or not isinstance(profiles, list):
             self.logger.error("Invalid profiles data: expected non-empty list")
             return
-        
+
         for profile in profiles:
             if not isinstance(profile, dict):
-                self.logger.warning(f"Skipping invalid profile format: {type(profile)}")
+                self.logger.warning(
+                    f"Skipping invalid profile format: {type(profile)}")
                 continue
-            
+
             try:
                 # Get static CRM data
                 contact = {
@@ -755,16 +807,17 @@ class EmailHandler:
                     'profile_url': profile.get('linkedin_url', ''),
                     'source': 'CRM'
                 }
-                
+
                 if contact.get('name') and contact.get('role'):
                     if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
                         contacts.append(contact)
-                        self.logger.info(f"Added contact: {contact['name']} ({contact['role']})")
-            
+                        self.logger.info(
+                            f"Added contact: {contact['name']} ({contact['role']})")
+
             except Exception as e:
                 self.logger.error(f"Error processing profile: {str(e)}")
                 continue
-    
+
     def _process_profiles(self, profiles, contacts, headers, company_name):
         """Process profiles from ContactOut API"""
         for profile in profiles:
@@ -795,16 +848,17 @@ class EmailHandler:
                             'profile_url': profile.get('linkedin_url', ''),
                             'source': 'ContactOut'
                         }
-                    
+
                     if contact.get('name') and contact.get('role'):
                         if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
                             contacts.append(contact)
-                            self.logger.info(f"Added contact: {contact['name']} ({contact['role']})")
-            
+                            self.logger.info(
+                                f"Added contact: {contact['name']} ({contact['role']})")
+
             except Exception as e:
                 self.logger.error(f"Error processing profile: {str(e)}")
                 continue
-    
+
     def _process_linkedin_profiles(self, profiles, contacts, headers, company_name):
         """Process profiles from LinkedIn scraping using ContactOut enrichment"""
         if not profiles or not isinstance(profiles, list):
@@ -813,9 +867,10 @@ class EmailHandler:
 
         for profile in profiles:
             if not isinstance(profile, dict):
-                self.logger.warning(f"Skipping invalid profile format: {type(profile)}")
+                self.logger.warning(
+                    f"Skipping invalid profile format: {type(profile)}")
                 continue
-            
+
             try:
                 profile_url = profile.get('profile_url')
                 if not profile_url:
@@ -824,7 +879,7 @@ class EmailHandler:
                 current_position = profile.get('current_position', {})
                 if not isinstance(current_position, dict):
                     current_position = {}
-                
+
                 contact = {
                     'name': profile.get('full_name', ''),
                     'role': current_position.get('title', profile.get('title', '')),
@@ -835,14 +890,16 @@ class EmailHandler:
                     'profile_url': profile_url,
                     'source': 'CRM'
                 }
-                
+
                 if contact.get('name') and contact.get('role'):
                     if not any(c.get('profile_url') == contact['profile_url'] for c in contacts):
                         contacts.append(contact)
-                        self.logger.info(f"Added contact: {contact['name']} ({contact['role']}) via {contact.get('source', 'Unknown')}")
+                        self.logger.info(
+                            f"Added contact: {contact['name']} ({contact['role']}) via {contact.get('source', 'Unknown')}")
 
             except Exception as e:
-                self.logger.error(f"Error processing LinkedIn profile: {str(e)}")
+                self.logger.error(
+                    f"Error processing LinkedIn profile: {str(e)}")
                 continue
 
     def _format_project_for_email(self, project):
@@ -851,18 +908,19 @@ class EmailHandler:
             # Ensure project has steel requirements
             if not project.get('steel_requirements'):
                 project = self._analyze_project_content(project)
-            
+
             # Get priority class and color
-            priority_tag = next((tag for tag in project.get('tags', []) if 'Priority' in tag), 'Normal Priority')
+            priority_tag = next((tag for tag in project.get(
+                'tags', []) if 'Priority' in tag), 'Normal Priority')
             is_high_priority = 'High' in priority_tag
             priority_color = '#dc3545' if is_high_priority else '#2e7d32'
             priority_bg = '#fde8e8' if is_high_priority else '#e8f5e9'
             priority_tag = 'High Priority' if is_high_priority else 'Normal Priority'
-            
+
             # Get contacts directly from the project
             contacts = project.get('contacts', [])
             relationship_notes = project.get('relationship_notes', [])
-            
+
             # Generate relationship HTML
             if relationship_notes:
                 relationship_html = f'''
@@ -886,20 +944,20 @@ class EmailHandler:
                         </div>
                     </div>
                 '''
-            
+
             # Generate contacts HTML
             contacts_html = ''
             if contacts:
                 contacts_html = '<div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">'
                 contacts_html += '<h4 style="color: #1a1a1a; margin: 0 0 15px 0;">Key Contacts</h4>'
-                
+
                 for contact in contacts:
                     name = contact.get('name', 'N/A')
                     role = contact.get('role', 'N/A')
                     email = contact.get('email', '')
                     phone = contact.get('phone', '')
                     company = project.get('company', '')
-                    
+
                     # Only show contact if we have at least a name or role
                     if name != 'N/A' or role != 'N/A':
                         contacts_html += f'''
@@ -926,7 +984,7 @@ class EmailHandler:
                         <p style="margin: 0; color: #5f6368;">No contacts found in CRM.</p>
                     </div>
                 '''
-            
+
             # Create HTML for single project
             html = f'''
             <div style="border-left: 4px solid {priority_color}; border-radius: 8px; border: 1px solid #e0e0e0; margin: 20px 0; padding: 20px;">
@@ -959,9 +1017,9 @@ class EmailHandler:
                 </div>
             </div>
             '''
-            
+
             return html
-            
+
         except Exception as e:
             self.logger.error(f"Error formatting project: {str(e)}")
             return f'''
@@ -974,7 +1032,7 @@ class EmailHandler:
         """Format the project details for email."""
         # Get steel requirements with proper structure
         steel_reqs = project.get('steel_requirements', {})
-        
+
         # Format primary requirement
         primary_req = steel_reqs.get('primary', {})
         primary_html = f'''
@@ -982,7 +1040,7 @@ class EmailHandler:
                 {primary_req.get('type', 'TMT Bars')} (~{primary_req.get('quantity', 0):,}MT) - Primary
             </div>
         '''
-        
+
         # Format secondary requirements
         secondary_reqs = steel_reqs.get('secondary', [])
         secondary_html = ''
@@ -994,7 +1052,7 @@ class EmailHandler:
                         {product_name} - Secondary
                     </div>
                 '''
-        
+
         # Format tertiary requirement
         tertiary_req = steel_reqs.get('tertiary', {})
         tertiary_html = f'''
@@ -1002,7 +1060,7 @@ class EmailHandler:
                 {tertiary_req.get('type', 'Wire Rods')} - Tertiary
             </div>
         '''
-        
+
         # Format timeline
         timeline_html = f'''
             <div style="font-size: 16px; margin-bottom: 12px;">
@@ -1011,18 +1069,18 @@ class EmailHandler:
                 {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
             </div>
         '''
-        
+
         return primary_html + secondary_html + tertiary_html + timeline_html
 
-    def _get_team_emails(self, teams): 
+    def _get_team_emails(self, teams):
         """Get email addresses for teams"""
         try:
             if isinstance(teams, list) and all(isinstance(t, str) for t in teams):
                 return [self.team_emails.get(team) for team in teams if team in self.team_emails]
-            
+
             if isinstance(teams, str):
                 return [self.team_emails.get(teams)] if teams in self.team_emails else []
-            
+
             if isinstance(teams, dict):
                 team_list = []
                 if teams.get('primary') in self.team_emails:
@@ -1030,25 +1088,25 @@ class EmailHandler:
                 if teams.get('secondary') in self.team_emails:
                     team_list.append(self.team_emails[teams['secondary']])
                 return team_list
-            
+
             return []
-            
+
         except Exception as e:
             self.logger.error(f"Error getting team emails: {str(e)}")
             return []
-    
+
     def send_project_opportunities(self, projects):
         """Send project opportunities to respective teams"""
         try:
             team_projects = {}
-            
+
             # JSW filtering terms
             jsw_terms = [
                 'jsw', 'jindal', 'js steel', 'jsw steel', 'jindal steel',
                 'jsw neosteel', 'jsw trusteel', 'neosteel', 'trusteel',
                 'jsw fastbuild', 'jsw galvalume', 'jsw coated'
             ]
-            
+
             for project in projects:
                 try:
                     # Skip JSW-related projects
@@ -1056,52 +1114,58 @@ class EmailHandler:
                     desc = str(project.get('description', '')).lower()
                     company = str(project.get('company', '')).lower()
                     all_text = f"{title} {desc} {company}"
-                    
+
                     if any(term in all_text for term in jsw_terms):
-                        self.logger.info(f"Skipping JSW-related project: {project.get('title')}")
+                        self.logger.info(
+                            f"Skipping JSW-related project: {project.get('title')}")
                         continue
-                    
+
                     if not project.get('steel_requirements'):
                         project = self._analyze_project_content(project)
-                    
+
                     # Double check the enriched content for JSW terms
-                    enriched_text = str(project.get('title', '')).lower() + str(project.get('description', '')).lower()
+                    enriched_text = str(project.get('title', '')).lower(
+                    ) + str(project.get('description', '')).lower()
                     if any(term in enriched_text for term in jsw_terms):
-                        self.logger.info(f"Skipping JSW-related project after enrichment: {project.get('title')}")
+                        self.logger.info(
+                            f"Skipping JSW-related project after enrichment: {project.get('title')}")
                         continue
-                    
+
                     # Determine team based on primary product
                     primary_team = self.determine_product_team(project)
                     team_emails = self._get_team_emails(primary_team)
-                    
+
                     if not team_emails:
-                        self.logger.warning(f"No team emails found for project: {project.get('title')}")
+                        self.logger.warning(
+                            f"No team emails found for project: {project.get('title')}")
                         continue
-                    
+
                     for email in team_emails:
                         if email not in team_projects:
                             team_projects[email] = []
                         # Update project's teams to match the primary team
                         project['teams'] = [primary_team]
                         team_projects[email].append(project)
-                    
+
                 except Exception as e:
-                    self.logger.error(f"Error processing project {project.get('title')}: {str(e)}")
+                    self.logger.error(
+                        f"Error processing project {project.get('title')}: {str(e)}")
                     continue
-            
+
             for email, team_project_list in team_projects.items():
                 try:
                     msg = MIMEMultipart('alternative')
                     msg['From'] = self.sender_email
                     msg['To'] = email
-                    
+
                     # Get team category and format team name
                     team_name = team_project_list[0]['teams'][0]
-                    team_category = 'Long Products' if team_name in ['TMT_BARS', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL'] else 'Flat Products'
+                    team_category = 'Long Products' if team_name in [
+                        'TMT_BARS', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL'] else 'Flat Products'
                     formatted_team_name = team_name.replace('_', ' ')
-                    
+
                     msg['Subject'] = f"JSW Steel {team_category} - {formatted_team_name} Leads"
-                    
+
                     html_content = f'''
                     <html>
                     <head>
@@ -1130,21 +1194,22 @@ class EmailHandler:
                     </body>
                     </html>
                     '''
-                    
+
                     msg.attach(MIMEText(html_content, 'html'))
-                    
+
                     with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                         server.starttls()
                         server.login(self.sender_email, self.sender_password)
                         server.send_message(msg)
-                    
+
                     self.logger.info(f"Successfully sent email to {email}")
                 except Exception as e:
-                    self.logger.error(f"Error sending email to {email}: {str(e)}")
+                    self.logger.error(
+                        f"Error sending email to {email}: {str(e)}")
                     continue
-            
+
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Error in send_project_opportunities: {str(e)}")
             return False
@@ -1153,7 +1218,7 @@ class EmailHandler:
         """Send a single project opportunity via email"""
         try:
             subject = f"JSW Steel Leads"
-            
+
             html_content = f"""
             <html>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -1181,31 +1246,32 @@ class EmailHandler:
             </body>
             </html>
             """
-            
+
             msg = MIMEMultipart('alternative')
             msg['Subject'] = subject
             msg['From'] = self.sender_email
             msg['To'] = recipient_email
-            
+
             msg.attach(MIMEText(html_content, 'html'))
-            
+
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
                 server.login(self.sender_email, self.sender_password)
                 server.send_message(msg)
-                
-            self.logger.info(f"Successfully sent project opportunity email to {{recipient_email}}")
+
+            self.logger.info(
+                f"Successfully sent project opportunity email to {{recipient_email}}")
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Error sending email: {{str(e)}}")
             return False
-            
+
     def send_project_summary(self, projects, recipient_email):
         """Send a summary of multiple project opportunities"""
         try:
             subject = f"JSW Steel Leads"
-            
+
             html_content = f"""
             <html>
             <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
@@ -1214,7 +1280,7 @@ class EmailHandler:
                     
                     <p>We found {{len(projects)}} new project opportunities that might interest you:</p>
             """
-            
+
             for idx, project in enumerate(projects, 1):
                 html_content += f"""
                     <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;">
@@ -1231,7 +1297,7 @@ class EmailHandler:
                         <p><a href="{{project.get('source_url', '#')}}" style="color: #1a73e8;">View Announcement</a></p>
                     </div>
                 """
-            
+
             # Add footer
             html_content += """
                     <div style="background-color: #e8f0fe; padding: 15px; border-radius: 5px;">
@@ -1249,25 +1315,26 @@ class EmailHandler:
             </body>
             </html>
             """
-            
+
             # Create message
             msg = MIMEMultipart('alternative')
             msg['Subject'] = subject
             msg['From'] = self.sender_email
             msg['To'] = recipient_email
-            
+
             # Add HTML content
             msg.attach(MIMEText(html_content, 'html'))
-            
+
             # Send email
             with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
                 server.starttls()
                 server.login(self.sender_email, self.sender_password)
                 server.send_message(msg)
-                
-            self.logger.info(f"Successfully sent project summary email to {{recipient_email}}")
+
+            self.logger.info(
+                f"Successfully sent project summary email to {{recipient_email}}")
             return True
-            
+
         except Exception as e:
             self.logger.error(f"Error sending email: {{str(e)}}")
             return False
@@ -1278,4 +1345,4 @@ class EmailHandler:
 
     def send_project_via_whatsapp(self, project):
         """Send a single project opportunity via WhatsApp with detailed information"""
-        return self.whatsapp_handler.send_project_opportunities([project]) 
+        return self.whatsapp_handler.send_project_opportunities([project])

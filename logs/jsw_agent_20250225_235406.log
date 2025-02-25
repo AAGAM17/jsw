@@ -1,0 +1,22 @@
+2025-02-25 23:54:06,293 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:54:06,295 - utilities.logger - INFO - Logging initialized
+2025-02-25 23:54:06,298 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-25 23:54:06,317 - werkzeug - WARNING -  * Debugger is active!
+2025-02-25 23:54:06,328 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-25 23:54:06,735 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:54:06] "GET / HTTP/1.1" 200 -
+2025-02-25 23:54:07,301 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:54:07] "GET /status HTTP/1.1" 200 -
+2025-02-25 23:54:17,236 - __main__ - ERROR - Error running pipeline: 'Hot Rolled'
+Traceback (most recent call last):
+  File "d:\jsw\app.py", line 210, in add_member
+    Config.TEAM_MEMBERS[team["team"]].append(team)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+KeyError: 'Hot Rolled'
+2025-02-25 23:54:17,239 - werkzeug - INFO - 127.0.0.1 - - [25/Feb/2025 23:54:17] "POST /add-member HTTP/1.1" 200 -
+2025-02-25 23:55:29,178 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\mixins.py', reloading
+2025-02-25 23:55:29,204 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\file_storage.py', reloading
+2025-02-25 23:55:29,240 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\accept.py', reloading
+2025-02-25 23:55:29,266 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\cache_control.py', reloading
+2025-02-25 23:55:29,283 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\etag.py', reloading
+2025-02-25 23:55:29,296 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\range.py', reloading
+2025-02-25 23:55:29,311 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\user_agent.py', reloading
+2025-02-25 23:55:29,325 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\werkzeug\\datastructures\\auth.py', reloading
