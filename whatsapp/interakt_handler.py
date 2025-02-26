@@ -7,6 +7,7 @@ from config.settings import Config
 import time
 import base64
 import re
+from urllib.parse import urlparse
 
 class InteraktHandler:
     def __init__(self):
@@ -151,13 +152,23 @@ class InteraktHandler:
                 overview += f" (₹{project['value']:.1f} Cr)"
         return overview
     
+    def _extract_company_domain(self, url):
+        """Extract company domain from URL"""
+        try:
+            parsed = urlparse(url)
+            # Get the domain without www.
+            domain = parsed.netloc.replace('www.', '')
+            return domain
+        except Exception as e:
+            self.logger.error(f"Error extracting domain: {str(e)}")
+            return None
+
     def _format_project_message(self, project, idx):
         """Format a single project message"""
         try:
-            message = f"*Project #{idx} Details*\n\n"
+            message = f"*{project.get('title', 'N/A')}*\n\n"
             
-            message += f"*Company:* {project.get('company', 'N/A')}\n"
-            message += f"*Project:* {project.get('title', 'N/A')}\n\n"
+            message += f"*Company:* {project.get('company', 'N/A')}\n\n"
             
             if project.get('value'):
                 message += f"*Value:* ₹{float(project['value']):.1f} Crore\n"
@@ -179,21 +190,14 @@ class InteraktHandler:
                             message += f"• {key}: {value:,} MT\n"
                 message += "\n"
             
-            # Add contact information
-            if project.get('contacts'):
-                message += "*Key Contacts:*\n"
-                for contact in project['contacts']:
-                    message += f"• {contact.get('name', 'N/A')} - {contact.get('role', 'N/A')}\n"
-                    if contact.get('email'):
-                        message += f"  Email: {contact['email']}\n"
-                    if contact.get('phone'):
-                        message += f"  Phone: {contact['phone']}\n"
-                message += "\n"
-            
             if project.get('source_url'):
-                message += f"*Source:* {project['source_url']}\n"
-            if project.get('description'):
-                message += f"\n*Description:*\n{project['description'][:300]}..."
+                source_url = project['source_url']
+                message += f"*Source:* {source_url}\n"
+                
+                # Extract and add company domain if available
+                company_domain = self._extract_company_domain(source_url)
+                if company_domain:
+                    message += f"*Company Website:* https://{company_domain}\n"
             
             return message
             

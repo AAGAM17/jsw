@@ -1,0 +1,64 @@
+2025-02-26 15:02:29,739 - utilities.logger - INFO - Logging initialized
+2025-02-26 15:02:29,744 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 15:02:29,773 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 15:02:34,694 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 15:02:36,569 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 15:02:38,677 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 15:03:21,546 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-26 15:03:21,554 - utilities.project_discovery_graph - INFO - Skipping completed project: 10 Bidders for New Digha – Sonepur Bridge’s Contract in Bihar - The Metro Rail Guy
+2025-02-26 15:03:21,559 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Hyderabad Airport Metro Line Contract: L&T and NCC Bid
+2025-02-26 15:03:21,565 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Airoli-Katai Naka Freeway – Information & Status
+2025-02-26 15:03:21,565 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: India's #1 Projects Tracking Platform
+2025-02-26 15:03:21,565 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Bengaluru Railway: KRIDE Awards Rs 5 Bn Contract to NCC
+2025-02-26 15:03:21,566 - utilities.project_discovery_graph - INFO - Retained 3 recent non-JSW projects
+2025-02-26 15:03:21,567 - utilities.project_discovery_graph - INFO - Enriching 3 projects...
+2025-02-26 15:03:22,030 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:03:22,030 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 15:03:23,998 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 15:03:24,816 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:24,829 - utilities.project_discovery_graph - INFO - Assigned teams ['GALVANIZED', 'GALVALUME_STEEL', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'TMT_BARS'] to project: Projects wins construction project in Guwahati
+2025-02-26 15:03:24,829 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects
+2025-02-26 15:03:25,334 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:25,337 - utilities.contact_finder - INFO - LLM analysis for Projects: {'found': True, 'matched_company': 'tata projects', 'confidence': 0.8, 'reasoning': "The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'."}
+2025-02-26 15:03:25,337 - utilities.contact_finder - INFO - Found contacts for company: tata projects (confidence: 0.8)
+2025-02-26 15:03:25,337 - utilities.contact_finder - INFO - Match reasoning: The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'.
+2025-02-26 15:03:25,338 - utilities.contact_finder - INFO - Added 2 contacts for Projects
+2025-02-26 15:03:25,788 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:25,790 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'TMT_BARS', 'WIRE_RODS'] to project: SCC Infra, Velji Ratna Sorathia JV to Build Gujarat Bullet Train Depot with 1...
+2025-02-26 15:03:25,791 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-26 15:03:26,253 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:26,255 - utilities.contact_finder - INFO - LLM analysis for SCC Infra: {'found': True, 'matched_company': 'ncc limited', 'confidence': 0.7, 'reasoning': 'SCC Infra is likely an abbreviation or variation of SCC Infrastructure, which has a high similarity with NCC Limited.'}
+2025-02-26 15:03:26,255 - utilities.contact_finder - INFO - No confident CRM match found for SCC Infra, trying ContactOut
+2025-02-26 15:03:26,256 - utilities.contact_finder - INFO - Reason: SCC Infra is likely an abbreviation or variation of SCC Infrastructure, which has a high similarity with NCC Limited.
+2025-02-26 15:03:26,256 - utilities.contact_finder - INFO - Searching ContactOut for SCC Infra
+2025-02-26 15:03:26,256 - utilities.contact_finder - WARNING - Using default contact for SCC Infra
+2025-02-26 15:03:26,726 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:26,727 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'GALVALUME_STEEL', 'ELECTRICAL_STEEL', 'SOLAR', 'COLD_ROLLED', 'TMT_BARS', 'WIRE_RODS'] to project: PNC Infratech Secures HAM Project for Western Bhopal Bypass Skipper  Wins Ord...
+2025-02-26 15:03:26,728 - utilities.project_discovery_graph - INFO - Finding procurement contacts for PNC Infra
+2025-02-26 15:03:27,277 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:03:27,279 - utilities.contact_finder - INFO - LLM analysis for PNC Infra: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company 'PNC Infra' was not found in the CRM database. However, there is a similar company 'NCC Limited' which has the abbreviation 'NCC' that could be confused with 'PNC'. The confidence score is low due to the significant difference between the two names."}
+2025-02-26 15:03:27,279 - utilities.contact_finder - INFO - No confident CRM match found for PNC Infra, trying ContactOut
+2025-02-26 15:03:27,279 - utilities.contact_finder - INFO - Reason: The company 'PNC Infra' was not found in the CRM database. However, there is a similar company 'NCC Limited' which has the abbreviation 'NCC' that could be confused with 'PNC'. The confidence score is low due to the significant difference between the two names.
+2025-02-26 15:03:27,279 - utilities.contact_finder - INFO - Searching ContactOut for PNC Infra
+2025-02-26 15:03:27,280 - utilities.contact_finder - WARNING - Using default contact for PNC Infra
+2025-02-26 15:03:27,280 - utilities.project_discovery_graph - INFO - Successfully enriched 3 projects
+2025-02-26 15:03:27,284 - utilities.project_discovery_graph - INFO - Prioritizing 3 projects...
+2025-02-26 15:03:27,284 - utilities.project_discovery_graph - INFO - Successfully prioritized 3 projects
+2025-02-26 15:03:27,285 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 15:03:27,309 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:03:27,309 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 15:03:28,913 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 15:03:29,164 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:03:31,314 - utilities.email_handler - ERROR - Error sending email to : {}
+2025-02-26 15:03:31,314 - whatsapp.interakt_handler - INFO - Sending 3 project opportunities via WhatsApp
+2025-02-26 15:03:31,315 - whatsapp.interakt_handler - INFO - Sending 3 non-JSW projects
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Workflow completed in 66.02s
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Projects filtered: 3
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Projects enriched: 3
+2025-02-26 15:03:35,787 - utilities.project_discovery_graph - INFO - Projects prioritized: 3
+2025-02-26 15:03:35,788 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 15:03:35,895 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 15:03:35,895 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 15:03:35,895 - apscheduler.scheduler - INFO - Scheduler started

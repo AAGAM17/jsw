@@ -1,0 +1,713 @@
+2025-02-26 15:22:08,610 - utilities.logger - INFO - Logging initialized
+2025-02-26 15:22:08,617 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 15:22:08,650 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 15:22:14,083 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 15:22:15,953 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 15:22:17,755 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 15:24:02,652 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'infrastructure development project approved india' after 3 retries: Request failed with status code 400: {"requestId":"c777afc176cbd39a55720bc99f538b79","error":"Sorry, we had trouble finding contents for the given URLs.","tag":"NO_CONTENT_FOUND"}
+2025-02-26 15:25:56,619 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'steel structure project india' after 3 retries: Request failed with status code 400: {"requestId":"4ea462ba62441cb6bc751d2131bb29df","error":"Sorry, we had trouble finding contents for the given URLs.","tag":"NO_CONTENT_FOUND"}
+2025-02-26 15:27:13,303 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'port development project india' after 3 retries: Request failed with status code 400: {"requestId":"f9fa06cb3bd3e8c0a0eb02c5d24dfc92","error":"Sorry, we had trouble finding contents for the given URLs.","tag":"NO_CONTENT_FOUND"}
+2025-02-26 15:27:49,778 - utilities.project_discovery_graph - INFO - Found 98 total projects before filtering
+2025-02-26 15:27:49,785 - utilities.project_discovery_graph - INFO - Filtering 98 projects...
+2025-02-26 15:27:49,988 - utilities.project_discovery_graph - INFO - Retained 73 recent non-JSW projects
+2025-02-26 15:27:49,989 - utilities.project_discovery_graph - INFO - Enriching 73 projects...
+2025-02-26 15:27:50,377 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:27:50,377 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 15:27:51,940 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 15:27:52,689 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:52,701 - utilities.project_discovery_graph - INFO - Assigned teams ['COLD_ROLLED', 'HOT_ROLLED', 'TMT_BARS', 'GALVANIZED'] to project: News On Projects to build with 100 MT TMT Bars
+2025-02-26 15:27:52,702 - utilities.project_discovery_graph - INFO - Finding procurement contacts for News On Projects
+2025-02-26 15:27:53,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:53,156 - utilities.contact_finder - INFO - LLM analysis for News On Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'News On Projects' does not exist in the provided CRM database."}
+2025-02-26 15:27:53,156 - utilities.contact_finder - INFO - No confident CRM match found for News On Projects, trying ContactOut
+2025-02-26 15:27:53,156 - utilities.contact_finder - INFO - Reason: The company 'News On Projects' does not exist in the provided CRM database.
+2025-02-26 15:27:53,157 - utilities.contact_finder - INFO - Searching ContactOut for News On Projects
+2025-02-26 15:27:53,157 - utilities.contact_finder - WARNING - Using default contact for News On Projects
+2025-02-26 15:27:53,664 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:53,667 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED'] to project: Authentic secures building project with 100 MT TMT Bars
+2025-02-26 15:27:53,667 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Authentic & Timely Information for Construction Business Grow Your Business with Construction
+2025-02-26 15:27:54,107 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:54,109 - utilities.contact_finder - INFO - LLM analysis for Authentic & Timely Information for Construction Business Grow Your Business with Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The given company name 'Authentic & Timely Information for Construction Business Grow Your Business with Construction' does not exist in the CRM database and no similar or abbreviated matches were found."}
+2025-02-26 15:27:54,110 - utilities.contact_finder - INFO - No confident CRM match found for Authentic & Timely Information for Construction Business Grow Your Business with Construction, trying ContactOut
+2025-02-26 15:27:54,110 - utilities.contact_finder - INFO - Reason: The given company name 'Authentic & Timely Information for Construction Business Grow Your Business with Construction' does not exist in the CRM database and no similar or abbreviated matches were found.
+2025-02-26 15:27:54,110 - utilities.contact_finder - INFO - Searching ContactOut for Authentic & Timely Information for Construction Business Grow Your Business with Construction
+2025-02-26 15:27:54,110 - utilities.contact_finder - WARNING - Using default contact for Authentic & Timely Information for Construction Business Grow Your Business with Construction
+2025-02-26 15:27:54,533 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:54,535 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: Coal India to build 52 coal mining projects
+2025-02-26 15:27:54,536 - utilities.project_discovery_graph - INFO - Finding procurement contacts for BT target Home Infrastructure
+2025-02-26 15:27:54,997 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:54,999 - utilities.contact_finder - INFO - LLM analysis for BT target Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'BT target Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases but found no match."}
+2025-02-26 15:27:54,999 - utilities.contact_finder - INFO - No confident CRM match found for BT target Home Infrastructure, trying ContactOut
+2025-02-26 15:27:54,999 - utilities.contact_finder - INFO - Reason: The company 'BT target Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases but found no match.
+2025-02-26 15:27:55,000 - utilities.contact_finder - INFO - Searching ContactOut for BT target Home Infrastructure
+2025-02-26 15:27:55,000 - utilities.contact_finder - WARNING - Using default contact for BT target Home Infrastructure
+2025-02-26 15:27:55,445 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:55,447 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: Isgec secures 2 gas-fired boilers project
+2025-02-26 15:27:55,447 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Isgec Heavy Engineering
+2025-02-26 15:27:55,911 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:55,911 - utilities.contact_finder - INFO - LLM analysis for Isgec Heavy Engineering: {'found': False, 'matched_company': None, 'confidence': 0.5, 'reasoning': "The company 'Isgec Heavy Engineering' was not found exactly in the CRM. However, a similar company 'KEC International' exists, which might be an abbreviation or variation. The confidence score is 0.5 due to the uncertainty."}
+2025-02-26 15:27:55,912 - utilities.contact_finder - INFO - No confident CRM match found for Isgec Heavy Engineering, trying ContactOut
+2025-02-26 15:27:55,912 - utilities.contact_finder - INFO - Reason: The company 'Isgec Heavy Engineering' was not found exactly in the CRM. However, a similar company 'KEC International' exists, which might be an abbreviation or variation. The confidence score is 0.5 due to the uncertainty.
+2025-02-26 15:27:55,912 - utilities.contact_finder - INFO - Searching ContactOut for Isgec Heavy Engineering
+2025-02-26 15:27:55,912 - utilities.contact_finder - WARNING - Using default contact for Isgec Heavy Engineering
+2025-02-26 15:27:56,427 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:56,429 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'SOLAR', 'GALVANIZED'] to project: BHEL to build 1980 MW Prayagraj thermal power plant
+2025-02-26 15:27:56,430 - utilities.project_discovery_graph - INFO - Finding procurement contacts for MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation
+2025-02-26 15:27:56,938 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:56,941 - utilities.contact_finder - INFO - LLM analysis for MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The given company name 'MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation' is not an exact match to any company in the CRM database."}
+2025-02-26 15:27:56,941 - utilities.contact_finder - INFO - No confident CRM match found for MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation, trying ContactOut
+2025-02-26 15:27:56,942 - utilities.contact_finder - INFO - Reason: The given company name 'MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation' is not an exact match to any company in the CRM database.
+2025-02-26 15:27:56,942 - utilities.contact_finder - INFO - Searching ContactOut for MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation
+2025-02-26 15:27:56,942 - utilities.contact_finder - WARNING - Using default contact for MW Prayagraj super thermal power project in Uttar Pradesh. The plant is located in Bara tehsil in Allahabad district of Uttar Pradesh. The project is owned by Prayagraj Power Generation
+2025-02-26 15:27:57,648 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:57,650 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: MPPGCL to build 660 MW thermal power plant
+2025-02-26 15:27:57,650 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform The Madhya Pradesh Power Generating
+2025-02-26 15:27:58,072 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:58,074 - utilities.contact_finder - INFO - LLM analysis for Projects Tracking Platform The Madhya Pradesh Power Generating: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Projects Tracking Platform The Madhya Pradesh Power Generating' does not exist in the provided CRM database. It was checked for exact matches, abbreviations, and common aliases."}
+2025-02-26 15:27:58,074 - utilities.contact_finder - INFO - No confident CRM match found for Projects Tracking Platform The Madhya Pradesh Power Generating, trying ContactOut
+2025-02-26 15:27:58,074 - utilities.contact_finder - INFO - Reason: The company 'Projects Tracking Platform The Madhya Pradesh Power Generating' does not exist in the provided CRM database. It was checked for exact matches, abbreviations, and common aliases.
+2025-02-26 15:27:58,074 - utilities.contact_finder - INFO - Searching ContactOut for Projects Tracking Platform The Madhya Pradesh Power Generating
+2025-02-26 15:27:58,074 - utilities.contact_finder - WARNING - Using default contact for Projects Tracking Platform The Madhya Pradesh Power Generating
+2025-02-26 15:27:58,526 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:58,529 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Varaha to build Dholera airport with 34,500 MT steel
+2025-02-26 15:27:58,529 - utilities.project_discovery_graph - INFO - Finding procurement contacts for s Construction
+2025-02-26 15:27:58,984 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:58,986 - utilities.contact_finder - INFO - LLM analysis for s Construction: {'found': False, 'matched_company': None, 'confidence': 0.2, 'reasoning': "The company name 's Construction' was not found in the CRM database. The closest match is 'patel engineering' with a low confidence score due to the commonness of the 's' abbreviation in company names."}
+2025-02-26 15:27:58,987 - utilities.contact_finder - INFO - No confident CRM match found for s Construction, trying ContactOut
+2025-02-26 15:27:58,987 - utilities.contact_finder - INFO - Reason: The company name 's Construction' was not found in the CRM database. The closest match is 'patel engineering' with a low confidence score due to the commonness of the 's' abbreviation in company names.
+2025-02-26 15:27:58,987 - utilities.contact_finder - INFO - Searching ContactOut for s Construction
+2025-02-26 15:27:58,987 - utilities.contact_finder - WARNING - Using default contact for s Construction
+2025-02-26 15:27:59,428 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:59,430 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: Home Infra to build NH-31 beneath Kashi Airport
+2025-02-26 15:27:59,430 - utilities.project_discovery_graph - INFO - Finding procurement contacts for to Pass Beneath Kashi Airport Runway Home Infrastructure
+2025-02-26 15:27:59,908 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:27:59,910 - utilities.contact_finder - INFO - LLM analysis for to Pass Beneath Kashi Airport Runway Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'to Pass Beneath Kashi Airport Runway Home Infrastructure' does not have any apparent relation or abbreviation matching any company in the CRM database."}
+2025-02-26 15:27:59,911 - utilities.contact_finder - INFO - No confident CRM match found for to Pass Beneath Kashi Airport Runway Home Infrastructure, trying ContactOut
+2025-02-26 15:27:59,911 - utilities.contact_finder - INFO - Reason: The company 'to Pass Beneath Kashi Airport Runway Home Infrastructure' does not have any apparent relation or abbreviation matching any company in the CRM database.
+2025-02-26 15:27:59,911 - utilities.contact_finder - INFO - Searching ContactOut for to Pass Beneath Kashi Airport Runway Home Infrastructure
+2025-02-26 15:27:59,911 - utilities.contact_finder - WARNING - Using default contact for to Pass Beneath Kashi Airport Runway Home Infrastructure
+2025-02-26 15:28:00,443 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:00,445 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: Not Finalized Civil Construction to build Mandi Airport
+2025-02-26 15:28:00,445 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Not Finalized Civil Construction
+2025-02-26 15:28:00,931 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:00,932 - utilities.contact_finder - INFO - LLM analysis for Not Finalized Civil Construction: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company name 'Not Finalized Civil Construction' does not exactly match any names in the CRM database. However, 'ncc limited' and 'patel engineering' could be possible matches with a low confidence level due to the common construction industry."}
+2025-02-26 15:28:00,932 - utilities.contact_finder - INFO - No confident CRM match found for Not Finalized Civil Construction, trying ContactOut
+2025-02-26 15:28:00,932 - utilities.contact_finder - INFO - Reason: The company name 'Not Finalized Civil Construction' does not exactly match any names in the CRM database. However, 'ncc limited' and 'patel engineering' could be possible matches with a low confidence level due to the common construction industry.
+2025-02-26 15:28:00,932 - utilities.contact_finder - INFO - Searching ContactOut for Not Finalized Civil Construction
+2025-02-26 15:28:00,932 - utilities.contact_finder - WARNING - Using default contact for Not Finalized Civil Construction
+2025-02-26 15:28:01,545 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:01,547 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Kembhavi to build 1.9km Vijayapur airport runway
+2025-02-26 15:28:01,548 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Kembhavi Architects Civil Construction
+2025-02-26 15:28:02,060 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:02,062 - utilities.contact_finder - INFO - LLM analysis for Kembhavi Architects Civil Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Kembhavi Architects Civil Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:02,063 - utilities.contact_finder - INFO - No confident CRM match found for Kembhavi Architects Civil Construction, trying ContactOut
+2025-02-26 15:28:02,063 - utilities.contact_finder - INFO - Reason: The company 'Kembhavi Architects Civil Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:02,063 - utilities.contact_finder - INFO - Searching ContactOut for Kembhavi Architects Civil Construction
+2025-02-26 15:28:02,063 - utilities.contact_finder - WARNING - Using default contact for Kembhavi Architects Civil Construction
+2025-02-26 15:28:02,777 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:02,779 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Kembhavi Architects to build Shivamogga Airport terminal
+2025-02-26 15:28:02,779 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Kembhavi Architects Civil Construction
+2025-02-26 15:28:03,289 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:03,291 - utilities.contact_finder - INFO - LLM analysis for Kembhavi Architects Civil Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Kembhavi Architects Civil Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:03,292 - utilities.contact_finder - INFO - No confident CRM match found for Kembhavi Architects Civil Construction, trying ContactOut
+2025-02-26 15:28:03,292 - utilities.contact_finder - INFO - Reason: The company 'Kembhavi Architects Civil Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:03,292 - utilities.contact_finder - INFO - Searching ContactOut for Kembhavi Architects Civil Construction
+2025-02-26 15:28:03,292 - utilities.contact_finder - WARNING - Using default contact for Kembhavi Architects Civil Construction
+2025-02-26 15:28:03,757 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:03,760 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED'] to project: GMR to build Visakhapatnam airport with 100 MT steel
+2025-02-26 15:28:03,760 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Master Plan & Design Bhogapuram International Airport is a new greenfield airport being developed by GMR Airports Ltd
+2025-02-26 15:28:04,209 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:04,211 - utilities.contact_finder - INFO - LLM analysis for Master Plan & Design Bhogapuram International Airport is a new greenfield airport being developed by GMR Airports Ltd: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Master Plan & Design Bhogapuram International Airport' is not present in the CRM database. The database contains companies like 'GMR Airports Ltd', but the exact name was not found."}
+2025-02-26 15:28:04,211 - utilities.contact_finder - INFO - No confident CRM match found for Master Plan & Design Bhogapuram International Airport is a new greenfield airport being developed by GMR Airports Ltd, trying ContactOut
+2025-02-26 15:28:04,211 - utilities.contact_finder - INFO - Reason: The company 'Master Plan & Design Bhogapuram International Airport' is not present in the CRM database. The database contains companies like 'GMR Airports Ltd', but the exact name was not found.
+2025-02-26 15:28:04,211 - utilities.contact_finder - INFO - Searching ContactOut for Master Plan & Design Bhogapuram International Airport is a new greenfield airport being developed by GMR Airports Ltd
+2025-02-26 15:28:04,212 - utilities.contact_finder - WARNING - Using default contact for Master Plan & Design Bhogapuram International Airport is a new greenfield airport being developed by GMR Airports Ltd
+2025-02-26 15:28:04,724 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:04,726 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: GMR to build Bhogapuram airport with 6100 MT steel
+2025-02-26 15:28:04,726 - utilities.project_discovery_graph - INFO - Finding procurement contacts for GMR Group
+2025-02-26 15:28:05,197 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:05,200 - utilities.contact_finder - INFO - LLM analysis for GMR Group: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company name 'GMR Group' was not found exactly in the CRM database. However, there is a similar company 'GRM Group' which might be the intended company. The confidence score is low due to the discrepancy in the first letter."}
+2025-02-26 15:28:05,200 - utilities.contact_finder - INFO - No confident CRM match found for GMR Group, trying ContactOut
+2025-02-26 15:28:05,200 - utilities.contact_finder - INFO - Reason: The company name 'GMR Group' was not found exactly in the CRM database. However, there is a similar company 'GRM Group' which might be the intended company. The confidence score is low due to the discrepancy in the first letter.
+2025-02-26 15:28:05,200 - utilities.contact_finder - INFO - Searching ContactOut for GMR Group
+2025-02-26 15:28:05,201 - utilities.contact_finder - WARNING - Using default contact for GMR Group
+2025-02-26 15:28:05,745 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:05,747 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Projects to build Hassan airport with 5800 MT steel
+2025-02-26 15:28:05,747 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects
+2025-02-26 15:28:06,257 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:06,258 - utilities.contact_finder - INFO - LLM analysis for Projects: {'found': True, 'matched_company': 'tata projects', 'confidence': 0.8, 'reasoning': "The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'."}
+2025-02-26 15:28:06,258 - utilities.contact_finder - INFO - Found contacts for company: tata projects (confidence: 0.8)
+2025-02-26 15:28:06,258 - utilities.contact_finder - INFO - Match reasoning: The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'.
+2025-02-26 15:28:06,258 - utilities.contact_finder - INFO - Added 2 contacts for Projects
+2025-02-26 15:28:06,774 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:06,776 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Unknown Civil Construction to build 3.2km Ballari airport runway
+2025-02-26 15:28:06,777 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Unknown Civil Construction
+2025-02-26 15:28:07,266 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:07,269 - utilities.contact_finder - INFO - LLM analysis for Unknown Civil Construction: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company 'Unknown Civil Construction' does not exactly match any in the CRM. However, 'civil construction' is a common industry term and 'unknown' may be a placeholder. The most similar CRM entries are 'kec international', 'ncc limited', 'patel engineering', and 'larsen & toubro', but the confidence level is low due to the dissimilarity in names."}
+2025-02-26 15:28:07,269 - utilities.contact_finder - INFO - No confident CRM match found for Unknown Civil Construction, trying ContactOut
+2025-02-26 15:28:07,269 - utilities.contact_finder - INFO - Reason: The company 'Unknown Civil Construction' does not exactly match any in the CRM. However, 'civil construction' is a common industry term and 'unknown' may be a placeholder. The most similar CRM entries are 'kec international', 'ncc limited', 'patel engineering', and 'larsen & toubro', but the confidence level is low due to the dissimilarity in names.
+2025-02-26 15:28:07,269 - utilities.contact_finder - INFO - Searching ContactOut for Unknown Civil Construction
+2025-02-26 15:28:07,269 - utilities.contact_finder - WARNING - Using default contact for Unknown Civil Construction
+2025-02-26 15:28:07,774 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:07,777 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'GALVANIZED'] to project: Dilip Buildcon to build taxi track at Dabolim Airport
+2025-02-26 15:28:07,777 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Infrastructure
+2025-02-26 15:28:08,171 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:08,174 - utilities.contact_finder - INFO - LLM analysis for Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Infrastructure' does not explicitly exist in the provided CRM database. It could be an abstract term referring to the industry or a part of a company name."}
+2025-02-26 15:28:08,174 - utilities.contact_finder - INFO - No confident CRM match found for Infrastructure, trying ContactOut
+2025-02-26 15:28:08,174 - utilities.contact_finder - INFO - Reason: The company 'Infrastructure' does not explicitly exist in the provided CRM database. It could be an abstract term referring to the industry or a part of a company name.
+2025-02-26 15:28:08,174 - utilities.contact_finder - INFO - Searching ContactOut for Infrastructure
+2025-02-26 15:28:08,175 - utilities.contact_finder - WARNING - Using default contact for Infrastructure
+2025-02-26 15:28:08,648 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:08,650 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Construction to build 268.63km Nagpur metro with 47000MT steel
+2025-02-26 15:28:08,651 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:28:09,124 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:09,126 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:28:09,127 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:28:09,127 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:28:09,127 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:28:09,127 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:28:09,740 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:09,743 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: High Speed Rail Projects to build Mumbai-Ahmedabad rail
+2025-02-26 15:28:09,743 - utilities.project_discovery_graph - INFO - Finding procurement contacts for High Speed Rail Projects
+2025-02-26 15:28:10,252 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:10,255 - utilities.contact_finder - INFO - LLM analysis for High Speed Rail Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'High Speed Rail Projects' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:10,255 - utilities.contact_finder - INFO - No confident CRM match found for High Speed Rail Projects, trying ContactOut
+2025-02-26 15:28:10,255 - utilities.contact_finder - INFO - Reason: The company 'High Speed Rail Projects' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:10,255 - utilities.contact_finder - INFO - Searching ContactOut for High Speed Rail Projects
+2025-02-26 15:28:10,255 - utilities.contact_finder - WARNING - Using default contact for High Speed Rail Projects
+2025-02-26 15:28:10,707 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:10,709 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Jaipur Metro Rail  to build 35.5km metro
+2025-02-26 15:28:10,709 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Jaipur Metro Rail Corporation Limited
+2025-02-26 15:28:11,105 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:11,108 - utilities.contact_finder - INFO - LLM analysis for Jaipur Metro Rail Corporation Limited: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Jaipur Metro Rail Corporation Limited' does not exist in the provided CRM database."}
+2025-02-26 15:28:11,108 - utilities.contact_finder - INFO - No confident CRM match found for Jaipur Metro Rail Corporation Limited, trying ContactOut
+2025-02-26 15:28:11,108 - utilities.contact_finder - INFO - Reason: The company 'Jaipur Metro Rail Corporation Limited' does not exist in the provided CRM database.
+2025-02-26 15:28:11,108 - utilities.contact_finder - INFO - Searching ContactOut for Jaipur Metro Rail Corporation Limited
+2025-02-26 15:28:11,109 - utilities.contact_finder - WARNING - Using default contact for Jaipur Metro Rail Corporation Limited
+2025-02-26 15:28:11,789 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:11,792 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: Maharail to build 232km Pune-Nashik rail corridor
+2025-02-26 15:28:11,792 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Maharashtra Rail Infrastructure Development Corporation Limited
+2025-02-26 15:28:12,299 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:12,303 - utilities.contact_finder - INFO - LLM analysis for Maharashtra Rail Infrastructure Development Corporation Limited: {'found': False, 'matched_company': None, 'confidence': 0.4, 'reasoning': "The company 'Maharashtra Rail Infrastructure Development Corporation Limited' does not exist exactly in the CRM. However, a similar company 'MRIDC' (Maharashtra Rail Infrastructure Development Corporation) might be intended with a confidence score of 0.4."}
+2025-02-26 15:28:12,303 - utilities.contact_finder - INFO - No confident CRM match found for Maharashtra Rail Infrastructure Development Corporation Limited, trying ContactOut
+2025-02-26 15:28:12,303 - utilities.contact_finder - INFO - Reason: The company 'Maharashtra Rail Infrastructure Development Corporation Limited' does not exist exactly in the CRM. However, a similar company 'MRIDC' (Maharashtra Rail Infrastructure Development Corporation) might be intended with a confidence score of 0.4.
+2025-02-26 15:28:12,304 - utilities.contact_finder - INFO - Searching ContactOut for Maharashtra Rail Infrastructure Development Corporation Limited
+2025-02-26 15:28:12,304 - utilities.contact_finder - WARNING - Using default contact for Maharashtra Rail Infrastructure Development Corporation Limited
+2025-02-26 15:28:12,809 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:12,811 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: Speed Rail to build 508km high-speed rail project
+2025-02-26 15:28:12,811 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Speed Rail Corporation Limited
+2025-02-26 15:28:13,235 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:13,482 - utilities.contact_finder - INFO - LLM analysis for Speed Rail Corporation Limited: {'found': False, 'matched_company': None, 'confidence': 0.1, 'reasoning': "The company 'Speed Rail Corporation Limited' does not exactly match any company names in the CRM database. The closest match is 'rvnl' with a low confidence score due to significant differences in the names."}
+2025-02-26 15:28:13,483 - utilities.contact_finder - INFO - No confident CRM match found for Speed Rail Corporation Limited, trying ContactOut
+2025-02-26 15:28:13,483 - utilities.contact_finder - INFO - Reason: The company 'Speed Rail Corporation Limited' does not exactly match any company names in the CRM database. The closest match is 'rvnl' with a low confidence score due to significant differences in the names.
+2025-02-26 15:28:13,483 - utilities.contact_finder - INFO - Searching ContactOut for Speed Rail Corporation Limited
+2025-02-26 15:28:13,484 - utilities.contact_finder - WARNING - Using default contact for Speed Rail Corporation Limited
+2025-02-26 15:28:13,963 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:13,965 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: Amit Shah to build Ahmedabad projects with 100 MT TMT Bars
+2025-02-26 15:28:13,966 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Amit Shah Inaugurates Projects
+2025-02-26 15:28:14,404 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:14,406 - utilities.contact_finder - INFO - LLM analysis for Amit Shah Inaugurates Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Amit Shah Inaugurates Projects' does not appear to be a match with any company in the provided CRM database. This company name seems to refer to an event rather than a specific organization."}
+2025-02-26 15:28:14,407 - utilities.contact_finder - INFO - No confident CRM match found for Amit Shah Inaugurates Projects, trying ContactOut
+2025-02-26 15:28:14,407 - utilities.contact_finder - INFO - Reason: The company 'Amit Shah Inaugurates Projects' does not appear to be a match with any company in the provided CRM database. This company name seems to refer to an event rather than a specific organization.
+2025-02-26 15:28:14,407 - utilities.contact_finder - INFO - Searching ContactOut for Amit Shah Inaugurates Projects
+2025-02-26 15:28:14,407 - utilities.contact_finder - WARNING - Using default contact for Amit Shah Inaugurates Projects
+2025-02-26 15:28:14,869 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:14,871 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: Genesys to build Ayodhya smart city hub with 100 MT steel
+2025-02-26 15:28:14,872 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Genesys Maps transform Ayodhya into smart city hub Home Infrastructure
+2025-02-26 15:28:15,276 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:15,278 - utilities.contact_finder - INFO - LLM analysis for Genesys Maps transform Ayodhya into smart city hub Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Genesys Maps transform Ayodhya into smart city hub Home Infrastructure' does not exist in the provided CRM database."}
+2025-02-26 15:28:15,278 - utilities.contact_finder - INFO - No confident CRM match found for Genesys Maps transform Ayodhya into smart city hub Home Infrastructure, trying ContactOut
+2025-02-26 15:28:15,278 - utilities.contact_finder - INFO - Reason: The company 'Genesys Maps transform Ayodhya into smart city hub Home Infrastructure' does not exist in the provided CRM database.
+2025-02-26 15:28:15,278 - utilities.contact_finder - INFO - Searching ContactOut for Genesys Maps transform Ayodhya into smart city hub Home Infrastructure
+2025-02-26 15:28:15,278 - utilities.contact_finder - WARNING - Using default contact for Genesys Maps transform Ayodhya into smart city hub Home Infrastructure
+2025-02-26 15:28:15,757 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:15,760 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: TRIL to build Hinjewadi-Shivajinagar metro corridor
+2025-02-26 15:28:15,760 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited
+2025-02-26 15:28:16,231 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:16,233 - utilities.contact_finder - INFO - LLM analysis for Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The given company name 'Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited' is not an exact match to any company in the CRM database."}
+2025-02-26 15:28:16,233 - utilities.contact_finder - INFO - No confident CRM match found for Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited, trying ContactOut
+2025-02-26 15:28:16,233 - utilities.contact_finder - INFO - Reason: The given company name 'Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited' is not an exact match to any company in the CRM database.
+2025-02-26 15:28:16,233 - utilities.contact_finder - INFO - Searching ContactOut for Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited
+2025-02-26 15:28:16,233 - utilities.contact_finder - WARNING - Using default contact for Hinjewadi to Shivajinagar metro corridor The metro line from Hinjewadi to Shivajinagar will be developed through a JV between TRIL Urban Transport Limited
+2025-02-26 15:28:16,704 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:16,707 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: The to build 132m glass-floor bridge in Rishikesh
+2025-02-26 15:28:16,707 - utilities.project_discovery_graph - INFO - Finding procurement contacts for floor bridge in Rishikesh The
+2025-02-26 15:28:17,160 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:17,162 - utilities.contact_finder - INFO - LLM analysis for floor bridge in Rishikesh The: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'floor bridge in Rishikesh The' does not exist in the provided CRM database. None of the database entries match this name, even considering variations, abbreviations, or common aliases."}
+2025-02-26 15:28:17,162 - utilities.contact_finder - INFO - No confident CRM match found for floor bridge in Rishikesh The, trying ContactOut
+2025-02-26 15:28:17,162 - utilities.contact_finder - INFO - Reason: The company 'floor bridge in Rishikesh The' does not exist in the provided CRM database. None of the database entries match this name, even considering variations, abbreviations, or common aliases.
+2025-02-26 15:28:17,162 - utilities.contact_finder - INFO - Searching ContactOut for floor bridge in Rishikesh The
+2025-02-26 15:28:17,162 - utilities.contact_finder - WARNING - Using default contact for floor bridge in Rishikesh The
+2025-02-26 15:28:17,572 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:17,574 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Navi Mumbai International Airport  to build airport
+2025-02-26 15:28:17,574 - utilities.project_discovery_graph - INFO - Finding procurement contacts for led Navi Mumbai International Airport Ltd
+2025-02-26 15:28:18,046 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:18,047 - utilities.contact_finder - INFO - LLM analysis for led Navi Mumbai International Airport Ltd: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company 'led Navi Mumbai International Airport Ltd' does not exist exactly in the CRM. However, 'cidco' and 'rvnl' could be related entities, and 'kec international' and 'ncc limited' have similar international and limited suffixes, respectively. The confidence score is low due to the lack of an exact match."}
+2025-02-26 15:28:18,048 - utilities.contact_finder - INFO - No confident CRM match found for led Navi Mumbai International Airport Ltd, trying ContactOut
+2025-02-26 15:28:18,048 - utilities.contact_finder - INFO - Reason: The company 'led Navi Mumbai International Airport Ltd' does not exist exactly in the CRM. However, 'cidco' and 'rvnl' could be related entities, and 'kec international' and 'ncc limited' have similar international and limited suffixes, respectively. The confidence score is low due to the lack of an exact match.
+2025-02-26 15:28:18,048 - utilities.contact_finder - INFO - Searching ContactOut for led Navi Mumbai International Airport Ltd
+2025-02-26 15:28:18,048 - utilities.contact_finder - WARNING - Using default contact for led Navi Mumbai International Airport Ltd
+2025-02-26 15:28:19,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:19,155 - utilities.project_discovery_graph - INFO - Assigned teams ['COLD_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL'] to project: Projects to build with 100 MT TMT Bars
+2025-02-26 15:28:19,155 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects
+2025-02-26 15:28:19,586 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:19,589 - utilities.contact_finder - INFO - LLM analysis for Projects: {'found': True, 'matched_company': 'tata projects', 'confidence': 0.8, 'reasoning': "The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'."}
+2025-02-26 15:28:19,589 - utilities.contact_finder - INFO - Found contacts for company: tata projects (confidence: 0.8)
+2025-02-26 15:28:19,590 - utilities.contact_finder - INFO - Match reasoning: The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'.
+2025-02-26 15:28:19,590 - utilities.contact_finder - INFO - Added 2 contacts for Projects
+2025-02-26 15:28:20,198 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:20,201 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Arihant to build 118-acre township in Navi Mumbai
+2025-02-26 15:28:20,201 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Arihant Superstructures Ltd
+2025-02-26 15:28:20,694 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:20,695 - utilities.contact_finder - INFO - LLM analysis for Arihant Superstructures Ltd: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company 'Arihant Superstructures Ltd' does not exist exactly in the CRM database. However, a similar company 'patel engineering' was found with a low confidence score due to possible differences in industry focus or size."}
+2025-02-26 15:28:20,695 - utilities.contact_finder - INFO - No confident CRM match found for Arihant Superstructures Ltd, trying ContactOut
+2025-02-26 15:28:20,695 - utilities.contact_finder - INFO - Reason: The company 'Arihant Superstructures Ltd' does not exist exactly in the CRM database. However, a similar company 'patel engineering' was found with a low confidence score due to possible differences in industry focus or size.
+2025-02-26 15:28:20,695 - utilities.contact_finder - INFO - Searching ContactOut for Arihant Superstructures Ltd
+2025-02-26 15:28:20,695 - utilities.contact_finder - WARNING - Using default contact for Arihant Superstructures Ltd
+2025-02-26 15:28:21,209 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:21,211 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Home Infrastructure to build 43-km Nagpur metro
+2025-02-26 15:28:21,211 - utilities.project_discovery_graph - INFO - Finding procurement contacts for connecting satellite cities Home Infrastructure
+2025-02-26 15:28:21,607 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:21,609 - utilities.contact_finder - INFO - LLM analysis for connecting satellite cities Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'connecting satellite cities Home Infrastructure' does not exist in the provided CRM database."}
+2025-02-26 15:28:21,609 - utilities.contact_finder - INFO - No confident CRM match found for connecting satellite cities Home Infrastructure, trying ContactOut
+2025-02-26 15:28:21,610 - utilities.contact_finder - INFO - Reason: The company 'connecting satellite cities Home Infrastructure' does not exist in the provided CRM database.
+2025-02-26 15:28:21,610 - utilities.contact_finder - INFO - Searching ContactOut for connecting satellite cities Home Infrastructure
+2025-02-26 15:28:21,610 - utilities.contact_finder - WARNING - Using default contact for connecting satellite cities Home Infrastructure
+2025-02-26 15:28:22,064 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:22,066 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: EMAAR to build residential project in Gurugram
+2025-02-26 15:28:22,067 - utilities.project_discovery_graph - INFO - Finding procurement contacts for EMAAR India Launches Urban Ascent
+2025-02-26 15:28:22,479 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:22,481 - utilities.contact_finder - INFO - LLM analysis for EMAAR India Launches Urban Ascent: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'EMAAR India Launches Urban Ascent' does not exist in the provided CRM database. None of the database entries match this name or any possible abbreviations or aliases."}
+2025-02-26 15:28:22,482 - utilities.contact_finder - INFO - No confident CRM match found for EMAAR India Launches Urban Ascent, trying ContactOut
+2025-02-26 15:28:22,482 - utilities.contact_finder - INFO - Reason: The company 'EMAAR India Launches Urban Ascent' does not exist in the provided CRM database. None of the database entries match this name or any possible abbreviations or aliases.
+2025-02-26 15:28:22,482 - utilities.contact_finder - INFO - Searching ContactOut for EMAAR India Launches Urban Ascent
+2025-02-26 15:28:22,482 - utilities.contact_finder - WARNING - Using default contact for EMAAR India Launches Urban Ascent
+2025-02-26 15:28:22,910 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:22,912 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: Construction to build with 100 MT TMT Bars
+2025-02-26 15:28:22,912 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:28:23,359 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:23,360 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:28:23,361 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:28:23,361 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:28:23,361 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:28:23,361 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:28:23,975 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:23,977 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Balasore to build Gopinathpur-Nilgiri line with 100 MT TMT Bars
+2025-02-26 15:28:23,978 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Balasore line Home Infrastructure
+2025-02-26 15:28:24,486 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:24,488 - utilities.contact_finder - INFO - LLM analysis for Balasore line Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Balasore line Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but found no match."}
+2025-02-26 15:28:24,489 - utilities.contact_finder - INFO - No confident CRM match found for Balasore line Home Infrastructure, trying ContactOut
+2025-02-26 15:28:24,489 - utilities.contact_finder - INFO - Reason: The company 'Balasore line Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but found no match.
+2025-02-26 15:28:24,489 - utilities.contact_finder - INFO - Searching ContactOut for Balasore line Home Infrastructure
+2025-02-26 15:28:24,489 - utilities.contact_finder - WARNING - Using default contact for Balasore line Home Infrastructure
+2025-02-26 15:28:24,998 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:25,001 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: Gensol to build 245 MW solar project in Gujarat
+2025-02-26 15:28:25,001 - utilities.project_discovery_graph - INFO - Finding procurement contacts for MW Solar Project Home Infrastructure
+2025-02-26 15:28:25,469 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:25,472 - utilities.contact_finder - INFO - LLM analysis for MW Solar Project Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'MW Solar Project Home Infrastructure' does not exist in the provided CRM database."}
+2025-02-26 15:28:25,472 - utilities.contact_finder - INFO - No confident CRM match found for MW Solar Project Home Infrastructure, trying ContactOut
+2025-02-26 15:28:25,473 - utilities.contact_finder - INFO - Reason: The company 'MW Solar Project Home Infrastructure' does not exist in the provided CRM database.
+2025-02-26 15:28:25,473 - utilities.contact_finder - INFO - Searching ContactOut for MW Solar Project Home Infrastructure
+2025-02-26 15:28:25,473 - utilities.contact_finder - WARNING - Using default contact for MW Solar Project Home Infrastructure
+2025-02-26 15:28:25,981 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:25,983 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: Kosi Bridge Construction to build 6.9km four-lane bridge
+2025-02-26 15:28:25,984 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Kosi bridge construction Road Construction
+2025-02-26 15:28:26,428 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:26,430 - utilities.contact_finder - INFO - LLM analysis for Kosi bridge construction Road Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Kosi bridge construction Road Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:26,430 - utilities.contact_finder - INFO - No confident CRM match found for Kosi bridge construction Road Construction, trying ContactOut
+2025-02-26 15:28:26,430 - utilities.contact_finder - INFO - Reason: The company 'Kosi bridge construction Road Construction' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:26,430 - utilities.contact_finder - INFO - Searching ContactOut for Kosi bridge construction Road Construction
+2025-02-26 15:28:26,430 - utilities.contact_finder - WARNING - Using default contact for Kosi bridge construction Road Construction
+2025-02-26 15:28:26,941 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:26,943 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: T & Tata Projects wins infrastructure project in Mumbai
+2025-02-26 15:28:26,943 - utilities.project_discovery_graph - INFO - Finding procurement contacts for T & Tata Projects
+2025-02-26 15:28:27,451 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:27,453 - utilities.contact_finder - INFO - LLM analysis for T & Tata Projects: {'found': True, 'matched_company': 'tata projects', 'confidence': 0.8, 'reasoning': "The company name 'T & Tata Projects' is a variation of 'tata projects' with an added initial and ampersand. This is a common naming convention for companies."}
+2025-02-26 15:28:27,453 - utilities.contact_finder - INFO - Found contacts for company: tata projects (confidence: 0.8)
+2025-02-26 15:28:27,465 - utilities.contact_finder - INFO - Match reasoning: The company name 'T & Tata Projects' is a variation of 'tata projects' with an added initial and ampersand. This is a common naming convention for companies.
+2025-02-26 15:28:27,465 - utilities.contact_finder - INFO - Added 2 contacts for T & Tata Projects
+2025-02-26 15:28:28,069 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:28,071 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'WIRE_RODS', 'GALVANIZED'] to project: Navayuga to build 3km bridge in Andhra
+2025-02-26 15:28:28,072 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects
+2025-02-26 15:28:28,520 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:28,523 - utilities.contact_finder - INFO - LLM analysis for Projects: {'found': True, 'matched_company': 'tata projects', 'confidence': 0.8, 'reasoning': "The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'."}
+2025-02-26 15:28:28,524 - utilities.contact_finder - INFO - Found contacts for company: tata projects (confidence: 0.8)
+2025-02-26 15:28:28,524 - utilities.contact_finder - INFO - Match reasoning: The company name 'Projects' is a common part of many company names, but in this case it matches best with 'tata projects' with a confidence of 0.8 due to the exact match of 'projects'.
+2025-02-26 15:28:28,524 - utilities.contact_finder - INFO - Added 2 contacts for Projects
+2025-02-26 15:28:29,086 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:29,088 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Ansal Highway to build 6.925km Digha-Sonepur bridge
+2025-02-26 15:28:29,088 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 15:28:29,611 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:29,614 - utilities.contact_finder - INFO - LLM analysis for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "None of the given company names - 'month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd' - were found in the CRM database: ['nhai', 'msrfc', 'kec international', 'ncc limited', 'adani group', 'tata projects', 'cidco', 'rvnl', 'patel engineering', 'larsen & toubro', 'dilip buildcon']."}
+2025-02-26 15:28:29,614 - utilities.contact_finder - INFO - No confident CRM match found for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd, trying ContactOut
+2025-02-26 15:28:29,615 - utilities.contact_finder - INFO - Reason: None of the given company names - 'month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd' - were found in the CRM database: ['nhai', 'msrfc', 'kec international', 'ncc limited', 'adani group', 'tata projects', 'cidco', 'rvnl', 'patel engineering', 'larsen & toubro', 'dilip buildcon'].
+2025-02-26 15:28:29,615 - utilities.contact_finder - INFO - Searching ContactOut for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 15:28:29,615 - utilities.contact_finder - WARNING - Using default contact for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 15:28:30,067 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:30,069 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Infrastructure Development . to build 19km bridge
+2025-02-26 15:28:30,069 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Infrastructure Development Corp. Ltd
+2025-02-26 15:28:30,515 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:30,518 - utilities.contact_finder - INFO - LLM analysis for Infrastructure Development Corp. Ltd: {'found': False, 'matched_company': None, 'confidence': 0.1, 'reasoning': "The company name 'Infrastructure Development Corp. Ltd' does not have an exact match in the CRM database. The closest match in terms of business area is 'NHAI' (National Highways Authority of India), but the confidence level is low as it's a government organization and not a corporation."}
+2025-02-26 15:28:30,518 - utilities.contact_finder - INFO - No confident CRM match found for Infrastructure Development Corp. Ltd, trying ContactOut
+2025-02-26 15:28:30,518 - utilities.contact_finder - INFO - Reason: The company name 'Infrastructure Development Corp. Ltd' does not have an exact match in the CRM database. The closest match in terms of business area is 'NHAI' (National Highways Authority of India), but the confidence level is low as it's a government organization and not a corporation.
+2025-02-26 15:28:30,519 - utilities.contact_finder - INFO - Searching ContactOut for Infrastructure Development Corp. Ltd
+2025-02-26 15:28:30,519 - utilities.contact_finder - WARNING - Using default contact for Infrastructure Development Corp. Ltd
+2025-02-26 15:28:31,142 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:31,144 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Under Construction to build 9.75km Ganga bridge
+2025-02-26 15:28:31,145 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-26 15:28:31,549 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:31,551 - utilities.contact_finder - INFO - LLM analysis for Under Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database."}
+2025-02-26 15:28:31,552 - utilities.contact_finder - INFO - No confident CRM match found for Under Construction, trying ContactOut
+2025-02-26 15:28:31,552 - utilities.contact_finder - INFO - Reason: The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database.
+2025-02-26 15:28:31,552 - utilities.contact_finder - INFO - Searching ContactOut for Under Construction
+2025-02-26 15:28:31,552 - utilities.contact_finder - WARNING - Using default contact for Under Construction
+2025-02-26 15:28:33,011 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:33,014 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: s Future to build Dwarka Expressway with 100 MT steel
+2025-02-26 15:28:33,014 - utilities.project_discovery_graph - INFO - Finding procurement contacts for s Future Tallest Buildings Home Infrastructure
+2025-02-26 15:28:33,494 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:33,497 - utilities.contact_finder - INFO - LLM analysis for s Future Tallest Buildings Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 's Future Tallest Buildings Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name or any possible abbreviations or aliases."}
+2025-02-26 15:28:33,497 - utilities.contact_finder - INFO - No confident CRM match found for s Future Tallest Buildings Home Infrastructure, trying ContactOut
+2025-02-26 15:28:33,497 - utilities.contact_finder - INFO - Reason: The company 's Future Tallest Buildings Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name or any possible abbreviations or aliases.
+2025-02-26 15:28:33,498 - utilities.contact_finder - INFO - Searching ContactOut for s Future Tallest Buildings Home Infrastructure
+2025-02-26 15:28:33,498 - utilities.contact_finder - WARNING - Using default contact for s Future Tallest Buildings Home Infrastructure
+2025-02-26 15:28:33,969 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:33,972 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Dhruv Consultancy wins Aligarh-Palwal 69km highway project
+2025-02-26 15:28:33,973 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Times Dhruv Consultancy Services Limited
+2025-02-26 15:28:34,427 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:34,429 - utilities.contact_finder - INFO - LLM analysis for Times Dhruv Consultancy Services Limited: {'found': False, 'matched_company': None, 'confidence': 0.1, 'reasoning': "The company 'Times Dhruv Consultancy Services Limited' does not exactly match any company names in the CRM database. The closest match in terms of structure is 'tata projects', but the confidence score is low due to the dissimilarity in names."}
+2025-02-26 15:28:34,430 - utilities.contact_finder - INFO - No confident CRM match found for Times Dhruv Consultancy Services Limited, trying ContactOut
+2025-02-26 15:28:34,430 - utilities.contact_finder - INFO - Reason: The company 'Times Dhruv Consultancy Services Limited' does not exactly match any company names in the CRM database. The closest match in terms of structure is 'tata projects', but the confidence score is low due to the dissimilarity in names.
+2025-02-26 15:28:34,430 - utilities.contact_finder - INFO - Searching ContactOut for Times Dhruv Consultancy Services Limited
+2025-02-26 15:28:34,430 - utilities.contact_finder - WARNING - Using default contact for Times Dhruv Consultancy Services Limited
+2025-02-26 15:28:34,863 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:34,866 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Home Infrastructure to build Indian highways with 100 MT steel
+2025-02-26 15:28:34,866 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Home Infrastructure
+2025-02-26 15:28:35,555 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:35,557 - utilities.contact_finder - INFO - LLM analysis for Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:35,558 - utilities.contact_finder - INFO - No confident CRM match found for Home Infrastructure, trying ContactOut
+2025-02-26 15:28:35,558 - utilities.contact_finder - INFO - Reason: The company 'Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:35,558 - utilities.contact_finder - INFO - Searching ContactOut for Home Infrastructure
+2025-02-26 15:28:35,558 - utilities.contact_finder - WARNING - Using default contact for Home Infrastructure
+2025-02-26 15:28:37,079 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:37,080 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Years Home to build Arunachal highways with 100 MT steel
+2025-02-26 15:28:37,080 - utilities.project_discovery_graph - INFO - Finding procurement contacts for years Home Infrastructure
+2025-02-26 15:28:37,573 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:37,574 - utilities.contact_finder - INFO - LLM analysis for years Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'years Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases but found no match."}
+2025-02-26 15:28:37,574 - utilities.contact_finder - INFO - No confident CRM match found for years Home Infrastructure, trying ContactOut
+2025-02-26 15:28:37,574 - utilities.contact_finder - INFO - Reason: The company 'years Home Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases but found no match.
+2025-02-26 15:28:37,575 - utilities.contact_finder - INFO - Searching ContactOut for years Home Infrastructure
+2025-02-26 15:28:37,575 - utilities.contact_finder - WARNING - Using default contact for years Home Infrastructure
+2025-02-26 15:28:38,310 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:38,313 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: MSRDC to build 701-km Mumbai-Nagpur expressway
+2025-02-26 15:28:38,313 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Partially Operational & Under Construction
+2025-02-26 15:28:38,717 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:38,720 - utilities.contact_finder - INFO - LLM analysis for Partially Operational & Under Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Partially Operational & Under Construction' does not exist in the provided CRM database. It is a descriptive phrase rather than a company name."}
+2025-02-26 15:28:38,720 - utilities.contact_finder - INFO - No confident CRM match found for Partially Operational & Under Construction, trying ContactOut
+2025-02-26 15:28:38,720 - utilities.contact_finder - INFO - Reason: The company 'Partially Operational & Under Construction' does not exist in the provided CRM database. It is a descriptive phrase rather than a company name.
+2025-02-26 15:28:38,721 - utilities.contact_finder - INFO - Searching ContactOut for Partially Operational & Under Construction
+2025-02-26 15:28:38,721 - utilities.contact_finder - WARNING - Using default contact for Partially Operational & Under Construction
+2025-02-26 15:28:39,187 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:39,190 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: Under Construction to build 624-km Bengaluru-Vijayawada highway
+2025-02-26 15:28:39,190 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-26 15:28:39,590 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:39,593 - utilities.contact_finder - INFO - LLM analysis for Under Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database."}
+2025-02-26 15:28:39,593 - utilities.contact_finder - INFO - No confident CRM match found for Under Construction, trying ContactOut
+2025-02-26 15:28:39,593 - utilities.contact_finder - INFO - Reason: The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database.
+2025-02-26 15:28:39,593 - utilities.contact_finder - INFO - Searching ContactOut for Under Construction
+2025-02-26 15:28:39,594 - utilities.contact_finder - WARNING - Using default contact for Under Construction
+2025-02-26 15:28:40,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:40,155 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Under Construction to build 12.30-km Airoli-Katai highway
+2025-02-26 15:28:40,155 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-26 15:28:40,589 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:40,591 - utilities.contact_finder - INFO - LLM analysis for Under Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database."}
+2025-02-26 15:28:40,592 - utilities.contact_finder - INFO - No confident CRM match found for Under Construction, trying ContactOut
+2025-02-26 15:28:40,592 - utilities.contact_finder - INFO - Reason: The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database.
+2025-02-26 15:28:40,592 - utilities.contact_finder - INFO - Searching ContactOut for Under Construction
+2025-02-26 15:28:40,592 - utilities.contact_finder - WARNING - Using default contact for Under Construction
+2025-02-26 15:28:41,176 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:41,179 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Home Infrastructure to build tunnel highway network
+2025-02-26 15:28:41,179 - utilities.project_discovery_graph - INFO - Finding procurement contacts for s Longest Tunnel Highway Network Home Infrastructure
+2025-02-26 15:28:41,608 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:41,610 - utilities.contact_finder - INFO - LLM analysis for s Longest Tunnel Highway Network Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 's Longest Tunnel Highway Network Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name, even considering variations, abbreviations, or aliases."}
+2025-02-26 15:28:41,610 - utilities.contact_finder - INFO - No confident CRM match found for s Longest Tunnel Highway Network Home Infrastructure, trying ContactOut
+2025-02-26 15:28:41,610 - utilities.contact_finder - INFO - Reason: The company 's Longest Tunnel Highway Network Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name, even considering variations, abbreviations, or aliases.
+2025-02-26 15:28:41,610 - utilities.contact_finder - INFO - Searching ContactOut for s Longest Tunnel Highway Network Home Infrastructure
+2025-02-26 15:28:41,611 - utilities.contact_finder - WARNING - Using default contact for s Longest Tunnel Highway Network Home Infrastructure
+2025-02-26 15:28:42,303 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:42,305 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS'] to project: Metro Neo to build metro with 100 MT TMT Bars
+2025-02-26 15:28:42,306 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited
+2025-02-26 15:28:42,753 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:42,756 - utilities.contact_finder - INFO - LLM analysis for Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited' does not exist in the provided CRM database. None of the database entries match or are close variations of the given company name."}
+2025-02-26 15:28:42,756 - utilities.contact_finder - INFO - No confident CRM match found for Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited, trying ContactOut
+2025-02-26 15:28:42,756 - utilities.contact_finder - INFO - Reason: The company 'Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited' does not exist in the provided CRM database. None of the database entries match or are close variations of the given company name.
+2025-02-26 15:28:42,757 - utilities.contact_finder - INFO - Searching ContactOut for Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited
+2025-02-26 15:28:42,757 - utilities.contact_finder - WARNING - Using default contact for Metro Neo Projects in India METRO RAIL TODAY Urban Infra Communication Limited
+2025-02-26 15:28:43,224 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:43,226 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: S Metro Rail to build 4 metro routes in Bihar
+2025-02-26 15:28:43,226 - utilities.project_discovery_graph - INFO - Finding procurement contacts for s Metro Rail Projects
+2025-02-26 15:28:43,710 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:43,712 - utilities.contact_finder - INFO - LLM analysis for s Metro Rail Projects: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company name 's Metro Rail Projects' was not found exactly in the CRM. However, there is a company 'MSRFC' which could be a possible match if 's Metro Rail Projects' is an abbreviation or alias for it. The confidence score is relatively low due to the lack of exact match."}
+2025-02-26 15:28:43,712 - utilities.contact_finder - INFO - No confident CRM match found for s Metro Rail Projects, trying ContactOut
+2025-02-26 15:28:43,712 - utilities.contact_finder - INFO - Reason: The company name 's Metro Rail Projects' was not found exactly in the CRM. However, there is a company 'MSRFC' which could be a possible match if 's Metro Rail Projects' is an abbreviation or alias for it. The confidence score is relatively low due to the lack of exact match.
+2025-02-26 15:28:43,712 - utilities.contact_finder - INFO - Searching ContactOut for s Metro Rail Projects
+2025-02-26 15:28:43,713 - utilities.contact_finder - WARNING - Using default contact for s Metro Rail Projects
+2025-02-26 15:28:44,353 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:44,355 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Wabtec to build Mumbai Metro with 100 MT TMT Bars
+2025-02-26 15:28:44,356 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Wabtec Corporation
+2025-02-26 15:28:44,732 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:44,735 - utilities.contact_finder - INFO - LLM analysis for Wabtec Corporation: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Wabtec Corporation' does not exist in the provided CRM database."}
+2025-02-26 15:28:44,735 - utilities.contact_finder - INFO - No confident CRM match found for Wabtec Corporation, trying ContactOut
+2025-02-26 15:28:44,735 - utilities.contact_finder - INFO - Reason: The company 'Wabtec Corporation' does not exist in the provided CRM database.
+2025-02-26 15:28:44,735 - utilities.contact_finder - INFO - Searching ContactOut for Wabtec Corporation
+2025-02-26 15:28:44,735 - utilities.contact_finder - WARNING - Using default contact for Wabtec Corporation
+2025-02-26 15:28:45,197 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:45,200 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: Home Infrastructure to build 1000km metro network
+2025-02-26 15:28:45,201 - utilities.project_discovery_graph - INFO - Finding procurement contacts for rd Largest with ... Home Infrastructure
+2025-02-26 15:28:45,640 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:45,643 - utilities.contact_finder - INFO - LLM analysis for rd Largest with ... Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'rd Largest with ... Home Infrastructure' does not exist in the provided CRM database. None of the companies in the database match this name, even considering variations, abbreviations, or common aliases."}
+2025-02-26 15:28:45,644 - utilities.contact_finder - INFO - No confident CRM match found for rd Largest with ... Home Infrastructure, trying ContactOut
+2025-02-26 15:28:45,644 - utilities.contact_finder - INFO - Reason: The company 'rd Largest with ... Home Infrastructure' does not exist in the provided CRM database. None of the companies in the database match this name, even considering variations, abbreviations, or common aliases.
+2025-02-26 15:28:45,644 - utilities.contact_finder - INFO - Searching ContactOut for rd Largest with ... Home Infrastructure
+2025-02-26 15:28:45,645 - utilities.contact_finder - WARNING - Using default contact for rd Largest with ... Home Infrastructure
+2025-02-26 15:28:46,296 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:46,298 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Metro Rail Projects to build India metro with 100 MT TMT Bars
+2025-02-26 15:28:46,298 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Metro Rail Projects
+2025-02-26 15:28:46,908 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:46,909 - utilities.contact_finder - INFO - LLM analysis for Metro Rail Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Metro Rail Projects' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found."}
+2025-02-26 15:28:46,909 - utilities.contact_finder - INFO - No confident CRM match found for Metro Rail Projects, trying ContactOut
+2025-02-26 15:28:46,909 - utilities.contact_finder - INFO - Reason: The company 'Metro Rail Projects' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases, but none were found.
+2025-02-26 15:28:46,909 - utilities.contact_finder - INFO - Searching ContactOut for Metro Rail Projects
+2025-02-26 15:28:46,909 - utilities.contact_finder - WARNING - Using default contact for Metro Rail Projects
+2025-02-26 15:28:47,526 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:47,529 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: List of Metro Rail Projects to build 20+ city systems
+2025-02-26 15:28:47,530 - utilities.project_discovery_graph - INFO - Finding procurement contacts for List of Metro Rail Projects
+2025-02-26 15:28:47,997 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:48,000 - utilities.contact_finder - INFO - LLM analysis for List of Metro Rail Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'List of Metro Rail Projects' does not exist in the provided CRM database. It is a general term and not an exact match for any company in the list."}
+2025-02-26 15:28:48,000 - utilities.contact_finder - INFO - No confident CRM match found for List of Metro Rail Projects, trying ContactOut
+2025-02-26 15:28:48,001 - utilities.contact_finder - INFO - Reason: The company 'List of Metro Rail Projects' does not exist in the provided CRM database. It is a general term and not an exact match for any company in the list.
+2025-02-26 15:28:48,001 - utilities.contact_finder - INFO - Searching ContactOut for List of Metro Rail Projects
+2025-02-26 15:28:48,001 - utilities.contact_finder - WARNING - Using default contact for List of Metro Rail Projects
+2025-02-26 15:28:48,942 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:48,945 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Trillion in Urban Infra to build MMR metro link
+2025-02-26 15:28:48,945 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Trillion in Urban Infra
+2025-02-26 15:28:49,468 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:49,470 - utilities.contact_finder - INFO - LLM analysis for Trillion in Urban Infra: {'found': False, 'matched_company': None, 'confidence': 0.3, 'reasoning': "The company name 'Trillion in Urban Infra' does not have an exact match in the CRM database. However, 'Urban Infra' is a common term in construction and infrastructure companies. A confidence score of 0.3 is given due to the partial relevance of the term."}
+2025-02-26 15:28:49,471 - utilities.contact_finder - INFO - No confident CRM match found for Trillion in Urban Infra, trying ContactOut
+2025-02-26 15:28:49,471 - utilities.contact_finder - INFO - Reason: The company name 'Trillion in Urban Infra' does not have an exact match in the CRM database. However, 'Urban Infra' is a common term in construction and infrastructure companies. A confidence score of 0.3 is given due to the partial relevance of the term.
+2025-02-26 15:28:49,471 - utilities.contact_finder - INFO - Searching ContactOut for Trillion in Urban Infra
+2025-02-26 15:28:49,471 - utilities.contact_finder - WARNING - Using default contact for Trillion in Urban Infra
+2025-02-26 15:28:50,187 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:50,190 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'WIRE_RODS', 'GALVANIZED'] to project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:28:50,191 - utilities.project_discovery_graph - INFO - Finding procurement contacts for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:50,698 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:50,699 - utilities.contact_finder - INFO - LLM analysis for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure' does not exist in the CRM database. It seems to be a specific project or initiative rather than a company."}
+2025-02-26 15:28:50,699 - utilities.contact_finder - INFO - No confident CRM match found for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure, trying ContactOut
+2025-02-26 15:28:50,699 - utilities.contact_finder - INFO - Reason: The company 'DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure' does not exist in the CRM database. It seems to be a specific project or initiative rather than a company.
+2025-02-26 15:28:50,699 - utilities.contact_finder - INFO - Searching ContactOut for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:50,699 - utilities.contact_finder - WARNING - Using default contact for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:51,212 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:51,215 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: Home Infrastructure to build 8 metro projects with 100 MT TMT Bars
+2025-02-26 15:28:51,215 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Major Infrastructure Projects Worth Rs ... Home Infrastructure
+2025-02-26 15:28:51,675 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:51,678 - utilities.contact_finder - INFO - LLM analysis for Major Infrastructure Projects Worth Rs ... Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Major Infrastructure Projects Worth Rs ... Home Infrastructure' does not exist in the provided CRM database. None of the database entries match this name or any possible abbreviations or aliases."}
+2025-02-26 15:28:51,678 - utilities.contact_finder - INFO - No confident CRM match found for Major Infrastructure Projects Worth Rs ... Home Infrastructure, trying ContactOut
+2025-02-26 15:28:51,679 - utilities.contact_finder - INFO - Reason: The company 'Major Infrastructure Projects Worth Rs ... Home Infrastructure' does not exist in the provided CRM database. None of the database entries match this name or any possible abbreviations or aliases.
+2025-02-26 15:28:51,679 - utilities.contact_finder - INFO - Searching ContactOut for Major Infrastructure Projects Worth Rs ... Home Infrastructure
+2025-02-26 15:28:51,679 - utilities.contact_finder - WARNING - Using default contact for Major Infrastructure Projects Worth Rs ... Home Infrastructure
+2025-02-26 15:28:52,132 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:52,135 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Crore Railway Projects to build 639 km railway expansion
+2025-02-26 15:28:52,135 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Crore Railway Projects
+2025-02-26 15:28:52,529 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:52,532 - utilities.contact_finder - INFO - LLM analysis for Crore Railway Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Crore Railway Projects' does not exist in the provided CRM database."}
+2025-02-26 15:28:52,532 - utilities.contact_finder - INFO - No confident CRM match found for Crore Railway Projects, trying ContactOut
+2025-02-26 15:28:52,532 - utilities.contact_finder - INFO - Reason: The company 'Crore Railway Projects' does not exist in the provided CRM database.
+2025-02-26 15:28:52,533 - utilities.contact_finder - INFO - Searching ContactOut for Crore Railway Projects
+2025-02-26 15:28:52,533 - utilities.contact_finder - WARNING - Using default contact for Crore Railway Projects
+2025-02-26 15:28:52,969 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:52,972 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Airport Projects to build 15 airport terminals nationwide
+2025-02-26 15:28:52,972 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Airport Projects
+2025-02-26 15:28:53,464 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:53,467 - utilities.contact_finder - INFO - LLM analysis for Airport Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Airport Projects' was not found in the provided CRM database. It does not match exactly with any of the company names, nor does it have any common aliases or abbreviations that match."}
+2025-02-26 15:28:53,467 - utilities.contact_finder - INFO - No confident CRM match found for Airport Projects, trying ContactOut
+2025-02-26 15:28:53,467 - utilities.contact_finder - INFO - Reason: The company 'Airport Projects' was not found in the provided CRM database. It does not match exactly with any of the company names, nor does it have any common aliases or abbreviations that match.
+2025-02-26 15:28:53,467 - utilities.contact_finder - INFO - Searching ContactOut for Airport Projects
+2025-02-26 15:28:53,468 - utilities.contact_finder - WARNING - Using default contact for Airport Projects
+2025-02-26 15:28:53,978 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:53,980 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED'] to project: Tn to build 228 infrastructure projects with 100 MT TMT Bars
+2025-02-26 15:28:53,981 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Tn recommended for ... Home Infrastructure
+2025-02-26 15:28:54,486 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:54,489 - utilities.contact_finder - INFO - LLM analysis for Tn recommended for ... Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Tn recommended for ... Home Infrastructure' does not exist in the provided CRM database. It was not possible to find any variations, abbreviations, or common aliases of this company in the database."}
+2025-02-26 15:28:54,489 - utilities.contact_finder - INFO - No confident CRM match found for Tn recommended for ... Home Infrastructure, trying ContactOut
+2025-02-26 15:28:54,489 - utilities.contact_finder - INFO - Reason: The company 'Tn recommended for ... Home Infrastructure' does not exist in the provided CRM database. It was not possible to find any variations, abbreviations, or common aliases of this company in the database.
+2025-02-26 15:28:54,489 - utilities.contact_finder - INFO - Searching ContactOut for Tn recommended for ... Home Infrastructure
+2025-02-26 15:28:54,490 - utilities.contact_finder - WARNING - Using default contact for Tn recommended for ... Home Infrastructure
+2025-02-26 15:28:54,979 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:54,981 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'WIRE_RODS', 'GALVANIZED'] to project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:28:54,981 - utilities.project_discovery_graph - INFO - Finding procurement contacts for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:55,511 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:55,513 - utilities.contact_finder - INFO - LLM analysis for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure' does not exist in the CRM database. It seems to be a specific project or initiative rather than a company."}
+2025-02-26 15:28:55,514 - utilities.contact_finder - INFO - No confident CRM match found for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure, trying ContactOut
+2025-02-26 15:28:55,514 - utilities.contact_finder - INFO - Reason: The company 'DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure' does not exist in the CRM database. It seems to be a specific project or initiative rather than a company.
+2025-02-26 15:28:55,514 - utilities.contact_finder - INFO - Searching ContactOut for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:55,514 - utilities.contact_finder - WARNING - Using default contact for DPIIT Reviews Key Infrastructure Projects to Accelerate ... Home Infrastructure
+2025-02-26 15:28:55,976 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:55,978 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED'] to project: Infra Projects to build 90 North East infrastructure units
+2025-02-26 15:28:55,978 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Infra Projects
+2025-02-26 15:28:56,430 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:56,432 - utilities.contact_finder - INFO - LLM analysis for Infra Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Infra Projects' does not exist in the provided CRM database. It was checked for exact matches, abbreviations, and common aliases."}
+2025-02-26 15:28:56,433 - utilities.contact_finder - INFO - No confident CRM match found for Infra Projects, trying ContactOut
+2025-02-26 15:28:56,433 - utilities.contact_finder - INFO - Reason: The company 'Infra Projects' does not exist in the provided CRM database. It was checked for exact matches, abbreviations, and common aliases.
+2025-02-26 15:28:56,433 - utilities.contact_finder - INFO - Searching ContactOut for Infra Projects
+2025-02-26 15:28:56,433 - utilities.contact_finder - WARNING - Using default contact for Infra Projects
+2025-02-26 15:28:57,028 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:57,029 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Underground Work Home to build Kanpur Metro Line-2
+2025-02-26 15:28:57,029 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Underground Work Home Infrastructure
+2025-02-26 15:28:57,455 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:57,457 - utilities.contact_finder - INFO - LLM analysis for Underground Work Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Underground Work Home Infrastructure' does not exist in the provided CRM database."}
+2025-02-26 15:28:57,457 - utilities.contact_finder - INFO - No confident CRM match found for Underground Work Home Infrastructure, trying ContactOut
+2025-02-26 15:28:57,457 - utilities.contact_finder - INFO - Reason: The company 'Underground Work Home Infrastructure' does not exist in the provided CRM database.
+2025-02-26 15:28:57,457 - utilities.contact_finder - INFO - Searching ContactOut for Underground Work Home Infrastructure
+2025-02-26 15:28:57,457 - utilities.contact_finder - WARNING - Using default contact for Underground Work Home Infrastructure
+2025-02-26 15:28:58,091 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:58,092 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: WABAG wins Al Haer ISTP contract in Saudi Arabia
+2025-02-26 15:28:58,092 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure
+2025-02-26 15:28:58,583 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:58,587 - utilities.contact_finder - INFO - LLM analysis for Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name or any possible abbreviations or aliases."}
+2025-02-26 15:28:58,587 - utilities.contact_finder - INFO - No confident CRM match found for Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure, trying ContactOut
+2025-02-26 15:28:58,588 - utilities.contact_finder - INFO - Reason: The company 'Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure' does not exist in the CRM database. None of the companies in the database match this name or any possible abbreviations or aliases.
+2025-02-26 15:28:58,588 - utilities.contact_finder - INFO - Searching ContactOut for Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure
+2025-02-26 15:28:58,588 - utilities.contact_finder - WARNING - Using default contact for Mn EPC Contract for Al Haer ISTP in Saudi Arabia Home Infrastructure
+2025-02-26 15:28:59,358 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:59,361 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'GALVANIZED'] to project: NBCC to build Ayur Vigyan Nagar Campus in Delhi
+2025-02-26 15:28:59,361 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Free access to Project News & Analysis Project & Tender Alert in your mailbox Explore the largest Database on Projects for free Be part of Online Projects
+2025-02-26 15:28:59,749 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:28:59,750 - utilities.contact_finder - INFO - LLM analysis for Free access to Project News & Analysis Project & Tender Alert in your mailbox Explore the largest Database on Projects for free Be part of Online Projects: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': 'The given company name is too descriptive and does not match any company names in the CRM database.'}
+2025-02-26 15:28:59,750 - utilities.contact_finder - INFO - No confident CRM match found for Free access to Project News & Analysis Project & Tender Alert in your mailbox Explore the largest Database on Projects for free Be part of Online Projects, trying ContactOut
+2025-02-26 15:28:59,751 - utilities.contact_finder - INFO - Reason: The given company name is too descriptive and does not match any company names in the CRM database.
+2025-02-26 15:28:59,751 - utilities.contact_finder - INFO - Searching ContactOut for Free access to Project News & Analysis Project & Tender Alert in your mailbox Explore the largest Database on Projects for free Be part of Online Projects
+2025-02-26 15:28:59,751 - utilities.contact_finder - WARNING - Using default contact for Free access to Project News & Analysis Project & Tender Alert in your mailbox Explore the largest Database on Projects for free Be part of Online Projects
+2025-02-26 15:29:00,325 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:00,327 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Khalal Gujarat State Police to build residential buildings
+2025-02-26 15:29:00,327 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Khalal Gujarat State Police Housing Corporation
+2025-02-26 15:29:00,836 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:00,837 - utilities.contact_finder - INFO - LLM analysis for Khalal Gujarat State Police Housing Corporation: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Khalal Gujarat State Police Housing Corporation' does not exist in the provided CRM database."}
+2025-02-26 15:29:00,838 - utilities.contact_finder - INFO - No confident CRM match found for Khalal Gujarat State Police Housing Corporation, trying ContactOut
+2025-02-26 15:29:00,838 - utilities.contact_finder - INFO - Reason: The company 'Khalal Gujarat State Police Housing Corporation' does not exist in the provided CRM database.
+2025-02-26 15:29:00,838 - utilities.contact_finder - INFO - Searching ContactOut for Khalal Gujarat State Police Housing Corporation
+2025-02-26 15:29:00,838 - utilities.contact_finder - WARNING - Using default contact for Khalal Gujarat State Police Housing Corporation
+2025-02-26 15:29:01,306 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:01,308 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED', 'SOLAR', 'SPECIAL_ALLOY_STEEL'] to project: PNC Infratech wins Western Bhopal Bypass project
+2025-02-26 15:29:01,308 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:29:01,725 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:01,727 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:29:01,728 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:29:01,728 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:29:01,728 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:29:01,728 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:29:02,214 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:02,217 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Dilip Buildcon to build 6-lane Andhra highway
+2025-02-26 15:29:02,217 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:29:02,615 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:02,616 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:29:02,617 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:29:02,617 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:29:02,617 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:29:02,617 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:29:03,153 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:03,156 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'TMT_BARS', 'COLD_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL'] to project: BidDetail to build 13 water points in Tanzania
+2025-02-26 15:29:03,156 - utilities.project_discovery_graph - INFO - Finding procurement contacts for BidDetail General Procurement Notice For Construction
+2025-02-26 15:29:03,592 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:03,593 - utilities.contact_finder - INFO - LLM analysis for BidDetail General Procurement Notice For Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'BidDetail General Procurement Notice For Construction' does not exist in the provided CRM database. It may be a specific project or tender notice, not a company."}
+2025-02-26 15:29:03,593 - utilities.contact_finder - INFO - No confident CRM match found for BidDetail General Procurement Notice For Construction, trying ContactOut
+2025-02-26 15:29:03,594 - utilities.contact_finder - INFO - Reason: The company 'BidDetail General Procurement Notice For Construction' does not exist in the provided CRM database. It may be a specific project or tender notice, not a company.
+2025-02-26 15:29:03,594 - utilities.contact_finder - INFO - Searching ContactOut for BidDetail General Procurement Notice For Construction
+2025-02-26 15:29:03,594 - utilities.contact_finder - WARNING - Using default contact for BidDetail General Procurement Notice For Construction
+2025-02-26 15:29:04,152 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:04,155 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Construction to build 29.40 km Agra metro system
+2025-02-26 15:29:04,155 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:29:04,622 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:04,624 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:29:04,624 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:29:04,624 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:29:04,624 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:29:04,625 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:29:05,047 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:05,052 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'SOLAR', 'GALVANIZED'] to project: MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure wins metro project in Odisha
+2025-02-26 15:29:05,052 - utilities.project_discovery_graph - INFO - Finding procurement contacts for MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure
+2025-02-26 15:29:05,545 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:05,547 - utilities.contact_finder - INFO - LLM analysis for MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The given company name 'MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure' does not match any company names in the CRM database. It seems to be a project name or a news headline, not a company."}
+2025-02-26 15:29:05,548 - utilities.contact_finder - INFO - No confident CRM match found for MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure, trying ContactOut
+2025-02-26 15:29:05,548 - utilities.contact_finder - INFO - Reason: The given company name 'MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure' does not match any company names in the CRM database. It seems to be a project name or a news headline, not a company.
+2025-02-26 15:29:05,548 - utilities.contact_finder - INFO - Searching ContactOut for MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure
+2025-02-26 15:29:05,548 - utilities.contact_finder - WARNING - Using default contact for MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure
+2025-02-26 15:29:06,058 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:06,059 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Construction to build 27.90km Bhopal metro with 18400MT steel
+2025-02-26 15:29:06,060 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:29:06,550 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:06,552 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:29:06,552 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:29:06,552 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:29:06,553 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:29:06,553 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:29:07,184 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:07,185 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'SPECIAL_ALLOY_STEEL', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: RVNL to build 125-km Rishikesh-Karnaprayag rail line
+2025-02-26 15:29:07,185 - utilities.project_discovery_graph - INFO - Finding procurement contacts for stations by Rail Vikas Nigam Limited
+2025-02-26 15:29:07,756 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:07,758 - utilities.contact_finder - INFO - LLM analysis for stations by Rail Vikas Nigam Limited: {'found': True, 'matched_company': 'rvnl', 'confidence': 0.7, 'reasoning': "The company name 'stations by Rail Vikas Nigam Limited' has a high likelihood of being an alias for 'rvnl' (Rail Vikas Nigam Limited) in your CRM database. However, it's not an exact match. The confidence score is 0.7 because while the name 'Rail Vikas Nigam Limited' is a partial match, the context of 'stations' suggests a strong association with this company."}
+2025-02-26 15:29:07,759 - utilities.contact_finder - INFO - No confident CRM match found for stations by Rail Vikas Nigam Limited, trying ContactOut
+2025-02-26 15:29:07,759 - utilities.contact_finder - INFO - Reason: The company name 'stations by Rail Vikas Nigam Limited' has a high likelihood of being an alias for 'rvnl' (Rail Vikas Nigam Limited) in your CRM database. However, it's not an exact match. The confidence score is 0.7 because while the name 'Rail Vikas Nigam Limited' is a partial match, the context of 'stations' suggests a strong association with this company.
+2025-02-26 15:29:07,759 - utilities.contact_finder - INFO - Searching ContactOut for stations by Rail Vikas Nigam Limited
+2025-02-26 15:29:07,759 - utilities.contact_finder - WARNING - Using default contact for stations by Rail Vikas Nigam Limited
+2025-02-26 15:29:08,201 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:08,203 - utilities.project_discovery_graph - INFO - Assigned teams ['HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS', 'ELECTRICAL_STEEL', 'COLD_ROLLED', 'WIRE_RODS', 'GALVANIZED'] to project: Construction to build 121.7km Haryana rail corridor
+2025-02-26 15:29:08,204 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 15:29:08,620 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 15:29:08,623 - utilities.contact_finder - INFO - LLM analysis for Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis."}
+2025-02-26 15:29:08,623 - utilities.contact_finder - INFO - No confident CRM match found for Construction, trying ContactOut
+2025-02-26 15:29:08,623 - utilities.contact_finder - INFO - Reason: The company 'Construction' does not exist in the CRM database. It may be too generic, consider using a more specific name for analysis.
+2025-02-26 15:29:08,623 - utilities.contact_finder - INFO - Searching ContactOut for Construction
+2025-02-26 15:29:08,623 - utilities.contact_finder - WARNING - Using default contact for Construction
+2025-02-26 15:29:08,623 - utilities.project_discovery_graph - INFO - Successfully enriched 73 projects
+2025-02-26 15:29:08,627 - utilities.project_discovery_graph - INFO - Prioritizing 73 projects...
+2025-02-26 15:29:08,628 - utilities.project_discovery_graph - INFO - Successfully prioritized 73 projects
+2025-02-26 15:29:08,630 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 15:29:08,646 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:29:08,646 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 15:29:10,255 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 15:29:10,471 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 15:29:10,472 - utilities.email_handler - INFO - Skipping JSW-related project: Crore Railway Projects to build 639 km railway expansion
+2025-02-26 15:29:10,476 - utilities.email_handler - INFO - Skipping JSW-related project: Trillion in Urban Infra to build MMR metro link
+2025-02-26 15:29:10,476 - utilities.email_handler - INFO - Skipping JSW-related project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:29:10,476 - utilities.email_handler - INFO - Skipping JSW-related project: Home Infrastructure to build 8 metro projects with 100 MT TMT Bars
+2025-02-26 15:29:10,477 - utilities.email_handler - INFO - Skipping JSW-related project: Tn to build 228 infrastructure projects with 100 MT TMT Bars
+2025-02-26 15:29:10,477 - utilities.email_handler - INFO - Skipping JSW-related project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:29:10,477 - utilities.email_handler - INFO - Skipping JSW-related project: Infra Projects to build 90 North East infrastructure units
+2025-02-26 15:29:12,746 - utilities.email_handler - ERROR - Error sending email to : {}
+2025-02-26 15:29:12,746 - whatsapp.interakt_handler - INFO - Sending 73 project opportunities via WhatsApp
+2025-02-26 15:29:12,747 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: Crore Railway Projects to build 639 km railway expansion
+2025-02-26 15:29:12,750 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: Trillion in Urban Infra to build MMR metro link
+2025-02-26 15:29:12,750 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:29:12,751 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: Home Infrastructure to build 8 metro projects with 100 MT TMT Bars
+2025-02-26 15:29:12,751 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: Tn to build 228 infrastructure projects with 100 MT TMT Bars
+2025-02-26 15:29:12,751 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: DPIIT to build Varanasi-Ranchi-Kolkata Expressway
+2025-02-26 15:29:12,751 - whatsapp.interakt_handler - INFO - Skipping JSW-related project: Infra Projects to build 90 North East infrastructure units
+2025-02-26 15:29:12,752 - whatsapp.interakt_handler - INFO - Sending 66 non-JSW projects
+2025-02-26 15:29:13,022 - whatsapp.interakt_handler - ERROR - Failed to send overview to 8484926925
+2025-02-26 15:29:13,196 - whatsapp.interakt_handler - ERROR - Failed to send overview to 7715018407
+2025-02-26 15:29:31,440 - whatsapp.interakt_handler - ERROR - Failed to send project NBCC to build Ayur Vigyan Nagar Campus in Delhi to 8484926925
+2025-02-26 15:29:31,616 - whatsapp.interakt_handler - ERROR - Failed to send project NBCC to build Ayur Vigyan Nagar Campus in Delhi to 7715018407
+2025-02-26 15:29:41,586 - whatsapp.interakt_handler - ERROR - Failed to send project BHEL to build 1980 MW Prayagraj thermal power plant to 8484926925
+2025-02-26 15:29:41,780 - whatsapp.interakt_handler - ERROR - Failed to send project BHEL to build 1980 MW Prayagraj thermal power plant to 7715018407
+2025-02-26 15:30:14,002 - whatsapp.interakt_handler - ERROR - Failed to send project MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure wins metro project in Odisha to 8484926925
+2025-02-26 15:30:14,237 - whatsapp.interakt_handler - ERROR - Failed to send project MoEFCC green lights railway upgradation through Melghat Tiger Reserve Home Infrastructure wins metro project in Odisha to 7715018407
+2025-02-26 15:30:15,181 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-26 15:30:15,192 - utilities.project_discovery_graph - INFO - Workflow completed in 486.55s
+2025-02-26 15:30:15,192 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 15:30:15,192 - utilities.project_discovery_graph - INFO - Projects found: 98
+2025-02-26 15:30:15,193 - utilities.project_discovery_graph - INFO - Projects filtered: 73
+2025-02-26 15:30:15,193 - utilities.project_discovery_graph - INFO - Projects enriched: 73
+2025-02-26 15:30:15,193 - utilities.project_discovery_graph - INFO - Projects prioritized: 73
+2025-02-26 15:30:15,193 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 15:30:15,304 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 15:30:15,305 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 15:30:15,305 - apscheduler.scheduler - INFO - Scheduler started

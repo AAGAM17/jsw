@@ -25,7 +25,7 @@ class EmailHandler:
         self.team_emails = Config.TEAM_EMAILS
 
         # converting team member details to email list
-        for team in Config.TEAM_MEMBERS.keys:
+        for team in Config.TEAM_MEMBERS.keys():
             team_string = ""
             for member in Config.TEAM_MEMBERS[team]:
                 team_string += member["email"] + ", "
@@ -48,19 +48,54 @@ class EmailHandler:
         self.logger.info(
             f"Initialized EmailHandler with sender: {self.sender_email}")
 
-        # Test SMTP connection on initialization
-        try:
-            with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
+        # Test SMTP connection on initialization with retries
+        max_retries = 3
+        retry_delay = 5  # seconds
+        for attempt in range(max_retries):
+            try:
+                with smtplib.SMTP(self.smtp_server, self.smtp_port, timeout=10) as server:
+                    server.ehlo()
+                    server.starttls()
+                    server.ehlo()
+                    server.login(self.sender_email, self.sender_password)
+                    self.logger.info(
+                        "SMTP connection test successful on initialization")
+                    break
+            except smtplib.SMTPServerDisconnected as e:
+                self.logger.warning(
+                    f"SMTP server disconnected (attempt {attempt + 1}/{max_retries}): {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+                else:
+                    self.logger.error("Failed to establish SMTP connection after retries")
+                    raise
+            except Exception as e:
+                self.logger.error(
+                    f"Failed to initialize SMTP connection: {str(e)}")
+                raise
+
+    def _establish_smtp_connection(self):
+        """Helper method to establish SMTP connection with retries"""
+        max_retries = 3
+        retry_delay = 5  # seconds
+        last_error = None
+
+        for attempt in range(max_retries):
+            try:
+                server = smtplib.SMTP(self.smtp_server, self.smtp_port, timeout=10)
                 server.ehlo()
                 server.starttls()
                 server.ehlo()
                 server.login(self.sender_email, self.sender_password)
-                self.logger.info(
-                    "SMTP connection test successful on initialization")
-        except Exception as e:
-            self.logger.error(
-                f"Failed to initialize SMTP connection: {str(e)}")
-            raise
+                return server
+            except (smtplib.SMTPServerDisconnected, smtplib.SMTPConnectError) as e:
+                last_error = e
+                self.logger.warning(
+                    f"SMTP connection attempt {attempt + 1}/{max_retries} failed: {str(e)}")
+                if attempt < max_retries - 1:
+                    time.sleep(retry_delay)
+
+        raise last_error or Exception("Failed to establish SMTP connection")
 
     def determine_product_team(self, project):
         """Determine the most relevant product team based on project details"""
@@ -918,74 +953,6 @@ class EmailHandler:
             priority_bg = '#fde8e8' if is_high_priority else '#e8f5e9'
             priority_tag = 'High Priority' if is_high_priority else 'Normal Priority'
 
-            # Get contacts directly from the project
-            contacts = project.get('contacts', [])
-            relationship_notes = project.get('relationship_notes', [])
-
-            # Generate relationship HTML
-            if relationship_notes:
-                relationship_html = f'''
-                    <div class="mb-2">
-                        <strong style="color: #1a1a1a;">Relationship Notes:</strong>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
-                            {"".join(f'<li>{note}</li>' for note in relationship_notes)}
-                        </ul>
-                    </div>
-                '''
-            else:
-                relationship_html = f'''
-                    <div>
-                        <strong style="color: #1a1a1a;">No existing relationship found</strong>
-                        <div style="margin-top: 10px;">
-                            <button onclick="this.innerHTML='Done'; this.style.background='#28a745'; this.style.color='white'; this.disabled=true;" 
-                               style="display: inline-block; background: #e9ecef; color: #495057; padding: 8px 15px; 
-                                      text-decoration: none; border-radius: 4px; font-size: 14px; border: none; cursor: pointer;">
-                                Update Relationship
-                            </button>
-                        </div>
-                    </div>
-                '''
-
-            # Generate contacts HTML
-            contacts_html = ''
-            if contacts:
-                contacts_html = '<div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">'
-                contacts_html += '<h4 style="color: #1a1a1a; margin: 0 0 15px 0;">Key Contacts</h4>'
-
-                for contact in contacts:
-                    name = contact.get('name', 'N/A')
-                    role = contact.get('role', 'N/A')
-                    email = contact.get('email', '')
-                    phone = contact.get('phone', '')
-                    company = project.get('company', '')
-
-                    # Only show contact if we have at least a name or role
-                    if name != 'N/A' or role != 'N/A':
-                        contacts_html += f'''
-                            <div style="background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 15px;">
-                                <div style="display: flex; justify-content: space-between; align-items: start;">
-                                    <div>
-                                        <p style="margin: 0; color: #202124; font-size: 16px; font-weight: 500;">
-                                            {name}
-                                        </p>
-                                        <p style="margin: 4px 0; color: #5f6368; font-size: 14px;">
-                                            {role} at {company}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 10px; font-size: 14px; color: #5f6368;">
-                                    {f'<p style="margin: 4px 0;"><strong>Email:</strong> <a href="mailto:{email}" style="color: #1a73e8; text-decoration: none;">{email}</a></p>' if email else ''}
-                                    {f'<p style="margin: 4px 0;"><strong>Phone:</strong> {phone}</p>' if phone else ''}
-                                </div>
-                            </div>
-                        '''
-            else:
-                contacts_html = '''
-                    <div style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
-                        <p style="margin: 0; color: #5f6368;">No contacts found in CRM.</p>
-                    </div>
-                '''
-
             # Create HTML for single project
             html = f'''
             <div style="border-left: 4px solid {priority_color}; border-radius: 8px; border: 1px solid #e0e0e0; margin: 20px 0; padding: 20px;">
@@ -999,19 +966,11 @@ class EmailHandler:
                 
                 {self._format_project_details(project)}
                 
-                <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 16px; color: #1a1a1a;">
-                    {relationship_html}
-                </div>
-                
-                <div style="margin-bottom: 20px;">
-                    {contacts_html}
-                </div>
-                
                 <div style="margin-top: 20px;">
                     <a href="{project.get('source_url', '#')}" style="display: inline-block; background: #1a73e8; color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">
                         View Announcement
                     </a>
-                    <a href="https://aijsw.onrender.com/project-details?title={project.get('title', '').replace(' ', '+')}" 
+                    <a href="https://aijsw.onrender.com/project-details?title={urllib.parse.quote(project.get('title', ''))}&company={urllib.parse.quote(project.get('company', ''))}&value={project.get('value', 0)}&description={urllib.parse.quote(project.get('description', ''))}&start_date={project.get('start_date', datetime.now()).strftime('%B %Y')}&end_date={project.get('end_date', datetime.now()).strftime('%B %Y')}&source_url={urllib.parse.quote(project.get('source_url', ''))}&steel_requirements={urllib.parse.quote(str(project.get('steel_requirements', {})))}&company_website={urllib.parse.quote(project.get('company_website', ''))}" 
                        style="display: inline-block; background: #f8f9fa; color: #1a73e8; padding: 10px 20px; text-decoration: none; border-radius: 4px; border: 1px solid #1a73e8;">
                         Get More Info
                     </a>
@@ -1033,45 +992,88 @@ class EmailHandler:
         """Format the project details for email."""
         # Get steel requirements with proper structure
         steel_reqs = project.get('steel_requirements', {})
-
-        # Format primary requirement
-        primary_req = steel_reqs.get('primary', {})
-        primary_html = f'''
-            <div style="font-size: 16px; margin-bottom: 12px;">
-                {primary_req.get('type', 'TMT Bars')} (~{primary_req.get('quantity', 0):,}MT) - Primary
-            </div>
-        '''
-
-        # Format secondary requirements
-        secondary_reqs = steel_reqs.get('secondary', [])
-        secondary_html = ''
-        for req in secondary_reqs:
-            if req.get('quantity', 0) > 0:
-                product_name = req.get('type', '')
-                secondary_html += f'''
-                    <div style="font-size: 16px; margin-bottom: 8px;">
-                        {product_name} - Secondary
-                    </div>
-                '''
-
-        # Format tertiary requirement
-        tertiary_req = steel_reqs.get('tertiary', {})
-        tertiary_html = f'''
-            <div style="font-size: 16px; margin-bottom: 12px;">
-                {tertiary_req.get('type', 'Wire Rods')} - Tertiary
-            </div>
-        '''
-
-        # Format timeline
+        
+        # Format timeline with month and year only
+        start_date = project.get('start_date', datetime.now()).strftime('%B %Y')
+        end_date = project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')
+        
+        # Calculate duration in months
+        start = project.get('start_date', datetime.now())
+        end = project.get('end_date', datetime.now() + timedelta(days=365))
+        duration_months = ((end.year - start.year) * 12 + end.month - start.month)
+        
         timeline_html = f'''
-            <div style="font-size: 16px; margin-bottom: 12px;">
-                <strong style="color: #1a1a1a;">Work Begins:</strong> 
-                {project.get('start_date', datetime.now()).strftime('%B %Y')} - 
-                {project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')}
+        <div style="margin-bottom: 20px;">
+            <h5 style="color: #202124; margin: 0 0 10px 0;">Timeline</h5>
+            <div style="display: flex; justify-content: space-between; max-width: 400px;">
+                <div>
+                    <span style="color: #1a73e8;">Start:</span> {start_date}
+                </div>
+                <div>
+                    <span style="color: #1a73e8;">End:</span> {end_date}
+                </div>
             </div>
+            <div style="margin-top: 5px; color: #5f6368;">
+                Duration: {duration_months} months
+            </div>
+        </div>
         '''
-
-        return primary_html + secondary_html + tertiary_html + timeline_html
+        
+        # Format steel requirements
+        steel_html = ''
+        if steel_reqs:
+            steel_html = '<div style="margin-bottom: 20px;"><h5 style="color: #202124; margin: 0 0 10px 0;">Steel Requirements</h5>'
+            
+            if 'primary' in steel_reqs and isinstance(steel_reqs['primary'], dict):
+                steel_html += f'''
+                <div style="margin-bottom: 10px;">
+                    <strong>Primary:</strong> {steel_reqs['primary'].get('type', 'N/A')} 
+                    ({steel_reqs['primary'].get('quantity', 0):,} MT)
+                </div>
+                '''
+                
+            if 'secondary' in steel_reqs and steel_reqs['secondary']:
+                if isinstance(steel_reqs['secondary'], list):
+                    for req in steel_reqs['secondary']:
+                        if isinstance(req, dict) and req.get('quantity', 0) > 0:
+                            steel_html += f'''
+                            <div style="margin-bottom: 5px;">
+                                <strong>Secondary:</strong> {req.get('type', 'N/A')} 
+                                ({req.get('quantity', 0):,} MT)
+                            </div>
+                            '''
+                elif isinstance(steel_reqs['secondary'], dict):
+                    steel_html += f'''
+                    <div style="margin-bottom: 5px;">
+                        <strong>Secondary:</strong> {steel_reqs['secondary'].get('type', 'N/A')} 
+                        ({steel_reqs['secondary'].get('quantity', 0):,} MT)
+                    </div>
+                    '''
+                
+            if 'total' in steel_reqs:
+                steel_html += f'''
+                <div style="margin-top: 10px;">
+                    <strong>Total Requirement:</strong> {steel_reqs.get('total', 0):,} MT
+                </div>
+                '''
+                
+            steel_html += '</div>'
+        
+        # Combine all sections
+        return f'''
+        <div style="background: #fff; padding: 15px; border-radius: 8px; margin: 15px 0;">
+            {timeline_html}
+            
+            <div style="margin-bottom: 20px;">
+                <h5 style="color: #202124; margin: 0 0 10px 0;">Project Value</h5>
+                <div style="font-size: 18px; color: #188038;">
+                    ₹{project.get('value', 0):,.2f} Crore
+                </div>
+            </div>
+            
+            {steel_html}
+        </div>
+        '''
 
     def _get_team_emails(self, teams):
         """Get email addresses for teams"""
@@ -1096,117 +1098,40 @@ class EmailHandler:
             self.logger.error(f"Error getting team emails: {str(e)}")
             return []
 
-    def send_project_opportunities(self, projects):
-        """Send project opportunities to respective teams"""
+    def send_project_opportunities(self, projects, team_emails=None):
+        """Send project opportunities via email to team members"""
         try:
-            team_projects = {}
+            if not projects:
+                self.logger.warning("No projects to send")
+                return False
 
-            # JSW filtering terms
-            jsw_terms = [
-                'jsw', 'jindal', 'js steel', 'jsw steel', 'jindal steel',
-                'jsw neosteel', 'jsw trusteel', 'neosteel', 'trusteel',
-                'jsw fastbuild', 'jsw galvalume', 'jsw coated'
-            ]
+            if team_emails is None:
+                team_emails = self._get_team_emails(projects)
 
-            for project in projects:
+            for email in team_emails:
                 try:
-                    # Skip JSW-related projects
-                    title = str(project.get('title', '')).lower()
-                    desc = str(project.get('description', '')).lower()
-                    company = str(project.get('company', '')).lower()
-                    all_text = f"{title} {desc} {company}"
+                    subject = f"JSW Steel Leads"
 
-                    if any(term in all_text for term in jsw_terms):
-                        self.logger.info(
-                            f"Skipping JSW-related project: {project.get('title')}")
-                        continue
-
-                    if not project.get('steel_requirements'):
-                        project = self._analyze_project_content(project)
-
-                    # Double check the enriched content for JSW terms
-                    enriched_text = str(project.get('title', '')).lower(
-                    ) + str(project.get('description', '')).lower()
-                    if any(term in enriched_text for term in jsw_terms):
-                        self.logger.info(
-                            f"Skipping JSW-related project after enrichment: {project.get('title')}")
-                        continue
-
-                    # Determine team based on primary product
-                    primary_team = self.determine_product_team(project)
-                    team_emails = self._get_team_emails(primary_team)
-
-                    if not team_emails:
-                        self.logger.warning(
-                            f"No team emails found for project: {project.get('title')}")
-                        continue
-
-                    for email in team_emails:
-                        if email not in team_projects:
-                            team_projects[email] = []
-                        # Update project's teams to match the primary team
-                        project['teams'] = [primary_team]
-                        team_projects[email].append(project)
-
-                except Exception as e:
-                    self.logger.error(
-                        f"Error processing project {project.get('title')}: {str(e)}")
-                    continue
-
-            for email, team_project_list in team_projects.items():
-                try:
                     msg = MIMEMultipart('alternative')
+                    msg['Subject'] = subject
                     msg['From'] = self.sender_email
                     msg['To'] = email
 
-                    # Get team category and format team name
-                    team_name = team_project_list[0]['teams'][0]
-                    team_category = 'Long Products' if team_name in [
-                        'TMT_BARS', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL'] else 'Flat Products'
-                    formatted_team_name = team_name.replace('_', ' ')
-
-                    msg['Subject'] = f"JSW Steel {team_category} - {formatted_team_name} Leads"
-
-                    html_content = f'''
-                    <html>
-                    <head>
-                        <style>
-                            body {{ font-family: Arial, sans-serif; line-height: 1.6; color: #333; }}
-                            .container {{ max-width: 800px; margin: 0 auto; padding: 20px; }}
-                            h1 {{ color: #202124; margin-bottom: 30px; font-size: 28px; }}
-                            h3 {{ color: #424242; font-size: 22px; margin: 0 0 8px 0; }}
-                            h4 {{ color: #424242; font-size: 20px; margin: 0 0 20px 0; }}
-                            .project {{ margin: 20px 0; padding: 20px; border-radius: 8px; border: 1px solid #e0e0e0; }}
-                            .tag {{ padding: 2px 8px; border-radius: 4px; font-size: 14px; margin-right: 8px; }}
-                            .requirements {{ font-size: 16px; margin-bottom: 12px; }}
-                            .contact-info {{ font-size: 15px; }}
-                            .relationship-note {{ background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 15px 0; font-size: 16px; color: #1a1a1a; }}
-                        </style>
-                    </head>
-                    <body>
-                        <div class="container">
-                            <h1>Leads for {formatted_team_name} ({team_category})</h1>
-                            {''.join(self._format_project_for_email(project) for project in team_project_list)}
-                            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; color: #666; font-size: 14px;">
-                                <p>This is an automated notification from the JSW Steel Project Discovery System.</p>
-                                <p>For any questions or support, please contact the sales team.</p>
-                            </div>
-                        </div>
-                    </body>
-                    </html>
-                    '''
-
+                    html_content = self._format_projects_for_email(projects)
                     msg.attach(MIMEText(html_content, 'html'))
 
-                    with smtplib.SMTP(self.smtp_server, self.smtp_port) as server:
-                        server.starttls()
-                        server.login(self.sender_email, self.sender_password)
+                    try:
+                        server = self._establish_smtp_connection()
                         server.send_message(msg)
+                        server.quit()
+                        self.logger.info(f"Successfully sent email to {email}")
+                    except Exception as e:
+                        self.logger.error(f"Error sending email: {str(e)}")
+                        raise
 
-                    self.logger.info(f"Successfully sent email to {email}")
                 except Exception as e:
                     self.logger.error(
-                        f"Error sending email to {email}: {str(e)}")
+                        f"Error preparing email for {email}: {str(e)}")
                     continue
 
             return True

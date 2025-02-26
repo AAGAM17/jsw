@@ -15,6 +15,7 @@ import time
 from exa_py import Exa
 from groq import Groq
 from .contact_finder import ContactFinder
+from urllib.parse import urlparse
 
 logger = logging.getLogger(__name__)
 
@@ -258,16 +259,35 @@ def scrape_projects(state: WorkflowState) -> WorkflowState:
         # Get projects from sources
         metro_projects = metro_scraper.scrape_latest_news()
         
+        # Extended search queries for more comprehensive results
+        search_queries = [
+            "new infrastructure project india announced",
+            "construction project tender awarded india",
+            "infrastructure development project approved india",
+            "new metro rail project india",
+            "highway construction project india",
+            "bridge construction project india",
+            "industrial project construction india",
+            "steel structure project india",
+            "commercial building project india",
+            "industrial complex construction india",
+            "railway infrastructure project india",
+            "port development project india",
+            "airport construction project india",
+            "power plant construction india",
+            "real estate development project india"
+        ]
+        
         # Get Exa projects with retry mechanism
         exa_projects = []
         max_retries = 3
-        for query in Config.EXA_SETTINGS['search_queries']:
+        for query in search_queries:
             for retry in range(max_retries):
                 try:
                     time.sleep(1 + retry)  # Exponential backoff
                     search_results = exa.search(
                         query,
-                        num_results=2,
+                        num_results=10,  # Increased from 2 to 10 results per query
                         include_domains=Config.EXA_SETTINGS['search_parameters']['include_domains']
                     )
                     
@@ -284,7 +304,7 @@ def scrape_projects(state: WorkflowState) -> WorkflowState:
                             if content and content.results:
                                 exa_projects.append({
                                     'title': result.title,
-                                    'description': content.results[0].text[:1000],
+                                    'description': content.results[0].text[:2000],  # Increased from 1000 to 2000 characters
                                     'source_url': result.url,
                                     'source': 'exa_web',
                                     'value': 0,  # Will be enriched later
@@ -310,6 +330,8 @@ def scrape_projects(state: WorkflowState) -> WorkflowState:
                 seen_urls.add(url)
                 all_projects.append(project)
         
+        logger.info(f"Found {len(all_projects)} total projects before filtering")
+        
         state['projects'] = all_projects
         state['status'] = 'projects_scraped'
         return state
@@ -324,59 +346,96 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
     try:
         logger.info(f"Filtering {len(state['projects'])} projects...")
         
-        # Get current date for age checking
+        # Get current date for age checking - more strict timeline
         current_date = datetime.now()
-        max_project_age_days = 30  # Only show projects from last 30 days
+        max_project_age_days = 3  # Reduced from 90 to 30 days to ensure fresher results
         min_date = current_date - timedelta(days=max_project_age_days)
-        
-        # Define JSW terms for filtering
-        jsw_terms = [
-            # Company names and variations
-            'jsw', 'jindal', 'js steel', 'jindal steel', 'jindal steel & power',
-            'jindal steel and power', 'jsw steel limited', 'jsw group',
-            'jsw infrastructure', 'jsw energy', 'jsw holdings', 'jsw cement',
-            'jsw paints', 'jsw ventures', 'jsw future energy', 'jsw one',
-            'jsw renew', 'jsw hydro', 'jsw utilities', 'jsw steel usa',
-            'jsw steel italy', 'jsw steel coated', 'jsw ispat', 'jsw projects',
-            
-            # JSW Products and brands
-            'jsw neosteel', 'jsw steel', 'jsw trusteel', 'neosteel', 'trusteel',
-            'jsw fastbuild', 'jsw galvalume', 'jsw colour coated', 'jsw coated', 
-            'jsw gi', 'jsw hr', 'jsw cr', 'jsw tmt', 'jsw electrical steel', 
-            'jsw special steel', 'jsw plates', 'jsw structural',
-            
-            # Product variations
-            'neosteel 550d', 'neosteel 600', 'neosteel eds', 'neosteel crs',
-            'neosteel fastbuild', 'neostrands pc', 'trusteel plates',
-            'jsw galvanized', 'jsw colour-coated', 'jsw coated',
-            
-            # Additional JSW-related terms
-            'jspl', 'jindal saw', 'jindal stainless', 'jindal steel works',
-            'jindal group', 'jindal family', 'sajjan jindal', 'parth jindal',
-            'jsw foundation', 'jsw sports', 'jsw bengaluru fc'
-        ]
-        
-        # Define steel terms for filtering
-        steel_terms = [
-            'steel', 'tmt', 'bars', 'coils', 'plates', 'sheets',
-            'galvanized', 'colour-coated', 'color-coated', 'galvalume',
-            'structural steel', 'special steel', 'electrical steel',
-            'steel plant', 'steel mill', 'steel works', 'steel factory',
-            'steel production', 'steel capacity', 'steel output',
-            'steel exports', 'steel imports', 'steel sales',
-            'steel supply', 'steel demand', 'steel prices',
-            'steel quality', 'steel grade', 'steel specification'
-        ]
-        
+
         filtered_projects = []
         jsw_projects = []
         
+        # Date extraction patterns
+        date_patterns = [
+            r'(?:start|begin|commence|initiate)(?:s|ing|ed)?\s+(?:by|from|in|on)?\s+([A-Za-z]+\s+\d{4})',
+            r'(?:complete|finish|end|deliver)(?:s|ing|ed)?\s+(?:by|in|on)?\s+([A-Za-z]+\s+\d{4})',
+            r'(?:timeline|duration|period|schedule)\s+(?:of|is|:)?\s+(\d+)\s+(?:month|year)s?',
+            r'(\d{1,2}[-/]\d{1,2}[-/]\d{2,4})',
+            r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})',
+            r'([A-Za-z]+\s+\d{4})'
+        ]
+
         for project in state['projects']:
             try:
                 # Skip invalid URLs
                 if not project.get('source_url') or not isinstance(project.get('source_url'), str):
                     continue
+
+                # Extract dates from title and description
+                text = f"{project.get('title', '')} {project.get('description', '')}"
                 
+                # Initialize dates
+                start_date = None
+                end_date = None
+                duration_months = None
+
+                # Try to extract dates from text
+                for pattern in date_patterns:
+                    matches = re.finditer(pattern, text, re.IGNORECASE)
+                    for match in matches:
+                        try:
+                            date_str = match.group(1)
+                            
+                            # Handle duration pattern
+                            if pattern.startswith('(?:timeline|duration'):
+                                duration_months = int(date_str)
+                                continue
+                                
+                            # Try different date formats
+                            try:
+                                # Try MM/DD/YYYY or DD/MM/YYYY
+                                if '/' in date_str or '-' in date_str:
+                                    date = datetime.strptime(date_str.replace('-', '/'), '%m/%d/%Y')
+                                else:
+                                    # Try Month YYYY or Month DD, YYYY
+                                    try:
+                                        date = datetime.strptime(date_str, '%B %Y')
+                                    except ValueError:
+                                        try:
+                                            date = datetime.strptime(date_str, '%B %d, %Y')
+                                        except ValueError:
+                                            continue
+                                
+                                if 'start' in match.string.lower() or 'begin' in match.string.lower():
+                                    start_date = date
+                                elif 'end' in match.string.lower() or 'complete' in match.string.lower():
+                                    end_date = date
+                                elif not start_date:  # Use as start date if no specific indicator
+                                    start_date = date
+                                    
+                            except ValueError:
+                                continue
+                                
+                        except Exception as e:
+                            logger.debug(f"Error parsing date: {str(e)}")
+                            continue
+
+                # Set default dates if not found
+                if not start_date:
+                    start_date = current_date + timedelta(days=30)  # Assume starts in 1 month
+                
+                if not end_date and duration_months:
+                    end_date = start_date + timedelta(days=duration_months * 30)
+                elif not end_date:
+                    end_date = start_date + timedelta(days=365)  # Default 1 year duration
+
+                # Validate timeline logic
+                if end_date <= start_date:
+                    end_date = start_date + timedelta(days=365)
+                
+                if start_date < min_date:
+                    logger.info(f"Skipping old project: {project.get('title')} (Start date: {start_date})")
+                    continue
+
                 # Skip social media and PDFs
                 if any(domain in project['source_url'].lower() for domain in ['facebook.com', 'twitter.com', '.pdf']):
                     continue
@@ -392,115 +451,26 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                 if not company_name or len(company_name) < 3:
                     continue
                 
-                # Check project age
-                project_date = project.get('start_date')
-                if isinstance(project_date, str):
-                    try:
-                        project_date = datetime.strptime(project_date, '%Y-%m-%d')
-                    except ValueError:
-                        project_date = current_date
-                elif not isinstance(project_date, datetime):
-                    project_date = current_date
+                # Look for recency indicators - expanded list
+                recency_indicators = [
+                    'announced', 'launches', 'to build', 'upcoming', 'planned', 
+                    'awarded', 'wins', 'secured', 'bags', 'new', 'contract',
+                    'project', 'development', 'construction', 'infrastructure',
+                    'tender', 'bid', 'proposal', 'approved', 'sanctioned'
+                ]
                 
-                # Skip old projects
-                if project_date < min_date:
-                    logger.info(f"Skipping old project from {project_date.strftime('%Y-%m-%d')}: {title}")
+                # More lenient recency check - consider project valid if it has any relevant keyword
+                has_relevant_terms = any(indicator in text.lower() for indicator in recency_indicators)
+                
+                if not has_relevant_terms and start_date < min_date:
+                    logger.info(f"Skipping old project without relevance: {title}")
                     continue
                 
-                # Check for date-related keywords in title/description that indicate recency
-                text_lower = text.lower()
-                old_indicators = ['completed', 'finished', 'delivered', 'inaugurated', 'opened']
-                if any(indicator in text_lower for indicator in old_indicators):
-                    logger.info(f"Skipping completed project: {title}")
-                    continue
-                
-                # Look for recency indicators
-                recency_indicators = ['announced', 'launches', 'to build', 'upcoming', 'planned', 
-                                   'awarded', 'wins', 'secured', 'bags', 'new']
-                is_recent = any(indicator in text_lower for indicator in recency_indicators)
-                
-                if not is_recent:
-                    logger.info(f"Skipping project without recency indicators: {title}")
-                    continue
-                
-                # Combine all text for JSW checks
-                title_lower = title.lower()
-                desc_lower = project.get('description', '').lower()
-                all_text = f"{company_name} {title} {project.get('description', '')} {project.get('source', '')}".lower()
-                
-                # Check for JSW mentions in title or description
-                if 'jsw' in title_lower or 'jsw' in desc_lower or 'jindal' in title_lower or 'jindal' in desc_lower:
-                    jsw_projects.append(project)
-                    logger.info(f"Filtered JSW project (title/desc): {title}")
-                    continue
-                
-                # Check for JSW supply/provider mentions
-                if any(term in title_lower or term in desc_lower for term in [
-                    'jsw steel to supply', 'jsw steel supplies', 'jsw steel to provide',
-                    'jsw steel provides', 'jsw steel to deliver', 'jsw steel delivers',
-                    'jindal steel to supply', 'jindal steel supplies', 'jindal steel to provide',
-                    'jindal steel provides', 'jindal steel to deliver', 'jindal steel delivers'
-                ]):
-                    jsw_projects.append(project)
-                    logger.info(f"Filtered JSW supply project: {title}")
-                    continue
-                
-                # Check for JSW terms in all text
-                if any(term in all_text for term in jsw_terms):
-                    jsw_projects.append(project)
-                    logger.info(f"Filtered JSW project (terms): {title}")
-                    continue
-                
-                # Check URL for JSW domains
-                if any(domain in project['source_url'].lower() for domain in [
-                    'jsw.in', 'jswsteel.com', 'jsw.com', 'jindalsteel.com', 
-                    'jindalsteelpower.com', 'jspl.com', 'jindalsawltd.com'
-                ]):
-                    jsw_projects.append(project)
-                    logger.info(f"Filtered JSW project (URL): {title}")
-                    continue
-                
-                # If mentions steel products, check for JSW connection
-                if any(term in all_text for term in steel_terms):
-                    if any(term in all_text for term in ['jsw', 'jindal', 'neosteel', 'trusteel']):
-                        jsw_projects.append(project)
-                        logger.info(f"Filtered JSW-related steel project: {title}")
-                        continue
-                
-                # Extract and validate project value
+                # Extract and validate project value - more lenient
                 value = project.get('value') or extract_project_value(text)
-                if not value or value <= 0:
-                    continue
-                
-                # Check if JSW is mentioned as supplier or partner
-                if 'jsw' in all_text and any(term in all_text for term in [
-                    'supply', 'supplier', 'supplied by', 'partner', 'partnership',
-                    'collaboration', 'agreement', 'mou', 'contract with'
-                ]):
-                    jsw_projects.append(project)
-                    logger.info(f"Filtered JSW supplier/partner project: {title}")
-                    continue
-                
-                # Validate and convert dates
-                try:
-                    start_date = project.get('start_date')
-                    if isinstance(start_date, str):
-                        start_date = datetime.strptime(start_date, '%Y-%m-%d')
-                    elif not isinstance(start_date, datetime):
-                        start_date = datetime.now()
-                    
-                    end_date = project.get('end_date')
-                    if isinstance(end_date, str):
-                        end_date = datetime.strptime(end_date, '%Y-%m-%d')
-                    elif not isinstance(end_date, datetime):
-                        end_date = start_date + timedelta(days=365)
-                    
-                    # Ensure end_date is after start_date
-                    if end_date <= start_date:
-                        end_date = start_date + timedelta(days=365)
-                except (ValueError, TypeError):
-                    start_date = datetime.now()
-                    end_date = start_date + timedelta(days=365)
+                if not value:  # Allow zero value projects to pass through
+                    value = 0
+                project['value'] = value
                 
                 # Update project with validated data
                 project.update({
@@ -594,7 +564,7 @@ def generate_catchy_headline(project: dict) -> str:
                 "role": "user",
                 "content": context
             }],
-            model="mixtral-8x7b-32768",  # Using a more capable model
+            model="llama-3.3-70b-versatile",  # Using a more capable model
             temperature=0.1,  # Lower temperature for more consistent output
             max_tokens=50  # Shorter output for headlines
         )
@@ -675,6 +645,17 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
         contact_finder = ContactFinder()  # Initialize contact finder
         enriched_projects = []
         max_retries = 3
+
+        def extract_company_domain(url):
+            """Extract company domain from URL"""
+            try:
+                parsed = urlparse(url)
+                # Get the domain without www.
+                domain = parsed.netloc.replace('www.', '')
+                return domain
+            except Exception as e:
+                logger.error(f"Error extracting domain: {str(e)}")
+                return None
         
         # JSW product terms to filter out
         jsw_product_terms = [
@@ -703,6 +684,12 @@ def enrich_projects(state: WorkflowState) -> WorkflowState:
                     
                     # Calculate steel requirements with validation
                     enriched = email_handler._analyze_project_content(project)
+                    
+                    # Extract company website domain from source URL
+                    if project.get('source_url'):
+                        company_domain = extract_company_domain(project['source_url'])
+                        if company_domain:
+                            enriched['company_website'] = f"https://{company_domain}"
                     
                     # Double check for JSW terms in enriched content
                     all_text = f"{enriched.get('title', '')} {enriched.get('description', '')} {str(enriched.get('steel_requirements', ''))}".lower()

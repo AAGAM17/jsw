@@ -1,0 +1,6 @@
+2025-02-26 15:12:16,756 - utilities.logger - INFO - Logging initialized
+2025-02-26 15:12:16,772 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 15:12:16,842 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 15:12:21,682 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 15:12:23,551 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 15:12:25,554 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news

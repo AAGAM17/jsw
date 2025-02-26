@@ -2,7 +2,7 @@ from twilio.rest import Client
 from twilio.base.exceptions import TwilioRestException
 import logging
 from config.settings import Config
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 
 class WhatsAppHandler:
@@ -60,38 +60,44 @@ class WhatsAppHandler:
                 
         return success
     
-    def _format_project_message(self, project, idx):
-        """Format a single project message"""
-        message = f"*Project #{idx} Details*\n\n"
-        
-        # Basic info
-        message += f"*Company:* {project['company']}\n"
-        message += f"*Project:* {project['title']}\n\n"
-        
-        # Value and timeline
-        if project.get('value'):
-            message += f"*Value:* ₹{project['value']:.1f} Crore\n"
-        
-        if project.get('start_date'):
-            message += f"*Start Date:* {project['start_date'].strftime('%B %Y')}\n"
-        if project.get('end_date'):
-            message += f"*End Date:* {project['end_date'].strftime('%B %Y')}\n"
-        message += "\n"
-        
-        # Steel requirements if available
-        if project.get('steel_requirements'):
-            message += "*Steel Requirements:*\n"
-            for steel_type, amount in project['steel_requirements'].items():
-                message += f"• {steel_type}: {amount} MT\n"
-            message += "\n"
-        
-        # Source and additional info
-        if project.get('source_url'):
-            message += f"*Source:* {project['source_url']}\n"
-        if project.get('description'):
-            message += f"\n*Description:*\n{project['description'][:300]}..."
-        
-        return message
+    def _format_project_message(self, project, idx=1):
+        """Format a project for WhatsApp message"""
+        try:
+            # Basic project info
+            message = f"*Project #{idx}*\n\n"
+            message += f"🏢 *Company:* {project.get('company', 'N/A')}\n"
+            message += f"📋 *Title:* {project.get('title', 'N/A')}\n\n"
+            
+            # Timeline
+            start_date = project.get('start_date', datetime.now()).strftime('%B %Y')
+            end_date = project.get('end_date', datetime.now() + timedelta(days=365)).strftime('%B %Y')
+            message += f"📅 *Timeline:* {start_date} - {end_date}\n"
+            
+            # Value and requirements
+            if project.get('value'):
+                message += f"💰 *Value:* ₹{project.get('value', 0):,.0f} Cr\n"
+                
+            steel_reqs = project.get('steel_requirements', {})
+            if steel_reqs:
+                message += "\n⚙️ *Steel Requirements:*\n"
+                if 'primary' in steel_reqs:
+                    message += f"• Primary: {steel_reqs['primary'].get('type', 'N/A')} ({steel_reqs['primary'].get('quantity', 0):,} MT)\n"
+                if 'secondary' in steel_reqs and steel_reqs['secondary']:
+                    for req in steel_reqs['secondary']:
+                        if req.get('quantity', 0) > 0:
+                            message += f"• Secondary: {req.get('type', 'N/A')} ({req.get('quantity', 0):,} MT)\n"
+                if 'total' in steel_reqs:
+                    message += f"• Total: {steel_reqs.get('total', 0):,} MT\n"
+            
+            # Source link
+            if project.get('source_url'):
+                message += f"\n🔗 *Source:* {project.get('source_url')}"
+                
+            return message
+            
+        except Exception as e:
+            self.logger.error(f"Error formatting WhatsApp message: {str(e)}")
+            return "Error formatting project message"
     
     def _send_whatsapp(self, message, to_number, max_retries=3):
         """Send WhatsApp message with retries"""

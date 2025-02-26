@@ -1,0 +1,28 @@
+2025-02-26 14:56:55,573 - utilities.logger - INFO - Logging initialized
+2025-02-26 14:56:55,584 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 14:56:55,631 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 14:57:00,599 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 14:57:03,113 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 14:57:05,833 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 14:57:44,334 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-26 14:57:44,343 - utilities.project_discovery_graph - INFO - Skipping completed project: 10 Bidders for New Digha – Sonepur Bridge’s Contract in Bihar - The Metro Rail Guy
+2025-02-26 14:57:44,347 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Hyderabad Airport Metro Line Contract: L&T and NCC Bid
+2025-02-26 14:57:44,352 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Airoli-Katai Naka Freeway – Information & Status
+2025-02-26 14:57:44,352 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: India's #1 Projects Tracking Platform
+2025-02-26 14:57:44,352 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Bengaluru Railway: KRIDE Awards Rs 5 Bn Contract to NCC
+2025-02-26 14:57:44,369 - utilities.project_discovery_graph - INFO - Retained 3 recent non-JSW projects
+2025-02-26 14:57:44,370 - utilities.project_discovery_graph - INFO - Enriching 3 projects...
+2025-02-26 14:57:44,372 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-26 14:57:44,372 - utilities.project_discovery_graph - INFO - Successfully prioritized 0 projects
+2025-02-26 14:57:44,373 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 14:57:44,373 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-26 14:57:44,375 - utilities.project_discovery_graph - INFO - Workflow completed in 48.75s
+2025-02-26 14:57:44,376 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 14:57:44,377 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-26 14:57:44,377 - utilities.project_discovery_graph - INFO - Projects filtered: 3
+2025-02-26 14:57:44,378 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-26 14:57:44,379 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-26 14:57:44,379 - __main__ - ERROR - Pipeline failed: Error in project enrichment: 'builtin_function_or_method' object is not iterable
+2025-02-26 14:57:44,507 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 14:57:44,507 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 14:57:44,507 - apscheduler.scheduler - INFO - Scheduler started

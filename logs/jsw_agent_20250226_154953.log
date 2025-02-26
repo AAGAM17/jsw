@@ -1,0 +1,27 @@
+2025-02-26 15:49:53,399 - utilities.logger - INFO - Logging initialized
+2025-02-26 15:49:53,415 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 15:49:53,472 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 15:49:58,449 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 15:50:00,331 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 15:50:02,183 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 15:50:38,949 - utilities.project_discovery_graph - INFO - Filtering 12 projects...
+2025-02-26 15:50:38,956 - utilities.project_discovery_graph - INFO - Skipping completed project: 10 Bidders for New Digha – Sonepur Bridge’s Contract in Bihar - The Metro Rail Guy
+2025-02-26 15:50:38,960 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Hyderabad Airport Metro Line Contract: L&T and NCC Bid
+2025-02-26 15:50:38,961 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: India's #1 Projects Tracking Platform
+2025-02-26 15:50:38,961 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Bengaluru Railway: KRIDE Awards Rs 5 Bn Contract to NCC
+2025-02-26 15:50:38,962 - utilities.project_discovery_graph - INFO - Retained 4 recent non-JSW projects
+2025-02-26 15:50:38,963 - utilities.project_discovery_graph - INFO - Enriching 4 projects...
+2025-02-26 15:50:38,965 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-26 15:50:38,965 - utilities.project_discovery_graph - INFO - Successfully prioritized 0 projects
+2025-02-26 15:50:38,966 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 15:50:38,966 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-26 15:50:38,967 - utilities.project_discovery_graph - INFO - Workflow completed in 45.50s
+2025-02-26 15:50:38,968 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 15:50:38,968 - utilities.project_discovery_graph - INFO - Projects found: 12
+2025-02-26 15:50:38,968 - utilities.project_discovery_graph - INFO - Projects filtered: 4
+2025-02-26 15:50:38,968 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-26 15:50:38,968 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-26 15:50:38,968 - __main__ - ERROR - Pipeline failed: Error in project enrichment: 'builtin_function_or_method' object is not iterable
+2025-02-26 15:50:39,110 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 15:50:39,111 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 15:50:39,111 - apscheduler.scheduler - INFO - Scheduler started
