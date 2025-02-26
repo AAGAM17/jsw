@@ -9,6 +9,8 @@ import os
 from dotenv import load_dotenv
 from utilities.email_handler import EmailHandler
 from whatsapp.interakt_handler import InteraktHandler
+from config.settings import Config
+import json
 
 app = Flask(__name__)
 configure_logging()
@@ -34,19 +36,22 @@ projects = []
 # Initialize handlers
 whatsapp_handler = InteraktHandler()
 
+
 @app.route('/')
 def index():
     """Home page with run button"""
-    return render_template('index.html', 
-                         last_run_time=last_run_time,
-                         is_running=is_running,
-                         last_run_status=last_run_status,
-                         last_run_results=last_run_results)
+    return render_template('index.html',
+                           last_run_time=last_run_time,
+                           is_running=is_running,
+                           last_run_status=last_run_status,
+                           last_run_results=last_run_results)
+
 
 @app.route('/chat')
 def chat_interface():
     """Chat interface for project discovery"""
     return render_template('chat.html')
+
 
 @app.route('/projects')
 def projects_list():
@@ -55,57 +60,64 @@ def projects_list():
     value_range = request.args.get('value')
     timeline = request.args.get('timeline')
     sort_by = request.args.get('sort')
-    
+
     filtered_projects = projects.copy()
-    
+
     # Apply filters
     if project_type:
-        filtered_projects = [p for p in filtered_projects if p['type'] == project_type]
-        
+        filtered_projects = [
+            p for p in filtered_projects if p['type'] == project_type]
+
     if value_range:
         min_val, max_val = map(float, value_range.split('-'))
-        filtered_projects = [p for p in filtered_projects if min_val <= p['value'] <= max_val]
-        
+        filtered_projects = [
+            p for p in filtered_projects if min_val <= p['value'] <= max_val]
+
     if timeline:
         months = int(timeline.split('-')[0])
         cutoff_date = datetime.now() + timedelta(days=30*months)
-        filtered_projects = [p for p in filtered_projects if p['start_date'] <= cutoff_date]
-    
+        filtered_projects = [
+            p for p in filtered_projects if p['start_date'] <= cutoff_date]
+
     # Apply sorting
     if sort_by:
         reverse = sort_by.endswith('-desc')
         key = sort_by.split('-')[0]
         filtered_projects.sort(key=lambda x: x[key], reverse=reverse)
-    
+
     return render_template('projects.html', projects=filtered_projects)
+
 
 @app.route('/project/<project_id>')
 def project_details(project_id):
     # Find project by ID (company_title)
-    project = next((p for p in projects if f"{p['company']}_{p['title'].lower().replace(' ', '_')}" == project_id), None)
-    
+    project = next(
+        (p for p in projects if f"{p['company']}_{p['title'].lower().replace(' ', '_')}" == project_id), None)
+
     if not project:
         return "Project not found", 404
-        
+
     return render_template('project_details.html', project=project)
+
 
 @app.route('/api/chat', methods=['POST'])
 def chat():
     data = request.json
     project_id = data.get('project_id')
     message = data.get('message')
-    
+
     # If no project_id, this is a general chat
     if not project_id:
         response = perplexity_client.get_project_info(message)
         return jsonify({"response": response})
-    
+
     # Find project context
-    project = next((p for p in projects if f"{p['company']}_{p['title'].lower().replace(' ', '_')}" == project_id), None)
-    
+    project = next(
+        (p for p in projects if f"{p['company']}_{p['title'].lower().replace(' ', '_')}" == project_id), None)
+
     if not project:
         return jsonify({"error": "Project not found"}), 404
-    
+
     # Create context for the AI
     context = f"""
     Project: {project['title']}
@@ -115,10 +127,12 @@ def chat():
     Description: {project['description']}
     Source: {project['source_url']}
     """
-    
+
     # Get AI response using Perplexity
-    response = perplexity_client.get_project_info(context + "\n\nUser question: " + message)
+    response = perplexity_client.get_project_info(
+        context + "\n\nUser question: " + message)
     return jsonify({"response": response})
+
 
 @app.route('/api/projects', methods=['POST'])
 def update_projects():
@@ -126,29 +140,32 @@ def update_projects():
     data = request.json
     if not isinstance(data, list):
         return jsonify({"error": "Expected a list of projects"}), 400
-        
+
     # Convert string dates to datetime objects
     for project in data:
-        project['start_date'] = datetime.strptime(project['start_date'], '%Y-%m-%d')
-        project['end_date'] = datetime.strptime(project['end_date'], '%Y-%m-%d')
-    
+        project['start_date'] = datetime.strptime(
+            project['start_date'], '%Y-%m-%d')
+        project['end_date'] = datetime.strptime(
+            project['end_date'], '%Y-%m-%d')
+
     # Update global projects list
     global projects
     projects = data
-    
+
     return jsonify({"message": "Projects updated successfully", "count": len(projects)})
+
 
 @app.route('/run', methods=['POST'])
 def run_script():
     """Endpoint to trigger the main script"""
     global is_running, last_run_time, last_run_status, last_run_results
-    
+
     if is_running:
         return jsonify({
             'status': 'error',
             'message': 'Script is already running'
         }), 400
-    
+
     def run_task():
         global is_running, last_run_time, last_run_status, last_run_results
         try:
@@ -156,29 +173,86 @@ def run_script():
             last_run_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             last_run_status = 'running'
             last_run_results = None
-            
+
             # Run the pipeline
             run_pipeline()
-            
+
             last_run_status = 'completed'
             last_run_results = 'Pipeline completed successfully'
-            
+
         except Exception as e:
             logger.error(f"Error running pipeline: {str(e)}", exc_info=True)
             last_run_status = 'failed'
             last_run_results = f"Error: {str(e)}"
-            
+
         finally:
             is_running = False
-    
+
     # Start the task in a background thread
     thread = threading.Thread(target=run_task)
     thread.start()
-    
+
     return jsonify({
         'status': 'success',
         'message': 'Script started successfully'
     })
+
+
+@app.route('/get-members', methods=['GET'])
+def get_members():
+    """Get team members"""
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Team members fetched successfully',
+        'members': Config.TEAM_MEMBERS
+    })
+
+
+@app.route('/add-member', methods=['POST'])
+def add_member():
+    """Adds team member to the team"""
+
+    def add_member():
+        global team
+        try:
+            team = request.get_json()
+            print(team)
+
+            Config.TEAM_MEMBERS[team["team"]].append(team)
+
+        except Exception as e:
+            logger.error(f"Error running pipeline: {str(e)}", exc_info=True)
+
+    add_member()
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Script started successfully' + json.dumps(Config.TEAM_MEMBERS)
+    })
+
+
+@app.route('/remove-member', methods=['POST'])
+def remove_member():
+    """Removes team member to the team"""
+
+    def remove_member():
+        global team
+        try:
+            team = request.get_json()
+
+            Config.TEAM_MEMBERS[team["team"]].remove(team)
+
+        except Exception as e:
+            logger.error(f"Error running pipeline: {str(e)}", exc_info=True)
+
+    remove_member()
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Script started successfully' + json.dumps(Config.TEAM_MEMBERS)
+    })
+
 
 @app.route('/status')
 def get_status():
@@ -189,6 +263,7 @@ def get_status():
         'status': last_run_status,
         'results': last_run_results
     })
+
 
 @app.route('/api/project/<project_id>')
 def get_project_info(project_id):
@@ -258,7 +333,7 @@ def get_project_info(project_id):
             'relationship_notes': 'JSW Steel has previously supplied TMT bars and other products to HG infra for expressway projects.'
         }
     }
-    
+
     # Get project info or return default test data
     project_info = test_projects.get(project_id, {
         'company': project_id.replace('_', ' ').title(),
@@ -267,15 +342,16 @@ def get_project_info(project_id):
         'steel_requirement': 80,
         'timeline': 'Q1, 2024 - 1 year'
     })
-    
+
     return jsonify(project_info)
+
 
 @app.route('/send_test_email')
 def send_test_email():
     """Send test emails with sample project leads to respective teams"""
     try:
         email_handler = EmailHandler()
-        
+
         # Test projects for different teams
         test_projects = [
             # Solar project
@@ -572,7 +648,7 @@ def send_test_email():
         ]
 
         success = email_handler.send_project_opportunities(test_projects)
-        
+
         if success:
             return jsonify({
                 'status': 'success',
@@ -583,7 +659,7 @@ def send_test_email():
                 'status': 'error',
                 'message': 'Failed to send test emails'
             }), 500
-            
+
     except Exception as e:
         logger.error(f"Error sending test emails: {str(e)}")
         return jsonify({
@@ -591,22 +667,24 @@ def send_test_email():
             'message': str(e)
         }), 500
 
+
 @app.route('/webhook/whatsapp', methods=['POST'])
 def whatsapp_webhook():
     """Handle incoming WhatsApp messages from Interakt"""
     try:
         data = request.json
         logger.info(f"Received webhook: {data}")
-        
+
         # Extract message details
         if data.get('type') == 'message' and data.get('payload'):
             payload = data['payload']
             phone_number = payload.get('from', {}).get('phone')
             message_text = payload.get('text', {}).get('body')
-            
+
             if phone_number and message_text:
                 # Handle the message
-                whatsapp_handler.handle_incoming_message(phone_number, message_text)
+                whatsapp_handler.handle_incoming_message(
+                    phone_number, message_text)
                 return jsonify({'status': 'success'}), 200
             else:
                 logger.error("Missing phone number or message text in webhook")
@@ -614,11 +692,12 @@ def whatsapp_webhook():
         else:
             logger.error("Invalid webhook type or missing payload")
             return jsonify({'error': 'Invalid webhook type'}), 400
-            
+
     except Exception as e:
         logger.error(f"Error processing webhook: {str(e)}")
         return jsonify({'error': str(e)}), 500
 
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
-    app.run(host='0.0.0.0', port=port, debug=True) 
+    app.run(host='0.0.0.0', port=port, debug=True)

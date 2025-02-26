@@ -65,7 +65,61 @@
                 </button>
             </div>
         </div>
-
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Workflow Controls</h2>
+            
+            <div class="flex gap-4 mb-4">
+                <button id="runPipeline" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                    Run Pipeline
+                </button>
+                <button id="runTest" class="bg-[#67B7F7] text-white px-6 py-3 rounded-lg hover:opacity-90 transition-opacity">
+                    Run Test
+                </button>
+            </div>
+            
+            <label class="block font-medium text-gray-700">Schedule Workflow Run:</label>
+            <select id="workflowSchedule" class="w-full p-2 border rounded-lg mb-4">
+                <option>Every 10 minutes</option>
+                <option>Every 30 minutes</option>
+                <option>Every hour</option>
+                <option>Every 3 hours</option>
+                <option>Every 6 hours</option>
+                <option>Every 9 hours</option>
+                <option>Every day</option>
+            </select>
+            
+            <label class="block font-medium text-gray-700">Lead Delivery Preferences:</label>
+            <select id="leadDelivery" class="w-full p-2 border rounded-lg mb-4">
+                <option>Realtime</option>
+                <option>Every hour</option>
+                <option>Realtime from 8 AM to 7 PM</option>
+                <option>Bulk notification every morning</option>
+            </select>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Assign Team Members</h2>
+            
+            <div id="addMemberForm">
+                <input id="memberName" type="text" placeholder="Name" class="w-full p-2 border rounded-lg mb-2">
+                <input id="memberEmail" type="email" placeholder="Email" class="w-full p-2 border rounded-lg mb-2">
+                <input id="memberPhone" type="tel" placeholder="Phone" class="w-full p-2 border rounded-lg mb-2">
+                <select id="memberTeam" class="w-full p-2 border rounded-lg mb-4">
+                    <option value="Hot Rolled">Hot Rolled (Flat Products)</option>
+                    <option value="Cold Rolled">Cold Rolled (Flat Products)</option>
+                    <option value="Galvanized">Galvanized (Flat Products)</option>
+                    <option value="Electrical Steel">Electrical Steel (Flat Products)</option>
+                    <option value="Galvalume Steel">Galvalume Steel (Flat Products)</option>
+                    <option value="TMT Bars">TMT Bars (Long Products)</option>
+                    <option value="Wire Rods">Wire Rods (Long Products)</option>
+                    <option value="Special Alloy Steel">Special Alloy Steel (Long Products)</option>
+                </select>
+                <button id="addMember" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">Add Member</button>
+            </div>
+            
+            <h3 class="text-lg font-semibold text-gray-800 mt-6">Team Members</h3>
+            <ul id="teamMembers" class="mt-4 space-y-2"></ul>
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Status Card -->
             <div class="bg-white rounded-lg shadow-sm p-6">
@@ -161,8 +215,90 @@
             </div>
         </div>
     </div>
-
     <script>
+        let teamMembers = [];
+
+function renderTeamMembers() {
+    const teamList = document.getElementById('teamMembers');
+    teamList.innerHTML = '';
+    teamMembers.forEach((member, index) => {
+        const memberItem = document.createElement('li');
+        memberItem.classList.add("p-4", "bg-gray-100", "rounded-lg", "flex", "justify-between", "items-center");
+        memberItem.innerHTML = `
+            <div>
+                <p class="font-medium text-gray-900">${member.name}</p>
+                <p class="text-gray-600">${member.email} • ${member.phone}</p>
+                <p class="text-gray-600">Team: ${member.team}</p>
+            </div>
+            <button onclick="removeMember(${index})" class="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700">Remove</button>
+        `;
+        teamList.appendChild(memberItem);
+    });
+}
+
+ async function removeMember (index) {
+
+    const team = teamMembers[index];
+    team['team'] = team['team'].replace(' ', '_').toUpperCase();
+    try {
+                const response = await fetch('/remove-member', {
+                    method: 'POST',headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(team),
+                });
+                const data = await response.json();
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            teamMembers.splice(index, 1);
+    renderTeamMembers();
+}
+
+document.getElementById('addMember').addEventListener('click', async () => {
+    const name = document.getElementById('memberName').value.trim();
+    const email = document.getElementById('memberEmail').value.trim();
+    const phone = document.getElementById('memberPhone').value.trim();
+    const team = document.getElementById('memberTeam').value.replace(' ', '_').toUpperCase();
+
+    if (name && email && phone) {
+        
+        try {
+                const response = await fetch('/add-member', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, phone, team }),
+                });
+                const data = await response.json();
+            } catch (error) {
+                console.error('Error:', error);
+            }
+            teamMembers.push({ name, email, phone, team });
+        renderTeamMembers();
+        
+        document.getElementById('memberName').value = '';
+        document.getElementById('memberEmail').value = '';
+        document.getElementById('memberPhone').value = '';
+    }
+});
+
+async function getTeamMembers() {
+    try {
+        const response = await fetch('/get-members');
+        const data = await response.json();
+        
+        Object.keys(data.members).forEach((key) => {
+            data.members[key].forEach((member) => {
+                teamMembers.push(member);
+            });
+        });
+        renderTeamMembers();
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
         document.getElementById('runPipeline').addEventListener('click', async () => {
             try {
                 const response = await fetch('/run', {
@@ -209,6 +345,7 @@
 
         // Initial status check
         updateStatus();
+        getTeamMembers();
     </script>
 </body>
 </html> 
