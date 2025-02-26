@@ -90,56 +90,134 @@ def extract_project_value(text: str) -> Union[float, None]:
 def determine_product_teams(project: ProjectData) -> list[str]:
     """Determine which product teams should receive the project."""
     text = f"{project.get('title', '')} {project.get('description', '')}".lower()
+    steel_reqs = project.get('steel_requirements', {})
     
-    # Define project type patterns with priority order
+    # Initialize teams set to avoid duplicates
+    teams = set()
+    
+    # Define comprehensive project type patterns with associated teams
     project_patterns = [
-        # Metro/Railway (highest priority)
+        # Metro/Railway Projects
         {
             'type': 'metro_rail',
-            'patterns': ['metro', 'railway', 'rail', 'train', 'locomotive', 'coach', 'rolling stock'],
-            'teams': ['HR_CR_PLATES', 'TMT_BARS']
+            'patterns': ['metro', 'railway', 'rail', 'train', 'locomotive', 'coach', 'rolling stock', 'station', 'terminal', 'depot'],
+            'teams': ['HOT_ROLLED', 'COLD_ROLLED', 'TMT_BARS', 'WIRE_RODS']
         },
         # Roads/Highways/Bridges
         {
             'type': 'road_bridge',
-            'patterns': ['highway', 'road', 'bridge', 'flyover', 'viaduct', 'corridor', 'expressway'],
-            'teams': ['TMT_BARS', 'HR_CR_PLATES']
+            'patterns': ['highway', 'road', 'bridge', 'flyover', 'viaduct', 'corridor', 'expressway', 'underpass', 'overpass'],
+            'teams': ['TMT_BARS', 'HOT_ROLLED', 'WIRE_RODS']
         },
         # Buildings/Real Estate
         {
             'type': 'building',
-            'patterns': ['building', 'tower', 'complex', 'mall', 'hospital', 'hotel', 'apartment', 'residential'],
-            'teams': ['TMT_BARS', 'COATED_PRODUCTS']
+            'patterns': ['building', 'tower', 'complex', 'mall', 'hospital', 'hotel', 'apartment', 'residential', 'commercial', 'office'],
+            'teams': ['TMT_BARS', 'GALVANIZED', 'GALVALUME_STEEL']
         },
         # Industrial/Manufacturing
         {
             'type': 'industrial',
-            'patterns': ['factory', 'plant', 'manufacturing', 'industrial', 'warehouse', 'storage'],
-            'teams': ['HR_CR_PLATES', 'COATED_PRODUCTS']
+            'patterns': ['factory', 'plant', 'manufacturing', 'industrial', 'warehouse', 'storage', 'workshop', 'assembly'],
+            'teams': ['HOT_ROLLED', 'COLD_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL']
         },
-        # Power/Energy (including solar)
+        # Power/Energy
         {
             'type': 'power',
-            'patterns': ['power plant', 'solar', 'renewable', 'wind', 'energy', 'electricity'],
-            'teams': ['SOLAR', 'COATED_PRODUCTS']
+            'patterns': ['power plant', 'solar', 'renewable', 'wind', 'energy', 'electricity', 'transmission', 'substation', 'grid'],
+            'teams': ['SOLAR', 'ELECTRICAL_STEEL', 'GALVANIZED']
         },
         # Water/Irrigation
         {
             'type': 'water',
-            'patterns': ['dam', 'reservoir', 'canal', 'pipeline', 'water', 'irrigation'],
-            'teams': ['HR_CR_PLATES', 'TMT_BARS']
+            'patterns': ['dam', 'reservoir', 'canal', 'pipeline', 'water', 'irrigation', 'treatment', 'sewage'],
+            'teams': ['HOT_ROLLED', 'TMT_BARS', 'SPECIAL_ALLOY_STEEL']
+        },
+        # Defense/Strategic
+        {
+            'type': 'defense',
+            'patterns': ['defense', 'military', 'strategic', 'army', 'navy', 'air force', 'missile', 'ammunition'],
+            'teams': ['SPECIAL_ALLOY_STEEL', 'HOT_ROLLED']
+        },
+        # Ports/Marine
+        {
+            'type': 'marine',
+            'patterns': ['port', 'harbor', 'dock', 'jetty', 'marine', 'coastal', 'shipyard', 'container'],
+            'teams': ['HOT_ROLLED', 'GALVANIZED', 'SPECIAL_ALLOY_STEEL']
         }
     ]
     
-    # Check patterns in priority order
+    # Check for specific steel types mentioned in requirements
+    steel_type_teams = {
+        'hot rolled': 'HOT_ROLLED',
+        'hr': 'HOT_ROLLED',
+        'cold rolled': 'COLD_ROLLED',
+        'cr': 'COLD_ROLLED',
+        'galvanized': 'GALVANIZED',
+        'gi': 'GALVANIZED',
+        'galvalume': 'GALVALUME_STEEL',
+        'gl': 'GALVALUME_STEEL',
+        'electrical': 'ELECTRICAL_STEEL',
+        'crngo': 'ELECTRICAL_STEEL',
+        'crgo': 'ELECTRICAL_STEEL',
+        'special': 'SPECIAL_ALLOY_STEEL',
+        'alloy': 'SPECIAL_ALLOY_STEEL',
+        'wire rod': 'WIRE_RODS',
+        'wire': 'WIRE_RODS',
+        'tmt': 'TMT_BARS',
+        'rebar': 'TMT_BARS',
+        'reinforcement': 'TMT_BARS',
+        'solar': 'SOLAR',
+        'renewable': 'SOLAR'
+    }
+    
+    # Check steel requirements first
+    if isinstance(steel_reqs, dict):
+        primary_type = steel_reqs.get('primary', {}).get('type', '').lower()
+        for steel_term, team in steel_type_teams.items():
+            if steel_term in primary_type:
+                teams.add(team)
+        
+        # Check secondary requirements
+        secondary_reqs = steel_reqs.get('secondary', [])
+        if isinstance(secondary_reqs, list):
+            for req in secondary_reqs:
+                if isinstance(req, dict):
+                    sec_type = req.get('type', '').lower()
+                    for steel_term, team in steel_type_teams.items():
+                        if steel_term in sec_type:
+                            teams.add(team)
+    
+    # Check project description for steel terms
+    for steel_term, team in steel_type_teams.items():
+        if steel_term in text:
+            teams.add(team)
+    
+    # Check project patterns
     for pattern_group in project_patterns:
         if any(pattern in text for pattern in pattern_group['patterns']):
-            project['project_type'] = pattern_group['type']  # Set project type
-            return pattern_group['teams']
+            project['project_type'] = pattern_group['type']
+            teams.update(pattern_group['teams'])
     
-    # Default to TMT_BARS if no specific type matches
-    project['project_type'] = 'infrastructure'
-    return ['TMT_BARS']
+    # If no teams found, check project value for default assignments
+    if not teams:
+        value = float(project.get('value', 0))
+        if value >= 1000:  # Large projects (>1000 crore)
+            teams.update(['HOT_ROLLED', 'TMT_BARS', 'GALVANIZED'])
+        elif value >= 500:  # Medium projects
+            teams.update(['TMT_BARS', 'GALVANIZED'])
+        else:  # Small projects
+            teams.add('TMT_BARS')
+    
+    # Convert set to list and ensure at least one team
+    teams_list = list(teams)
+    if not teams_list:
+        teams_list = ['TMT_BARS']  # Default fallback
+    
+    # Log team assignments
+    logger.info(f"Assigned teams {teams_list} to project: {project.get('title')}")
+    
+    return teams_list
 
 def calculate_priority_score(project: ProjectData) -> int:
     """Calculate priority score for a project."""
@@ -246,7 +324,12 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
     try:
         logger.info(f"Filtering {len(state['projects'])} projects...")
         
-        # JSW filtering terms
+        # Get current date for age checking
+        current_date = datetime.now()
+        max_project_age_days = 30  # Only show projects from last 30 days
+        min_date = current_date - timedelta(days=max_project_age_days)
+        
+        # Define JSW terms for filtering
         jsw_terms = [
             # Company names and variations
             'jsw', 'jindal', 'js steel', 'jindal steel', 'jindal steel & power',
@@ -255,39 +338,6 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
             'jsw paints', 'jsw ventures', 'jsw future energy', 'jsw one',
             'jsw renew', 'jsw hydro', 'jsw utilities', 'jsw steel usa',
             'jsw steel italy', 'jsw steel coated', 'jsw ispat', 'jsw projects',
-            'jsw techno projects', 'jsw material handling', 'jsw severfield',
-            'jsw steel (usa)', 'jsw steel (italy)', 'jsw mergers', 'jsw overseas',
-            'jsw steel coated products', 'jsw steel plant', 'jsw steel factory',
-            'jsw steel mill', 'jsw steel works', 'jsw steel expansion',
-            'jsw steel production', 'jsw steel capacity', 'jsw steel output',
-            'jsw steel exports', 'jsw steel imports', 'jsw steel sales',
-            'jsw steel revenue', 'jsw steel profit', 'jsw steel earnings',
-            'jsw steel results', 'jsw steel performance', 'jsw steel shares',
-            'jsw steel stock', 'jsw steel market', 'jsw steel trade',
-            'jsw steel supply', 'jsw steel demand', 'jsw steel prices',
-            'jsw steel rates', 'jsw steel cost', 'jsw steel value',
-            'jsw steel quality', 'jsw steel grade', 'jsw steel specification',
-            'jsw steel standards', 'jsw steel certification', 'jsw steel testing',
-            'jsw steel research', 'jsw steel development', 'jsw steel innovation',
-            'jsw steel technology', 'jsw steel equipment', 'jsw steel machinery',
-            'jsw steel tools', 'jsw steel components', 'jsw steel parts',
-            'jsw steel materials', 'jsw steel raw materials', 'jsw steel scrap',
-            'jsw steel ore', 'jsw steel coal', 'jsw steel coke',
-            'jsw steel limestone', 'jsw steel flux', 'jsw steel additives',
-            'jsw steel chemicals', 'jsw steel gases', 'jsw steel water',
-            'jsw steel energy', 'jsw steel power', 'jsw steel electricity',
-            'jsw steel fuel', 'jsw steel oil', 'jsw steel gas',
-            'jsw steel environment', 'jsw steel safety', 'jsw steel health',
-            'jsw steel security', 'jsw steel protection', 'jsw steel measures',
-            'jsw steel standards', 'jsw steel compliance', 'jsw steel regulations',
-            'jsw steel rules', 'jsw steel guidelines', 'jsw steel policies',
-            'jsw steel procedures', 'jsw steel processes', 'jsw steel operations',
-            'jsw steel activities', 'jsw steel tasks', 'jsw steel jobs',
-            'jsw steel employment', 'jsw steel recruitment', 'jsw steel hiring',
-            'jsw steel training', 'jsw steel education', 'jsw steel skills',
-            'jsw steel knowledge', 'jsw steel expertise', 'jsw steel experience',
-            'jsw steel qualification', 'jsw steel certification', 'jsw steel degree',
-            'jsw steel diploma', 'jsw steel course', 'jsw steel program',
             
             # JSW Products and brands
             'jsw neosteel', 'jsw steel', 'jsw trusteel', 'neosteel', 'trusteel',
@@ -303,10 +353,10 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
             # Additional JSW-related terms
             'jspl', 'jindal saw', 'jindal stainless', 'jindal steel works',
             'jindal group', 'jindal family', 'sajjan jindal', 'parth jindal',
-            'jsw foundation', 'jsw sports', 'jsw bengaluru fc', 'jsw bangalore'
+            'jsw foundation', 'jsw sports', 'jsw bengaluru fc'
         ]
-
-        # Steel terms that might indicate JSW involvement
+        
+        # Define steel terms for filtering
         steel_terms = [
             'steel', 'tmt', 'bars', 'coils', 'plates', 'sheets',
             'galvanized', 'colour-coated', 'color-coated', 'galvalume',
@@ -317,7 +367,7 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
             'steel supply', 'steel demand', 'steel prices',
             'steel quality', 'steel grade', 'steel specification'
         ]
-
+        
         filtered_projects = []
         jsw_projects = []
         
@@ -340,6 +390,37 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                 text = f"{title} {project.get('description', '')}"
                 company_name = project.get('company') or extract_company_name(text)
                 if not company_name or len(company_name) < 3:
+                    continue
+                
+                # Check project age
+                project_date = project.get('start_date')
+                if isinstance(project_date, str):
+                    try:
+                        project_date = datetime.strptime(project_date, '%Y-%m-%d')
+                    except ValueError:
+                        project_date = current_date
+                elif not isinstance(project_date, datetime):
+                    project_date = current_date
+                
+                # Skip old projects
+                if project_date < min_date:
+                    logger.info(f"Skipping old project from {project_date.strftime('%Y-%m-%d')}: {title}")
+                    continue
+                
+                # Check for date-related keywords in title/description that indicate recency
+                text_lower = text.lower()
+                old_indicators = ['completed', 'finished', 'delivered', 'inaugurated', 'opened']
+                if any(indicator in text_lower for indicator in old_indicators):
+                    logger.info(f"Skipping completed project: {title}")
+                    continue
+                
+                # Look for recency indicators
+                recency_indicators = ['announced', 'launches', 'to build', 'upcoming', 'planned', 
+                                   'awarded', 'wins', 'secured', 'bags', 'new']
+                is_recent = any(indicator in text_lower for indicator in recency_indicators)
+                
+                if not is_recent:
+                    logger.info(f"Skipping project without recency indicators: {title}")
                     continue
                 
                 # Combine all text for JSW checks
@@ -428,7 +509,8 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                     'company': company_name,
                     'start_date': start_date,
                     'end_date': end_date,
-                    'description': project.get('description', '')[:2000]  # Limit description length
+                    'description': project.get('description', '')[:2000],  # Limit description length
+                    'is_recent': True  # Mark as recent for prioritization
                 })
                 
                 filtered_projects.append(project)
@@ -437,16 +519,17 @@ def filter_projects(state: WorkflowState) -> WorkflowState:
                 logger.error(f"Error filtering project: {str(e)}")
                 continue
         
+        # Sort filtered projects by date (most recent first)
+        filtered_projects.sort(key=lambda x: x.get('start_date', datetime.now()), reverse=True)
+        
         # Log filtering results
         if jsw_projects:
-            logger.info(f"Filtered out {len(jsw_projects)} JSW-related projects:")
-            for project in jsw_projects:
-                logger.info(f"- {project.get('company')}: {project.get('title')}")
+            logger.info(f"Filtered out {len(jsw_projects)} JSW-related projects")
         
         if not filtered_projects:
-            logger.warning("No projects passed filtering stage")
+            logger.warning("No recent projects passed filtering stage")
         else:
-            logger.info(f"Retained {len(filtered_projects)} non-JSW projects")
+            logger.info(f"Retained {len(filtered_projects)} recent non-JSW projects")
         
         state['filtered_projects'] = filtered_projects
         state['status'] = 'projects_filtered'
@@ -462,73 +545,126 @@ def generate_catchy_headline(project: dict) -> str:
     try:
         groq_client = Groq()
         
-        # Prepare context from project details
+        # Extract key project details
+        title = project.get('title', '')
+        company = project.get('company', '')
+        description = project.get('description', '')
+        steel_requirements = project.get('steel_requirements', {})
+        
+        # Extract steel quantities
+        total_steel = steel_requirements.get('total', 0)
+        primary_steel = steel_requirements.get('primary', {}).get('quantity', 0)
+        primary_type = steel_requirements.get('primary', {}).get('type', '')
+        
+        # Prepare context with focus on concrete details
         context = f"""
-        You are an AI assistant that specializes in writing concise headlines for JSW Steel's sales team about newly awarded infrastructure projects. Your goal is to quickly convey the potential steel demand of the project, not the monetary value of the contract. Focus on the physical size, length, area, or volume of the project.
+        Write a concise, factual headline for a construction/infrastructure project lead. Focus on the physical scope and steel requirements.
 
         Project Details:
-        - Original Title: {project.get('title', '')}
-        - Company: {project.get('company', '')}
-        - Description: {project.get('description', '')}
-        - Specifications:
-          * Length: {project.get('specifications', {}).get('length')}
-          * Area: {project.get('specifications', {}).get('area')}
-          * Capacity: {project.get('specifications', {}).get('capacity')}
-          * Floors: {project.get('specifications', {}).get('floors')}
-        - Project Type: {project.get('project_type', '')}
+        - Company: {company}
+        - Original Title: {title}
+        - Description: {description}
+        - Steel Requirements: {total_steel} MT total, {primary_steel} MT {primary_type}
 
-        Instructions:
-        1. Analyze the input to identify the type of infrastructure project (e.g., road, metro, bridge, building).
-        2. Extract key details about the project's size, such as:
-           * Length in kilometers or meters (for roads, railways, pipelines)
-           * Area in square meters or hectares (for buildings, industrial parks)
-           * Number of units (for housing projects, bridges, stations)
-           * Volume (for dams, reservoirs)
-        3. Create a headline that is approximately 9-10 words in length that prioritizes the project's size over its monetary value.
-        4. Use strong verbs and clear language.
-        5. Do NOT include the exact contract value in the headline unless the size of the project cannot be described without it.
+        Requirements:
+        1. Start with the company name
+        2. Use action verbs like "wins", "secures", "bags", "to build"
+        3. Include the project type (metro, highway, building, etc.)
+        4. Include location if mentioned
+        5. Include key numbers (length, units, capacity) if available
+        6. Keep it under 10 words
+        7. Do NOT mention monetary values
+        8. Do NOT use buzzwords or marketing language
+        9. Focus on facts, not speculation
 
         Example Headlines:
-        * L&T to build 65 km Patna road project
-        * Afcons wins Delhi metro extension for 12 stations
-        * Tata wins order for 5000 affordable housing units
+        * L&T to build 65-km Patna highway section
+        * Afcons wins Delhi metro contract for 12 stations
+        * Tata Projects secures Mumbai-Ahmedabad rail package
         * MEIL to construct 200-km irrigation canal in Andhra
         
-        Return ONLY the headline, no extra text or lines.
+        Return ONLY the headline, no extra text.
         """
         
         completion = groq_client.chat.completions.create(
             messages=[{
                 "role": "system",
-                "content": "You are an AI assistant that specializes in writing concise headlines for JSW Steel's sales team about newly awarded infrastructure projects. Your goal is to quickly convey the potential steel demand of the project, not the monetary value of the contract. Focus on the physical size, length, area, or volume of the project."
+                "content": "You are a headline writer for infrastructure projects. Write clear, factual headlines that focus on project scope and steel requirements."
             }, {
                 "role": "user",
                 "content": context
             }],
-            model="llama-3.1-8b-instant",
-            temperature=0.3,  
-            max_tokens=500   
+            model="mixtral-8x7b-32768",  # Using a more capable model
+            temperature=0.1,  # Lower temperature for more consistent output
+            max_tokens=50  # Shorter output for headlines
         )
         
         headline = completion.choices[0].message.content.strip()
         
+        # Clean up the headline
         headline = headline.replace('"', '').replace("'", "")
         headline = re.sub(r'\s+', ' ', headline).strip()
-        headline = re.sub(r'\(.*?\)', '', headline).strip()  # Remove any parenthetical text
+        headline = re.sub(r'\(.*?\)', '', headline).strip()  # Remove parenthetical text
         headline = re.sub(r'(?i)\b(ltd|limited|corp|corporation)\b', '', headline).strip()  # Remove company suffixes
         
-        # Remove any company headers or extra lines
-        headline = headline.split('\n')[-1].strip()  # Take only the last line if multiple lines
+        # Remove any headers or extra lines
+        headline = headline.split('\n')[-1].strip()
         
         # Ensure it's not too long
         if len(headline) > 80:
             headline = headline[:77] + "..."
+            
+        # If the generated headline seems invalid, fall back to a structured format
+        if len(headline) < 10 or not any(word in headline.lower() for word in ['wins', 'secures', 'bags', 'to build', 'awarded']):
+            # Create a structured fallback headline
+            project_type = ''
+            if 'metro' in description.lower():
+                project_type = 'metro project'
+            elif 'highway' in description.lower() or 'road' in description.lower():
+                project_type = 'highway project'
+            elif 'railway' in description.lower() or 'rail' in description.lower():
+                project_type = 'railway project'
+            elif 'building' in description.lower() or 'complex' in description.lower():
+                project_type = 'construction project'
+            else:
+                project_type = 'infrastructure project'
+                
+            headline = f"{company} wins {project_type} in {extract_location(description)}"
             
         return headline
         
     except Exception as e:
         logger.error(f"Error generating headline: {str(e)}")
         return project.get('title', '')  # Fallback to original title
+
+def extract_location(text: str) -> str:
+    """Extract location from project description."""
+    # List of major Indian states and cities
+    locations = [
+        'Delhi', 'Mumbai', 'Kolkata', 'Chennai', 'Bangalore', 'Hyderabad', 'Ahmedabad',
+        'Pune', 'Surat', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore', 'Thane',
+        'Bhopal', 'Visakhapatnam', 'Patna', 'Vadodara', 'Ghaziabad', 'Ludhiana',
+        'Agra', 'Nashik', 'Faridabad', 'Meerut', 'Rajkot', 'Varanasi', 'Srinagar',
+        'Aurangabad', 'Dhanbad', 'Amritsar', 'Navi Mumbai', 'Allahabad', 'Ranchi',
+        'Howrah', 'Coimbatore', 'Jabalpur', 'Gwalior', 'Vijayawada', 'Jodhpur',
+        'Madurai', 'Raipur', 'Kota', 'Chandigarh', 'Guwahati', 'Solapur', 'Hubli',
+        'Dharwad', 'Bareilly', 'Moradabad', 'Mysore', 'Gurgaon', 'Aligarh', 'Jalandhar',
+        'Maharashtra', 'Gujarat', 'Rajasthan', 'Karnataka', 'Andhra Pradesh', 'Tamil Nadu',
+        'Uttar Pradesh', 'West Bengal', 'Bihar', 'Madhya Pradesh', 'Telangana', 'Odisha',
+        'Kerala', 'Assam', 'Punjab', 'Haryana', 'Jammu and Kashmir', 'Uttarakhand',
+        'Himachal Pradesh', 'Tripura', 'Meghalaya', 'Manipur', 'Nagaland', 'Goa',
+        'Arunachal Pradesh', 'Mizoram', 'Sikkim'
+    ]
+    
+    # Find all locations mentioned in the text
+    found_locations = []
+    for location in locations:
+        if location.lower() in text.lower():
+            found_locations.append(location)
+    
+    if found_locations:
+        return found_locations[0]  # Return the first location found
+    return 'India'  # Default to India if no specific location found
 
 def enrich_projects(state: WorkflowState) -> WorkflowState:
     """Enrich projects with steel requirements, team assignments, and contact information."""
@@ -696,13 +832,11 @@ def prioritize_projects(state: WorkflowState) -> WorkflowState:
             reverse=True
         )
         
-        # Limit to top projects but ensure minimum count
-        min_projects = 3
-        max_projects = 7
-        if len(prioritized_projects) < min_projects:
-            logger.warning(f"Only {len(prioritized_projects)} projects available after prioritization")
+        # Log prioritization results
+        logger.info(f"Successfully prioritized {len(prioritized_projects)} projects")
         
-        state['prioritized_projects'] = prioritized_projects[:max_projects]
+        # Store all prioritized projects without any limits
+        state['prioritized_projects'] = prioritized_projects
         state['status'] = 'projects_prioritized'
         return state
         

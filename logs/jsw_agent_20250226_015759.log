@@ -1,0 +1,377 @@
+2025-02-26 01:57:59,103 - utilities.logger - INFO - Logging initialized
+2025-02-26 01:57:59,108 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 01:57:59,138 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 01:57:59,138 - utilities.project_discovery_graph - INFO - Processing query: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,138 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,439 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:57:59,439 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,439 - scrapers.perplexity_client - INFO - Mock search for: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,439 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,439 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:indianrailways.gov.in/tenders tender
+2025-02-26 01:57:59,439 - utilities.project_discovery_graph - INFO - Processing query: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,440 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,715 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:57:59,715 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,715 - scrapers.perplexity_client - INFO - Mock search for: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,716 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,716 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionplacements.com infrastructure
+2025-02-26 01:57:59,716 - utilities.project_discovery_graph - INFO - Processing query: site:business-standard.com/real-estate new project
+2025-02-26 01:57:59,717 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:business-standard.com/real-estate new project
+2025-02-26 01:58:00,099 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:00,099 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:business-standard.com/real-estate new project
+2025-02-26 01:58:00,099 - scrapers.perplexity_client - INFO - Mock search for: site:business-standard.com/real-estate new project
+2025-02-26 01:58:00,099 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:business-standard.com/real-estate new project
+2025-02-26 01:58:00,100 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:business-standard.com/real-estate new project
+2025-02-26 01:58:00,100 - utilities.project_discovery_graph - INFO - Processing query: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,100 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,603 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:00,603 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,603 - scrapers.perplexity_client - INFO - Mock search for: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,603 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,603 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionworld.in infrastructure
+2025-02-26 01:58:00,604 - utilities.project_discovery_graph - INFO - Processing query: infrastructure development project india
+2025-02-26 01:58:00,604 - utilities.project_discovery_graph - INFO - Searching Perplexity for: infrastructure development project india
+2025-02-26 01:58:00,913 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:00,914 - scrapers.perplexity_client - INFO - Searching Perplexity for: infrastructure development project india
+2025-02-26 01:58:00,914 - scrapers.perplexity_client - INFO - Mock search for: infrastructure development project india
+2025-02-26 01:58:00,914 - utilities.project_discovery_graph - INFO - Found 0 results for query: infrastructure development project india
+2025-02-26 01:58:00,914 - utilities.project_discovery_graph - WARNING - Invalid response for query: infrastructure development project india
+2025-02-26 01:58:00,914 - utilities.project_discovery_graph - INFO - Processing query: site:tendersinfo.com infrastructure
+2025-02-26 01:58:00,914 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendersinfo.com infrastructure
+2025-02-26 01:58:01,222 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:01,222 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendersinfo.com infrastructure
+2025-02-26 01:58:01,223 - scrapers.perplexity_client - INFO - Mock search for: site:tendersinfo.com infrastructure
+2025-02-26 01:58:01,223 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendersinfo.com infrastructure
+2025-02-26 01:58:01,223 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendersinfo.com infrastructure
+2025-02-26 01:58:01,223 - utilities.project_discovery_graph - INFO - Processing query: site:themetrorailguy.com new project
+2025-02-26 01:58:01,223 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:themetrorailguy.com new project
+2025-02-26 01:58:01,632 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:01,632 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:themetrorailguy.com new project
+2025-02-26 01:58:01,632 - scrapers.perplexity_client - INFO - Mock search for: site:themetrorailguy.com new project
+2025-02-26 01:58:01,632 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:themetrorailguy.com new project
+2025-02-26 01:58:01,633 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:themetrorailguy.com new project
+2025-02-26 01:58:01,633 - utilities.project_discovery_graph - INFO - Processing query: site:epc.gov.in new project
+2025-02-26 01:58:01,633 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:epc.gov.in new project
+2025-02-26 01:58:02,041 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:02,042 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:epc.gov.in new project
+2025-02-26 01:58:02,042 - scrapers.perplexity_client - INFO - Mock search for: site:epc.gov.in new project
+2025-02-26 01:58:02,042 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:epc.gov.in new project
+2025-02-26 01:58:02,042 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:epc.gov.in new project
+2025-02-26 01:58:02,042 - utilities.project_discovery_graph - INFO - Processing query: new renewable energy project india
+2025-02-26 01:58:02,042 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new renewable energy project india
+2025-02-26 01:58:02,347 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:02,347 - scrapers.perplexity_client - INFO - Searching Perplexity for: new renewable energy project india
+2025-02-26 01:58:02,348 - scrapers.perplexity_client - INFO - Mock search for: new renewable energy project india
+2025-02-26 01:58:02,348 - utilities.project_discovery_graph - INFO - Found 0 results for query: new renewable energy project india
+2025-02-26 01:58:02,348 - utilities.project_discovery_graph - WARNING - Invalid response for query: new renewable energy project india
+2025-02-26 01:58:02,348 - utilities.project_discovery_graph - INFO - Processing query: major infrastructure project india
+2025-02-26 01:58:02,348 - utilities.project_discovery_graph - INFO - Searching Perplexity for: major infrastructure project india
+2025-02-26 01:58:02,640 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:02,640 - scrapers.perplexity_client - INFO - Searching Perplexity for: major infrastructure project india
+2025-02-26 01:58:02,640 - scrapers.perplexity_client - INFO - Mock search for: major infrastructure project india
+2025-02-26 01:58:02,640 - utilities.project_discovery_graph - INFO - Found 0 results for query: major infrastructure project india
+2025-02-26 01:58:02,640 - utilities.project_discovery_graph - WARNING - Invalid response for query: major infrastructure project india
+2025-02-26 01:58:02,641 - utilities.project_discovery_graph - INFO - Processing query: site:tendertiger.com new project
+2025-02-26 01:58:02,641 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendertiger.com new project
+2025-02-26 01:58:02,905 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:02,905 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendertiger.com new project
+2025-02-26 01:58:02,905 - scrapers.perplexity_client - INFO - Mock search for: site:tendertiger.com new project
+2025-02-26 01:58:02,906 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendertiger.com new project
+2025-02-26 01:58:02,906 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendertiger.com new project
+2025-02-26 01:58:02,906 - utilities.project_discovery_graph - INFO - Processing query: steel infrastructure project india
+2025-02-26 01:58:02,906 - utilities.project_discovery_graph - INFO - Searching Perplexity for: steel infrastructure project india
+2025-02-26 01:58:03,193 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:03,193 - scrapers.perplexity_client - INFO - Searching Perplexity for: steel infrastructure project india
+2025-02-26 01:58:03,194 - scrapers.perplexity_client - INFO - Mock search for: steel infrastructure project india
+2025-02-26 01:58:03,194 - utilities.project_discovery_graph - INFO - Found 0 results for query: steel infrastructure project india
+2025-02-26 01:58:03,194 - utilities.project_discovery_graph - WARNING - Invalid response for query: steel infrastructure project india
+2025-02-26 01:58:03,194 - utilities.project_discovery_graph - INFO - Processing query: site:steelguru.com infrastructure
+2025-02-26 01:58:03,194 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:steelguru.com infrastructure
+2025-02-26 01:58:03,464 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:03,464 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:steelguru.com infrastructure
+2025-02-26 01:58:03,465 - scrapers.perplexity_client - INFO - Mock search for: site:steelguru.com infrastructure
+2025-02-26 01:58:03,465 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:steelguru.com infrastructure
+2025-02-26 01:58:03,465 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:steelguru.com infrastructure
+2025-02-26 01:58:03,465 - utilities.project_discovery_graph - INFO - Processing query: site:nhai.gov.in construction
+2025-02-26 01:58:03,465 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:nhai.gov.in construction
+2025-02-26 01:58:03,765 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:03,766 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:nhai.gov.in construction
+2025-02-26 01:58:03,766 - scrapers.perplexity_client - INFO - Mock search for: site:nhai.gov.in construction
+2025-02-26 01:58:03,766 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:nhai.gov.in construction
+2025-02-26 01:58:03,767 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:nhai.gov.in construction
+2025-02-26 01:58:03,767 - utilities.project_discovery_graph - INFO - Processing query: site:cppp.gov.in tender
+2025-02-26 01:58:03,767 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:cppp.gov.in tender
+2025-02-26 01:58:04,101 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:04,101 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:cppp.gov.in tender
+2025-02-26 01:58:04,102 - scrapers.perplexity_client - INFO - Mock search for: site:cppp.gov.in tender
+2025-02-26 01:58:04,102 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:cppp.gov.in tender
+2025-02-26 01:58:04,102 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:cppp.gov.in tender
+2025-02-26 01:58:04,102 - utilities.project_discovery_graph - INFO - Processing query: educational institution construction india
+2025-02-26 01:58:04,102 - utilities.project_discovery_graph - INFO - Searching Perplexity for: educational institution construction india
+2025-02-26 01:58:04,498 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:04,498 - scrapers.perplexity_client - INFO - Searching Perplexity for: educational institution construction india
+2025-02-26 01:58:04,498 - scrapers.perplexity_client - INFO - Mock search for: educational institution construction india
+2025-02-26 01:58:04,498 - utilities.project_discovery_graph - INFO - Found 0 results for query: educational institution construction india
+2025-02-26 01:58:04,499 - utilities.project_discovery_graph - WARNING - Invalid response for query: educational institution construction india
+2025-02-26 01:58:04,499 - utilities.project_discovery_graph - INFO - Processing query: site:infraline.com tender
+2025-02-26 01:58:04,499 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:infraline.com tender
+2025-02-26 01:58:04,803 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:04,803 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:infraline.com tender
+2025-02-26 01:58:04,803 - scrapers.perplexity_client - INFO - Mock search for: site:infraline.com tender
+2025-02-26 01:58:04,803 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:infraline.com tender
+2025-02-26 01:58:04,804 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:infraline.com tender
+2025-02-26 01:58:04,804 - utilities.project_discovery_graph - INFO - Processing query: site:biddetail.com tender
+2025-02-26 01:58:04,804 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:biddetail.com tender
+2025-02-26 01:58:05,109 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:05,109 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:biddetail.com tender
+2025-02-26 01:58:05,109 - scrapers.perplexity_client - INFO - Mock search for: site:biddetail.com tender
+2025-02-26 01:58:05,109 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:biddetail.com tender
+2025-02-26 01:58:05,109 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:biddetail.com tender
+2025-02-26 01:58:05,109 - utilities.project_discovery_graph - INFO - Processing query: site:constructionplacements.com tender
+2025-02-26 01:58:05,109 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionplacements.com tender
+2025-02-26 01:58:05,371 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:05,371 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionplacements.com tender
+2025-02-26 01:58:05,371 - scrapers.perplexity_client - INFO - Mock search for: site:constructionplacements.com tender
+2025-02-26 01:58:05,371 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionplacements.com tender
+2025-02-26 01:58:05,371 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionplacements.com tender
+2025-02-26 01:58:05,372 - utilities.project_discovery_graph - INFO - Processing query: major construction project india
+2025-02-26 01:58:05,372 - utilities.project_discovery_graph - INFO - Searching Perplexity for: major construction project india
+2025-02-26 01:58:05,724 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:05,724 - scrapers.perplexity_client - INFO - Searching Perplexity for: major construction project india
+2025-02-26 01:58:05,724 - scrapers.perplexity_client - INFO - Mock search for: major construction project india
+2025-02-26 01:58:05,724 - utilities.project_discovery_graph - INFO - Found 0 results for query: major construction project india
+2025-02-26 01:58:05,724 - utilities.project_discovery_graph - WARNING - Invalid response for query: major construction project india
+2025-02-26 01:58:05,724 - utilities.project_discovery_graph - INFO - Processing query: site:tendersinfo.com construction
+2025-02-26 01:58:05,724 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendersinfo.com construction
+2025-02-26 01:58:06,998 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:06,998 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendersinfo.com construction
+2025-02-26 01:58:06,998 - scrapers.perplexity_client - INFO - Mock search for: site:tendersinfo.com construction
+2025-02-26 01:58:06,998 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendersinfo.com construction
+2025-02-26 01:58:06,998 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendersinfo.com construction
+2025-02-26 01:58:06,999 - utilities.project_discovery_graph - INFO - Processing query: new hospital construction project india
+2025-02-26 01:58:06,999 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new hospital construction project india
+2025-02-26 01:58:07,356 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:07,356 - scrapers.perplexity_client - INFO - Searching Perplexity for: new hospital construction project india
+2025-02-26 01:58:07,356 - scrapers.perplexity_client - INFO - Mock search for: new hospital construction project india
+2025-02-26 01:58:07,356 - utilities.project_discovery_graph - INFO - Found 0 results for query: new hospital construction project india
+2025-02-26 01:58:07,356 - utilities.project_discovery_graph - WARNING - Invalid response for query: new hospital construction project india
+2025-02-26 01:58:07,356 - utilities.project_discovery_graph - INFO - Processing query: site:tenders.gov.in construction
+2025-02-26 01:58:07,356 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tenders.gov.in construction
+2025-02-26 01:58:07,632 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:07,632 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tenders.gov.in construction
+2025-02-26 01:58:07,632 - scrapers.perplexity_client - INFO - Mock search for: site:tenders.gov.in construction
+2025-02-26 01:58:07,633 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tenders.gov.in construction
+2025-02-26 01:58:07,633 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tenders.gov.in construction
+2025-02-26 01:58:07,633 - utilities.project_discovery_graph - INFO - Processing query: warehouse construction project india
+2025-02-26 01:58:07,633 - utilities.project_discovery_graph - INFO - Searching Perplexity for: warehouse construction project india
+2025-02-26 01:58:08,048 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:08,049 - scrapers.perplexity_client - INFO - Searching Perplexity for: warehouse construction project india
+2025-02-26 01:58:08,049 - scrapers.perplexity_client - INFO - Mock search for: warehouse construction project india
+2025-02-26 01:58:08,049 - utilities.project_discovery_graph - INFO - Found 0 results for query: warehouse construction project india
+2025-02-26 01:58:08,049 - utilities.project_discovery_graph - WARNING - Invalid response for query: warehouse construction project india
+2025-02-26 01:58:08,049 - utilities.project_discovery_graph - INFO - Processing query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,049 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,713 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:08,714 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,714 - scrapers.perplexity_client - INFO - Mock search for: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,714 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,714 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:58:08,714 - utilities.project_discovery_graph - INFO - Processing query: site:realtynxt.com tender
+2025-02-26 01:58:08,714 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:realtynxt.com tender
+2025-02-26 01:58:09,380 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:09,381 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:realtynxt.com tender
+2025-02-26 01:58:09,381 - scrapers.perplexity_client - INFO - Mock search for: site:realtynxt.com tender
+2025-02-26 01:58:09,381 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:realtynxt.com tender
+2025-02-26 01:58:09,381 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:realtynxt.com tender
+2025-02-26 01:58:09,381 - utilities.project_discovery_graph - INFO - Processing query: hospital construction tender announcement india
+2025-02-26 01:58:09,381 - utilities.project_discovery_graph - INFO - Searching Perplexity for: hospital construction tender announcement india
+2025-02-26 01:58:10,398 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:10,398 - scrapers.perplexity_client - INFO - Searching Perplexity for: hospital construction tender announcement india
+2025-02-26 01:58:10,398 - scrapers.perplexity_client - INFO - Mock search for: hospital construction tender announcement india
+2025-02-26 01:58:10,399 - utilities.project_discovery_graph - INFO - Found 0 results for query: hospital construction tender announcement india
+2025-02-26 01:58:10,399 - utilities.project_discovery_graph - WARNING - Invalid response for query: hospital construction tender announcement india
+2025-02-26 01:58:10,399 - utilities.project_discovery_graph - INFO - Processing query: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,399 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,747 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:10,747 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,747 - scrapers.perplexity_client - INFO - Mock search for: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,748 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,748 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:economictimes.indiatimes.com/industry/infra tender
+2025-02-26 01:58:10,748 - utilities.project_discovery_graph - INFO - Processing query: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:10,748 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:11,016 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:11,016 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:11,017 - scrapers.perplexity_client - INFO - Mock search for: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:11,017 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:11,017 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:realty.economictimes.indiatimes.com new project
+2025-02-26 01:58:11,017 - utilities.project_discovery_graph - INFO - Processing query: site:projectxindia.com infrastructure
+2025-02-26 01:58:11,018 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:projectxindia.com infrastructure
+2025-02-26 01:58:12,075 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:12,075 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:projectxindia.com infrastructure
+2025-02-26 01:58:12,076 - scrapers.perplexity_client - INFO - Mock search for: site:projectxindia.com infrastructure
+2025-02-26 01:58:12,076 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:projectxindia.com infrastructure
+2025-02-26 01:58:12,076 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:projectxindia.com infrastructure
+2025-02-26 01:58:12,077 - utilities.project_discovery_graph - INFO - Processing query: smart city project india
+2025-02-26 01:58:12,077 - utilities.project_discovery_graph - INFO - Searching Perplexity for: smart city project india
+2025-02-26 01:58:12,394 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:12,395 - scrapers.perplexity_client - INFO - Searching Perplexity for: smart city project india
+2025-02-26 01:58:12,395 - scrapers.perplexity_client - INFO - Mock search for: smart city project india
+2025-02-26 01:58:12,395 - utilities.project_discovery_graph - INFO - Found 0 results for query: smart city project india
+2025-02-26 01:58:12,395 - utilities.project_discovery_graph - WARNING - Invalid response for query: smart city project india
+2025-02-26 01:58:12,395 - utilities.project_discovery_graph - INFO - Processing query: site:tendernews.com construction
+2025-02-26 01:58:12,395 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendernews.com construction
+2025-02-26 01:58:12,686 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:12,687 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendernews.com construction
+2025-02-26 01:58:12,687 - scrapers.perplexity_client - INFO - Mock search for: site:tendernews.com construction
+2025-02-26 01:58:12,687 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendernews.com construction
+2025-02-26 01:58:12,687 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendernews.com construction
+2025-02-26 01:58:12,687 - utilities.project_discovery_graph - INFO - Processing query: upcoming educational institutions project india
+2025-02-26 01:58:12,687 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming educational institutions project india
+2025-02-26 01:58:12,996 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:12,996 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming educational institutions project india
+2025-02-26 01:58:12,996 - scrapers.perplexity_client - INFO - Mock search for: upcoming educational institutions project india
+2025-02-26 01:58:12,996 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming educational institutions project india
+2025-02-26 01:58:12,996 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming educational institutions project india
+2025-02-26 01:58:12,996 - utilities.project_discovery_graph - INFO - Processing query: steel structure project india
+2025-02-26 01:58:12,996 - utilities.project_discovery_graph - INFO - Searching Perplexity for: steel structure project india
+2025-02-26 01:58:13,272 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:13,272 - scrapers.perplexity_client - INFO - Searching Perplexity for: steel structure project india
+2025-02-26 01:58:13,272 - scrapers.perplexity_client - INFO - Mock search for: steel structure project india
+2025-02-26 01:58:13,272 - utilities.project_discovery_graph - INFO - Found 0 results for query: steel structure project india
+2025-02-26 01:58:13,272 - utilities.project_discovery_graph - WARNING - Invalid response for query: steel structure project india
+2025-02-26 01:58:13,272 - utilities.project_discovery_graph - INFO - Processing query: new metro rail project india
+2025-02-26 01:58:13,272 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new metro rail project india
+2025-02-26 01:58:13,610 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:13,610 - scrapers.perplexity_client - INFO - Searching Perplexity for: new metro rail project india
+2025-02-26 01:58:13,610 - scrapers.perplexity_client - INFO - Mock search for: new metro rail project india
+2025-02-26 01:58:13,610 - utilities.project_discovery_graph - INFO - Found 0 results for query: new metro rail project india
+2025-02-26 01:58:13,610 - utilities.project_discovery_graph - WARNING - Invalid response for query: new metro rail project india
+2025-02-26 01:58:13,611 - utilities.project_discovery_graph - INFO - Processing query: smart city projects tender announcement india
+2025-02-26 01:58:13,611 - utilities.project_discovery_graph - INFO - Searching Perplexity for: smart city projects tender announcement india
+2025-02-26 01:58:14,010 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:14,010 - scrapers.perplexity_client - INFO - Searching Perplexity for: smart city projects tender announcement india
+2025-02-26 01:58:14,010 - scrapers.perplexity_client - INFO - Mock search for: smart city projects tender announcement india
+2025-02-26 01:58:14,011 - utilities.project_discovery_graph - INFO - Found 0 results for query: smart city projects tender announcement india
+2025-02-26 01:58:14,011 - utilities.project_discovery_graph - WARNING - Invalid response for query: smart city projects tender announcement india
+2025-02-26 01:58:14,011 - utilities.project_discovery_graph - INFO - Processing query: hospital construction project india
+2025-02-26 01:58:14,011 - utilities.project_discovery_graph - INFO - Searching Perplexity for: hospital construction project india
+2025-02-26 01:58:14,327 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:14,327 - scrapers.perplexity_client - INFO - Searching Perplexity for: hospital construction project india
+2025-02-26 01:58:14,328 - scrapers.perplexity_client - INFO - Mock search for: hospital construction project india
+2025-02-26 01:58:14,328 - utilities.project_discovery_graph - INFO - Found 0 results for query: hospital construction project india
+2025-02-26 01:58:14,328 - utilities.project_discovery_graph - WARNING - Invalid response for query: hospital construction project india
+2025-02-26 01:58:14,328 - utilities.project_discovery_graph - INFO - Processing query: site:metrorailtoday.com tender
+2025-02-26 01:58:14,328 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:metrorailtoday.com tender
+2025-02-26 01:58:14,633 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:14,633 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:metrorailtoday.com tender
+2025-02-26 01:58:14,634 - scrapers.perplexity_client - INFO - Mock search for: site:metrorailtoday.com tender
+2025-02-26 01:58:14,634 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:metrorailtoday.com tender
+2025-02-26 01:58:14,634 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:metrorailtoday.com tender
+2025-02-26 01:58:14,635 - utilities.project_discovery_graph - INFO - Processing query: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:14,635 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:15,042 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:15,043 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:15,043 - scrapers.perplexity_client - INFO - Mock search for: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:15,043 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:15,043 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:business-standard.com/real-estate infrastructure
+2025-02-26 01:58:15,043 - utilities.project_discovery_graph - INFO - Processing query: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,043 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,342 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:15,342 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,343 - scrapers.perplexity_client - INFO - Mock search for: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,343 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,344 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:infrabuddy.com infrastructure
+2025-02-26 01:58:15,344 - utilities.project_discovery_graph - INFO - Processing query: manufacturing facility project india
+2025-02-26 01:58:15,344 - utilities.project_discovery_graph - INFO - Searching Perplexity for: manufacturing facility project india
+2025-02-26 01:58:15,657 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:15,658 - scrapers.perplexity_client - INFO - Searching Perplexity for: manufacturing facility project india
+2025-02-26 01:58:15,658 - scrapers.perplexity_client - INFO - Mock search for: manufacturing facility project india
+2025-02-26 01:58:15,658 - utilities.project_discovery_graph - INFO - Found 0 results for query: manufacturing facility project india
+2025-02-26 01:58:15,658 - utilities.project_discovery_graph - WARNING - Invalid response for query: manufacturing facility project india
+2025-02-26 01:58:15,658 - utilities.project_discovery_graph - INFO - Processing query: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,658 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,965 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:15,966 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,966 - scrapers.perplexity_client - INFO - Mock search for: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,966 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,967 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendersinfo.com/global-steel-tenders.php tender
+2025-02-26 01:58:15,967 - utilities.project_discovery_graph - INFO - Processing query: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:15,967 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:16,279 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:16,279 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:16,279 - scrapers.perplexity_client - INFO - Mock search for: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:16,279 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:16,279 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionopportunities.in infrastructure
+2025-02-26 01:58:16,280 - utilities.project_discovery_graph - INFO - Processing query: upcoming port development project india
+2025-02-26 01:58:16,280 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming port development project india
+2025-02-26 01:58:16,695 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:16,695 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming port development project india
+2025-02-26 01:58:16,696 - scrapers.perplexity_client - INFO - Mock search for: upcoming port development project india
+2025-02-26 01:58:16,696 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming port development project india
+2025-02-26 01:58:16,696 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming port development project india
+2025-02-26 01:58:16,696 - utilities.project_discovery_graph - INFO - Processing query: upcoming warehousing project india
+2025-02-26 01:58:16,696 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming warehousing project india
+2025-02-26 01:58:16,994 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:16,995 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming warehousing project india
+2025-02-26 01:58:16,995 - scrapers.perplexity_client - INFO - Mock search for: upcoming warehousing project india
+2025-02-26 01:58:16,995 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming warehousing project india
+2025-02-26 01:58:16,995 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming warehousing project india
+2025-02-26 01:58:16,995 - utilities.project_discovery_graph - INFO - Processing query: site:realtynxt.com construction
+2025-02-26 01:58:16,996 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:realtynxt.com construction
+2025-02-26 01:58:17,304 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:17,304 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:realtynxt.com construction
+2025-02-26 01:58:17,304 - scrapers.perplexity_client - INFO - Mock search for: site:realtynxt.com construction
+2025-02-26 01:58:17,304 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:realtynxt.com construction
+2025-02-26 01:58:17,305 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:realtynxt.com construction
+2025-02-26 01:58:17,305 - utilities.project_discovery_graph - INFO - Processing query: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,305 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,603 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:17,603 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,604 - scrapers.perplexity_client - INFO - Mock search for: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,604 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,604 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:financialexpress.com/infrastructure new project
+2025-02-26 01:58:17,604 - utilities.project_discovery_graph - INFO - Processing query: site:metrorailtoday.com new project
+2025-02-26 01:58:17,604 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:metrorailtoday.com new project
+2025-02-26 01:58:18,020 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:18,020 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:metrorailtoday.com new project
+2025-02-26 01:58:18,020 - scrapers.perplexity_client - INFO - Mock search for: site:metrorailtoday.com new project
+2025-02-26 01:58:18,020 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:metrorailtoday.com new project
+2025-02-26 01:58:18,020 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:metrorailtoday.com new project
+2025-02-26 01:58:18,021 - utilities.project_discovery_graph - INFO - Processing query: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,021 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,280 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:18,280 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,280 - scrapers.perplexity_client - INFO - Mock search for: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,280 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,280 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:indiainfrastructure.com infrastructure
+2025-02-26 01:58:18,280 - utilities.project_discovery_graph - INFO - Processing query: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,280 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,696 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:18,696 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,696 - scrapers.perplexity_client - INFO - Mock search for: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,696 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,696 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:realtynxt.com infrastructure
+2025-02-26 01:58:18,696 - utilities.project_discovery_graph - INFO - Scraped 0 projects from 50 queries
+2025-02-26 01:58:18,697 - utilities.project_discovery_graph - INFO - Filtering 0 projects...
+2025-02-26 01:58:18,697 - utilities.project_discovery_graph - WARNING - No projects passed filtering stage
+2025-02-26 01:58:18,698 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-26 01:58:20,374 - scrapers.perplexity_client - WARNING - Using mock Perplexity client due to invalid API key
+2025-02-26 01:58:20,375 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 01:58:20,375 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 01:58:22,308 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 01:58:22,529 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-26 01:58:22,529 - utilities.project_discovery_graph - INFO - Successfully enriched 0 projects
+2025-02-26 01:58:22,531 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-26 01:58:22,531 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-26 01:58:22,534 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 01:58:22,534 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-26 01:58:22,535 - utilities.project_discovery_graph - INFO - Workflow completed in 23.40s
+2025-02-26 01:58:22,535 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 01:58:22,536 - utilities.project_discovery_graph - INFO - Projects found: 0
+2025-02-26 01:58:22,536 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-26 01:58:22,536 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-26 01:58:22,536 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-26 01:58:22,537 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 01:58:22,679 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 01:58:22,679 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 01:58:22,679 - apscheduler.scheduler - INFO - Scheduler started

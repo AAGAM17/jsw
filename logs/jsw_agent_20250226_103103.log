@@ -1,0 +1,64 @@
+2025-02-26 10:31:03,023 - utilities.logger - INFO - Logging initialized
+2025-02-26 10:31:03,030 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 10:31:03,068 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 10:31:08,664 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 10:31:10,457 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 10:31:12,366 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 10:31:55,445 - utilities.project_discovery_graph - INFO - Filtering 11 projects...
+2025-02-26 10:31:55,471 - utilities.project_discovery_graph - INFO - Retained 4 non-JSW projects
+2025-02-26 10:31:55,473 - utilities.project_discovery_graph - INFO - Enriching 4 projects...
+2025-02-26 10:31:56,230 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:31:56,230 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 10:31:57,927 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 10:31:58,720 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:31:58,728 - utilities.project_discovery_graph - INFO - Assigned teams ['ELECTRICAL_STEEL', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS'] to project: Ansal, Dineshchandra Win Contract to Build 6.925 km Sonepur-Digha Bridge with...
+2025-02-26 10:31:58,728 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:31:58,728 - utilities.contact_finder - WARNING - No contacts found for company: month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:31:58,728 - utilities.contact_finder - WARNING - Using default contact for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:31:59,159 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:31:59,171 - utilities.project_discovery_graph - INFO - Assigned teams ['ELECTRICAL_STEEL', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS'] to project: Dilip Buildcon Bags 120-km Andhra Pradesh Greenfield Highway Projects, Requir...
+2025-02-26 10:31:59,171 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Construction
+2025-02-26 10:31:59,172 - utilities.contact_finder - INFO - Found contacts for company: nhai
+2025-02-26 10:31:59,172 - utilities.contact_finder - INFO - Added 2 contacts for Construction
+2025-02-26 10:31:59,613 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:31:59,616 - utilities.project_discovery_graph - INFO - Assigned teams ['ELECTRICAL_STEEL', 'WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS'] to project: Under Construction Wins Contract to Build 12.30 km Airoli-Katai Naka Elevated...
+2025-02-26 10:31:59,616 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-26 10:31:59,617 - utilities.contact_finder - WARNING - No contacts found for company: Under Construction
+2025-02-26 10:31:59,617 - utilities.contact_finder - WARNING - Using default contact for Under Construction
+2025-02-26 10:32:00,080 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:32:00,083 - utilities.project_discovery_graph - INFO - Assigned teams ['ELECTRICAL_STEEL', 'WIRE_RODS', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'GALVALUME_STEEL', 'TMT_BARS'] to project: GMR Infrastructure Wins 181 km Hyderabad-Vijayawada Highway Project with 22,6...
+2025-02-26 10:32:00,084 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:32:00,084 - utilities.contact_finder - WARNING - No contacts found for company: Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:32:00,084 - utilities.contact_finder - WARNING - Using default contact for Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:32:00,084 - utilities.project_discovery_graph - INFO - Successfully enriched 4 projects
+2025-02-26 10:32:00,087 - utilities.project_discovery_graph - INFO - Prioritizing 4 projects...
+2025-02-26 10:32:00,088 - utilities.project_discovery_graph - WARNING - Only 4 projects available after prioritization
+2025-02-26 10:32:00,090 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 10:32:00,107 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:32:00,108 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 10:32:02,398 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 10:32:02,620 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:32:06,144 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-26 10:32:06,144 - whatsapp.interakt_handler - INFO - Sending 4 project opportunities via WhatsApp
+2025-02-26 10:32:06,145 - whatsapp.interakt_handler - INFO - Sending 4 non-JSW projects
+2025-02-26 10:32:06,361 - whatsapp.interakt_handler - ERROR - Failed to send overview to 8484926925
+2025-02-26 10:32:06,535 - whatsapp.interakt_handler - ERROR - Failed to send overview to 7715018407
+2025-02-26 10:32:06,736 - whatsapp.interakt_handler - ERROR - Failed to send project Ansal, Dineshchandra Win Contract to Build 6.925 km Sonepur-Digha Bridge with... to 8484926925
+2025-02-26 10:32:07,142 - whatsapp.interakt_handler - ERROR - Failed to send project Ansal, Dineshchandra Win Contract to Build 6.925 km Sonepur-Digha Bridge with... to 7715018407
+2025-02-26 10:32:07,470 - whatsapp.interakt_handler - ERROR - Failed to send project GMR Infrastructure Wins 181 km Hyderabad-Vijayawada Highway Project with 22,6... to 8484926925
+2025-02-26 10:32:07,785 - whatsapp.interakt_handler - ERROR - Failed to send project GMR Infrastructure Wins 181 km Hyderabad-Vijayawada Highway Project with 22,6... to 7715018407
+2025-02-26 10:32:08,181 - whatsapp.interakt_handler - ERROR - Failed to send project Dilip Buildcon Bags 120-km Andhra Pradesh Greenfield Highway Projects, Requir... to 8484926925
+2025-02-26 10:32:08,508 - whatsapp.interakt_handler - ERROR - Failed to send project Dilip Buildcon Bags 120-km Andhra Pradesh Greenfield Highway Projects, Requir... to 7715018407
+2025-02-26 10:32:08,852 - whatsapp.interakt_handler - ERROR - Failed to send project Under Construction Wins Contract to Build 12.30 km Airoli-Katai Naka Elevated... to 8484926925
+2025-02-26 10:32:09,257 - whatsapp.interakt_handler - ERROR - Failed to send project Under Construction Wins Contract to Build 12.30 km Airoli-Katai Naka Elevated... to 7715018407
+2025-02-26 10:32:09,262 - utilities.project_discovery_graph - ERROR - Failed to send WhatsApp notifications
+2025-02-26 10:32:09,264 - utilities.project_discovery_graph - INFO - Workflow completed in 66.20s
+2025-02-26 10:32:09,265 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 10:32:09,265 - utilities.project_discovery_graph - INFO - Projects found: 11
+2025-02-26 10:32:09,265 - utilities.project_discovery_graph - INFO - Projects filtered: 4
+2025-02-26 10:32:09,265 - utilities.project_discovery_graph - INFO - Projects enriched: 4
+2025-02-26 10:32:09,266 - utilities.project_discovery_graph - INFO - Projects prioritized: 4
+2025-02-26 10:32:09,266 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 10:32:09,430 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 10:32:09,430 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 10:32:09,430 - apscheduler.scheduler - INFO - Scheduler started

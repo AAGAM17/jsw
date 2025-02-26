@@ -1,0 +1,8 @@
+2025-02-26 02:01:55,539 - utilities.logger - INFO - Logging initialized
+2025-02-26 02:01:55,543 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 02:01:55,566 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 02:01:59,954 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 02:02:01,441 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 02:02:03,250 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 02:11:30,679 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'industrial park development india' after 3 retries: Request failed with status code 400: {"requestId":"93515c14b3adfb8e9ac31b74dda377e9","error":"Sorry, we had trouble finding contents for the given URLs.","tag":"NO_CONTENT_FOUND"}
+2025-02-26 02:12:07,337 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'hospital construction project india' after 3 retries: Request failed with status code 429: {"error":"You've exceeded your Exa rate limit of 5 requests per second. If you want this increased, please email hello@exa.ai :)"}

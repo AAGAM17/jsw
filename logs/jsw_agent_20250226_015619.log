@@ -1,0 +1,326 @@
+2025-02-26 01:56:19,123 - utilities.logger - INFO - Logging initialized
+2025-02-26 01:56:19,132 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 01:56:19,163 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 01:56:19,163 - utilities.project_discovery_graph - INFO - Processing query: site:indianinfrastructure.com construction
+2025-02-26 01:56:19,163 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:indianinfrastructure.com construction
+2025-02-26 01:56:19,163 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:indianinfrastructure.com construction
+2025-02-26 01:56:19,538 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:19,541 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:indianinfrastructure.com construction
+2025-02-26 01:56:19,542 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:indianinfrastructure.com construction
+2025-02-26 01:56:19,542 - utilities.project_discovery_graph - INFO - Processing query: site:infraline.com infrastructure
+2025-02-26 01:56:19,542 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:infraline.com infrastructure
+2025-02-26 01:56:19,543 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:infraline.com infrastructure
+2025-02-26 01:56:19,841 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:19,845 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:infraline.com infrastructure
+2025-02-26 01:56:19,846 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:infraline.com infrastructure
+2025-02-26 01:56:19,846 - utilities.project_discovery_graph - INFO - Processing query: hospital construction project india
+2025-02-26 01:56:19,846 - utilities.project_discovery_graph - INFO - Searching Perplexity for: hospital construction project india
+2025-02-26 01:56:19,846 - scrapers.perplexity_client - INFO - Searching Perplexity for: hospital construction project india
+2025-02-26 01:56:20,121 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:20,126 - utilities.project_discovery_graph - INFO - Found 0 results for query: hospital construction project india
+2025-02-26 01:56:20,126 - utilities.project_discovery_graph - WARNING - Invalid response for query: hospital construction project india
+2025-02-26 01:56:20,127 - utilities.project_discovery_graph - INFO - Processing query: site:metrorailtoday.com new project
+2025-02-26 01:56:20,127 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:metrorailtoday.com new project
+2025-02-26 01:56:20,127 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:metrorailtoday.com new project
+2025-02-26 01:56:20,403 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:20,406 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:metrorailtoday.com new project
+2025-02-26 01:56:20,406 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:metrorailtoday.com new project
+2025-02-26 01:56:20,407 - utilities.project_discovery_graph - INFO - Processing query: steel construction project india
+2025-02-26 01:56:20,407 - utilities.project_discovery_graph - INFO - Searching Perplexity for: steel construction project india
+2025-02-26 01:56:20,407 - scrapers.perplexity_client - INFO - Searching Perplexity for: steel construction project india
+2025-02-26 01:56:20,763 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:20,767 - utilities.project_discovery_graph - INFO - Found 0 results for query: steel construction project india
+2025-02-26 01:56:20,767 - utilities.project_discovery_graph - WARNING - Invalid response for query: steel construction project india
+2025-02-26 01:56:20,767 - utilities.project_discovery_graph - INFO - Processing query: site:constructionworld.in tender
+2025-02-26 01:56:20,767 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionworld.in tender
+2025-02-26 01:56:20,768 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionworld.in tender
+2025-02-26 01:56:21,901 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:21,905 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionworld.in tender
+2025-02-26 01:56:21,905 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionworld.in tender
+2025-02-26 01:56:21,906 - utilities.project_discovery_graph - INFO - Processing query: upcoming road infrastructure project india
+2025-02-26 01:56:21,906 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming road infrastructure project india
+2025-02-26 01:56:21,906 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming road infrastructure project india
+2025-02-26 01:56:22,211 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:22,214 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming road infrastructure project india
+2025-02-26 01:56:22,214 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming road infrastructure project india
+2025-02-26 01:56:22,215 - utilities.project_discovery_graph - INFO - Processing query: upcoming educational institutions project india
+2025-02-26 01:56:22,215 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming educational institutions project india
+2025-02-26 01:56:22,215 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming educational institutions project india
+2025-02-26 01:56:22,522 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:22,525 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming educational institutions project india
+2025-02-26 01:56:22,525 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming educational institutions project india
+2025-02-26 01:56:22,526 - utilities.project_discovery_graph - INFO - Processing query: site:epc.gov.in infrastructure
+2025-02-26 01:56:22,526 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:epc.gov.in infrastructure
+2025-02-26 01:56:22,527 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:epc.gov.in infrastructure
+2025-02-26 01:56:22,912 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:22,915 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:epc.gov.in infrastructure
+2025-02-26 01:56:22,915 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:epc.gov.in infrastructure
+2025-02-26 01:56:22,915 - utilities.project_discovery_graph - INFO - Processing query: new industrial parks project india
+2025-02-26 01:56:22,916 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new industrial parks project india
+2025-02-26 01:56:22,916 - scrapers.perplexity_client - INFO - Searching Perplexity for: new industrial parks project india
+2025-02-26 01:56:23,221 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:23,225 - utilities.project_discovery_graph - INFO - Found 0 results for query: new industrial parks project india
+2025-02-26 01:56:23,225 - utilities.project_discovery_graph - WARNING - Invalid response for query: new industrial parks project india
+2025-02-26 01:56:23,226 - utilities.project_discovery_graph - INFO - Processing query: new metro rail project india
+2025-02-26 01:56:23,227 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new metro rail project india
+2025-02-26 01:56:23,227 - scrapers.perplexity_client - INFO - Searching Perplexity for: new metro rail project india
+2025-02-26 01:56:23,526 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:23,527 - utilities.project_discovery_graph - INFO - Found 0 results for query: new metro rail project india
+2025-02-26 01:56:23,528 - utilities.project_discovery_graph - WARNING - Invalid response for query: new metro rail project india
+2025-02-26 01:56:23,528 - utilities.project_discovery_graph - INFO - Processing query: site:steelmint.com construction
+2025-02-26 01:56:23,528 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:steelmint.com construction
+2025-02-26 01:56:23,528 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:steelmint.com construction
+2025-02-26 01:56:23,788 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:23,790 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:steelmint.com construction
+2025-02-26 01:56:23,790 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:steelmint.com construction
+2025-02-26 01:56:23,790 - utilities.project_discovery_graph - INFO - Processing query: metro rail project india
+2025-02-26 01:56:23,790 - utilities.project_discovery_graph - INFO - Searching Perplexity for: metro rail project india
+2025-02-26 01:56:23,790 - scrapers.perplexity_client - INFO - Searching Perplexity for: metro rail project india
+2025-02-26 01:56:24,857 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:24,860 - utilities.project_discovery_graph - INFO - Found 0 results for query: metro rail project india
+2025-02-26 01:56:24,860 - utilities.project_discovery_graph - WARNING - Invalid response for query: metro rail project india
+2025-02-26 01:56:24,860 - utilities.project_discovery_graph - INFO - Processing query: site:tendersinfo.com/global-steel-tenders.php construction
+2025-02-26 01:56:24,860 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendersinfo.com/global-steel-tenders.php construction
+2025-02-26 01:56:24,860 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendersinfo.com/global-steel-tenders.php construction
+2025-02-26 01:56:25,169 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:25,172 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendersinfo.com/global-steel-tenders.php construction
+2025-02-26 01:56:25,173 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendersinfo.com/global-steel-tenders.php construction
+2025-02-26 01:56:25,173 - utilities.project_discovery_graph - INFO - Processing query: new residential construction project india
+2025-02-26 01:56:25,173 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new residential construction project india
+2025-02-26 01:56:25,173 - scrapers.perplexity_client - INFO - Searching Perplexity for: new residential construction project india
+2025-02-26 01:56:25,474 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:25,478 - utilities.project_discovery_graph - INFO - Found 0 results for query: new residential construction project india
+2025-02-26 01:56:25,478 - utilities.project_discovery_graph - WARNING - Invalid response for query: new residential construction project india
+2025-02-26 01:56:25,478 - utilities.project_discovery_graph - INFO - Processing query: new project tender announced this month india
+2025-02-26 01:56:25,479 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new project tender announced this month india
+2025-02-26 01:56:25,479 - scrapers.perplexity_client - INFO - Searching Perplexity for: new project tender announced this month india
+2025-02-26 01:56:25,768 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:25,771 - utilities.project_discovery_graph - INFO - Found 0 results for query: new project tender announced this month india
+2025-02-26 01:56:25,771 - utilities.project_discovery_graph - WARNING - Invalid response for query: new project tender announced this month india
+2025-02-26 01:56:25,771 - utilities.project_discovery_graph - INFO - Processing query: site:biddetail.com construction
+2025-02-26 01:56:25,771 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:biddetail.com construction
+2025-02-26 01:56:25,771 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:biddetail.com construction
+2025-02-26 01:56:26,078 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:26,081 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:biddetail.com construction
+2025-02-26 01:56:26,081 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:biddetail.com construction
+2025-02-26 01:56:26,082 - utilities.project_discovery_graph - INFO - Processing query: upcoming manufacturing facilities project india
+2025-02-26 01:56:26,082 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming manufacturing facilities project india
+2025-02-26 01:56:26,082 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming manufacturing facilities project india
+2025-02-26 01:56:26,408 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:26,412 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming manufacturing facilities project india
+2025-02-26 01:56:26,412 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming manufacturing facilities project india
+2025-02-26 01:56:26,413 - utilities.project_discovery_graph - INFO - Processing query: port development project india
+2025-02-26 01:56:26,413 - utilities.project_discovery_graph - INFO - Searching Perplexity for: port development project india
+2025-02-26 01:56:26,413 - scrapers.perplexity_client - INFO - Searching Perplexity for: port development project india
+2025-02-26 01:56:26,708 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:26,711 - utilities.project_discovery_graph - INFO - Found 0 results for query: port development project india
+2025-02-26 01:56:26,712 - utilities.project_discovery_graph - WARNING - Invalid response for query: port development project india
+2025-02-26 01:56:26,712 - utilities.project_discovery_graph - INFO - Processing query: road infrastructure project india
+2025-02-26 01:56:26,712 - utilities.project_discovery_graph - INFO - Searching Perplexity for: road infrastructure project india
+2025-02-26 01:56:26,712 - scrapers.perplexity_client - INFO - Searching Perplexity for: road infrastructure project india
+2025-02-26 01:56:27,725 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:27,729 - utilities.project_discovery_graph - INFO - Found 0 results for query: road infrastructure project india
+2025-02-26 01:56:27,729 - utilities.project_discovery_graph - WARNING - Invalid response for query: road infrastructure project india
+2025-02-26 01:56:27,729 - utilities.project_discovery_graph - INFO - Processing query: construction project announcement india
+2025-02-26 01:56:27,729 - utilities.project_discovery_graph - INFO - Searching Perplexity for: construction project announcement india
+2025-02-26 01:56:27,729 - scrapers.perplexity_client - INFO - Searching Perplexity for: construction project announcement india
+2025-02-26 01:56:27,997 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:28,000 - utilities.project_discovery_graph - INFO - Found 0 results for query: construction project announcement india
+2025-02-26 01:56:28,001 - utilities.project_discovery_graph - WARNING - Invalid response for query: construction project announcement india
+2025-02-26 01:56:28,001 - utilities.project_discovery_graph - INFO - Processing query: site:tendertiger.com construction
+2025-02-26 01:56:28,001 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:tendertiger.com construction
+2025-02-26 01:56:28,001 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:tendertiger.com construction
+2025-02-26 01:56:28,269 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:28,273 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:tendertiger.com construction
+2025-02-26 01:56:28,273 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:tendertiger.com construction
+2025-02-26 01:56:28,274 - utilities.project_discovery_graph - INFO - Processing query: upcoming industrial parks project india
+2025-02-26 01:56:28,274 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming industrial parks project india
+2025-02-26 01:56:28,274 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming industrial parks project india
+2025-02-26 01:56:28,652 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:28,655 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming industrial parks project india
+2025-02-26 01:56:28,655 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming industrial parks project india
+2025-02-26 01:56:28,656 - utilities.project_discovery_graph - INFO - Processing query: new port development project india
+2025-02-26 01:56:28,656 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new port development project india
+2025-02-26 01:56:28,656 - scrapers.perplexity_client - INFO - Searching Perplexity for: new port development project india
+2025-02-26 01:56:28,954 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:28,957 - utilities.project_discovery_graph - INFO - Found 0 results for query: new port development project india
+2025-02-26 01:56:28,957 - utilities.project_discovery_graph - WARNING - Invalid response for query: new port development project india
+2025-02-26 01:56:28,957 - utilities.project_discovery_graph - INFO - Processing query: site:metaljunction.com infrastructure
+2025-02-26 01:56:28,957 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:metaljunction.com infrastructure
+2025-02-26 01:56:28,957 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:metaljunction.com infrastructure
+2025-02-26 01:56:29,263 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:29,267 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:metaljunction.com infrastructure
+2025-02-26 01:56:29,267 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:metaljunction.com infrastructure
+2025-02-26 01:56:29,268 - utilities.project_discovery_graph - INFO - Processing query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:56:29,268 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:56:29,268 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:56:29,569 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:29,572 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:56:29,572 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:financialexpress.com/infrastructure infrastructure
+2025-02-26 01:56:29,572 - utilities.project_discovery_graph - INFO - Processing query: site:indiainfrastructure.com construction
+2025-02-26 01:56:29,572 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:indiainfrastructure.com construction
+2025-02-26 01:56:29,572 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:indiainfrastructure.com construction
+2025-02-26 01:56:29,835 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:29,838 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:indiainfrastructure.com construction
+2025-02-26 01:56:29,838 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:indiainfrastructure.com construction
+2025-02-26 01:56:29,838 - utilities.project_discovery_graph - INFO - Processing query: power plants tender announcement india
+2025-02-26 01:56:29,838 - utilities.project_discovery_graph - INFO - Searching Perplexity for: power plants tender announcement india
+2025-02-26 01:56:29,838 - scrapers.perplexity_client - INFO - Searching Perplexity for: power plants tender announcement india
+2025-02-26 01:56:30,323 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:30,328 - utilities.project_discovery_graph - INFO - Found 0 results for query: power plants tender announcement india
+2025-02-26 01:56:30,328 - utilities.project_discovery_graph - WARNING - Invalid response for query: power plants tender announcement india
+2025-02-26 01:56:30,328 - utilities.project_discovery_graph - INFO - Processing query: smart city projects tender announcement india
+2025-02-26 01:56:30,329 - utilities.project_discovery_graph - INFO - Searching Perplexity for: smart city projects tender announcement india
+2025-02-26 01:56:30,329 - scrapers.perplexity_client - INFO - Searching Perplexity for: smart city projects tender announcement india
+2025-02-26 01:56:30,626 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:30,631 - utilities.project_discovery_graph - INFO - Found 0 results for query: smart city projects tender announcement india
+2025-02-26 01:56:30,631 - utilities.project_discovery_graph - WARNING - Invalid response for query: smart city projects tender announcement india
+2025-02-26 01:56:30,631 - utilities.project_discovery_graph - INFO - Processing query: upcoming hospital construction project india
+2025-02-26 01:56:30,631 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming hospital construction project india
+2025-02-26 01:56:30,631 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming hospital construction project india
+2025-02-26 01:56:30,915 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:30,919 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming hospital construction project india
+2025-02-26 01:56:30,919 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming hospital construction project india
+2025-02-26 01:56:30,920 - utilities.project_discovery_graph - INFO - Processing query: site:steelguru.com tender
+2025-02-26 01:56:30,920 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:steelguru.com tender
+2025-02-26 01:56:30,920 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:steelguru.com tender
+2025-02-26 01:56:31,217 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:31,221 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:steelguru.com tender
+2025-02-26 01:56:31,221 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:steelguru.com tender
+2025-02-26 01:56:31,221 - utilities.project_discovery_graph - INFO - Processing query: new data centers project india
+2025-02-26 01:56:31,222 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new data centers project india
+2025-02-26 01:56:31,222 - scrapers.perplexity_client - INFO - Searching Perplexity for: new data centers project india
+2025-02-26 01:56:31,505 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:31,508 - utilities.project_discovery_graph - INFO - Found 0 results for query: new data centers project india
+2025-02-26 01:56:31,509 - utilities.project_discovery_graph - WARNING - Invalid response for query: new data centers project india
+2025-02-26 01:56:31,509 - utilities.project_discovery_graph - INFO - Processing query: upcoming metro rail project india
+2025-02-26 01:56:31,510 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming metro rail project india
+2025-02-26 01:56:31,510 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming metro rail project india
+2025-02-26 01:56:32,643 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:32,647 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming metro rail project india
+2025-02-26 01:56:32,647 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming metro rail project india
+2025-02-26 01:56:32,647 - utilities.project_discovery_graph - INFO - Processing query: site:constructionworld.in new project
+2025-02-26 01:56:32,647 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionworld.in new project
+2025-02-26 01:56:32,647 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionworld.in new project
+2025-02-26 01:56:33,051 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:33,054 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionworld.in new project
+2025-02-26 01:56:33,054 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionworld.in new project
+2025-02-26 01:56:33,054 - utilities.project_discovery_graph - INFO - Processing query: site:newsonprojects.com tender
+2025-02-26 01:56:33,054 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:newsonprojects.com tender
+2025-02-26 01:56:33,055 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:newsonprojects.com tender
+2025-02-26 01:56:33,326 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:33,329 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:newsonprojects.com tender
+2025-02-26 01:56:33,330 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:newsonprojects.com tender
+2025-02-26 01:56:33,330 - utilities.project_discovery_graph - INFO - Processing query: site:realtyplusmag.com infrastructure
+2025-02-26 01:56:33,330 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:realtyplusmag.com infrastructure
+2025-02-26 01:56:33,330 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:realtyplusmag.com infrastructure
+2025-02-26 01:56:33,599 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:33,603 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:realtyplusmag.com infrastructure
+2025-02-26 01:56:33,604 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:realtyplusmag.com infrastructure
+2025-02-26 01:56:33,604 - utilities.project_discovery_graph - INFO - Processing query: renewable energy tender announcement india
+2025-02-26 01:56:33,604 - utilities.project_discovery_graph - INFO - Searching Perplexity for: renewable energy tender announcement india
+2025-02-26 01:56:33,604 - scrapers.perplexity_client - INFO - Searching Perplexity for: renewable energy tender announcement india
+2025-02-26 01:56:34,689 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:34,693 - utilities.project_discovery_graph - INFO - Found 0 results for query: renewable energy tender announcement india
+2025-02-26 01:56:34,694 - utilities.project_discovery_graph - WARNING - Invalid response for query: renewable energy tender announcement india
+2025-02-26 01:56:34,694 - utilities.project_discovery_graph - INFO - Processing query: site:constructionweekonline.in infrastructure
+2025-02-26 01:56:34,694 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionweekonline.in infrastructure
+2025-02-26 01:56:34,694 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionweekonline.in infrastructure
+2025-02-26 01:56:34,996 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:35,000 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionweekonline.in infrastructure
+2025-02-26 01:56:35,000 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionweekonline.in infrastructure
+2025-02-26 01:56:35,000 - utilities.project_discovery_graph - INFO - Processing query: steel requirement project india
+2025-02-26 01:56:35,000 - utilities.project_discovery_graph - INFO - Searching Perplexity for: steel requirement project india
+2025-02-26 01:56:35,000 - scrapers.perplexity_client - INFO - Searching Perplexity for: steel requirement project india
+2025-02-26 01:56:35,303 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:35,306 - utilities.project_discovery_graph - INFO - Found 0 results for query: steel requirement project india
+2025-02-26 01:56:35,307 - utilities.project_discovery_graph - WARNING - Invalid response for query: steel requirement project india
+2025-02-26 01:56:35,307 - utilities.project_discovery_graph - INFO - Processing query: site:cppp.gov.in infrastructure
+2025-02-26 01:56:35,307 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:cppp.gov.in infrastructure
+2025-02-26 01:56:35,307 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:cppp.gov.in infrastructure
+2025-02-26 01:56:35,619 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:35,623 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:cppp.gov.in infrastructure
+2025-02-26 01:56:35,623 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:cppp.gov.in infrastructure
+2025-02-26 01:56:35,623 - utilities.project_discovery_graph - INFO - Processing query: site:infrabuddy.com infrastructure
+2025-02-26 01:56:35,624 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:infrabuddy.com infrastructure
+2025-02-26 01:56:35,624 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:infrabuddy.com infrastructure
+2025-02-26 01:56:36,669 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:36,673 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:infrabuddy.com infrastructure
+2025-02-26 01:56:36,673 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:infrabuddy.com infrastructure
+2025-02-26 01:56:36,674 - utilities.project_discovery_graph - INFO - Processing query: site:constructiontechnology.in tender
+2025-02-26 01:56:36,674 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructiontechnology.in tender
+2025-02-26 01:56:36,674 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructiontechnology.in tender
+2025-02-26 01:56:37,677 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:37,681 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructiontechnology.in tender
+2025-02-26 01:56:37,682 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructiontechnology.in tender
+2025-02-26 01:56:37,682 - utilities.project_discovery_graph - INFO - Processing query: railway project india
+2025-02-26 01:56:37,682 - utilities.project_discovery_graph - INFO - Searching Perplexity for: railway project india
+2025-02-26 01:56:37,682 - scrapers.perplexity_client - INFO - Searching Perplexity for: railway project india
+2025-02-26 01:56:37,949 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:37,951 - utilities.project_discovery_graph - INFO - Found 0 results for query: railway project india
+2025-02-26 01:56:37,952 - utilities.project_discovery_graph - WARNING - Invalid response for query: railway project india
+2025-02-26 01:56:37,952 - utilities.project_discovery_graph - INFO - Processing query: site:cppp.gov.in tender
+2025-02-26 01:56:37,952 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:cppp.gov.in tender
+2025-02-26 01:56:37,952 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:cppp.gov.in tender
+2025-02-26 01:56:38,240 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:38,244 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:cppp.gov.in tender
+2025-02-26 01:56:38,244 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:cppp.gov.in tender
+2025-02-26 01:56:38,244 - utilities.project_discovery_graph - INFO - Processing query: upcoming port development project india
+2025-02-26 01:56:38,244 - utilities.project_discovery_graph - INFO - Searching Perplexity for: upcoming port development project india
+2025-02-26 01:56:38,244 - scrapers.perplexity_client - INFO - Searching Perplexity for: upcoming port development project india
+2025-02-26 01:56:38,523 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:38,528 - utilities.project_discovery_graph - INFO - Found 0 results for query: upcoming port development project india
+2025-02-26 01:56:38,528 - utilities.project_discovery_graph - WARNING - Invalid response for query: upcoming port development project india
+2025-02-26 01:56:38,529 - utilities.project_discovery_graph - INFO - Processing query: site:constructionplacements.com tender
+2025-02-26 01:56:38,529 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionplacements.com tender
+2025-02-26 01:56:38,529 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionplacements.com tender
+2025-02-26 01:56:38,837 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:38,841 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionplacements.com tender
+2025-02-26 01:56:38,842 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionplacements.com tender
+2025-02-26 01:56:38,842 - utilities.project_discovery_graph - INFO - Processing query: new water infrastructure project india
+2025-02-26 01:56:38,843 - utilities.project_discovery_graph - INFO - Searching Perplexity for: new water infrastructure project india
+2025-02-26 01:56:38,843 - scrapers.perplexity_client - INFO - Searching Perplexity for: new water infrastructure project india
+2025-02-26 01:56:39,111 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:39,115 - utilities.project_discovery_graph - INFO - Found 0 results for query: new water infrastructure project india
+2025-02-26 01:56:39,115 - utilities.project_discovery_graph - WARNING - Invalid response for query: new water infrastructure project india
+2025-02-26 01:56:39,115 - utilities.project_discovery_graph - INFO - Processing query: educational institutions tender announcement india
+2025-02-26 01:56:39,115 - utilities.project_discovery_graph - INFO - Searching Perplexity for: educational institutions tender announcement india
+2025-02-26 01:56:39,116 - scrapers.perplexity_client - INFO - Searching Perplexity for: educational institutions tender announcement india
+2025-02-26 01:56:39,387 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:39,391 - utilities.project_discovery_graph - INFO - Found 0 results for query: educational institutions tender announcement india
+2025-02-26 01:56:39,391 - utilities.project_discovery_graph - WARNING - Invalid response for query: educational institutions tender announcement india
+2025-02-26 01:56:39,391 - utilities.project_discovery_graph - INFO - Processing query: site:constructionweekonline.in new project
+2025-02-26 01:56:39,391 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:constructionweekonline.in new project
+2025-02-26 01:56:39,392 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:constructionweekonline.in new project
+2025-02-26 01:56:40,478 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:40,482 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:constructionweekonline.in new project
+2025-02-26 01:56:40,482 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:constructionweekonline.in new project
+2025-02-26 01:56:40,483 - utilities.project_discovery_graph - INFO - Processing query: site:nhai.gov.in construction
+2025-02-26 01:56:40,483 - utilities.project_discovery_graph - INFO - Searching Perplexity for: site:nhai.gov.in construction
+2025-02-26 01:56:40,483 - scrapers.perplexity_client - INFO - Searching Perplexity for: site:nhai.gov.in construction
+2025-02-26 01:56:40,864 - scrapers.perplexity_client - ERROR - Perplexity API error: 401 - {"error":{"message":"Unauthorized","type":"unauthorized","code":401}}
+2025-02-26 01:56:40,868 - utilities.project_discovery_graph - INFO - Found 0 results for query: site:nhai.gov.in construction
+2025-02-26 01:56:40,869 - utilities.project_discovery_graph - WARNING - Invalid response for query: site:nhai.gov.in construction
+2025-02-26 01:56:40,869 - utilities.project_discovery_graph - INFO - Scraped 0 projects from 50 queries
+2025-02-26 01:56:40,871 - utilities.project_discovery_graph - INFO - Filtering 0 projects...
+2025-02-26 01:56:40,871 - utilities.project_discovery_graph - WARNING - No projects passed filtering stage
+2025-02-26 01:56:40,873 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-26 01:56:41,462 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 01:56:41,462 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 01:56:43,596 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 01:56:43,819 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-26 01:56:43,819 - utilities.project_discovery_graph - INFO - Successfully enriched 0 projects
+2025-02-26 01:56:43,821 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-26 01:56:43,821 - utilities.project_discovery_graph - WARNING - Only 0 projects available after prioritization
+2025-02-26 01:56:43,823 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 01:56:43,823 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-26 01:56:43,824 - utilities.project_discovery_graph - INFO - Workflow completed in 24.66s
+2025-02-26 01:56:43,824 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 01:56:43,824 - utilities.project_discovery_graph - INFO - Projects found: 0
+2025-02-26 01:56:43,824 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-26 01:56:43,825 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-26 01:56:43,825 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-26 01:56:43,825 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 01:56:43,979 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 01:56:43,979 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 01:56:43,979 - apscheduler.scheduler - INFO - Scheduler started

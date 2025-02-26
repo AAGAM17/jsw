@@ -278,6 +278,7 @@ def send_test_email():
         
         # Test projects for different teams
         test_projects = [
+            # Solar project
             {
                 'title': 'Gensol Wins Contract for 245 MW Solar Project at Gujarat\'s Khavda RE Park',
                 'company': 'Gensol EPC',
@@ -302,6 +303,7 @@ def send_test_email():
                 'final_priority_score': 85,
                 'tags': ['High Priority']
             },
+            # TMT Bars project
             {
                 'title': 'HG Infra wins New Delhi railway station revamp contract (with DEC Infra)',
                 'company': 'HG Infra',
@@ -328,6 +330,194 @@ def send_test_email():
                 'tags': ['High Priority'],
                 'relationship_notes': 'JSW Steel has previously supplied TMT bars and other products to HG infra for expressway projects.'
             },
+            # Hot Rolled project
+            {
+                'title': 'Tata Projects Secures Order for Steel Plant Expansion in Odisha',
+                'company': 'Tata Projects',
+                'value': 3500,
+                'description': 'Tata Projects has secured an order for the expansion of a steel plant in Odisha, requiring significant hot rolled steel products.',
+                'start_date': datetime.now() + timedelta(days=90),
+                'end_date': datetime.now() + timedelta(days=90 + (24 * 30)),  # 24 months duration
+                'source': 'economictimes.indiatimes.com',
+                'source_url': 'https://economictimes.indiatimes.com/industry/indl-goods/svs/engineering/tata-projects-wins-significant-order-for-steel-plant-expansion/articleshow/example.cms',
+                'teams': ['HOT_ROLLED'],
+                'steel_requirements': {
+                    'primary': {'type': 'Hot Rolled Coils', 'quantity': 25000},
+                    'secondary': {'type': 'HR Plates', 'quantity': 10000},
+                    'total': 35000
+                },
+                'contacts': [{
+                    'name': 'Rajiv Mehta',
+                    'role': 'Director - Procurement',
+                    'email': 'rajiv.mehta@tataprojects.com',
+                    'phone': '+919876543210'
+                }],
+                'priority_score': 90,
+                'final_priority_score': 90,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has previously supplied hot rolled products to Tata Projects for industrial projects.'
+            },
+            # Cold Rolled project
+            {
+                'title': 'Maruti Suzuki Announces New Manufacturing Facility in Gujarat',
+                'company': 'Maruti Suzuki India Ltd',
+                'value': 7500,
+                'description': 'Maruti Suzuki is setting up a new manufacturing facility in Gujarat with significant requirements for cold rolled steel products.',
+                'start_date': datetime.now() + timedelta(days=180),
+                'end_date': datetime.now() + timedelta(days=180 + (36 * 30)),  # 36 months duration
+                'source': 'business-standard.com',
+                'source_url': 'https://www.business-standard.com/article/companies/maruti-suzuki-to-set-up-new-manufacturing-facility-in-gujarat-example',
+                'teams': ['COLD_ROLLED'],
+                'steel_requirements': {
+                    'primary': {'type': 'Cold Rolled Coils', 'quantity': 30000},
+                    'secondary': {'type': 'Galvanized Steel', 'quantity': 15000},
+                    'total': 45000
+                },
+                'contacts': [{
+                    'name': 'Amit Patel',
+                    'role': 'Senior VP - Supply Chain',
+                    'email': 'amit.patel@maruti.co.in',
+                    'phone': '+919898765432'
+                }],
+                'priority_score': 85,
+                'final_priority_score': 85,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel is a preferred supplier for Maruti Suzuki\'s automotive steel requirements.'
+            },
+            # Galvanized project
+            {
+                'title': 'Adani Group Wins Contract for Airport Terminal Construction in Mumbai',
+                'company': 'Adani Enterprises',
+                'value': 5800,
+                'description': 'Adani Group has secured a contract for the construction of a new terminal at Mumbai International Airport with significant galvanized steel requirements.',
+                'start_date': datetime.now() + timedelta(days=120),
+                'end_date': datetime.now() + timedelta(days=120 + (30 * 30)),  # 30 months duration
+                'source': 'livemint.com',
+                'source_url': 'https://www.livemint.com/companies/news/adani-group-wins-contract-for-mumbai-airport-terminal-example',
+                'teams': ['GALVANIZED'],
+                'steel_requirements': {
+                    'primary': {'type': 'Galvanized Steel', 'quantity': 18000},
+                    'secondary': {'type': 'Cold Rolled Steel', 'quantity': 7000},
+                    'total': 25000
+                },
+                'contacts': [{
+                    'name': 'Vikram Joshi',
+                    'role': 'Head of Procurement',
+                    'email': 'vikram.joshi@adani.com',
+                    'phone': '+919876123456'
+                }],
+                'priority_score': 80,
+                'final_priority_score': 80,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has previously supplied galvanized products to Adani Group for infrastructure projects.'
+            },
+            # Electrical Steel project
+            {
+                'title': 'BHEL Secures Order for Power Transformer Manufacturing Plant',
+                'company': 'Bharat Heavy Electricals Limited',
+                'value': 1200,
+                'description': 'BHEL has secured an order for setting up a power transformer manufacturing plant requiring significant electrical steel.',
+                'start_date': datetime.now() + timedelta(days=60),
+                'end_date': datetime.now() + timedelta(days=60 + (18 * 30)),  # 18 months duration
+                'source': 'financialexpress.com',
+                'source_url': 'https://www.financialexpress.com/industry/bhel-bags-order-for-power-transformer-plant-example',
+                'teams': ['ELECTRICAL_STEEL'],
+                'steel_requirements': {
+                    'primary': {'type': 'Electrical Steel', 'quantity': 8000},
+                    'total': 8000
+                },
+                'contacts': [{
+                    'name': 'Suresh Kumar',
+                    'role': 'General Manager - Materials',
+                    'email': 'suresh.kumar@bhel.in',
+                    'phone': '+919123456789'
+                }],
+                'priority_score': 75,
+                'final_priority_score': 75,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has been supplying electrical steel to BHEL for various power projects.'
+            },
+            # Galvalume Steel project
+            {
+                'title': 'Godrej Properties Announces Township Project in Pune',
+                'company': 'Godrej Properties',
+                'value': 3200,
+                'description': 'Godrej Properties has announced a new township project in Pune with significant requirements for galvalume steel roofing.',
+                'start_date': datetime.now() + timedelta(days=90),
+                'end_date': datetime.now() + timedelta(days=90 + (48 * 30)),  # 48 months duration
+                'source': 'economictimes.indiatimes.com',
+                'source_url': 'https://economictimes.indiatimes.com/industry/services/property-/-cstruction/godrej-properties-announces-township-project-in-pune-example',
+                'teams': ['GALVALUME_STEEL'],
+                'steel_requirements': {
+                    'primary': {'type': 'Galvalume Steel', 'quantity': 12000},
+                    'secondary': {'type': 'Color Coated Steel', 'quantity': 5000},
+                    'total': 17000
+                },
+                'contacts': [{
+                    'name': 'Priya Sharma',
+                    'role': 'VP - Procurement',
+                    'email': 'priya.sharma@godrejproperties.com',
+                    'phone': '+919876543210'
+                }],
+                'priority_score': 70,
+                'final_priority_score': 70,
+                'tags': ['Normal Priority'],
+                'relationship_notes': 'JSW Steel has previously supplied galvalume products to Godrej Properties for residential projects.'
+            },
+            # Wire Rods project
+            {
+                'title': 'KEC International Wins Order for Transmission Line Project',
+                'company': 'KEC International',
+                'value': 1800,
+                'description': 'KEC International has secured an order for a major transmission line project requiring significant wire rod products.',
+                'start_date': datetime.now() + timedelta(days=45),
+                'end_date': datetime.now() + timedelta(days=45 + (24 * 30)),  # 24 months duration
+                'source': 'business-standard.com',
+                'source_url': 'https://www.business-standard.com/article/companies/kec-international-wins-new-orders-worth-rs-1800-crore-example',
+                'teams': ['WIRE_RODS'],
+                'steel_requirements': {
+                    'primary': {'type': 'Wire Rods', 'quantity': 9000},
+                    'total': 9000
+                },
+                'contacts': [{
+                    'name': 'Rahul Gupta',
+                    'role': 'Director - Supply Chain',
+                    'email': 'rahul.gupta@kecindia.com',
+                    'phone': '+919876543210'
+                }],
+                'priority_score': 80,
+                'final_priority_score': 80,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has been a key supplier of wire rods to KEC International for transmission projects.'
+            },
+            # Special Alloy Steel project
+            {
+                'title': 'Larsen & Toubro Secures Defense Manufacturing Contract',
+                'company': 'Larsen & Toubro',
+                'value': 4500,
+                'description': 'L&T has secured a defense manufacturing contract requiring high-grade special alloy steel products.',
+                'start_date': datetime.now() + timedelta(days=120),
+                'end_date': datetime.now() + timedelta(days=120 + (36 * 30)),  # 36 months duration
+                'source': 'livemint.com',
+                'source_url': 'https://www.livemint.com/companies/news/l-t-bags-defence-manufacturing-contract-example',
+                'teams': ['SPECIAL_ALLOY_STEEL'],
+                'steel_requirements': {
+                    'primary': {'type': 'Special Alloy Steel', 'quantity': 7000},
+                    'secondary': {'type': 'High-Strength Steel', 'quantity': 3000},
+                    'total': 10000
+                },
+                'contacts': [{
+                    'name': 'Sanjay Mehta',
+                    'role': 'Chief Procurement Officer',
+                    'email': 'sanjay.mehta@larsentoubro.com',
+                    'phone': '+919876543210'
+                }],
+                'priority_score': 85,
+                'final_priority_score': 85,
+                'tags': ['High Priority'],
+                'relationship_notes': 'JSW Steel has previously supplied special alloy steel to L&T for defense and heavy engineering projects.'
+            },
+            # Metro project with TMT Bars
             {
                 'title': 'URC Constructions Wins Bid for Veerannapalya Metro Station',
                 'company': 'URC Constructions',
@@ -354,6 +544,7 @@ def send_test_email():
                 'tags': ['Normal Priority'],
                 'relationship_notes': 'JSW has previously supplied JSW Neosteel TMT bars for URC Construction\'s project Ramanujam IT Park'
             },
+            # Highway project with TMT Bars
             {
                 'title': 'DRA Infracon wins Rs 4,900 crore BOT Toll highway project in Assam',
                 'company': 'DRA Infracon',

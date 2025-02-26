@@ -1,0 +1,40 @@
+2025-02-26 11:25:47,675 - utilities.logger - INFO - Logging initialized
+2025-02-26 11:25:47,684 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 11:25:47,729 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 11:25:52,461 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 11:25:53,959 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 11:25:55,470 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 11:26:31,142 - utilities.project_discovery_graph - INFO - Filtering 13 projects...
+2025-02-26 11:26:31,144 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,144 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,144 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,147 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,148 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Hyderabad Airport Metro Line Contract: L&T and NCC Bid
+2025-02-26 11:26:31,148 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,151 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Airoli-Katai Naka Freeway – Information & Status
+2025-02-26 11:26:31,151 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: India's #1 Projects Tracking Platform
+2025-02-26 11:26:31,151 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Bengaluru Railway: KRIDE Awards Rs 5 Bn Contract to NCC
+2025-02-26 11:26:31,152 - utilities.project_discovery_graph - ERROR - Error filtering project: name 'jsw_terms' is not defined
+2025-02-26 11:26:31,155 - utilities.project_discovery_graph - INFO - Skipping completed project: 10 Bidders for New Digha – Sonepur Bridge’s Contract in Bihar - The Metro Rail Guy
+2025-02-26 11:26:31,155 - utilities.project_discovery_graph - INFO - Skipping project without recency indicators: Projects in India| Construction | Industrial | Infra
+2025-02-26 11:26:31,155 - utilities.project_discovery_graph - WARNING - No recent projects passed filtering stage
+2025-02-26 11:26:31,157 - utilities.project_discovery_graph - INFO - Enriching 0 projects...
+2025-02-26 11:26:31,572 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 11:26:31,572 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 11:26:33,054 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 11:26:33,296 - utilities.project_discovery_graph - WARNING - No projects were successfully enriched
+2025-02-26 11:26:33,296 - utilities.project_discovery_graph - INFO - Successfully enriched 0 projects
+2025-02-26 11:26:33,297 - utilities.project_discovery_graph - INFO - Prioritizing 0 projects...
+2025-02-26 11:26:33,297 - utilities.project_discovery_graph - INFO - Successfully prioritized 0 projects
+2025-02-26 11:26:33,298 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 11:26:33,298 - utilities.project_discovery_graph - WARNING - No projects to send notifications for
+2025-02-26 11:26:33,299 - utilities.project_discovery_graph - INFO - Workflow completed in 45.58s
+2025-02-26 11:26:33,299 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 11:26:33,299 - utilities.project_discovery_graph - INFO - Projects found: 13
+2025-02-26 11:26:33,299 - utilities.project_discovery_graph - INFO - Projects filtered: 0
+2025-02-26 11:26:33,300 - utilities.project_discovery_graph - INFO - Projects enriched: 0
+2025-02-26 11:26:33,300 - utilities.project_discovery_graph - INFO - Projects prioritized: 0
+2025-02-26 11:26:33,300 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 11:26:33,380 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 11:26:33,381 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 11:26:33,381 - apscheduler.scheduler - INFO - Scheduler started

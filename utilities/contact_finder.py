@@ -2,12 +2,19 @@
 
 import logging
 from typing import Dict, List, Optional
+import re
+from groq import Groq
+import os
+from dotenv import load_dotenv
+import json
 
 logger = logging.getLogger(__name__)
+load_dotenv()
 
 class ContactFinder:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
+        self.client = Groq(api_key=os.getenv('GROQ_API_KEY'))
         # Initialize static CRM data
         self.crm_data = {
             'nhai': {
@@ -222,8 +229,8 @@ class ContactFinder:
         # Convert to lowercase and strip whitespace
         company_name = company_name.lower().strip()
         
-        # Log original and cleaned company name
-        self.logger.debug(f"Original company name: {company_name}")
+        # Log original company name
+        self.logger.debug(f"Normalizing company name: {company_name}")
         
         # Remove common prefixes
         prefixes = ['m/s', 'm/s.', 'messrs.', 'messrs']
@@ -246,72 +253,160 @@ class ContactFinder:
         
         # Split into words and filter out suffixes
         words = company_name.split()
-        filtered_words = []
-        for word in words:
-            # Keep words that are not in suffixes and not just single characters
-            if word not in suffixes and len(word) > 1:
-                filtered_words.append(word)
+        filtered_words = [word for word in words if word.lower() not in suffixes]
         
-        company_name = ' '.join(filtered_words)
-        self.logger.debug(f"After suffix removal: {company_name}")
+        # Rejoin filtered words
+        normalized = ' '.join(filtered_words)
         
-        # Check for variations
-        for standard_name, variations in self.company_variations.items():
-            # Try exact match first
-            if company_name in variations:
-                self.logger.debug(f"Found exact variation match: {standard_name}")
-                return standard_name
+        # Log normalized name
+        self.logger.debug(f"Normalized company name: {normalized}")
+        
+        return normalized
+
+    def _find_matching_company(self, company_name: str) -> Optional[str]:
+        """Find matching company in CRM data using variations."""
+        normalized_name = self._normalize_company_name(company_name)
+        
+        # First try exact match
+        if normalized_name in self.crm_data:
+            return normalized_name
+            
+        # Try variations
+        for crm_company, variations in self.company_variations.items():
+            if any(variation in normalized_name for variation in variations):
+                # Make sure it's not just a partial match of a different company
+                # by checking if the variation is a significant part of the name
+                variation_words = set(normalized_name.split())
+                for variation in variations:
+                    variation_match_words = set(variation.split())
+                    # If more than 50% of the variation words match, consider it a match
+                    if len(variation_match_words.intersection(variation_words)) / len(variation_match_words) > 0.5:
+                        return crm_company
+                        
+        # Try partial matches only if the match is significant
+        best_match = None
+        highest_similarity = 0
+        
+        for crm_company in self.crm_data.keys():
+            # Calculate word overlap similarity
+            name_words = set(normalized_name.split())
+            crm_words = set(crm_company.split())
+            
+            if name_words and crm_words:  # Ensure neither set is empty
+                # Calculate Jaccard similarity
+                similarity = len(name_words.intersection(crm_words)) / len(name_words.union(crm_words))
                 
-            # Try partial matches
-            for variation in variations:
-                if variation in company_name or company_name in variation:
-                    self.logger.debug(f"Found partial variation match: {standard_name}")
-                    return standard_name
-                    
-            # Try word-by-word matching
-            company_words = set(company_name.split())
-            for variation in variations:
-                variation_words = set(variation.split())
-                # If there's significant word overlap
-                common_words = company_words & variation_words
-                if common_words and len(common_words) >= min(len(company_words), len(variation_words)) * 0.5:
-                    self.logger.debug(f"Found word overlap match: {standard_name}")
-                    return standard_name
+                # Only consider it a match if similarity is high enough
+                if similarity > 0.5 and similarity > highest_similarity:
+                    highest_similarity = similarity
+                    best_match = crm_company
         
-        self.logger.debug(f"No variation matches found, returning cleaned name: {company_name}")
-        return company_name
+        return best_match
+
+    def _check_company_in_crm(self, company_name: str) -> dict:
+        """Use LLM to intelligently check if company exists in CRM and get matching details."""
+        try:
+            # Prepare CRM data for LLM
+            crm_companies = list(self.crm_data.keys())
+            
+            # Create prompt for the LLM
+            prompt = f"""Given the company name "{company_name}" and our CRM database containing these companies: {crm_companies},
+            please analyze if this company exists in our CRM. Consider company name variations, abbreviations, and common aliases.
+            
+            Return your response in this format:
+            {{
+                "found": true/false,
+                "matched_company": "exact company name from CRM if found, null if not found",
+                "confidence": 0-1 score of match confidence,
+                "reasoning": "brief explanation of the match or why no match was found"
+            }}
+            
+            Only return valid JSON, no other text."""
+
+            # Get LLM response using Groq
+            chat_completion = self.client.chat.completions.create(
+                messages=[
+                    {"role": "system", "content": "You are a helpful assistant that analyzes company names and returns JSON responses."},
+                    {"role": "user", "content": prompt}
+                ],
+                model="mixtral-8x7b-32768",  # Using Mixtral model for better reasoning
+                temperature=0,
+                max_tokens=500
+            )
+
+            result = chat_completion.choices[0].message.content
+            
+            # Ensure we get valid JSON
+            try:
+                parsed_result = json.loads(result)
+                self.logger.info(f"LLM analysis for {company_name}: {parsed_result}")
+                return parsed_result
+            except json.JSONDecodeError:
+                self.logger.error(f"Invalid JSON response from LLM: {result}")
+                return {"found": False, "matched_company": None, "confidence": 0, "reasoning": "Invalid LLM response format"}
+            
+        except Exception as e:
+            self.logger.error(f"Error in LLM company check: {str(e)}")
+            return {"found": False, "matched_company": None, "confidence": 0, "reasoning": str(e)}
 
     def get_company_contacts(self, company_name: str) -> List[Dict]:
-        """Get contacts for a company from CRM data."""
-        normalized_name = self._normalize_company_name(company_name)
-        company_data = self.crm_data.get(normalized_name, {})
-        return company_data.get('contacts', [])
+        """Get contacts for a company using LLM-driven matching."""
+        if not company_name:
+            self.logger.warning("Empty company name provided")
+            return []
+            
+        # Use LLM to check CRM
+        match_result = self._check_company_in_crm(company_name)
+        
+        if match_result["found"] and match_result["confidence"] >= 0.8:
+            matched_company = match_result["matched_company"]
+            if matched_company in self.crm_data:
+                self.logger.info(f"Found contacts for company: {matched_company} (confidence: {match_result['confidence']})")
+                self.logger.info(f"Match reasoning: {match_result['reasoning']}")
+                return self.crm_data[matched_company]['contacts']
+        
+        # If no confident CRM match, try ContactOut
+        self.logger.info(f"No confident CRM match found for {company_name}, trying ContactOut")
+        self.logger.info(f"Reason: {match_result.get('reasoning', 'Unknown')}")
+        return self._search_contactout(company_name)
+
+    def _search_contactout(self, company_name: str) -> List[Dict]:
+        """Search for contacts using ContactOut API."""
+        try:
+            # Initialize ContactOut client (implement API calls here)
+            # This is a placeholder - implement actual ContactOut API integration
+            self.logger.info(f"Searching ContactOut for {company_name}")
+            return []
+        except Exception as e:
+            self.logger.error(f"ContactOut search failed: {str(e)}")
+            return []
     
     def enrich_project_contacts(self, project: Dict) -> Dict:
         """Enrich project with contact information."""
         try:
+            if not project:
+                return project
+                
             company_name = project.get('company', '')
             if not company_name:
-                self.logger.warning(f"No company name found in project: {project.get('title', 'Unknown')}")
+                self.logger.warning("No company name in project")
                 return project
             
-            self.logger.info(f"Looking up contacts for company: {company_name}")
-            normalized_name = self._normalize_company_name(company_name)
-            self.logger.info(f"Normalized company name: {normalized_name}")
+            # Get contacts using LLM-driven approach
+            contacts = self.get_company_contacts(company_name)
             
-            # Use normalized name to get contacts
-            contacts = self.get_company_contacts(normalized_name)
             if contacts:
                 project['contacts'] = contacts
-                self.logger.info(f"Found {len(contacts)} contacts for {company_name}")
-                
-                # Log relationship notes if present
-                for contact in contacts:
-                    if 'notes' in contact:
-                        project.setdefault('relationship_notes', []).append(contact['notes'])
-                        self.logger.info(f"Added relationship note from {contact['name']}: {contact['notes']}")
+                self.logger.info(f"Added {len(contacts)} contacts for {company_name}")
             else:
-                self.logger.warning(f"No contacts found in CRM for {company_name} (normalized: {normalized_name})")
+                # If no contacts found, add default contact
+                project['contacts'] = [{
+                    'name': 'Procurement Team',
+                    'role': 'Procurement Department',
+                    'email': f"procurement@{company_name.lower().replace(' ', '')}.com",
+                    'phone': 'N/A'
+                }]
+                self.logger.warning(f"Using default contact for {company_name}")
             
             return project
             

@@ -1,0 +1,7 @@
+2025-02-26 10:03:45,331 - utilities.logger - INFO - Logging initialized
+2025-02-26 10:03:45,339 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 10:03:45,369 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 10:03:50,180 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 10:03:51,934 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 10:03:54,058 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 10:05:15,602 - utilities.project_discovery_graph - ERROR - Error in Exa search for query 'construction tender result india' after 3 retries: Request failed with status code 400: {"requestId":"bacf422d532a6e41727fcd3787270f4c","error":"Sorry, we had trouble finding contents for the given URLs.","tag":"NO_CONTENT_FOUND"}

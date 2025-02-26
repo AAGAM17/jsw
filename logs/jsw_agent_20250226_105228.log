@@ -1,0 +1,76 @@
+2025-02-26 10:52:28,845 - utilities.logger - INFO - Logging initialized
+2025-02-26 10:52:28,856 - __main__ - INFO - Starting AI-powered project discovery pipeline...
+2025-02-26 10:52:28,895 - utilities.project_discovery_graph - INFO - Starting project scraping...
+2025-02-26 10:52:33,575 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/tenders: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/tenders
+2025-02-26 10:52:35,330 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/contracts: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/contracts
+2025-02-26 10:52:37,190 - scrapers.metro_scraper - ERROR - Error fetching https://themetrorailguy.com/category/news: 404 Client Error: Not Found for url: https://themetrorailguy.com/category/news
+2025-02-26 10:53:14,839 - utilities.project_discovery_graph - INFO - Filtering 11 projects...
+2025-02-26 10:53:14,856 - utilities.project_discovery_graph - INFO - Retained 5 non-JSW projects
+2025-02-26 10:53:14,857 - utilities.project_discovery_graph - INFO - Enriching 5 projects...
+2025-02-26 10:53:15,290 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:53:15,290 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 10:53:16,974 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 10:53:17,696 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:17,704 - utilities.project_discovery_graph - INFO - Assigned teams ['WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'ELECTRICAL_STEEL', 'TMT_BARS', 'GALVALUME_STEEL'] to project: Ansal, Dineshchandra Win Contract to Build 6.925 km Sonepur-Digha Bridge with...
+2025-02-26 10:53:17,705 - utilities.project_discovery_graph - INFO - Finding procurement contacts for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:53:18,328 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:18,330 - utilities.contact_finder - INFO - LLM analysis for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "None of the given company names - 'month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd' - were found in the CRM database: ['nhai', 'msrfc', 'kec international', 'ncc limited', 'adani group', 'tata projects', 'cidco', 'rvnl', 'patel engineering', 'larsen & toubro', 'dilip buildcon']."}
+2025-02-26 10:53:18,331 - utilities.contact_finder - INFO - No confident CRM match found for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd, trying ContactOut
+2025-02-26 10:53:18,331 - utilities.contact_finder - INFO - Reason: None of the given company names - 'month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd' - were found in the CRM database: ['nhai', 'msrfc', 'kec international', 'ncc limited', 'adani group', 'tata projects', 'cidco', 'rvnl', 'patel engineering', 'larsen & toubro', 'dilip buildcon'].
+2025-02-26 10:53:18,331 - utilities.contact_finder - INFO - Searching ContactOut for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:53:18,331 - utilities.contact_finder - WARNING - Using default contact for month deadline. Bidders Ansal Highway Infratech Pvt. Ltd. Dineshchandra R.Agrawal Infracon Pvt. Ltd
+2025-02-26 10:53:18,765 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:18,767 - utilities.project_discovery_graph - INFO - Assigned teams ['WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'ELECTRICAL_STEEL', 'TMT_BARS', 'GALVALUME_STEEL'] to project: Under Construction Wins Contract to Build 12.30 km Airoli-Katai Naka Elevated...
+2025-02-26 10:53:18,768 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Under Construction
+2025-02-26 10:53:19,190 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:19,192 - utilities.contact_finder - INFO - LLM analysis for Under Construction: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database."}
+2025-02-26 10:53:19,192 - utilities.contact_finder - INFO - No confident CRM match found for Under Construction, trying ContactOut
+2025-02-26 10:53:19,192 - utilities.contact_finder - INFO - Reason: The company 'Under Construction' does not have an exact match in the CRM database. It also does not have any common abbreviations or aliases that match the companies in the database.
+2025-02-26 10:53:19,193 - utilities.contact_finder - INFO - Searching ContactOut for Under Construction
+2025-02-26 10:53:19,193 - utilities.contact_finder - WARNING - Using default contact for Under Construction
+2025-02-26 10:53:19,611 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:19,613 - utilities.project_discovery_graph - INFO - Assigned teams ['WIRE_RODS', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'ELECTRICAL_STEEL', 'TMT_BARS', 'GALVALUME_STEEL'] to project: GMR Infrastructure Wins 181 km Hyderabad-Vijayawada Highway Project with 22,6...
+2025-02-26 10:53:19,613 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:53:20,048 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:20,050 - utilities.contact_finder - INFO - LLM analysis for Projects Tracking Platform GMR Infrastructure: {'found': False, 'matched_company': None, 'confidence': 0, 'reasoning': "The company 'Projects Tracking Platform GMR Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases."}
+2025-02-26 10:53:20,050 - utilities.contact_finder - INFO - No confident CRM match found for Projects Tracking Platform GMR Infrastructure, trying ContactOut
+2025-02-26 10:53:20,050 - utilities.contact_finder - INFO - Reason: The company 'Projects Tracking Platform GMR Infrastructure' does not exist in the provided CRM database. I checked for variations, abbreviations, and common aliases.
+2025-02-26 10:53:20,050 - utilities.contact_finder - INFO - Searching ContactOut for Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:53:20,051 - utilities.contact_finder - WARNING - Using default contact for Projects Tracking Platform GMR Infrastructure
+2025-02-26 10:53:20,561 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:20,564 - utilities.project_discovery_graph - INFO - Assigned teams ['WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'ELECTRICAL_STEEL', 'TMT_BARS', 'GALVALUME_STEEL'] to project: SCC Infra, Velji Ratna Sorathia to Build Gujarat Bullet Train Depot with 10.7...
+2025-02-26 10:53:20,564 - utilities.project_discovery_graph - INFO - Finding procurement contacts for SCC Infra
+2025-02-26 10:53:21,072 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:21,075 - utilities.contact_finder - INFO - LLM analysis for SCC Infra: {'found': True, 'matched_company': 'ncc limited', 'confidence': 0.7, 'reasoning': 'SCC Infra is likely an abbreviation or variation of SCC Infrastructure, which has a high similarity with NCC Limited.'}
+2025-02-26 10:53:21,075 - utilities.contact_finder - INFO - No confident CRM match found for SCC Infra, trying ContactOut
+2025-02-26 10:53:21,075 - utilities.contact_finder - INFO - Reason: SCC Infra is likely an abbreviation or variation of SCC Infrastructure, which has a high similarity with NCC Limited.
+2025-02-26 10:53:21,075 - utilities.contact_finder - INFO - Searching ContactOut for SCC Infra
+2025-02-26 10:53:21,075 - utilities.contact_finder - WARNING - Using default contact for SCC Infra
+2025-02-26 10:53:21,556 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:21,558 - utilities.project_discovery_graph - INFO - Assigned teams ['WIRE_RODS', 'SPECIAL_ALLOY_STEEL', 'GALVANIZED', 'COLD_ROLLED', 'HOT_ROLLED', 'ELECTRICAL_STEEL', 'TMT_BARS', 'GALVALUME_STEEL'] to project: Dilip Buildcon Ltd wins highway project in Vijayawada
+2025-02-26 10:53:21,558 - utilities.project_discovery_graph - INFO - Finding procurement contacts for Dilip Buildcon Ltd
+2025-02-26 10:53:22,098 - httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-02-26 10:53:22,101 - utilities.contact_finder - INFO - LLM analysis for Dilip Buildcon Ltd: {'found': True, 'matched_company': 'dilip buildcon', 'confidence': 0.9, 'reasoning': "The company name 'Dilip Buildcon Ltd' is a slight variation of 'dilip buildcon' in the CRM database. The 'Ltd' suffix is often omitted in databases."}
+2025-02-26 10:53:22,101 - utilities.contact_finder - INFO - Found contacts for company: dilip buildcon (confidence: 0.9)
+2025-02-26 10:53:22,101 - utilities.contact_finder - INFO - Match reasoning: The company name 'Dilip Buildcon Ltd' is a slight variation of 'dilip buildcon' in the CRM database. The 'Ltd' suffix is often omitted in databases.
+2025-02-26 10:53:22,101 - utilities.contact_finder - INFO - Added 2 contacts for Dilip Buildcon Ltd
+2025-02-26 10:53:22,102 - utilities.project_discovery_graph - INFO - Successfully enriched 5 projects
+2025-02-26 10:53:22,105 - utilities.project_discovery_graph - INFO - Prioritizing 5 projects...
+2025-02-26 10:53:22,107 - utilities.project_discovery_graph - INFO - Sending notifications...
+2025-02-26 10:53:22,127 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:53:22,127 - utilities.email_handler - INFO - Initialized EmailHandler with sender: jswsteelleads@gmail.com
+2025-02-26 10:53:23,735 - utilities.email_handler - INFO - SMTP connection test successful on initialization
+2025-02-26 10:53:23,958 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 10:53:27,695 - utilities.email_handler - INFO - Successfully sent email to chaudhariharsh86@gmail.com, aagamcshah172005@gmail.com
+2025-02-26 10:53:27,695 - whatsapp.interakt_handler - INFO - Sending 5 project opportunities via WhatsApp
+2025-02-26 10:53:27,696 - whatsapp.interakt_handler - INFO - Sending 5 non-JSW projects
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Workflow completed in 64.48s
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Workflow completed with status: completed
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Projects found: 11
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Projects filtered: 5
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Projects enriched: 5
+2025-02-26 10:53:33,368 - utilities.project_discovery_graph - INFO - Projects prioritized: 5
+2025-02-26 10:53:33,369 - __main__ - INFO - Pipeline completed successfully. Status: completed
+2025-02-26 10:53:33,479 - apscheduler.scheduler - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-02-26 10:53:33,479 - apscheduler.scheduler - INFO - Added job "run_pipeline" to job store "default"
+2025-02-26 10:53:33,479 - apscheduler.scheduler - INFO - Scheduler started
