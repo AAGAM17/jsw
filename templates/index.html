@@ -95,6 +95,7 @@
                 <option>Realtime from 8 AM to 7 PM</option>
                 <option>Bulk notification every morning</option>
             </select>
+            <button id="saveWorkflowSettings" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">Save Workflow Settings</button>
         </div>
         
         <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
@@ -284,6 +285,33 @@ document.getElementById('addMember').addEventListener('click', async () => {
     }
 });
 
+document.getElementById('saveWorkflowSettings').addEventListener('click', async () => {
+        try {
+                const response = await fetch('/save-workflow-settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ "schudule_interval": document.getElementById('workflowSchedule').value, "lead_delivery_interval": document.getElementById('leadDelivery').value }),
+                });
+                const data = await response.json();
+            } catch (error) {
+                console.error('Error:', error);
+            }
+});
+
+async function getWorkflowSettings() {
+    try {
+        const response = await fetch('/get-workflow-settings');
+        const data = await response.json();
+        console.log(data);
+        document.getElementById('workflowSchedule').value = data.settings.schudule_interval;
+        document.getElementById('leadDelivery').value = data.settings.lead_delivery_interval;
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 async function getTeamMembers() {
     try {
         const response = await fetch('/get-members');
@@ -345,7 +373,9 @@ async function getTeamMembers() {
 
         // Initial status check
         updateStatus();
+        getWorkflowSettings();
         getTeamMembers();
+        
     </script>
 </body>
 </html> 

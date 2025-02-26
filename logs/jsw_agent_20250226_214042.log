@@ -1,0 +1,3 @@
+2025-02-26 21:40:42,372 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:42,383 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:42,387 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407

@@ -101,6 +101,11 @@ class Config:
         'SPECIAL_ALLOY_STEEL': []
     }
 
+    WORKFLOW_SETTINGS = {
+        "schedule_interval": "Every 10 minutes",
+        "lead_delivery_interval": "Realtime",
+    }
+
     PROJECT_DISCOVERY = {
         'min_project_value': 5,
         'min_steel_requirement': 50,

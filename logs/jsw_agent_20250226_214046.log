@@ -1,0 +1,9 @@
+2025-02-26 21:40:46,325 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:46,346 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:46,349 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 21:40:46,366 - werkzeug - WARNING -  * Debugger is active!
+2025-02-26 21:40:46,381 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-26 21:40:46,470 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 21:40:46] "GET / HTTP/1.1" 200 -
+2025-02-26 21:40:46,471 - werkzeug - INFO -  * Detected change in 'C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\\Lib\\encodings\\unicode_escape.py', reloading
+2025-02-26 21:40:47,166 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 21:40:47] "GET /status HTTP/1.1" 200 -
+2025-02-26 21:40:47,173 - werkzeug - INFO - 127.0.0.1 - - [26/Feb/2025 21:40:47] "GET /get-members HTTP/1.1" 200 -

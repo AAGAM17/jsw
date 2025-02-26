@@ -1,0 +1,8 @@
+2025-02-26 21:41:37,290 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:41:37,293 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:41:37,295 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 21:41:37,313 - werkzeug - WARNING -  * Debugger is active!
+2025-02-26 21:41:37,322 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-26 21:41:51,005 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\flask\\config.py', reloading
+2025-02-26 21:41:51,045 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\flask\\sansio\\blueprints.py', reloading
+2025-02-26 21:41:51,063 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Malay\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python311\\site-packages\\jinja2\\loaders.py', reloading

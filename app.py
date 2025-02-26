@@ -254,6 +254,36 @@ def remove_member():
     })
 
 
+@app.route('/save-workflow-settings', methods=['POST'])
+def save_workflow_settings():
+    """Save workflow settings"""
+
+    def save_workflow_settings():
+        try:
+            Config.WORKFLOW_SETTINGS = request.get_json()
+
+        except Exception as e:
+            logger.error(
+                f"Error saving workflow settings: {str(e)}", exc_info=True)
+    save_workflow_settings()
+    return jsonify({
+        'status': 'success',
+        'message': 'Workflow settings saved successfully',
+        'settings': Config.WORKFLOW_SETTINGS
+    })
+
+
+@app.route('/get-workflow-settings', methods=['GET'])
+def get_workflow_settings():
+    """Get workflow settings"""
+
+    return jsonify({
+        'status': 'success',
+        'message': 'Workflow settings fetched successfully',
+        'settings': Config.WORKFLOW_SETTINGS
+    })
+
+
 @app.route('/status')
 def get_status():
     """Get the current status of the script"""

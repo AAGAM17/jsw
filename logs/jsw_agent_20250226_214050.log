@@ -1,0 +1,8 @@
+2025-02-26 21:40:50,699 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:50,702 - utilities.logger - INFO - Logging initialized
+2025-02-26 21:40:50,705 - whatsapp.interakt_handler - INFO - Interakt WhatsApp notifications enabled. Target numbers: 918484926925, 917715018407
+2025-02-26 21:40:50,722 - werkzeug - WARNING -  * Debugger is active!
+2025-02-26 21:40:50,734 - werkzeug - INFO -  * Debugger PIN: 962-789-062
+2025-02-26 21:41:24,351 - werkzeug - INFO -  * Detected change in 'c:\\jsw\\config\\settings.py', reloading
+2025-02-26 21:41:24,352 - werkzeug - INFO -  * Detected change in 'c:\\jsw\\config\\settings.py', reloading
+2025-02-26 21:41:24,356 - werkzeug - INFO -  * Detected change in 'c:\\jsw\\config\\settings.py', reloading
